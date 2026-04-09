@@ -1,0 +1,38 @@
+extensions/pi-teams.ts
+  24444b046e4a95b1 1-104
+skills/atelier-workflow/atelier-orchestrator/SKILL.md
+  d6b8448aff29fe0b 40-52,75-88
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "development:1.2.2",
+  "base_commit_sha": "e0ac63b905ed6808da60f7595e6c4e3d72933828",
+  "prompts": {
+    "24444b046e4a95b1": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "a0b2d5a1-e829-47b6-8411-24926ce27534",
+        "model": "openai-codex/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 208,
+      "total_deletions": 1,
+      "accepted_lines": 208,
+      "overriden_lines": 0
+    },
+    "d6b8448aff29fe0b": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "092b5042-0dbb-407b-a7f2-6cb3f782f132",
+        "model": "github-copilot/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 33,
+      "total_deletions": 12,
+      "accepted_lines": 28,
+      "overriden_lines": 0
+    }
+  }
+}
