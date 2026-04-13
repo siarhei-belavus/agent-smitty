@@ -1,0 +1,197 @@
+extensions/telegram-notify/package.json
+  d3db9686b424bb7c 5-7,10-12
+  5dd154a0bfb63e9c 1-4,8-9,13-17
+extensions/telegram-notify/config.ts
+  d3db9686b424bb7c 1-144
+.plans/telegram-notify-two-way/ARTIFACT_CANDIDATES.md
+  22a8788865a63b55 1-3
+extensions/telegram-notify/store.ts
+  d3db9686b424bb7c 1-235
+.plans/telegram-notify-two-way/INDEX.md
+  22a8788865a63b55 1-2,4-6,8-11
+  2477e00be034827d 3,17
+  1e219fd3f70b01b1 12-14
+  897a6b16e9392777 15
+  8ed2440c9781c157 7,16
+extensions/telegram-notify/telegram-api.ts
+  d3db9686b424bb7c 1-135
+.plans/telegram-notify-two-way/PLAN_SATISFACTION_REVIEW.md
+  8ed2440c9781c157 1-13
+extensions/telegram-notify/telegram-notify.config.example.json
+  5dd154a0bfb63e9c 1-12,40-41
+  d3db9686b424bb7c 13-39
+.plans/telegram-notify-two-way/BRIEF.md
+  22a8788865a63b55 1-81
+.plans/telegram-notify-two-way/AMENDMENTS.md
+  22a8788865a63b55 1-3
+.plans/telegram-notify-two-way/MAINTAINABILITY_REVIEW.md
+  74f7f82cd7d54bf0 1-7
+extensions/telegram-notify/types.ts
+  d3db9686b424bb7c 1-248
+.plans/telegram-notify-two-way/PLAN.md
+  22a8788865a63b55 1-2,4
+  1e219fd3f70b01b1 3,5-467
+extensions/telegram-notify/index.ts
+  d3db9686b424bb7c 1,3-11,26-37,39-41,43-45,54-104,116-121
+  5dd154a0bfb63e9c 2,12-25,38,42,46-53,105-115,122
+.plans/telegram-notify-two-way/PLAN_REVIEW.md
+  897a6b16e9392777 3,5-17
+  1e219fd3f70b01b1 1-2,4
+extensions/telegram-notify/runtime.ts
+  aa5498f3774b94b7 565-582
+  d3db9686b424bb7c 1-564,583-1132
+extensions/telegram-notify/index.test.ts
+  d3db9686b424bb7c 1-845
+.plans/telegram-notify-two-way/CODE_REVIEW.md
+  8ed2440c9781c157 1-10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "development:1.2.2",
+  "base_commit_sha": "bf5c2f79021ac5d4ee6d35ee004947afcae4abc5",
+  "prompts": {
+    "1581eb9b9a395836": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "bc1ef87d-69d0-4443-a498-0e34e83b9f48",
+        "model": "openai-codex/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 35,
+      "total_deletions": 0,
+      "accepted_lines": 25,
+      "overriden_lines": 0
+    },
+    "1e219fd3f70b01b1": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "12a91f2c-788b-4520-b53a-109de5b06baf",
+        "model": "openai-codex/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 543,
+      "total_deletions": 66,
+      "accepted_lines": 470,
+      "overriden_lines": 0
+    },
+    "22a8788865a63b55": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "b81eb492-ee4f-4bde-b480-0b6cd2dba3ad",
+        "model": "openai-codex/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 106,
+      "total_deletions": 0,
+      "accepted_lines": 99,
+      "overriden_lines": 0
+    },
+    "2477e00be034827d": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "5a675a75-afec-44cd-9b5d-75e4a1cfefeb",
+        "model": "openai-codex/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 2,
+      "total_deletions": 1,
+      "accepted_lines": 2,
+      "overriden_lines": 0
+    },
+    "5dd154a0bfb63e9c": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "4b9bf2ba-075a-40be-98f2-075e12305612",
+        "model": "github-copilot/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 451,
+      "total_deletions": 83,
+      "accepted_lines": 131,
+      "overriden_lines": 0
+    },
+    "630427a69240165c": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "a94b1573-706b-4873-89f3-b02ef7adf0b3",
+        "model": "openai-codex/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 156,
+      "total_deletions": 113,
+      "accepted_lines": 135,
+      "overriden_lines": 0
+    },
+    "74f7f82cd7d54bf0": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "bbe3e306-bbcd-4ee4-828f-2afc452ba898",
+        "model": "openai-codex/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 11,
+      "total_deletions": 4,
+      "accepted_lines": 7,
+      "overriden_lines": 0
+    },
+    "897a6b16e9392777": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "2644bee1-50b0-41b1-8f56-adc5ace830b2",
+        "model": "openai-codex/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 32,
+      "total_deletions": 29,
+      "accepted_lines": 15,
+      "overriden_lines": 0
+    },
+    "8ed2440c9781c157": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "2e3710f6-fc5f-4522-9f72-3e06716c885b",
+        "model": "openai-codex/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 36,
+      "total_deletions": 12,
+      "accepted_lines": 25,
+      "overriden_lines": 0
+    },
+    "aa5498f3774b94b7": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "c520b4a4-bdd3-4108-8f96-a4d45e4fbea7",
+        "model": "openai-codex/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 19,
+      "total_deletions": 2,
+      "accepted_lines": 18,
+      "overriden_lines": 0
+    },
+    "d3db9686b424bb7c": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "891207f3-38c4-4b1a-b826-b68d24dc9ca1",
+        "model": "openai-codex/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 3034,
+      "total_deletions": 498,
+      "accepted_lines": 2839,
+      "overriden_lines": 0
+    }
+  }
+}
