@@ -1,0 +1,62 @@
+skills/atelier-workflow/atelier-orchestrator/SKILL.md
+  6735d6641e0a0623 65,73-88
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "development:1.2.2",
+  "base_commit_sha": "a764fa3634f1a76e323a8ba520530c3646278bb0",
+  "prompts": {
+    "1581eb9b9a395836": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "bc1ef87d-69d0-4443-a498-0e34e83b9f48",
+        "model": "openai-codex/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 25,
+      "overriden_lines": 0
+    },
+    "5dd154a0bfb63e9c": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "4b9bf2ba-075a-40be-98f2-075e12305612",
+        "model": "github-copilot/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 2,
+      "overriden_lines": 0
+    },
+    "630427a69240165c": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "a94b1573-706b-4873-89f3-b02ef7adf0b3",
+        "model": "openai-codex/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 135,
+      "overriden_lines": 0
+    },
+    "6735d6641e0a0623": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "55594558-f048-4709-9207-1cc6e78a82a8",
+        "model": "openai-codex/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 27,
+      "total_deletions": 9,
+      "accepted_lines": 18,
+      "overriden_lines": 0
+    }
+  }
+}
