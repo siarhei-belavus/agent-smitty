@@ -1,0 +1,307 @@
+skills/atelier-workflow/review-plan/SKILL.md
+  15236997eabf0011 19-20,143-152
+  6735d6641e0a0623 18,35,67-71,74,80,98,111,142
+skills/atelier-workflow/plan-task/SKILL.md
+  15236997eabf0011 19-20,163-173
+  6735d6641e0a0623 18,45-49,55,59,63,68,72,76,91,105,116,162
+skills/teams/adhoc-teammate/SKILL.md
+  1581eb9b9a395836 1-25
+extensions/pi-tmux-notify.ts
+  5dd154a0bfb63e9c 2,6
+skills/atelier-workflow/review-initiative-split/SKILL.md
+  15236997eabf0011 1-10,12-21,23-32,38-40
+  6735d6641e0a0623 11,22,33-37
+skills/atelier-workflow/review-code-plan-satisfaction/SKILL.md
+  15236997eabf0011 19-20,109-118
+  6735d6641e0a0623 18,37,53-56,60,63,66,73,108
+skills/writing/caveman-compress/scripts/detect.py
+  630427a69240165c 111
+skills/atelier-workflow/references/initiative-workflow-contract.md
+  6735d6641e0a0623 3-5,7,9-10,12,25-27,32,46-50,52-54,56,61-62,65-74,76-77,80-83,88-90
+  15236997eabf0011 1-2,6,11,13-24,28-29,31,33-45,51,57-60,63-64,78-79,84-87
+skills/atelier-workflow/design-child-contract/SKILL.md
+  15236997eabf0011 1-11,13-20,22,27-34
+  6735d6641e0a0623 12,21,23-26
+skills/atelier-workflow/implement-task/SKILL.md
+  15236997eabf0011 20-21,121-129
+  6735d6641e0a0623 19,51-55,60,65-66,70,80,103
+skills/atelier-workflow/atelier-orchestrator/REFERENCE.md
+  15236997eabf0011 20-21,219-254
+  6735d6641e0a0623 255-258
+skills/writing/caveman-compress/README.md
+  630427a69240165c 13,15,20,24-25,28,36,38,66,70,74,90-91,107,109,111,113,116,121-122,124-125,127,145,152,160,162-163
+skills/atelier-workflow/design-split-options/SKILL.md
+  15236997eabf0011 1-7,9-12,14-17,20,22-24,27-28,32-39
+  6735d6641e0a0623 8,13,18-19,21,25-26,29-31
+skills/atelier-workflow/distill-knowledge/SKILL.md
+  15236997eabf0011 24-25,109-113,116,119-121
+  6735d6641e0a0623 23,114-115,117-118
+skills/atelier-workflow/frame-initiative/SKILL.md
+  6735d6641e0a0623 3,8,13,18,22,26-27,31-35,42
+  15236997eabf0011 1-2,4-7,9-12,14-17,19-21,23-25,28-30,36-41,43-45
+skills/atelier-workflow/references/task-packet-contract.md
+  15236997eabf0011 19-55,89-90,92,97,104,138-142
+skills/atelier-workflow/references/final-state-authoring-policy.md
+  6735d6641e0a0623 1-73
+skills/atelier-workflow/extract-artifact-candidates/SKILL.md
+  15236997eabf0011 18-19,107-115
+skills/atelier-workflow/review-code-maintainability/SKILL.md
+  6735d6641e0a0623 19,40,63-66,70,77,79,81,87-88,152,159
+  15236997eabf0011 20-21,153-158,160-162
+skills/atelier-workflow/stabilize-initiative-language/SKILL.md
+  15236997eabf0011 1-7,9-12,14-17,19-24,26-30,35-37,39-41
+  6735d6641e0a0623 8,13,18,25,31-34,38
+skills/writing/caveman-compress/SKILL.md
+  630427a69240165c 4,14,22,26,28,31-34,37,107-108,111-112
+skills/atelier-workflow/split-initiative/SKILL.md
+  15236997eabf0011 1-2,4-10,12-22,25-28,30-33,36-37,39-40,45-46,48-51
+  6735d6641e0a0623 3,11,23-24,29,34-35,38,41-44,47
+skills/writing/caveman-compress/SECURITY.md
+  630427a69240165c 9,16,18,23
+extensions/telegram-notify/index.test.ts
+  7c7cb22c380393e6 8,845-885
+skills/references/communication-mode.md
+  15236997eabf0011 1-25
+skills/atelier-workflow/references/review-phases-contract.md
+  15236997eabf0011 5,13,18-29,47,98-100
+skills/atelier-workflow/grill-me/SKILL.md
+  15236997eabf0011 103,126-134
+  6735d6641e0a0623 20,69
+skills/writing/caveman-compress/scripts/compress.py
+  630427a69240165c 10,12,20-21,24,27-79,81-88,90-99,104,107,113-114,125,128,133,157,180-181,205-206
+skills/atelier-workflow/review-agents-tree/SKILL.md
+  15236997eabf0011 17,124-129
+extensions/telegram-notify/store.ts
+  7c7cb22c380393e6 111,113-120,133-135,138,142-144
+skills/atelier-workflow/references/persistent-artifacts-contract.md
+  15236997eabf0011 74-86,96,150,153-154
+skills/atelier-workflow/atelier-orchestrator/SKILL.md
+  6735d6641e0a0623 314-315,338-341
+  15236997eabf0011 23-25,313,316-337,342-356
+skills/atelier-workflow/references/initiative-packet-contract.md
+  6735d6641e0a0623 3,30,33,39-41,47,50,54-55,57-58,61-65,67-103,105-113,120
+  15236997eabf0011 1-2,4-29,31-32,34-38,42-46,48-49,51-53,56,59-60,66,104,114-119,121-123
+skills/atelier-workflow/sync-initiative/SKILL.md
+  15236997eabf0011 1-2,4-7,9-13,15-19,32-33,37,42-45,47-49
+  6735d6641e0a0623 3,8,14,20-31,34-36,38-41,46
+skills/atelier-workflow/hydrate-child-packet/SKILL.md
+  15236997eabf0011 1-7,9-13,15-34,41-48
+  6735d6641e0a0623 8,14,35-40
+skills/atelier-workflow/references/ownership-and-reuse-policy.md
+  6735d6641e0a0623 9,11-12,14-15,47
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "development:1.2.2",
+  "base_commit_sha": "4291c5f1967750c79750661cb284718e5bdfacff",
+  "prompts": {
+    "15236997eabf0011": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "d7ad8a62-dec8-40f5-af19-3dbdb79b2fa0",
+        "model": "openai-codex/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 877,
+      "total_deletions": 21,
+      "accepted_lines": 699,
+      "overriden_lines": 0
+    },
+    "1581eb9b9a395836": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "bc1ef87d-69d0-4443-a498-0e34e83b9f48",
+        "model": "openai-codex/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 25,
+      "overriden_lines": 0
+    },
+    "33e4d7cf85827139": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "c377bb31-d22a-40f2-b2ee-b00fd1f9f302",
+        "model": "openai-codex/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 7,
+      "total_deletions": 7,
+      "accepted_lines": 0,
+      "overriden_lines": 0
+    },
+    "42f6717909306d7f": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "f8c66381-9ed0-4bf5-a5f0-cb5b1aed4772",
+        "model": "openai-codex/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 33,
+      "total_deletions": 30,
+      "accepted_lines": 27,
+      "overriden_lines": 0
+    },
+    "5a4454112a37f2d8": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "70f9fa7a-eb30-447f-bd7f-44e23529dc25",
+        "model": "openai-codex/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 13,
+      "total_deletions": 10,
+      "accepted_lines": 3,
+      "overriden_lines": 0
+    },
+    "5dd154a0bfb63e9c": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "4b9bf2ba-075a-40be-98f2-075e12305612",
+        "model": "github-copilot/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 2,
+      "overriden_lines": 0
+    },
+    "630427a69240165c": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "a94b1573-706b-4873-89f3-b02ef7adf0b3",
+        "model": "openai-codex/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 135,
+      "overriden_lines": 0
+    },
+    "6735d6641e0a0623": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "55594558-f048-4709-9207-1cc6e78a82a8",
+        "model": "openai-codex/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 1031,
+      "total_deletions": 276,
+      "accepted_lines": 898,
+      "overriden_lines": 0
+    },
+    "76b87d4ed081db2f": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "b8f7f880-7856-48c0-8ecd-d44f7cfb7921",
+        "model": "openai-codex/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 31,
+      "total_deletions": 17,
+      "accepted_lines": 16,
+      "overriden_lines": 0
+    },
+    "7c7cb22c380393e6": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "a2ebdc67-89dc-4615-b9ac-ccddd7847489",
+        "model": "openai-codex/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 61,
+      "total_deletions": 13,
+      "accepted_lines": 59,
+      "overriden_lines": 0
+    },
+    "8defd4e1eae89716": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "3a64b39c-cde2-4e32-b344-58d06022f634",
+        "model": "openai-codex/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 8,
+      "total_deletions": 10,
+      "accepted_lines": 0,
+      "overriden_lines": 0
+    },
+    "934bd3eae9acac21": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "61e1594b-a598-4dbe-9438-df315ea0ca26",
+        "model": "openai-codex/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 5,
+      "total_deletions": 5,
+      "accepted_lines": 0,
+      "overriden_lines": 0
+    },
+    "9d00d27e3bf709f9": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "99381baf-a010-4914-8664-924cbe278f82",
+        "model": "openai-codex/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 25,
+      "total_deletions": 1,
+      "accepted_lines": 14,
+      "overriden_lines": 0
+    },
+    "9fc5826e7e0f13c9": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "03fc30a0-3b99-4f9f-8ba6-c02eb1a3a0f1",
+        "model": "openai-codex/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 18,
+      "total_deletions": 14,
+      "accepted_lines": 3,
+      "overriden_lines": 0
+    },
+    "c1c5a57943fc445c": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "a35f9d0f-d942-47de-9039-de5daefe2cc0",
+        "model": "openai-codex/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 52,
+      "total_deletions": 36,
+      "accepted_lines": 52,
+      "overriden_lines": 0
+    },
+    "d8f51dca332cb367": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "18271d6e-270f-41f0-ae1b-85a0848502a9",
+        "model": "openai-codex/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 17,
+      "total_deletions": 10,
+      "accepted_lines": 0,
+      "overriden_lines": 0
+    }
+  }
+}
