@@ -1,0 +1,201 @@
+skills/atelier-workflow/atelier-orchestrator/SKILL.md
+  6735d6641e0a0623 3,347-348,359
+  8ff95a3ce3de960a 171-176,179,283,350-354,356-357,373-374
+AGENTS.md
+  56251ca2fc50b868 27-30
+skills/atelier-workflow/distill-knowledge/SKILL.md
+  6735d6641e0a0623 49,117-118,121
+skills/atelier-workflow/hydrate-child-packet/SKILL.md
+  6735d6641e0a0623 3,18,31,33-38,43,53
+skills/atelier-workflow/references/initiative-packet-contract.md
+  6735d6641e0a0623 8-10,60,90,119-121,126-127
+bin/pkup-upload.py
+  fa81d7ccaaff2d92 1-187,189-191,193-246,248-249,251-298,300-407,409-752,754-763
+skills/atelier-workflow/review-initiative-split/SKILL.md
+  6735d6641e0a0623 21
+skills/atelier-workflow/split-initiative/SKILL.md
+  6735d6641e0a0623 25,31
+skills/atelier-workflow/sync-initiative/SKILL.md
+  6735d6641e0a0623 9,16-17,37,49
+skills/atelier-workflow/atelier-orchestrator/REFERENCE.md
+  6735d6641e0a0623 256-257,260
+extensions/telegram-notify/index.test.ts
+  8bf9d69a27455d92 514-554
+skills/atelier-workflow/references/initiative-workflow-contract.md
+  6735d6641e0a0623 4-5,44-45,48,83,92
+skills/atelier-workflow/references/persistent-artifacts-contract.md
+  6735d6641e0a0623 76-78,81-82,85
+extensions/telegram-notify/runtime.ts
+  8bf9d69a27455d92 118-120,123,125-146,810,838-839,843-844,849,855-857,859-887,892,902,916,921-922,939
+skills/atelier-workflow/references/task-packet-contract.md
+  6735d6641e0a0623 4-5,21,26-27,43,45-50,101,148-151
+extensions/telegram-notify/types.ts
+  8bf9d69a27455d92 183-199,215
+skills/atelier-workflow/grill-me/SKILL.md
+  8bf9d69a27455d92 94-131
+prompts/pkup.md
+  fa81d7ccaaff2d92 2,9,135,137-181,191,197,212-215,231,237-243
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.0",
+  "base_commit_sha": "7e2e3c59be005fc218931abc8972f516d013d03d",
+  "prompts": {
+    "15236997eabf0011": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "d7ad8a62-dec8-40f5-af19-3dbdb79b2fa0",
+        "model": "openai-codex/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 48,
+      "overriden_lines": 0
+    },
+    "42f6717909306d7f": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "f8c66381-9ed0-4bf5-a5f0-cb5b1aed4772",
+        "model": "openai-codex/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 27,
+      "overriden_lines": 0
+    },
+    "56251ca2fc50b868": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "4c1620a7-2b1e-435c-84bf-7416c77f6867",
+        "model": "glm-5.1"
+      },
+      "human_author": "Siarhei Belavus",
+      "messages": [],
+      "total_additions": 6,
+      "total_deletions": 2,
+      "accepted_lines": 4,
+      "overriden_lines": 0
+    },
+    "5a4454112a37f2d8": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "70f9fa7a-eb30-447f-bd7f-44e23529dc25",
+        "model": "openai-codex/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 3,
+      "overriden_lines": 0
+    },
+    "6735d6641e0a0623": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "55594558-f048-4709-9207-1cc6e78a82a8",
+        "model": "gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus",
+      "messages": [],
+      "total_additions": 76,
+      "total_deletions": 27,
+      "accepted_lines": 611,
+      "overriden_lines": 0
+    },
+    "76b87d4ed081db2f": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "b8f7f880-7856-48c0-8ecd-d44f7cfb7921",
+        "model": "openai-codex/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 16,
+      "overriden_lines": 0
+    },
+    "8bf9d69a27455d92": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "81bd89e8-ed0b-48f1-9338-5fb642436ac0",
+        "model": "gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus",
+      "messages": [],
+      "total_additions": 171,
+      "total_deletions": 25,
+      "accepted_lines": 169,
+      "overriden_lines": 0
+    },
+    "8ff95a3ce3de960a": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "e345467c-527e-4978-aecc-57010e36909c",
+        "model": "gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus",
+      "messages": [],
+      "total_additions": 18,
+      "total_deletions": 0,
+      "accepted_lines": 18,
+      "overriden_lines": 0
+    },
+    "9d00d27e3bf709f9": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "99381baf-a010-4914-8664-924cbe278f82",
+        "model": "openai-codex/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 14,
+      "overriden_lines": 0
+    },
+    "9fc5826e7e0f13c9": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "03fc30a0-3b99-4f9f-8ba6-c02eb1a3a0f1",
+        "model": "openai-codex/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 3,
+      "overriden_lines": 0
+    },
+    "c1c5a57943fc445c": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "a35f9d0f-d942-47de-9039-de5daefe2cc0",
+        "model": "openai-codex/gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 52,
+      "overriden_lines": 0
+    },
+    "fa81d7ccaaff2d92": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "cbc03006-a63f-42da-a38a-824a2a70444f",
+        "model": "gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus",
+      "messages": [],
+      "total_additions": 894,
+      "total_deletions": 117,
+      "accepted_lines": 889,
+      "overriden_lines": 7
+    }
+  }
+}
