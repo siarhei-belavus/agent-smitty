@@ -1,0 +1,38 @@
+skills/atelier-workflow/references/communication-mode.md
+  h_23e3268d354e1e 1-42
+extensions/custom-provider.ts
+  h_23e3268d354e1e 81,89-90,99
+skills/references/communication-mode.md
+  h_23e3268d354e1e 3-42
+extensions/context-usage-bar-footer.ts
+  42c6c311f0b943c5 38-41,94-99,103,107-109,111,115-122,176
+dcp.json
+  h_23e3268d354e1e 7-11
+skills/writing/caveman/SKILL.md
+  h_23e3268d354e1e 4-5,7,12,14,18,20,27,29,31,33,35,37,39,41
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "80f2c648c0359892c51b4ca184ed4d46f572214c",
+  "prompts": {
+    "42c6c311f0b943c5": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019dc03b-c7e3-73d9-ba5b-40e3e42519d1",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Siarhei Belavus",
+      "messages": [],
+      "total_additions": 24,
+      "total_deletions": 9,
+      "accepted_lines": 24,
+      "overriden_lines": 0
+    }
+  },
+  "humans": {
+    "h_23e3268d354e1e": {
+      "author": "Siarhei Belavus"
+    }
+  }
+}
