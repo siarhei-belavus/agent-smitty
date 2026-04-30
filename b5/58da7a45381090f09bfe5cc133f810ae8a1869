@@ -1,0 +1,16 @@
+dcp.json
+  h_23e3268d354e1e 11-12
+skills/matt/productivity/grill-me-simple/SKILL.md
+  h_23e3268d354e1e 1-11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "b558da7a45381090f09bfe5cc133f810ae8a1869",
+  "prompts": {},
+  "humans": {
+    "h_23e3268d354e1e": {
+      "author": "Siarhei Belavus"
+    }
+  }
+}
