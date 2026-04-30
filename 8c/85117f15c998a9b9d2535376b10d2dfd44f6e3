@@ -1,0 +1,38 @@
+skills/atelier-workflow/review-plan/SKILL.md
+  d2c66bdacc8bcf05 48,63
+skills/atelier-workflow/references/ownership-and-reuse-policy.md
+  d2c66bdacc8bcf05 56-66
+skills/atelier-workflow/plan-task/SKILL.md
+  d2c66bdacc8bcf05 46,68
+skills/atelier-workflow/implement-task/SKILL.md
+  d2c66bdacc8bcf05 45,55
+skills/atelier-workflow/review-code-plan-satisfaction/SKILL.md
+  d2c66bdacc8bcf05 48,62
+skills/atelier-workflow/review-code-maintainability/SKILL.md
+  d2c66bdacc8bcf05 58,74
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "8c85117f15c998a9b9d2535376b10d2dfd44f6e3",
+  "prompts": {
+    "d2c66bdacc8bcf05": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019dddaf-9d13-7162-aa1e-49fe498059ab",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Siarhei Belavus",
+      "messages": [],
+      "total_additions": 25,
+      "total_deletions": 6,
+      "accepted_lines": 612,
+      "overriden_lines": 0
+    }
+  },
+  "humans": {
+    "h_23e3268d354e1e": {
+      "author": "Siarhei Belavus"
+    }
+  }
+}
