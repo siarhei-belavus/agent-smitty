@@ -1,0 +1,32 @@
+skills/atelier-workflow/plan-task/SKILL.md
+  d2c66bdacc8bcf05 34-39,42,45,49,52,58,62,72-73,82
+skills/atelier-workflow/references/task-packet-contract.md
+  d2c66bdacc8bcf05 13,88,103
+skills/atelier-workflow/review-plan/SKILL.md
+  d2c66bdacc8bcf05 41,43,65,79
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "c839d46ce9996b60e276a6da1289efa1bd26eca7",
+  "prompts": {
+    "d2c66bdacc8bcf05": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019dddaf-9d13-7162-aa1e-49fe498059ab",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Siarhei Belavus",
+      "messages": [],
+      "total_additions": 22,
+      "total_deletions": 14,
+      "accepted_lines": 22,
+      "overriden_lines": 0
+    }
+  },
+  "humans": {
+    "h_23e3268d354e1e": {
+      "author": "Siarhei Belavus"
+    }
+  }
+}
