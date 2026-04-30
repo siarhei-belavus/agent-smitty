@@ -1,0 +1,44 @@
+skills/atelier-workflow/review-initiative-split/SKILL.md
+  d2c66bdacc8bcf05 17-20
+skills/atelier-workflow/design-split-options/SKILL.md
+  d2c66bdacc8bcf05 9,26-27
+skills/atelier-workflow/review-plan/SKILL.md
+  d2c66bdacc8bcf05 46-47,79
+skills/atelier-workflow/split-initiative/SKILL.md
+  d2c66bdacc8bcf05 19-22,40
+skills/atelier-workflow/references/task-packet-contract.md
+  d2c66bdacc8bcf05 13,88,103
+skills/atelier-workflow/references/initiative-packet-contract.md
+  d2c66bdacc8bcf05 102-103,145-148
+skills/atelier-workflow/grill-me/SKILL.md
+  d2c66bdacc8bcf05 24,46,106
+skills/atelier-workflow/plan-task/SKILL.md
+  d2c66bdacc8bcf05 53-54,65
+skills/atelier-workflow/hydrate-child-packet/SKILL.md
+  d2c66bdacc8bcf05 33
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "3365330c603c54cc63d755b62bb8bcf81ab8c383",
+  "prompts": {
+    "d2c66bdacc8bcf05": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019dddaf-9d13-7162-aa1e-49fe498059ab",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Siarhei Belavus",
+      "messages": [],
+      "total_additions": 32,
+      "total_deletions": 26,
+      "accepted_lines": 31,
+      "overriden_lines": 0
+    }
+  },
+  "humans": {
+    "h_23e3268d354e1e": {
+      "author": "Siarhei Belavus"
+    }
+  }
+}
