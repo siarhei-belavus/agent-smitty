@@ -1,0 +1,28 @@
+skills/atelier-workflow/grill-me/SKILL.md
+  d2c66bdacc8bcf05 24,47-52,54-55,95
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "9134816d363b4acb68d331602445a949c5862fcd",
+  "prompts": {
+    "d2c66bdacc8bcf05": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019dddaf-9d13-7162-aa1e-49fe498059ab",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Siarhei Belavus",
+      "messages": [],
+      "total_additions": 10,
+      "total_deletions": 6,
+      "accepted_lines": 10,
+      "overriden_lines": 0
+    }
+  },
+  "humans": {
+    "h_23e3268d354e1e": {
+      "author": "Siarhei Belavus"
+    }
+  }
+}
