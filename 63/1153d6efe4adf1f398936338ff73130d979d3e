@@ -1,0 +1,38 @@
+skills/atelier-workflow/references/initiative-workflow-contract.md
+  d2c66bdacc8bcf05 55-56,68-77
+skills/atelier-workflow/grill-me/SKILL.md
+  d2c66bdacc8bcf05 117-123,134
+skills/atelier-workflow/atelier-orchestrator/REFERENCE.md
+  d2c66bdacc8bcf05 169
+skills/atelier-workflow/atelier-orchestrator/SKILL.md
+  d2c66bdacc8bcf05 93,95,189
+skills/atelier-workflow/hydrate-child-packet/SKILL.md
+  d2c66bdacc8bcf05 35
+skills/atelier-workflow/review-initiative-split/SKILL.md
+  d2c66bdacc8bcf05 23
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "631153d6efe4adf1f398936338ff73130d979d3e",
+  "prompts": {
+    "d2c66bdacc8bcf05": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019dddaf-9d13-7162-aa1e-49fe498059ab",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Siarhei Belavus",
+      "messages": [],
+      "total_additions": 27,
+      "total_deletions": 3,
+      "accepted_lines": 27,
+      "overriden_lines": 0
+    }
+  },
+  "humans": {
+    "h_23e3268d354e1e": {
+      "author": "Siarhei Belavus"
+    }
+  }
+}
