@@ -1,0 +1,32 @@
+skills/atelier-workflow/references/initiative-workflow-contract.md
+  d2c66bdacc8bcf05 26-27,35-36,57
+skills/atelier-workflow/hydrate-child-packet/SKILL.md
+  d2c66bdacc8bcf05 25-26
+skills/atelier-workflow/references/task-packet-contract.md
+  d2c66bdacc8bcf05 15,66,108-109
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "ceba7be332fe809ec49cf121250c14d767a317b4",
+  "prompts": {
+    "d2c66bdacc8bcf05": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019dddaf-9d13-7162-aa1e-49fe498059ab",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Siarhei Belavus",
+      "messages": [],
+      "total_additions": 16,
+      "total_deletions": 5,
+      "accepted_lines": 12,
+      "overriden_lines": 0
+    }
+  },
+  "humans": {
+    "h_23e3268d354e1e": {
+      "author": "Siarhei Belavus"
+    }
+  }
+}
