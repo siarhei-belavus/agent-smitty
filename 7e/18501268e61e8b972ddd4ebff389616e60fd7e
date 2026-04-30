@@ -1,0 +1,36 @@
+skills/atelier-workflow/grill-me/SKILL.md
+  d2c66bdacc8bcf05 47-50,92
+skills/atelier-workflow/distill-knowledge/SKILL.md
+  d2c66bdacc8bcf05 33,35-37,60
+skills/atelier-workflow/references/persistent-artifacts-contract.md
+  d2c66bdacc8bcf05 28-55,87
+skills/atelier-workflow/references/task-packet-contract.md
+  d2c66bdacc8bcf05 62,110
+skills/atelier-workflow/stabilize-initiative-language/SKILL.md
+  d2c66bdacc8bcf05 23-24,26-28,39
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "7e18501268e61e8b972ddd4ebff389616e60fd7e",
+  "prompts": {
+    "d2c66bdacc8bcf05": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019dddaf-9d13-7162-aa1e-49fe498059ab",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Siarhei Belavus",
+      "messages": [],
+      "total_additions": 59,
+      "total_deletions": 14,
+      "accepted_lines": 648,
+      "overriden_lines": 0
+    }
+  },
+  "humans": {
+    "h_23e3268d354e1e": {
+      "author": "Siarhei Belavus"
+    }
+  }
+}
