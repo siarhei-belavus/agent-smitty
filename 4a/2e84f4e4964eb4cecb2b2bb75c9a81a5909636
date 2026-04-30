@@ -1,0 +1,18 @@
+skills/matt/engineering/tdd/SKILL.md
+  h_23e3268d354e1e 1-109
+skills/matt/engineering/zoom-out/SKILL.md
+  h_23e3268d354e1e 1-7
+skills/matt/engineering/setup-matt-pocock-skills/SKILL.md
+  h_23e3268d354e1e 1-120
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "4a2e84f4e4964eb4cecb2b2bb75c9a81a5909636",
+  "prompts": {},
+  "humans": {
+    "h_23e3268d354e1e": {
+      "author": "Siarhei Belavus"
+    }
+  }
+}
