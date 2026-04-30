@@ -1,0 +1,86 @@
+skills/atelier-workflow/references/initiative-packet-contract.md
+  d2c66bdacc8bcf05 27-32,52,96,102,133,143-146
+skills/atelier-workflow/references/review-phases-contract.md
+  d2c66bdacc8bcf05 37,96
+skills/atelier-workflow/AGENTS.md
+  d2c66bdacc8bcf05 11,21,35,38,58-59,66,74-75,80,86,89,97,101,112
+skills/atelier-workflow/review-initiative-split/SKILL.md
+  d2c66bdacc8bcf05 18-20,23,34
+skills/atelier-workflow/review-plan/SKILL.md
+  d2c66bdacc8bcf05 22,24,36,58-59,65-69,73,77,80,86,104,118,151,164
+skills/atelier-workflow/distill-knowledge/SKILL.md
+  d2c66bdacc8bcf05 3,8,27,48-52,54,63,65,77,91-96,133-136,144
+skills/atelier-workflow/plan-task/SKILL.md
+  d2c66bdacc8bcf05 22,31,34,53,56,59,62-63,74,83-84,145,159-160,171,180
+skills/atelier-workflow/atelier-orchestrator/SKILL.md
+  d2c66bdacc8bcf05 74,326
+skills/atelier-workflow/design-child-contract/SKILL.md
+  d2c66bdacc8bcf05 13
+skills/atelier-workflow/references/persistent-artifacts-contract.md
+  d2c66bdacc8bcf05 6-10,17-22,32,45-47,53-58,89-94,100,105,108,117,119,122,127,129,136,146-147,151-153,155,171,175-181
+skills/atelier-workflow/split-initiative/SKILL.md
+  d2c66bdacc8bcf05 21-22,24,33,39,53
+skills/atelier-workflow/references/initiative-workflow-contract.md
+  d2c66bdacc8bcf05 44,91
+skills/atelier-workflow/references/task-packet-contract.md
+  d2c66bdacc8bcf05 10-11,32,45-46,58-65,86-94,99,101,104,107,109,114,118,122,127,133,138,141,149-150,166-191,205,216-220,222
+skills/atelier-workflow/sync-initiative/SKILL.md
+  d2c66bdacc8bcf05 29,38,46
+skills/atelier-workflow/implement-task/SKILL.md
+  d2c66bdacc8bcf05 3,23,25,37,40,60,67,72,77,80,197,221
+skills/atelier-workflow/frame-initiative/SKILL.md
+  d2c66bdacc8bcf05 16,25-26,28,43,47
+skills/atelier-workflow/stabilize-initiative-language/SKILL.md
+  d2c66bdacc8bcf05 16,20,23,27,41
+skills/atelier-workflow/design-split-options/SKILL.md
+  d2c66bdacc8bcf05 9,27-28,39
+skills/atelier-workflow/extract-artifact-candidates/SKILL.md
+  d2c66bdacc8bcf05 3,21,23,32,61-64,91,105,116
+skills/atelier-workflow/review-code-plan-satisfaction/SKILL.md
+  d2c66bdacc8bcf05 22,24,118
+skills/atelier-workflow/hydrate-child-packet/SKILL.md
+  d2c66bdacc8bcf05 21,32-33
+skills/atelier-workflow/grill-me/SKILL.md
+  e6252238d6fc70fc 82,90
+  d2c66bdacc8bcf05 20,35,50,68,72,74-75,155,162,178
+skills/atelier-workflow/review-code-maintainability/SKILL.md
+  d2c66bdacc8bcf05 23,25,58,83,92,111,168
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "227fd1eb0189f9b84e215d14d30f3987e7e955a0",
+  "prompts": {
+    "d2c66bdacc8bcf05": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019dddaf-9d13-7162-aa1e-49fe498059ab",
+        "model": "gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus",
+      "messages": [],
+      "total_additions": 448,
+      "total_deletions": 137,
+      "accepted_lines": 445,
+      "overriden_lines": 0
+    },
+    "e6252238d6fc70fc": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019dddad-4c02-737e-b821-9551d36ee467",
+        "model": "gpt-5.4"
+      },
+      "human_author": "Siarhei Belavus",
+      "messages": [],
+      "total_additions": 4,
+      "total_deletions": 4,
+      "accepted_lines": 2,
+      "overriden_lines": 0
+    }
+  },
+  "humans": {
+    "h_23e3268d354e1e": {
+      "author": "Siarhei Belavus"
+    }
+  }
+}
