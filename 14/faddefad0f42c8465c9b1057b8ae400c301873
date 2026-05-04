@@ -1,0 +1,48 @@
+skills/atelier-workflow/review-code-plan-satisfaction/SKILL.md
+  5f7c7eb3da30dbf8 44,87
+skills/atelier-workflow/review-plan/SKILL.md
+  5f7c7eb3da30dbf8 62-64,108
+skills/atelier-workflow/references/initiative-workflow-contract.md
+  5f7c7eb3da30dbf8 79-84
+skills/atelier-workflow/distill-knowledge/SKILL.md
+  5f7c7eb3da30dbf8 47,95
+skills/atelier-workflow/implement-task/SKILL.md
+  5f7c7eb3da30dbf8 69,76,106
+skills/atelier-workflow/AGENTS.md
+  5f7c7eb3da30dbf8 37,63
+skills/atelier-workflow/plan-task/SKILL.md
+  5f7c7eb3da30dbf8 67-68,118
+skills/atelier-workflow/review-code-maintainability/SKILL.md
+  5f7c7eb3da30dbf8 54,104
+skills/atelier-workflow/references/review-phases-contract.md
+  5f7c7eb3da30dbf8 17-18
+skills/atelier-workflow/references/task-packet-contract.md
+  5f7c7eb3da30dbf8 35-47
+skills/atelier-workflow/atelier-orchestrator/SKILL.md
+  5f7c7eb3da30dbf8 226-227
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "14faddefad0f42c8465c9b1057b8ae400c301873",
+  "prompts": {
+    "5f7c7eb3da30dbf8": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019dd9e3-90ef-73ab-9136-5323be0d8451",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Siarhei Belavus",
+      "messages": [],
+      "total_additions": 41,
+      "total_deletions": 2,
+      "accepted_lines": 41,
+      "overriden_lines": 0
+    }
+  },
+  "humans": {
+    "h_23e3268d354e1e": {
+      "author": "Siarhei Belavus"
+    }
+  }
+}
