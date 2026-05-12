@@ -1,0 +1,14 @@
+settings.json
+  ai_agent 6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.4",
+  "base_commit_sha": "776299debeb1cbc58c8d8f79b3f85024faaf8e82",
+  "prompts": {},
+  "humans": {
+    "h_23e3268d354e1e": {
+      "author": "Siarhei Belavus"
+    }
+  }
+}
