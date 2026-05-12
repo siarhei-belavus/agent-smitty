@@ -1,0 +1,28 @@
+extensions/telegram-notify/runtime.ts
+  s_9a89283386ac95::t_02fbad0185c4ef 60-64,895-896,906-908,944-960,967,969-1015
+extensions/telegram-notify/index.test.ts
+  s_9a89283386ac95::t_ce06f7631901b8 504-517,520-521,523-525,527-529
+extensions/telegram-notify/types.ts
+  s_9a89283386ac95::t_855dd54180662a 81
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.4",
+  "base_commit_sha": "b1ef0a2c72046ddb6e55c27623124e88214785cd",
+  "prompts": {},
+  "humans": {
+    "h_23e3268d354e1e": {
+      "author": "Siarhei Belavus"
+    }
+  },
+  "sessions": {
+    "s_9a89283386ac95": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019e1818-241c-767c-9de7-f4fe7e3cfafe",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
