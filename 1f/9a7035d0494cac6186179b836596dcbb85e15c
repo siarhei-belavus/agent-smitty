@@ -1,0 +1,58 @@
+skills/atelier-workflow/plan-task/SKILL.md
+  s_1cbba7a689bb57::t_009a51d80007f6 41-42,59,76,85
+skills/atelier-workflow/review-code-maintainability/SKILL.md
+  s_1cbba7a689bb57::t_286fd2438d5939 27,47-51,53,56,59,61,63-67,82
+skills/atelier-workflow/references/initiative-workflow-contract.md
+  s_1cbba7a689bb57::t_fae49f090af3f9 10-22,49,51-53,102,147
+skills/atelier-workflow/review-code-plan-satisfaction/SKILL.md
+  s_1cbba7a689bb57::t_6401ee05306752 15,28,51-56,58-59,82
+skills/atelier-workflow/AGENTS.md
+  s_1cbba7a689bb57::t_74d594b48632c1 16,35,68,86
+skills/atelier-workflow/references/ownership-and-reuse-policy.md
+  s_1cbba7a689bb57::t_318d00ff748dc7 34-41,45,55,60,63,71-79,86
+skills/atelier-workflow/review-plan/SKILL.md
+  s_1cbba7a689bb57::t_09782fd2a70d19 45-46,55-56,73,87,104,107
+skills/atelier-workflow/sync-initiative/SKILL.md
+  s_1cbba7a689bb57::t_35c25ac5cc58c1 16,29-33,44
+skills/atelier-workflow/hydrate-child-packet/SKILL.md
+  s_1cbba7a689bb57::t_5fb8b59468f5d6 15,34
+skills/atelier-workflow/review-initiative-split/SKILL.md
+  s_1cbba7a689bb57::t_e33c807575d551 12,16,21-22,24-27
+  s_1cbba7a689bb57::t_c11f3f707fef6f 42
+skills/atelier-workflow/references/initiative-packet-contract.md
+  s_1cbba7a689bb57::t_a053f9c3af5b7f 99-104,114-115,118-121,156,164-198,203-209
+  s_1cbba7a689bb57::t_246436df383f69 15,29,31-33,48-49,55,63-64,79
+skills/atelier-workflow/design-split-options/SKILL.md
+  s_1cbba7a689bb57::t_b777af6ef357dd 15,27-30
+skills/atelier-workflow/frame-initiative/SKILL.md
+  s_1cbba7a689bb57::t_8dff91b9fec6ac 25,28,30
+skills/atelier-workflow/references/task-packet-contract.md
+  s_1cbba7a689bb57::t_0a5521692960f9 102,117-120
+skills/atelier-workflow/references/review-phases-contract.md
+  s_1cbba7a689bb57::t_700dca940326ae 25-28
+skills/atelier-workflow/split-initiative/SKILL.md
+  s_1cbba7a689bb57::t_b6c5767bb066a6 12,16-18,28,32-46,48-53,63-64,67-70
+skills/atelier-workflow/stabilize-initiative-language/SKILL.md
+  s_1cbba7a689bb57::t_dd62b00c19d38a 15,21,26-27,35-43
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.4",
+  "base_commit_sha": "1f9a7035d0494cac6186179b836596dcbb85e15c",
+  "prompts": {},
+  "humans": {
+    "h_23e3268d354e1e": {
+      "author": "Siarhei Belavus"
+    }
+  },
+  "sessions": {
+    "s_1cbba7a689bb57": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019e1c0b-546e-7084-b0b1-80bd40603004",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
