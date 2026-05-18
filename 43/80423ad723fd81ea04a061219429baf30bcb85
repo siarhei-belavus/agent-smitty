@@ -1,0 +1,25 @@
+skills/atelier-workflow/references/final-state-authoring-policy.md
+  h_bc87c8dce3742c 10,18,20,26,28,43
+  s_0cb967fedca947::t_7231d52b0c127e 3-9,11-17,19,21-25,27,29-39,41-42,44,46
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.8",
+  "base_commit_sha": "4380423ad723fd81ea04a061219429baf30bcb85",
+  "prompts": {},
+  "humans": {
+    "h_bc87c8dce3742c": {
+      "author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  },
+  "sessions": {
+    "s_0cb967fedca947": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019e3ae7-d184-755b-a73d-d7a921eb16d6",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
