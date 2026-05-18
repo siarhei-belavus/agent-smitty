@@ -1,0 +1,29 @@
+skills/atelier-workflow/atelier-orchestrator/SKILL.md
+  h_bc87c8dce3742c 3,9,19,32,34,45,47,60,64,72,74,80,86,92,96,102,114,118,127,140,150,157,171,180,187,194,198,214,224,226,240,252,256
+  s_034555342d7352::t_091623a5872973 33
+skills/atelier-workflow/atelier-orchestrator/REFERENCE.md
+  s_034555342d7352::t_5d1080af787ac7 28,41,51,58,61
+agents/researcher.md
+  s_034555342d7352::t_1074fc58629683 1-20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.8",
+  "base_commit_sha": "5991644c56f3f40df3dd5b96c5c3d9518c8973f0",
+  "prompts": {},
+  "humans": {
+    "h_bc87c8dce3742c": {
+      "author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  },
+  "sessions": {
+    "s_034555342d7352": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019e3acf-cd48-76ff-b85e-8dbd8e48ccdb",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
