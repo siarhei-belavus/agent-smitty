@@ -1,0 +1,50 @@
+skills/atelier-workflow/references/review-phases-contract.md
+  s_0cb967fedca947::t_4f783d8818f9a0 27
+agents/atelier-implementer.md
+  h_bc87c8dce3742c 5,11,18
+skills/atelier-workflow/atelier-orchestrator/REFERENCE.md
+  s_0cb967fedca947::t_0e331206e76218 164
+agents/atelier-plan-reviewer.md
+  h_bc87c8dce3742c 5,11,18
+skills/atelier-workflow/references/initiative-workflow-contract.md
+  s_0cb967fedca947::t_1ab357685dae47 65,74,112
+skills/atelier-workflow/plan-task/SKILL.md
+  s_0cb967fedca947::t_6d2aecffb93b4b 95
+skills/atelier-workflow/AGENTS.md
+  s_0cb967fedca947::t_d494f7f74dea95 58
+agents/atelier-plan-sat-reviewer.md
+  h_bc87c8dce3742c 5,11,19
+agents/atelier-planner.md
+  h_bc87c8dce3742c 5,11,18
+skills/atelier-workflow/references/task-packet-contract.md
+  s_0cb967fedca947::t_1c46cb40d2fc0b 64-68,90,95
+skills/atelier-workflow/atelier-orchestrator/SKILL.md
+  s_0cb967fedca947::t_69feb89b6da52d 88
+agents/atelier-distiller.md
+  h_bc87c8dce3742c 5,11,18
+skills/atelier-workflow/implement-task/SKILL.md
+  s_0cb967fedca947::t_5058413909695b 81
+agents/atelier-maint-reviewer.md
+  h_bc87c8dce3742c 5,11,19
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.8",
+  "base_commit_sha": "9359b4616c77559c3fda6159892ed19c572b9283",
+  "prompts": {},
+  "humans": {
+    "h_bc87c8dce3742c": {
+      "author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  },
+  "sessions": {
+    "s_0cb967fedca947": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019e3ae7-d184-755b-a73d-d7a921eb16d6",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
