@@ -1,0 +1,27 @@
+skills/maintenance/sync-matt-skills/scripts/sync_matt_skills.py
+  s_034555342d7352::t_d351c2c790f0d4 1-32,34-176,178-181,183-194,196-199,201-265
+skills/maintenance/sync-matt-skills/SKILL.md
+  s_034555342d7352::t_baa985ad66b9e1 1-3,5-32,34-48
+  h_bc87c8dce3742c 4,33
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.8",
+  "base_commit_sha": "6db5ffbb241f5e736a2fec4a1735834c08434eac",
+  "prompts": {},
+  "humans": {
+    "h_bc87c8dce3742c": {
+      "author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  },
+  "sessions": {
+    "s_034555342d7352": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019e3acf-cd48-76ff-b85e-8dbd8e48ccdb",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
