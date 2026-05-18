@@ -1,0 +1,40 @@
+skills/atelier-workflow/grill-me/SKILL.md
+  s_0cb967fedca947::t_bba871196f0f72 8
+skills/atelier-workflow/review-code-plan-satisfaction/SKILL.md
+  s_0cb967fedca947::t_2874c4a838bc0b 12
+skills/atelier-workflow/references/persistent-artifacts-contract.md
+  h_bc87c8dce3742c 4,17-24,27,29,31,41,43,50,56,62,72,74,78-79,82,91,93,101,103,111,117,119,125,133,140,142
+skills/atelier-workflow/implement-task/SKILL.md
+  s_0cb967fedca947::t_2874c4a838bc0b 12
+skills/atelier-workflow/review-code-maintainability/SKILL.md
+  s_0cb967fedca947::t_2874c4a838bc0b 12
+skills/atelier-workflow/review-plan/SKILL.md
+  s_0cb967fedca947::t_7d6ab8fb81e388 13
+skills/atelier-workflow/plan-task/SKILL.md
+  s_0cb967fedca947::t_4076776f02179e 11
+skills/atelier-workflow/extract-artifact-candidates/SKILL.md
+  s_0cb967fedca947::t_2874c4a838bc0b 14
+skills/atelier-workflow/distill-knowledge/SKILL.md
+  s_0cb967fedca947::t_2874c4a838bc0b 9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.8",
+  "base_commit_sha": "257f8d6ad87ed313b148b76200a9ec1ba9ccfe34",
+  "prompts": {},
+  "humans": {
+    "h_bc87c8dce3742c": {
+      "author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  },
+  "sessions": {
+    "s_0cb967fedca947": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019e3ae7-d184-755b-a73d-d7a921eb16d6",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
