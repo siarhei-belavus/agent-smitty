@@ -1,0 +1,23 @@
+skills/atelier-workflow/references/task-packet-contract.md
+  s_4932ece9b62e85::t_65db9afe2fdc09 211
+skills/atelier-workflow/references/persistent-artifacts-contract.md
+  s_4932ece9b62e85::t_cc5f59c698a1dd 30-31,151
+skills/atelier-workflow/distill-knowledge/SKILL.md
+  s_4932ece9b62e85::t_000bd8ec13c10e 20,25-26
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.10",
+  "base_commit_sha": "dedc607357680e56be0ca5929a66fbead945a915",
+  "prompts": {},
+  "sessions": {
+    "s_4932ece9b62e85": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019e44d5-0e87-714a-af4a-c88e0a988b57",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
