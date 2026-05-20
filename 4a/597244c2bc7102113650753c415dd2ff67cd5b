@@ -1,0 +1,29 @@
+skills/atelier-workflow/review-plan/SKILL.md
+  s_4932ece9b62e85::t_a2374f01600b5a 29
+skills/atelier-workflow/references/task-packet-contract.md
+  s_4932ece9b62e85::t_267464d30f9cb4 196
+skills/atelier-workflow/atelier-orchestrator/SKILL.md
+  s_4932ece9b62e85::t_ec3ee7d06eecba 25,75
+skills/atelier-workflow/references/review-phases-contract.md
+  s_4932ece9b62e85::t_4bf40284094d9a 38
+skills/atelier-workflow/review-initiative-split/SKILL.md
+  s_4932ece9b62e85::t_92d9761b02c97c 28
+skills/atelier-workflow/plan-task/SKILL.md
+  s_4932ece9b62e85::t_40191b5ef4e841 39
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.10",
+  "base_commit_sha": "4a597244c2bc7102113650753c415dd2ff67cd5b",
+  "prompts": {},
+  "sessions": {
+    "s_4932ece9b62e85": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019e44d5-0e87-714a-af4a-c88e0a988b57",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
