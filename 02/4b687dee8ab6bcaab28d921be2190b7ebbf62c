@@ -1,0 +1,16 @@
+skills/atelier-workflow/references/initiative-workflow-contract.md
+  h_bc87c8dce3742c 3-4,9,26,35,66,92,108,116,124,134,136,147,158
+skills/atelier-workflow/references/initiative-packet-contract.md
+  h_bc87c8dce3742c 3,6,13,27,32,40,42,51,95,97,108,110,117,138,146,152,154,158,167,177,179,191,200,206,208,222
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.10",
+  "base_commit_sha": "024b687dee8ab6bcaab28d921be2190b7ebbf62c",
+  "prompts": {},
+  "humans": {
+    "h_bc87c8dce3742c": {
+      "author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
