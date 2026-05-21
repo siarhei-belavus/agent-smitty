@@ -1,0 +1,43 @@
+skills/atelier-workflow/review-code-plan-satisfaction/SKILL.md
+  s_0cb967fedca947::t_56c1bdfa925593 19,24-25,29
+skills/atelier-workflow/atelier-orchestrator/SKILL.md
+  s_0cb967fedca947::t_6e54f8f20ebaae 34-37
+  s_0cb967fedca947::t_5db2e36be40a58 10-11,45-51
+skills/atelier-workflow/review-code-maintainability/SKILL.md
+  s_0cb967fedca947::t_7334f21fcef20d 19,25,31-32
+extensions/custom-provider.ts
+  s_1aa663e9329f9f::t_2d71180396fdeb 1-2,49-160
+  s_1aa663e9329f9f::t_6aa1798a024caf 232-233,241-242,250-251,255-292
+  s_1aa663e9329f9f::t_4ab31c21e96e7b 225-231,234-240,243-249,252-254,293-296
+.gitignore
+  h_bc87c8dce3742c 48
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.11",
+  "base_commit_sha": "4d3d374015c371a8d89a822c0b261e495af0b1e3",
+  "prompts": {},
+  "humans": {
+    "h_bc87c8dce3742c": {
+      "author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  },
+  "sessions": {
+    "s_0cb967fedca947": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019e3ae7-d184-755b-a73d-d7a921eb16d6",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    },
+    "s_1aa663e9329f9f": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019e4012-c6dd-74b7-9f86-ac45df7bcdc1",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
