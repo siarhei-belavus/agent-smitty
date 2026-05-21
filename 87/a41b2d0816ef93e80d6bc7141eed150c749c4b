@@ -1,0 +1,21 @@
+skills/productivity/outlook-meeting-drafter/scripts/build_outlook_event_url.py
+  s_121863be1c25df::t_9e2230d803d9c1 1-189
+skills/productivity/outlook-meeting-drafter/SKILL.md
+  s_121863be1c25df::t_ddc79691886d3b 1-96
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.11",
+  "base_commit_sha": "87a41b2d0816ef93e80d6bc7141eed150c749c4b",
+  "prompts": {},
+  "sessions": {
+    "s_121863be1c25df": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019e3fd7-a31d-7103-93d3-510eb5ca85c5",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
