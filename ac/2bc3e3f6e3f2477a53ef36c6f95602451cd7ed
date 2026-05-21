@@ -1,0 +1,14 @@
+skills/atelier-workflow/grill-me/SKILL.md
+  h_bc87c8dce3742c 17-21,26-38
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.11",
+  "base_commit_sha": "ac2bc3e3f6e3f2477a53ef36c6f95602451cd7ed",
+  "prompts": {},
+  "humans": {
+    "h_bc87c8dce3742c": {
+      "author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
