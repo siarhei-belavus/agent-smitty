@@ -1,0 +1,67 @@
+skills/atelier-workflow/references/ownership-and-reuse-policy.md
+  s_807514b5fca142::t_df3716a8f04a2e 69
+skills/atelier-workflow/plan-task/SKILL.md
+  s_807514b5fca142::t_50ff3356ed3322 26-27,33
+skills/atelier-workflow/grill-me/SKILL.md
+  s_1aa663e9329f9f::t_a63544490f7a22 17
+skills/atelier-workflow/review-code-plan-satisfaction/SKILL.md
+  s_807514b5fca142::t_27e63680d1cfe2 12,25
+dcp.json
+  h_bc87c8dce3742c 9,12-13
+skills/atelier-workflow/references/review-phases-contract.md
+  s_807514b5fca142::t_b081923c62ef1b 45-46,61
+  s_807514b5fca142::t_bf65eccb1cbaca 47
+extensions/custom-provider.ts
+  s_5ef5866efd01df::t_902d526eb2dcbe 2,221,295-326
+skills/atelier-workflow/review-plan/SKILL.md
+  s_807514b5fca142::t_7e7f6808e72040 25-26
+skills/atelier-workflow/references/final-state-authoring-policy.md
+  s_807514b5fca142::t_af653a0e41c1ee 50
+  s_807514b5fca142::t_558372776eb79e 29-36
+skills/atelier-workflow/review-code-maintainability/SKILL.md
+  s_807514b5fca142::t_fcac4a50975d96 27
+skills/atelier-workflow/references/task-packet-contract.md
+  s_807514b5fca142::t_162f6c0f6084d3 99
+  s_807514b5fca142::t_40169cfdcd02b0 166
+skills/atelier-workflow/implement-task/SKILL.md
+  s_807514b5fca142::t_b3885f6be29535 24-29
+skills/atelier-workflow/atelier-orchestrator/SKILL.md
+  h_bc87c8dce3742c 36
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "8e9fd7200a17a0c7888be826e795af5dff5eb13d",
+  "prompts": {},
+  "humans": {
+    "h_bc87c8dce3742c": {
+      "author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  },
+  "sessions": {
+    "s_1aa663e9329f9f": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019e4012-c6dd-74b7-9f86-ac45df7bcdc1",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    },
+    "s_5ef5866efd01df": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019e50ec-1af2-724a-9508-22cf0ebdd39e",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    },
+    "s_807514b5fca142": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019e64c0-0c54-73e7-b778-542126424909",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
