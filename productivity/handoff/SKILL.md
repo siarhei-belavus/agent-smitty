@@ -4,7 +4,7 @@ description: Compact the current conversation into a handoff document for anothe
 argument-hint: "What will the next session be used for?"
 ---
 
-Write a handoff document summarizing the current conversation so that a fresh agent can continue the work. If the user asks to save it to the backlog, save it in the current workspace’s .backlog directory; otherwise, save it to the operating system’s temporary directory
+Write a handoff document summarising the current conversation so a fresh agent can continue the work. Save to the temporary directory of the user's OS by default. If the user explicitly asks to save it to the backlog, save it in the current workspace's `.backlog` directory.
 
 Include a "suggested skills" section in the document, which suggests skills that the agent should invoke.
 
