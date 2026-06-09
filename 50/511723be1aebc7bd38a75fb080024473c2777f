@@ -1,0 +1,24 @@
+skills/matt/productivity/handoff/SKILL.md
+  s_c83adc6a49aaf0::t_bd7b93cccfcbdc 7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "50511723be1aebc7bd38a75fb080024473c2777f",
+  "prompts": {},
+  "humans": {
+    "h_bc87c8dce3742c": {
+      "author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  },
+  "sessions": {
+    "s_c83adc6a49aaf0": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019eabff-bcbb-7407-9c7e-0320c4dc7115",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
