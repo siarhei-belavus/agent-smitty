@@ -1,0 +1,79 @@
+skills/atelier-workflow/design-module-interface/SKILL.md
+  s_6df284414ee073::t_3ac007b6b79e7a 3,8,18-20,23,27
+skills/atelier-workflow/grill-me/SKILL.md
+  s_150b792697a49f::t_5dfc6688c9ac02 18
+  s_6df284414ee073::t_f29fdd13d9d46b 23,44
+skills/atelier-workflow/references/initiative-packet-contract.md
+  s_6df284414ee073::t_8a1f343e7fbf2b 72,92
+  s_6df284414ee073::t_2ac44562ca2c51 99
+  s_6df284414ee073::t_277ae306744912 97-98
+  s_6df284414ee073::t_6a78b1b0f1e011 152
+  s_6df284414ee073::t_8b64aff772a0b0 100
+skills/atelier-workflow/hydrate-child-packet/SKILL.md
+  s_6df284414ee073::t_49aae50e99a990 20
+skills/atelier-workflow/plan-task/SKILL.md
+  s_6df284414ee073::t_2a9c03b448c6e4 20,35
+skills/atelier-workflow/AGENTS.md
+  s_6df284414ee073::t_51d330706d31d1 53,67,85
+skills/atelier-workflow/split-initiative/SKILL.md
+  s_6df284414ee073::t_70377ed1033743 18-19
+skills/atelier-workflow/stabilize-initiative-language/SKILL.md
+  s_6df284414ee073::t_0579fdb428458a 21
+skills/atelier-workflow/find-deepening-opportunities/SKILL.md
+  s_6df284414ee073::t_5f75196f349da0 38
+skills/atelier-workflow/review-initiative-split/SKILL.md
+  s_6df284414ee073::t_933996be60732f 19
+skills/atelier-workflow/review-plan/SKILL.md
+  s_6df284414ee073::t_1f7dacb6a6c84b 23
+skills/atelier-workflow/atelier-orchestrator/SKILL.md
+  s_6df284414ee073::t_e7e36676ea0f93 70,97
+skills/atelier-workflow/references/review-phases-contract.md
+  s_6df284414ee073::t_84ad964aba8ab1 60
+  s_6df284414ee073::t_23c55cbb55ef49 44-45
+skills/atelier-workflow/references/initiative-workflow-contract.md
+  s_6df284414ee073::t_bc6ca1e3b9b907 37,72
+skills/atelier-workflow/references/task-packet-contract.md
+  s_6df284414ee073::t_63418fb0aaac38 129,140-141,145,150,155,157
+AGENTS.md
+  s_0115bb74acfb71::t_efae45a1b4f9e6 7
+skills/atelier-workflow/references/ownership-and-reuse-policy.md
+  s_6df284414ee073::t_869b78c2eada1d 19,22,54,62,76
+  s_6df284414ee073::t_3da22cc02453dd 10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.1",
+  "base_commit_sha": "d7954d79f65cded070f880002d59147e8792c564",
+  "prompts": {},
+  "humans": {
+    "h_bc87c8dce3742c": {
+      "author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  },
+  "sessions": {
+    "s_0115bb74acfb71": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019e87ea-0806-72be-9cc3-4afcd465ce36",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    },
+    "s_150b792697a49f": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019e4502-fae5-70d2-bada-611c46ed214c",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    },
+    "s_6df284414ee073": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019f0006-909e-75af-a057-1b09b443ced2",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
