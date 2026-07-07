@@ -1,0 +1,142 @@
+skills/atelier-workflow/references/persistent-artifacts-contract.md
+  s_67b233769a33bc::t_ee6bde77496c85 19,26-34,86,136-137,180,182
+  s_67b233769a33bc::t_97ee6ef876cec1 149-151,158
+  s_67b233769a33bc::t_598e13ab8ff157 154-157
+AGENTS.md
+  h_bc87c8dce3742c 29-38,40
+skills/atelier-workflow/atelier-orchestrator/SKILL.md
+  s_a5893a528a0058::t_66b528057dfe04 36
+skills/atelier-workflow/review-agents-tree/SKILL.md
+  s_67b233769a33bc::t_4ac7f60cea1d67 16,21,45-48,50,52-54,69-71
+  s_67b233769a33bc::t_37bfef08567481 56
+skills/atelier-workflow/distill-knowledge/SKILL.md
+  s_67b233769a33bc::t_a09e6788772444 23
+  s_67b233769a33bc::t_a6e18777c2432e 21-22,24-29,37
+skills/matt/engineering/README.md
+  s_a3ef85ba6abceb::t_64fc9f77fd01c8 5-24,26-28
+skills/matt/engineering/ask-matt/SKILL.md
+  s_a3ef85ba6abceb::t_28ba4f0c8319ba 1-74
+skills/matt/engineering/code-review/SKILL.md
+  s_a3ef85ba6abceb::t_9dcc696622b188 2,19,23-24,36-41,43,45-56,65-66,72,78,80
+skills/matt/engineering/codebase-design/DEEPENING.md
+  s_a3ef85ba6abceb::t_1d550dc54a2353 3
+skills/matt/engineering/codebase-design/DESIGN-IT-TWICE.md
+  s_a3ef85ba6abceb::t_e300106b4dedee 1,5,30
+skills/matt/engineering/codebase-design/SKILL.md
+  s_a3ef85ba6abceb::t_6602fa6723d49f 1-4,6,8,10,12,14,16,18,20,22,24-58,63,67-96,110-114
+skills/matt/engineering/diagnosing-bugs/SKILL.md
+  s_a3ef85ba6abceb::t_5b318e9acf56f5 2-3,6,10,14,33,35,41,51,53,55-64,72-80
+skills/matt/engineering/domain-modeling/SKILL.md
+  s_a3ef85ba6abceb::t_b3e58be6cd20c5 2-3,6,8,10,12,15-21,24,26-37,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70-72,74
+skills/matt/engineering/grill-with-docs/SKILL.md
+  s_a3ef85ba6abceb::t_1bf5170eca16b6 3-4,7
+skills/matt/engineering/implement/SKILL.md
+  s_a3ef85ba6abceb::t_643b94ce940d3c 2-3,7-15
+skills/matt/engineering/improve-codebase-architecture/HTML-REPORT.md
+  s_a3ef85ba6abceb::t_37393f896b1ea4 42,108,123
+skills/matt/engineering/improve-codebase-architecture/SKILL.md
+  s_a3ef85ba6abceb::t_508c3777c0be69 3-4,11,13-14,20,38,49,59,61,63,65-66
+skills/matt/engineering/prototype/SKILL.md
+  s_a3ef85ba6abceb::t_aece285e698dc2 3
+skills/matt/engineering/research/SKILL.md
+  s_a3ef85ba6abceb::t_d1481457fa0c60 1-12
+skills/matt/engineering/resolving-merge-conflicts/SKILL.md
+  s_a3ef85ba6abceb::t_50255862c53977 1-14
+skills/matt/engineering/setup-matt-pocock-skills/SKILL.md
+  s_a3ef85ba6abceb::t_0a56f83031f879 3,47-52,69,104
+skills/matt/engineering/setup-matt-pocock-skills/domain.md
+  s_a3ef85ba6abceb::t_f5a3348762c323 11,45
+skills/matt/engineering/setup-matt-pocock-skills/issue-tracker-github.md
+  s_a3ef85ba6abceb::t_574c04365bbe1e 16-27,35-45
+skills/matt/engineering/setup-matt-pocock-skills/issue-tracker-gitlab.md
+  s_a3ef85ba6abceb::t_2b6e531969c825 17-28,36-46
+skills/matt/engineering/setup-matt-pocock-skills/issue-tracker-local.md
+  s_a3ef85ba6abceb::t_94e3f73ddacb3a 20-30
+skills/matt/engineering/tdd/SKILL.md
+  s_a3ef85ba6abceb::t_7b27a34e60c501 3,8,10,12,14,18,20,22,24,26,28-30,32,34-36
+skills/matt/engineering/tdd/tests.md
+  s_a3ef85ba6abceb::t_45cb7a0ae4eec9 62-77
+skills/matt/engineering/to-issues/SKILL.md
+  s_a3ef85ba6abceb::t_5ca7ddf9569abf 3-4,23-24,30,33-34,57,68
+skills/matt/engineering/to-prd/SKILL.md
+  s_a3ef85ba6abceb::t_5a6f8791683b73 3-4,15
+skills/matt/engineering/triage/AGENT-BRIEF.md
+  s_a3ef85ba6abceb::t_3c7aad825b7295 3-5,148-184
+skills/matt/engineering/triage/OUT-OF-SCOPE.md
+  s_a3ef85ba6abceb::t_312278612a100e 86-90
+skills/matt/engineering/triage/SKILL.md
+  s_a3ef85ba6abceb::t_1ef385ea38a7c2 3-4,11-12,39-40,52,64-66,68,70,72,74,76,82-85,112
+skills/matt/in-progress/README.md
+  s_a3ef85ba6abceb::t_b1116c1b19362e 5-7,11
+skills/matt/in-progress/claude-handoff/SKILL.md
+  s_a3ef85ba6abceb::t_cb0f97e8eee053 1-18
+skills/matt/in-progress/loop-me/SKILL.md
+  s_a3ef85ba6abceb::t_082f5112205f06 1-32
+skills/matt/in-progress/wayfinder/SKILL.md
+  s_a3ef85ba6abceb::t_a4e1b05e80aea4 1-126
+skills/matt/in-progress/wizard/SKILL.md
+  s_a3ef85ba6abceb::t_e45e8aa09538cd 1-5,7,9,11,13,15,17,19,21-45
+skills/matt/in-progress/wizard/template.sh
+  s_a3ef85ba6abceb::t_cd384ebdaa338c 1-211
+skills/matt/in-progress/writing-beats/SKILL.md
+  s_a3ef85ba6abceb::t_52f2fae0d6a98f 3-4,9,13,15-19,25-39,52,54
+skills/matt/in-progress/writing-fragments/SKILL.md
+  s_a3ef85ba6abceb::t_873db020df8da0 3-4,9,11,36-38
+skills/matt/in-progress/writing-shape/SKILL.md
+  s_a3ef85ba6abceb::t_19352e425d18ab 3-4,11,13,22-39,61,75
+skills/matt/misc/README.md
+  s_a3ef85ba6abceb::t_b1a7c2c9d11112 3
+skills/matt/personal/edit-article/SKILL.md
+  s_a3ef85ba6abceb::t_61528e0a4dc91e 4
+skills/matt/productivity/README.md
+  s_a3ef85ba6abceb::t_13b37a34f6d642 5-8,12-18
+skills/matt/productivity/grill-me/SKILL.md
+  s_a3ef85ba6abceb::t_89e7c056b77bc7 3-4,7
+skills/matt/productivity/grilling/SKILL.md
+  s_a3ef85ba6abceb::t_43e11d585decd7 1-12
+skills/matt/productivity/handoff/SKILL.md
+  s_a3ef85ba6abceb::t_125e8196197959 5,8
+skills/matt/productivity/teach/SKILL.md
+  s_a3ef85ba6abceb::t_49eb4beb0ba78f 19,34-46,51-59,61-65,67-69,79-80,83,91,95,97,99,101-103,110-111
+skills/matt/productivity/writing-great-skills/GLOSSARY.md
+  s_a3ef85ba6abceb::t_2db9761be51fd8 1-201
+skills/matt/productivity/writing-great-skills/SKILL.md
+  s_a3ef85ba6abceb::t_1ccfe5372a6d4c 1-83
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "2b393fceca0e5440f8972746b33d68e1fcd98bb7",
+  "prompts": {},
+  "humans": {
+    "h_bc87c8dce3742c": {
+      "author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  },
+  "sessions": {
+    "s_67b233769a33bc": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019f2219-fa64-751e-8bbe-d4a14f4b188a",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    },
+    "s_a3ef85ba6abceb": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019f3bc9-d698-7015-97ac-de210b066fc8",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    },
+    "s_a5893a528a0058": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019f041d-e53c-770b-8501-a0aa874b3533",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
