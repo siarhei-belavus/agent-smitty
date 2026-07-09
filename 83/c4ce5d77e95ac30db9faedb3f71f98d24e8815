@@ -1,0 +1,40 @@
+skills/matt/engineering/implement/SKILL.md
+  s_d89bef632de309::t_81e2d53c8cbd08 3,7
+skills/matt/engineering/to-tickets/SKILL.md
+  s_d89bef632de309::t_81e2d53c8cbd08 1-114
+skills/matt/engineering/ask-matt/SKILL.md
+  s_d89bef632de309::t_81e2d53c8cbd08 23,30,32,40,44
+  s_d89bef632de309::t_ddd7dfaf1b2932 45
+skills/matt/engineering/README.md
+  s_d89bef632de309::t_81e2d53c8cbd08 14-16
+skills/matt/engineering/setup-matt-pocock-skills/SKILL.md
+  s_d89bef632de309::t_81e2d53c8cbd08 38
+skills/matt/engineering/to-spec/SKILL.md
+  s_d89bef632de309::t_81e2d53c8cbd08 1-75
+skills/matt/engineering/wayfinder/SKILL.md
+  s_d89bef632de309::t_81e2d53c8cbd08 1-127
+AGENTS.md
+  s_d89bef632de309::t_544856bee791e8 19
+  s_d89bef632de309::t_f318f1bc1e74da 15-18,20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "83c4ce5d77e95ac30db9faedb3f71f98d24e8815",
+  "prompts": {},
+  "humans": {
+    "h_bc87c8dce3742c": {
+      "author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  },
+  "sessions": {
+    "s_d89bef632de309": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019f4296-35db-731e-8c94-321cbedb7909",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
