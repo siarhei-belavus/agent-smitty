@@ -1,0 +1,84 @@
+agents/atelier-plan-sat-reviewer.md
+  h_bc87c8dce3742c 4
+agents/atelier-planner.md
+  h_bc87c8dce3742c 4
+agents/atelier-maint-reviewer.md
+  h_bc87c8dce3742c 4
+agents/atelier-distiller.md
+  h_bc87c8dce3742c 4
+AGENTS.md
+  s_e5fe42f6c6cd30::t_efdc1272833738 18
+  s_110d8a6c33643b::t_b127baa55b12ce 21
+  h_bc87c8dce3742c 7
+dcp.json
+  h_bc87c8dce3742c 15-16
+agents/researcher.md
+  h_bc87c8dce3742c 4,9,16
+agents/atelier-implementer.md
+  h_bc87c8dce3742c 4
+agents/atelier-plan-reviewer.md
+  h_bc87c8dce3742c 4
+settings.json
+  s_11dca6e8498297::t_e50e81639b0976 2,5-6
+skills/git/address-gitlab-mr/CLOSEOUT.md
+  s_85113928c967ad::t_01cf9c2b000e57 1-108
+skills/git/address-gitlab-mr/GROUP-LOOP.md
+  s_09b5f4b10f1248::t_014c356412be4b 1-98
+skills/git/address-gitlab-mr/SKILL.md
+  s_09b5f4b10f1248::t_1f98f92ac9091f 1-78
+skills/git/address-gitlab-mr/TRIAGE.md
+  s_09b5f4b10f1248::t_4e1740e26da696 1-131
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "3cccf245945581cdaeb482815ff91a93de1a949e",
+  "prompts": {},
+  "humans": {
+    "h_bc87c8dce3742c": {
+      "author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  },
+  "sessions": {
+    "s_09b5f4b10f1248": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019f5abc-1916-794a-acaf-406f341daaf5",
+        "model": "unknown"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    },
+    "s_110d8a6c33643b": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019f5be9-09ef-73d8-8aec-4adb28ec9741",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    },
+    "s_11dca6e8498297": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019f5afa-1794-7469-b2a9-92ea506b40f3",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    },
+    "s_85113928c967ad": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019f5acd-2250-71d5-aef7-08af4f1b5079",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    },
+    "s_e5fe42f6c6cd30": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019f4755-dfa3-72d2-baad-5dae59641b1c",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
