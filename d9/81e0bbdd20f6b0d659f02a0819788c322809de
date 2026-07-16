@@ -1,0 +1,24 @@
+skills/matt/productivity/handoff/agents/openai.yaml
+  s_d78d1647351465::t_89dde1a08bc140 5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "d981e0bbdd20f6b0d659f02a0819788c322809de",
+  "prompts": {},
+  "humans": {
+    "h_bc87c8dce3742c": {
+      "author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  },
+  "sessions": {
+    "s_d78d1647351465": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019f6c6b-8743-780f-a00d-44653783afb3",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
