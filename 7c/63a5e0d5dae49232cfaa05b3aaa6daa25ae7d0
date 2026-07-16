@@ -1,0 +1,168 @@
+skills/atelier-workflow/references/ownership-and-reuse-policy.md
+  s_01cb18e0163b83::t_5a2c2928e13eb1 16-20
+  s_01cb18e0163b83::t_d0ef6b545ba628 72,74
+  s_01cb18e0163b83::t_f52c7f87bca6dd 71,73,75
+skills/atelier-workflow/implement-task/SKILL.md
+  s_01cb18e0163b83::t_e27c3cca6c5941 21,33
+skills/atelier-workflow/plan-task/SKILL.md
+  s_01cb18e0163b83::t_21149125f29b34 23
+skills/atelier-workflow/grill-me/SKILL.md
+  s_2745e5bf2328d9::t_8a7b91ca3d4548 19
+skills/atelier-workflow/references/review-phases-contract.md
+  s_01cb18e0163b83::t_845c07e72f50e6 19,120
+  s_01cb18e0163b83::t_ad9a2676b3c24a 114
+  s_01cb18e0163b83::t_8fdc09bb931fe0 112-113,115
+skills/matt/deprecated/design-an-interface/agents/openai.yaml
+  s_d78d1647351465::t_2bb786fc3e538a 1-3
+skills/matt/deprecated/qa/agents/openai.yaml
+  s_d78d1647351465::t_9c90721370b09b 1-3
+skills/matt/deprecated/request-refactor-plan/agents/openai.yaml
+  s_d78d1647351465::t_1c2ad43d646f44 1-3
+skills/matt/deprecated/ubiquitous-language/agents/openai.yaml
+  s_d78d1647351465::t_d5f2ef272ee0d2 1-5
+skills/matt/engineering/README.md
+  s_d78d1647351465::t_fad3584134311a 7,16-17,31
+skills/matt/engineering/ask-matt/SKILL.md
+  s_d78d1647351465::t_db3f1b869efb9f 23,44-46
+skills/matt/engineering/ask-matt/agents/openai.yaml
+  s_d78d1647351465::t_5775177fef59df 1-5
+skills/matt/engineering/code-review/agents/openai.yaml
+  s_d78d1647351465::t_9a63afadfd8a34 1-3
+skills/matt/engineering/codebase-design/agents/openai.yaml
+  s_d78d1647351465::t_7e6f2d43c2f802 1-3
+skills/matt/engineering/diagnosing-bugs/agents/openai.yaml
+  s_d78d1647351465::t_0a4709546bba0c 1-3
+skills/matt/engineering/domain-modeling/agents/openai.yaml
+  s_d78d1647351465::t_7e1747b8c94e78 1-3
+skills/matt/engineering/grill-with-docs/agents/openai.yaml
+  s_d78d1647351465::t_df5a034d28892b 1-5
+skills/matt/engineering/implement/agents/openai.yaml
+  s_d78d1647351465::t_5bc694dacd5dcc 1-5
+skills/matt/engineering/improve-codebase-architecture/SKILL.md
+  s_d78d1647351465::t_7ad3cc836f747c 20-24,64
+skills/matt/engineering/improve-codebase-architecture/agents/openai.yaml
+  s_d78d1647351465::t_8ddfd7c9b1b216 1-5
+skills/matt/engineering/prototype/LOGIC.md
+  s_d78d1647351465::t_00f6ceb87d3da0 39,69,71
+skills/matt/engineering/prototype/SKILL.md
+  s_d78d1647351465::t_88f43e5e027f68 24,26
+skills/matt/engineering/prototype/UI.md
+  s_d78d1647351465::t_5bc48231c68ea4 100,102-103,105
+skills/matt/engineering/prototype/agents/openai.yaml
+  s_d78d1647351465::t_969fba36f3915c 1-3
+skills/matt/engineering/research/agents/openai.yaml
+  s_d78d1647351465::t_751067ba9af18e 1-3
+skills/matt/engineering/resolving-merge-conflicts/agents/openai.yaml
+  s_d78d1647351465::t_00bd91f0933359 1-3
+skills/matt/engineering/setup-matt-pocock-skills/SKILL.md
+  s_d78d1647351465::t_b754eda4be33bf 29-30,34,36,49,51,53,55,57,59,61,68,91,102-104,109
+skills/matt/engineering/setup-matt-pocock-skills/agents/openai.yaml
+  s_d78d1647351465::t_969185550cfb16 1-5
+skills/matt/engineering/setup-matt-pocock-skills/issue-tracker-local.md
+  s_d78d1647351465::t_7fcb3943d9f14d 3,8-9
+skills/matt/engineering/tdd/agents/openai.yaml
+  s_d78d1647351465::t_7113882ee120a4 1-3
+skills/matt/engineering/to-spec/agents/openai.yaml
+  s_d78d1647351465::t_1d33c73aa5aecb 1-5
+skills/matt/engineering/to-tickets/SKILL.md
+  s_d78d1647351465::t_9d79b0c0e415bf 3,62,65,67,69,71,75-77,82
+skills/matt/engineering/to-tickets/agents/openai.yaml
+  s_d78d1647351465::t_77badc5fa2345a 1-5
+skills/matt/engineering/triage/agents/openai.yaml
+  s_d78d1647351465::t_3ff212df82d9f8 1-5
+skills/matt/engineering/wayfinder/SKILL.md
+  s_d78d1647351465::t_ca12e2d0fdd5f8 3,7,77,105,115-116
+skills/matt/engineering/wayfinder/agents/openai.yaml
+  s_d78d1647351465::t_31d3e923975550 1-5
+skills/matt/in-progress/README.md
+  s_d78d1647351465::t_a3470e55485a9c 11-13
+skills/matt/in-progress/batch-grill-me/SKILL.md
+  s_d78d1647351465::t_73f76770141064 1-15
+skills/matt/in-progress/batch-grill-me/agents/openai.yaml
+  s_d78d1647351465::t_45ea68a261f6e9 1-5
+skills/matt/in-progress/claude-handoff/agents/openai.yaml
+  s_d78d1647351465::t_9a4bdec18f96bf 1-5
+skills/matt/in-progress/loop-me/agents/openai.yaml
+  s_d78d1647351465::t_09083c663b2159 1-5
+skills/matt/in-progress/setup-ts-deep-modules/SKILL.md
+  s_d78d1647351465::t_8c6c5275a32647 1-102
+skills/matt/in-progress/setup-ts-deep-modules/agents/openai.yaml
+  s_d78d1647351465::t_3ad0c5ea69e1d7 1-5
+skills/matt/in-progress/setup-ts-deep-modules/dependency-cruiser.config.cjs
+  s_d78d1647351465::t_c11010420e16a3 1-95
+skills/matt/in-progress/to-questionnaire/SKILL.md
+  s_d78d1647351465::t_73f7d4484b04da 1-53
+skills/matt/in-progress/to-questionnaire/agents/openai.yaml
+  s_d78d1647351465::t_584986c01f1607 1-5
+skills/matt/in-progress/wizard/agents/openai.yaml
+  s_d78d1647351465::t_e24f4bfb42b781 1-5
+skills/matt/in-progress/writing-beats/agents/openai.yaml
+  s_d78d1647351465::t_009a90b4b0bb0a 1-5
+skills/matt/in-progress/writing-fragments/agents/openai.yaml
+  s_d78d1647351465::t_76dc87d08c5cbe 1-5
+skills/matt/in-progress/writing-shape/agents/openai.yaml
+  s_d78d1647351465::t_476686a378a307 1-5
+skills/matt/misc/git-guardrails-claude-code/agents/openai.yaml
+  s_d78d1647351465::t_de1702d4ed3036 1-3
+skills/matt/misc/migrate-to-shoehorn/agents/openai.yaml
+  s_d78d1647351465::t_ccb71157d05ad5 1-3
+skills/matt/misc/scaffold-exercises/agents/openai.yaml
+  s_d78d1647351465::t_394bbc2c1f0bbe 1-3
+skills/matt/misc/setup-pre-commit/agents/openai.yaml
+  s_d78d1647351465::t_88ef395bae2803 1-3
+skills/matt/personal/edit-article/agents/openai.yaml
+  s_d78d1647351465::t_b3c4fe7ae7c9fb 1-5
+skills/matt/personal/obsidian-vault/agents/openai.yaml
+  s_d78d1647351465::t_7c4e513b59528f 1-3
+skills/matt/productivity/README.md
+  s_d78d1647351465::t_2cf116cfe72cf0 7,18
+skills/matt/productivity/grill-me/agents/openai.yaml
+  s_d78d1647351465::t_cf13f17676e172 1-5
+skills/matt/productivity/grilling/SKILL.md
+  s_d78d1647351465::t_cda02a9ca60f5c 3,6,10,12
+skills/matt/productivity/grilling/agents/openai.yaml
+  s_d78d1647351465::t_270a580d4e2182 1-3
+skills/matt/productivity/handoff/agents/openai.yaml
+  s_d78d1647351465::t_8dc0deae34e8f9 1-5
+skills/matt/productivity/teach/agents/openai.yaml
+  s_d78d1647351465::t_1669a3c0d8bb7e 1-5
+skills/matt/productivity/writing-great-skills/agents/openai.yaml
+  s_d78d1647351465::t_dfc60802d7c6a7 1-5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "7c63a5e0d5dae49232cfaa05b3aaa6daa25ae7d0",
+  "prompts": {},
+  "humans": {
+    "h_bc87c8dce3742c": {
+      "author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  },
+  "sessions": {
+    "s_01cb18e0163b83": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019f6032-4b0e-74c1-adfb-0a4b3442d0b5",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    },
+    "s_2745e5bf2328d9": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019f6628-0f95-7a9e-9efd-46c28b975964",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    },
+    "s_d78d1647351465": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019f6c6b-8743-780f-a00d-44653783afb3",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
