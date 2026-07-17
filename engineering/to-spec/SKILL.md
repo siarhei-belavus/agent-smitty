@@ -14,6 +14,8 @@ The issue tracker and triage label vocabulary should have been provided to you â
 
 2. Sketch out the seams at which you're going to test the feature. Existing seams should be preferred to new ones. Use the highest seam possible. If new seams are needed, propose them at the highest point you can. The fewer seams across the codebase, the better - the ideal number is one.
 
+When the solution changes module ownership, an interface, a seam, or an existing contract, run `/codebase-design` before proposing the seams.
+
 Check with the user that these seams match their expectations.
 
 3. Write the spec using the template below, then publish it to the project issue tracker. Apply the `ready-for-agent` triage label - no need for additional triage.

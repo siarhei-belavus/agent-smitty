@@ -6,6 +6,8 @@ disable-model-invocation: true
 
 Implement the work described by the user in the spec or tickets.
 
+If module ownership, an interface, a seam, or contract evolution remains unsettled, run `/codebase-design` and confirm the proposed decision with the user before implementation.
+
 Use /tdd where possible, at pre-agreed seams.
 
 Run typechecking regularly, single test files regularly, and the full test suite once at the end.
