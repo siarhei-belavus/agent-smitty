@@ -1,0 +1,49 @@
+skills/matt/engineering/code-review/SKILL.md
+  s_b1db8c5acddb6e::t_1354de1955375a 40
+  s_b1db8c5acddb6e::t_92f854ae80d84f 38,41-43,70-71
+  s_b1db8c5acddb6e::t_dfe8ad22dc4cb9 39
+skills/matt/engineering/implement/SKILL.md
+  s_b1db8c5acddb6e::t_d528aa90c9004f 9-10
+skills/matt/engineering/tdd/SKILL.md
+  s_b1db8c5acddb6e::t_f2d13e62d6cead 26-29
+skills/matt/engineering/to-tickets/SKILL.md
+  s_b1db8c5acddb6e::t_bf08c25e74ac16 38
+skills/matt/engineering/README.md
+  s_b1db8c5acddb6e::t_beee62645a1de0 29
+skills/matt/engineering/triage/AGENT-BRIEF.md
+  s_b1db8c5acddb6e::t_d903b1c6ecb9f5 30
+skills/matt/engineering/ask-matt/SKILL.md
+  s_b1db8c5acddb6e::t_06854ebe03547b 59
+skills/matt/engineering/improve-codebase-architecture/SKILL.md
+  s_b1db8c5acddb6e::t_7535438d939279 20,46
+skills/matt/engineering/domain-modeling/SKILL.md
+  s_b1db8c5acddb6e::t_8736d494bf2fe7 54
+skills/matt/engineering/codebase-design/DESIGN-IT-TWICE.md
+  s_b1db8c5acddb6e::t_4abd82cfc261f7 42
+skills/matt/engineering/to-spec/SKILL.md
+  s_b1db8c5acddb6e::t_d194ba809e5434 19-20
+skills/matt/engineering/codebase-design/SKILL.md
+  s_b1db8c5acddb6e::t_dee1b8fa63c45b 3,67-73
+  s_b1db8c5acddb6e::t_fde4dbc40083d9 74
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "cc854371fd99a9b5e40a7a4f2c071d1b0049a3f4",
+  "prompts": {},
+  "humans": {
+    "h_bc87c8dce3742c": {
+      "author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  },
+  "sessions": {
+    "s_b1db8c5acddb6e": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019f7016-0393-7a63-848f-fdee35fa55ec",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
