@@ -1,0 +1,31 @@
+skills/matt/engineering/ask-matt/SKILL.md
+  s_b1db8c5acddb6e::t_0e9d67ff3bf083 71
+skills/matt/productivity/integrate-matt-concept/agents/openai.yaml
+  s_b1db8c5acddb6e::t_0fe786272d2d2d 1-5
+skills/matt/productivity/README.md
+  s_b1db8c5acddb6e::t_6a5d3348677a50 11
+skills/matt/productivity/integrate-matt-concept/SKILL.md
+  s_b1db8c5acddb6e::t_f4e91454dbf1be 94
+  s_b1db8c5acddb6e::t_ce65feedb0b21c 1-93,95-116
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "0a33679edf46798a08600ef11d51941cc7601051",
+  "prompts": {},
+  "humans": {
+    "h_bc87c8dce3742c": {
+      "author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  },
+  "sessions": {
+    "s_b1db8c5acddb6e": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019f7016-0393-7a63-848f-fdee35fa55ec",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
