@@ -1,0 +1,35 @@
+settings.json
+  s_b1db8c5acddb6e::t_a381e489197f18 6
+skills/matt/engineering/codebase-design/DESIGN-IT-TWICE.md
+  s_b1db8c5acddb6e::t_4abd82cfc261f7 42
+skills/matt/engineering/README.md
+  s_b1db8c5acddb6e::t_a81ffda5473e5d 29
+skills/matt/engineering/ask-matt/SKILL.md
+  s_b1db8c5acddb6e::t_3ef7fd05cda1fd 59
+skills/matt/engineering/codebase-design/SKILL.md
+  s_b1db8c5acddb6e::t_dee1b8fa63c45b 67-73
+  s_b1db8c5acddb6e::t_a3129cc5f92ab4 77,79
+  s_b1db8c5acddb6e::t_8ca35867b4db2f 3,62,74-76,78
+  s_b1db8c5acddb6e::t_fde4dbc40083d9 80
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "1afb59919c414c127729bf7998b0d73fe3712a49",
+  "prompts": {},
+  "humans": {
+    "h_bc87c8dce3742c": {
+      "author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  },
+  "sessions": {
+    "s_b1db8c5acddb6e": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019f7016-0393-7a63-848f-fdee35fa55ec",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": null
+    }
+  }
+}
