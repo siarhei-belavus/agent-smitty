@@ -1,0 +1,32 @@
+skills/matt/productivity/README.md
+  s_b1db8c5acddb6e::t_3ad42c00657934 11
+skills/matt/productivity/integrate-matt-concept/SKILL.md
+  s_b1db8c5acddb6e::t_2203aff16a5f4a 3,9,15,17,19,21-43,49-50,52,54-57,59,61,63,65-77,83-84,86-89,91,93,95-96,111,117,119,121,123,125,127,131,141-142,144,146,148,150,156-157
+  s_b1db8c5acddb6e::t_ce65feedb0b21c 1-2,4-8,10-14,16,18,20,44-48,51,53,58,60,62,64,78-82,85,90,92,94,97-110,112-116,118,120,122,124,126,128-130,132-140,143,145,147,149,151-155,158-168
+skills/matt/engineering/ask-matt/SKILL.md
+  s_b1db8c5acddb6e::t_1edca750c413c3 71
+skills/matt/productivity/integrate-matt-concept/agents/openai.yaml
+  s_b1db8c5acddb6e::t_0fe786272d2d2d 1-2,4-5
+  s_b1db8c5acddb6e::t_702b19073506ff 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "2aa80e6499c330898fd2dddbf01d1c985cc5d7f2",
+  "prompts": {},
+  "humans": {
+    "h_bc87c8dce3742c": {
+      "author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  },
+  "sessions": {
+    "s_b1db8c5acddb6e": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019f7016-0393-7a63-848f-fdee35fa55ec",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": null
+    }
+  }
+}
