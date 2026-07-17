@@ -1,0 +1,5 @@
+interface:
+  display_name: "Integrate Matt Concept"
+  short_description: "Research and place new Matt doctrine"
+policy:
+  allow_implicit_invocation: false
