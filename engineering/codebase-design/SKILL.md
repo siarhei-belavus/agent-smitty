@@ -72,6 +72,14 @@ A failure is credible only when its state is reachable through a named external 
 
 Every added mechanism must name the acceptance criterion or established invariant it protects, the credible failure and material impact, and why a simpler coherent design is insufficient. A simplification must leave those protections and the intended module shape intact. A deferral names the accepted residual risk and its next owner.
 
+### Final state
+
+Leave every touched current-truth artifact in **final-state** form: code, tests, configuration, schemas, examples, plans, skills, and durable design docs describe the intended system directly, using its current names, owners, statuses, contracts, layout, validation expectations, and vocabulary. Prefer one clear model over artifacts that teach superseded and current shapes together.
+
+Artifact role decides whether chronology belongs. A current-truth artifact answers what is intended now; an intentional history artifact answers how decisions or understanding evolved. Change logs, review findings, issue history, commits, Git history, and explicitly superseded ADRs or learning records may preserve chronology. A file does not become a history artifact merely because notes were appended to it.
+
+Tests are current truth: express stable expected behavior, domain invariants, and observable outcomes through the module's interface. A past bug can motivate a regression test, but the test presents the behavior that must hold, not the accidental implementation mistake that exposed it.
+
 ### Clean breaks
 
 An internal contract change is a **clean break**: establish one current contract, update every producer and consumer under the same change authority, and remove the superseded form in the completed change. Aliases, shims, dual reads or writes, legacy payload handling, compatibility wrappers, and deprecated fallbacks are added mechanisms; internal migration convenience is not an acceptance criterion.
