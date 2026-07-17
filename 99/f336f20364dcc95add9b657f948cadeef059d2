@@ -1,0 +1,43 @@
+skills/matt/engineering/code-review/SKILL.md
+  s_e3c1bdd930e0ae::t_2309be4f046454 53
+extensions/refresh-terminal-capabilities.ts
+  s_259a8d3bf8e3bf::t_7f103bf413546f 1-6
+skills/matt/engineering/to-tickets/SKILL.md
+  s_e3c1bdd930e0ae::t_fa5fa46c445a89 40
+skills/matt/engineering/codebase-design/SKILL.md
+  s_e3c1bdd930e0ae::t_e3939ebbeb50dd 3
+  s_e3c1bdd930e0ae::t_564e255bf064c4 75-79
+  s_e3c1bdd930e0ae::t_61481f7b4582ef 80
+skills/matt/productivity/integrate-matt-concept/SKILL.md
+  s_e3c1bdd930e0ae::t_a7562f191935b0 97-99,103-105,107,147
+  s_e3c1bdd930e0ae::t_b6871ed61246bd 109
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "99f336f20364dcc95add9b657f948cadeef059d2",
+  "prompts": {},
+  "humans": {
+    "h_bc87c8dce3742c": {
+      "author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  },
+  "sessions": {
+    "s_259a8d3bf8e3bf": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019f707c-c553-7d8e-b741-d17ab1b004e8",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    },
+    "s_e3c1bdd930e0ae": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019f7077-2d2d-7a13-a02f-2cdc048785f6",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
