@@ -1,6 +1,6 @@
 ---
 name: codebase-design
-description: Shared vocabulary for designing deep modules. Use when the user wants to design or improve a module's interface, find deepening opportunities, decide where a seam goes, make code more testable or AI-navigable, or when another skill needs the deep-module vocabulary.
+description: Design deep modules proportionally. Use when the user wants to design or improve a module's interface, find deepening opportunities, decide where a seam goes, decompose an implementation without widening its public interface, make code more testable or AI-navigable, judge whether a design is overengineered, or when another skill needs the deep-module vocabulary.
 ---
 
 # Codebase Design
@@ -59,10 +59,24 @@ When designing an interface, ask:
 
 ## Principles
 
-- **Depth is a property of the interface, not the implementation.** A deep module can be internally composed of small, mockable, swappable parts — they just aren't part of the interface. A module can have **internal seams** (private to its implementation, used by its own tests) as well as the **external seam** at its interface.
+- **Depth is a property of the interface, not the implementation.** A deep module can be internally composed of cohesive private parts — they just aren't part of the interface. A module can have **internal seams** where its implementation genuinely varies, but physical file boundaries do not create seams.
 - **The deletion test.** Imagine deleting the module. If complexity vanishes, it was a pass-through. If complexity reappears across N callers, it was earning its keep.
 - **The interface is the test surface.** Callers and tests cross the same seam. If you want to test *past* the interface, the module is probably the wrong shape.
 - **One adapter means a hypothetical seam. Two adapters means a real one.** Don't introduce a seam unless something actually varies across it.
+
+## Proportional design
+
+Choose the **least-complex coherent design** that protects current acceptance criteria, established repository invariants and ADRs, and **credible failures** while preserving depth and locality. Fewer constructs are not simpler when ownership, invariant knowledge, or boundary policy leaks through the interface into callers.
+
+A failure is credible only when its state is reachable through a named external boundary, supported persisted data, an allowed lifecycle transition, or a realistic concurrency or failure interleaving. Untyped or external data earns the trusted domain type only after validation or translation at its boundary; a cast or unchecked deserialization does not establish that trust. Handle invalid input at the boundary, then make invalid internal states unrepresentable so internal modules can rely on their declared typed contracts.
+
+Every added mechanism must name the acceptance criterion or established invariant it protects, the credible failure and material impact, and why a simpler coherent design is insufficient. A simplification must leave those protections and the intended module shape intact. A deferral names the accepted residual risk and its next owner.
+
+## Logical ownership and physical decomposition
+
+A module is a logical owner, not a file. Its implementation may span cohesive private files hidden behind one public interface at one seam. **Physical decomposition** splits independently changing internal responsibilities while preserving that interface, the module's invariants and vocabulary, and every boundary translation. Treat each new file as a private implementation detail; promote it to an owner, adapter, public seam, or test surface only when separate responsibility or variation passes proportional design.
+
+Before adding behavior to a module whose implementation contains independently changing responsibilities, either decompose those responsibilities privately behind the existing seam or state the concrete locality reason they are clearer and safer together. A behavior-preserving private split is tidy-first refactoring within the current implementation authority. Every split should improve locality by concentrating understanding and change.
 
 ## Designing for testability
 
