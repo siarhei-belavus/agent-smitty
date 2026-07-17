@@ -1,0 +1,69 @@
+skills/matt/engineering/code-review/SKILL.md
+  s_b1db8c5acddb6e::t_dfe8ad22dc4cb9 39
+  s_b1db8c5acddb6e::t_5a9913897614e8 40,70-71
+  s_b1db8c5acddb6e::t_92f854ae80d84f 38,41-43
+  s_b1db8c5acddb6e::t_dbf1b61f422ef0 57
+skills/matt/engineering/README.md
+  s_b1db8c5acddb6e::t_9e52c50e823e8c 29
+skills/matt/engineering/implement/SKILL.md
+  s_b1db8c5acddb6e::t_fffaeaa5e2c3db 10
+  s_b1db8c5acddb6e::t_22c2d19fbfc1e5 9
+skills/matt/engineering/to-tickets/SKILL.md
+  s_b1db8c5acddb6e::t_c390894567c26a 23
+skills/matt/engineering/improve-codebase-architecture/SKILL.md
+  s_b1db8c5acddb6e::t_20d33152e861b1 13,20
+  s_b1db8c5acddb6e::t_7b7fb96cdfff80 29-30
+  s_b1db8c5acddb6e::t_7535438d939279 47
+skills/matt/engineering/wayfinder/SKILL.md
+  s_b1db8c5acddb6e::t_e6ccdde915013e 124
+skills/matt/engineering/codebase-design/DESIGN-IT-TWICE.md
+  s_b1db8c5acddb6e::t_4abd82cfc261f7 42
+skills/matt/engineering/grill-with-docs/SKILL.md
+  s_b1db8c5acddb6e::t_960841cd421489 7
+skills/matt/engineering/diagnosing-bugs/SKILL.md
+  s_b1db8c5acddb6e::t_271b7678a5b9a9 110-111
+skills/matt/engineering/tdd/SKILL.md
+  s_b1db8c5acddb6e::t_f2d13e62d6cead 26-27,29
+  s_b1db8c5acddb6e::t_f2c8a2bb694b5f 40
+  s_b1db8c5acddb6e::t_f20a693d99193a 10,28
+skills/matt/engineering/triage/SKILL.md
+  s_b1db8c5acddb6e::t_5c479c74d93533 76
+skills/matt/engineering/ask-matt/SKILL.md
+  s_b1db8c5acddb6e::t_d95c59e2d693f0 59
+skills/matt/engineering/codebase-design/SKILL.md
+  s_b1db8c5acddb6e::t_fde4dbc40083d9 80
+  s_b1db8c5acddb6e::t_a3129cc5f92ab4 77,79
+  s_b1db8c5acddb6e::t_dee1b8fa63c45b 67-73
+  s_b1db8c5acddb6e::t_8ca35867b4db2f 3,62,74-76,78
+skills/matt/engineering/triage/AGENT-BRIEF.md
+  s_b1db8c5acddb6e::t_d903b1c6ecb9f5 30
+  s_b1db8c5acddb6e::t_5e32d418cab3c9 21
+skills/matt/engineering/domain-modeling/SKILL.md
+  s_b1db8c5acddb6e::t_8736d494bf2fe7 54
+skills/matt/engineering/to-spec/SKILL.md
+  s_b1db8c5acddb6e::t_d8afaf8885e182 15,19
+  s_b1db8c5acddb6e::t_3ef898a863b84b 20
+settings.json
+  s_b1db8c5acddb6e::t_a381e489197f18 6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "4f32e97bd2b9c6c991b79347b3c7fbd1cf072243",
+  "prompts": {},
+  "humans": {
+    "h_bc87c8dce3742c": {
+      "author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  },
+  "sessions": {
+    "s_b1db8c5acddb6e": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019f7016-0393-7a63-848f-fdee35fa55ec",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": null
+    }
+  }
+}
