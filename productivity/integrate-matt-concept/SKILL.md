@@ -94,16 +94,19 @@ Check that the concept strengthens rather than bypasses the collection's softwar
 
 ## 4. Design the placement
 
-Default to one canonical edit. An additional consumer pointer earns its place only when all are true:
+Default to one canonical edit. Before proposing any consumer pointer, run a **composition symmetry test**: inspect how sibling principles from the same canonical home reach the candidate target. Treat the collection's established composition style as architecture, not an omission to repair. A model-facing canonical description may already provide discovery, artifacts may carry task-specific decisions, and a direct conflict may need local replacement without importing the doctrine that resolved it.
+
+An additional consumer pointer earns its place only when all are true:
 
 1. the target runs in an independent context
 2. it needs the doctrine itself rather than a task-specific outcome
-3. no existing parent-discipline pointer already supplies it
-4. omission creates a concrete behavior variance
+3. neither the established composition style nor an existing parent-discipline pointer or invocation branch supplies it
+4. omission creates a concrete observed behavior variance, not a hypothetical one
+5. sibling principles receive equivalent cross-skill treatment
 
-Keep phase outputs beside the phase, but keep definitions and caveats in the canonical home. A sub-rule should not become more prominent across the workflow than its parent discipline.
+Keep phase outputs beside the phase, but keep definitions and caveats in the canonical home. A sub-rule should not become more prominent across the workflow than its parent discipline. Do not fan a concept across skills merely because each could execute without it.
 
-Choose the smallest correct form using the `writing-great-skills` information hierarchy: existing step, in-skill reference, disclosed reference, or a new skill. Create a new skill only for a distinct invocation branch or a sequence that genuinely needs a context boundary. Change a model-facing description only when invocation gains a real branch; update a router or index only when discoverability changes.
+Choose the smallest correct form using the `writing-great-skills` information hierarchy: existing step, in-skill reference, disclosed reference, or a new skill. Create a new skill only for a distinct invocation branch or a sequence that genuinely needs a context boundary. Treat a concept integrated beneath an existing doctrine as reference, not as a new invocation branch: do not enumerate its sub-rules, examples, or caveats in the model-facing description. Change a description only when users with a genuinely distinct top-level need would not reliably reach the skill through its existing triggers. When it does change, rebalance the whole description as an invocation map rather than a content summary: keep one trigger per genuine branch, remove triggers for behavior the skill does not execute, and give the new concept no extra prominence merely because it is new. Update a router or index only when discoverability changes.
 
 Present the user with:
 
@@ -141,7 +144,7 @@ Review the diff against `writing-great-skills`:
 
 Repeat the no-op test against the final wording. If utility was uncertain before editing, rerun the same fresh-context probes with the final rule.
 
-Review against the target workflow too: sibling principles receive consistent treatment, and the concept has not been promoted into phases that only carry its outcomes. For engineering concepts, verify that ownership, invariant encoding, boundary policy, module depth/locality, and public test seams remain at least as strong.
+Review against the target workflow too: sibling principles receive consistent treatment, and the concept has not been promoted into phases that only carry its outcomes. Repeat the composition symmetry test against the final diff: cross-skill wiring must match the collection's existing style and the treatment of peer doctrines. For engineering concepts, verify that ownership, invariant encoding, boundary policy, module depth/locality, and public test seams remain at least as strong.
 
 For every changed file beyond the canonical home, repeat the placement test from Step 4. Remove any edit that no longer earns its place.
 

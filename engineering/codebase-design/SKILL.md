@@ -1,6 +1,6 @@
 ---
 name: codebase-design
-description: Design deep modules proportionally. Use when the user wants to design or improve a module's interface, find deepening opportunities, decide where a seam goes, decompose an implementation without widening its public interface, make code more testable or AI-navigable, judge whether a design is overengineered, or when another skill needs the deep-module vocabulary.
+description: Design deep modules proportionally. Use when the user wants to design or improve a module's interface, decide where a seam goes, deepen or privately decompose a module without widening its interface, make it testable through that interface, judge whether a design is overengineered, or when another skill needs the deep-module vocabulary.
 ---
 
 # Codebase Design
@@ -71,6 +71,12 @@ Choose the **least-complex coherent design** that protects current acceptance cr
 A failure is credible only when its state is reachable through a named external boundary, supported persisted data, an allowed lifecycle transition, or a realistic concurrency or failure interleaving. Untyped or external data earns the trusted domain type only after validation or translation at its boundary; a cast or unchecked deserialization does not establish that trust. Handle invalid input at the boundary, then make invalid internal states unrepresentable so internal modules can rely on their declared typed contracts.
 
 Every added mechanism must name the acceptance criterion or established invariant it protects, the credible failure and material impact, and why a simpler coherent design is insufficient. A simplification must leave those protections and the intended module shape intact. A deferral names the accepted residual risk and its next owner.
+
+### Clean breaks
+
+An internal contract change is a **clean break**: establish one current contract, update every producer and consumer under the same change authority, and remove the superseded form in the completed change. Aliases, shims, dual reads or writes, legacy payload handling, compatibility wrappers, and deprecated fallbacks are added mechanisms; internal migration convenience is not an acceptance criterion.
+
+A contract crosses a real external boundary when existing consumers outside the service's change authority depend on it, including public HTTP, RPC, webhook, CLI, UI, event, file, protocol, integration, persisted, or published contracts. At that boundary, stop and ask whether backward compatibility is required. Only explicit human approval makes compatibility an acceptance criterion; otherwise make the clean break. When approved, define the supported transition and the condition that removes the old contract.
 
 ## Logical ownership and physical decomposition
 
