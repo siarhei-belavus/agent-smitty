@@ -1,0 +1,50 @@
+skills/atelier-workflow/hydrate-child-packet/SKILL.md
+  h_bc87c8dce3742c 4
+skills/atelier-workflow/frame-initiative/SKILL.md
+  h_bc87c8dce3742c 4
+skills/atelier-workflow/implement-task/SKILL.md
+  h_bc87c8dce3742c 4
+skills/atelier-workflow/sync-initiative/SKILL.md
+  h_bc87c8dce3742c 4
+skills/atelier-workflow/design-split-options/SKILL.md
+  h_bc87c8dce3742c 4
+skills/atelier-workflow/review-initiative-split/SKILL.md
+  h_bc87c8dce3742c 4
+skills/atelier-workflow/plan-task/SKILL.md
+  h_bc87c8dce3742c 4
+skills/atelier-workflow/review-code-plan-satisfaction/SKILL.md
+  h_bc87c8dce3742c 4
+skills/atelier-workflow/split-initiative/SKILL.md
+  h_bc87c8dce3742c 4
+skills/atelier-workflow/stabilize-initiative-language/SKILL.md
+  h_bc87c8dce3742c 4
+skills/atelier-workflow/distill-knowledge/SKILL.md
+  h_bc87c8dce3742c 4
+skills/atelier-workflow/review-code-maintainability/SKILL.md
+  s_e3c1bdd930e0ae::t_223fb0f4f7dd6e 4
+skills/atelier-workflow/extract-artifact-candidates/SKILL.md
+  h_bc87c8dce3742c 4
+settings.json
+  s_e3c1bdd930e0ae::t_645bad17894a22 6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "d089193f615496151fc888751b636614d79078ff",
+  "prompts": {},
+  "humans": {
+    "h_bc87c8dce3742c": {
+      "author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  },
+  "sessions": {
+    "s_e3c1bdd930e0ae": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019f7077-2d2d-7a13-a02f-2cdc048785f6",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
