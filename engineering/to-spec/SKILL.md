@@ -12,11 +12,15 @@ The issue tracker and triage label vocabulary should have been provided to you â
 
 1. Explore the repo to understand the current state of the codebase, if you haven't already. Use the project's domain glossary vocabulary throughout the spec, and respect any ADRs in the area you're touching.
 
-2. Sketch out the seams at which you're going to test the feature. Existing seams should be preferred to new ones. Use the highest seam possible. If new seams are needed, propose them at the highest point you can. The fewer seams across the codebase, the better - the ideal number is one.
+2. Sketch out the complete set of seams at which you're going to test the feature. Existing seams should be preferred to new ones. Use the highest seam possible. If new seams are needed, propose them at the highest point you can. The fewer seams across the codebase, the better - the ideal number is one.
 
-When the solution changes module ownership, an interface, a seam, or an existing contract, run `/codebase-design` before proposing the seams.
+When the solution changes module ownership, an interface, a seam, or an existing contract, or you are unsure, run `/codebase-design` before proposing the seams.
 
-Check with the user that these seams match their expectations.
+For each seam, propose the smallest faithful repository-native test approach and its nearest prior art.
+
+Check with the user that the complete seam set and proposed test approaches match their expectations.
+
+A **settled seam** is any existing, changed, or new seam included in the complete seam set explicitly confirmed by the user for the solution.
 
 3. Write the spec using the template below, then publish it to the project issue tracker. Apply the `ready-for-agent` triage label - no need for additional triage.
 
@@ -63,8 +67,9 @@ Exception: if a prototype produced a snippet that encodes a decision more precis
 A list of testing decisions that were made. Include:
 
 - A description of what makes a good test (only test external behavior, not implementation details)
+- The complete set of settled seams confirmed for the solution; for each seam, record its owning module, caller/test-visible interface, seam location, status (`existing`, `changed`, or `new`), and observable behavior exercised or verified through it
 - Which modules will be tested
-- Prior art for the tests (i.e. similar types of tests in the codebase)
+- The selected repository-native test approach and nearest prior art for each seam
 
 ## Out of Scope
 
