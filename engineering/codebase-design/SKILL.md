@@ -9,7 +9,7 @@ Design **deep modules**: a lot of behaviour behind a small interface, placed at 
 
 ## Glossary
 
-Use these terms exactly — don't substitute "component," "service," "API," or "boundary." Consistent language is the whole point.
+Use these terms exactly — don't substitute "component," "service," or "API." Reserve **boundary** for a trust, deployment, or change-authority boundary; use **seam** for the location of a module's interface. Consistent language is the whole point.
 
 **Module** — anything with an interface and an implementation. Deliberately scale-agnostic: a function, class, package, or tier-spanning slice. _Avoid_: unit, component, service.
 
@@ -19,7 +19,7 @@ Use these terms exactly — don't substitute "component," "service," "API," or "
 
 **Depth** — leverage at the interface: the amount of behaviour a caller (or test) can exercise per unit of interface they have to learn. A module is **deep** when a large amount of behaviour sits behind a small interface, **shallow** when the interface is nearly as complex as the implementation.
 
-**Seam** _(Michael Feathers)_ — a place where you can alter behaviour without editing in that place; the *location* at which a module's interface lives. Where to put the seam is its own design decision, distinct from what goes behind it. _Avoid_: boundary (overloaded with DDD's bounded context).
+**Seam** _(Michael Feathers)_ — a place where you can alter behaviour without editing in that place; the *location* at which a module's interface lives. Where to put the seam is its own design decision, distinct from what goes behind it. _Avoid_: boundary when referring to interface location.
 
 **Adapter** — a concrete thing that satisfies an interface at a seam. Describes *role* (what slot it fills), not substance (what's inside).
 
@@ -74,21 +74,33 @@ Every added mechanism must name the acceptance criterion or established invarian
 
 ### Final state
 
-Leave every touched current-truth artifact in **final-state** form: code, tests, configuration, schemas, examples, plans, skills, and durable design docs describe the intended system directly, using its current names, owners, statuses, contracts, layout, validation expectations, and vocabulary. Prefer one clear model over artifacts that teach superseded and current shapes together.
+Leave every affected current-truth artifact in **final-state** form: code, tests, configuration, schemas, examples, plans, skills, and durable design docs describe the intended system directly, using its current names, owners, statuses, contracts, layout, validation expectations, and vocabulary. Prefer one clear model over artifacts that teach superseded and current shapes together.
+
+Repave the affected area: reshape the affected logic into one coherent current implementation, scoped to the smallest coherent area, so the repair leaves no change-shaped layer. The resulting code should be explained entirely by the domain model and current invariants, as if the correct behavior had been designed from the start.
+
+After a change, run a recency audit: identify every current-truth artifact affected by the changed behavior or contract, including artifacts outside the diff, then reread that full set as a whole without the diff. Integrate new behavior as if it had always existed. Add tests, invariants, files, types, helpers, interface methods, headings, examples, or test groupings wherever the domain model calls for them, but name and organize them by current ownership and behavior rather than by the change that introduced them. Each construct must independently pass proportional design and logical ownership. If the change order explains the grouping, naming, or prominence better than the domain model, reshape the result. Complete the audit when every construct has a present-state domain reason and the result reads naturally to someone who does not know the change history.
+
+Treat the smallest coherent area as the full peer set within the same logical owner and abstraction, not merely the item named in the issue. Identify those peers by present-state domain role and invariant significance, then give comparable peers proportionate structural treatment and emphasis. Make treatment identical when their present-state domain role, invariant significance, and credible risk are equivalent. When one peer gains focused validation, tests, documentation, examples, or proof, audit the whole set at that abstraction level. Prefer one shared mechanism and an exhaustive table or matrix when the peers follow the same invariant; otherwise justify every difference with a present-state domain reason. Reshape uneven coverage when the difference lacks such a reason. Do not equalize treatment merely because one peer changed, and do not give the changed peer additional prominence merely because it triggered the work. Complete the peer audit when coverage, naming, grouping, and emphasis no longer reveal which peer triggered the change.
 
 Artifact role decides whether chronology belongs. A current-truth artifact answers what is intended now; an intentional history artifact answers how decisions or understanding evolved. Change logs, review findings, issue history, commits, Git history, and explicitly superseded ADRs or learning records may preserve chronology. A file does not become a history artifact merely because notes were appended to it.
 
-Tests are current truth: express stable expected behavior, domain invariants, and observable outcomes through the module's interface. A past bug can motivate a regression test, but the test presents the behavior that must hold, not the accidental implementation mistake that exposed it.
+Tests are current truth: exercise the module's interface at its seam and assert only behavior observable to a caller. Acceptance criteria, domain invariants, and credible failures determine which observable behavior needs protection; they do not justify inspecting internal state or testing private implementation. A past bug can motivate a regression test, but the test presents the behavior that must hold, not the accidental implementation mistake that exposed it.
+
+For an effectful module, an effect at a declared external boundary is observable behavior. Invoke the module only through its interface at its seam, then observe the resulting external state or message through a stand-in for that external system. Do not invoke internal ports directly or assert private collaborator calls, call sequences, or implementation structure.
 
 ### Clean breaks
+
+Backward compatibility is a rare, exceptional, deliberately approved mechanism, not a default design requirement or a precaution to add just in case. Only explicit human approval makes it an acceptance criterion.
 
 An internal contract change is a **clean break**: establish one current contract, update every producer and consumer under the same change authority, and remove the superseded form in the completed change. Aliases, shims, dual reads or writes, legacy payload handling, compatibility wrappers, and deprecated fallbacks are added mechanisms; internal migration convenience is not an acceptance criterion.
 
 A contract crosses a real external boundary when existing consumers outside the service's change authority depend on it, including public HTTP, RPC, webhook, CLI, UI, event, file, protocol, integration, persisted, or published contracts. At that boundary, stop and ask whether backward compatibility is required. Only explicit human approval makes compatibility an acceptance criterion; otherwise make the clean break. When approved, define the supported transition and the condition that removes the old contract.
 
+When uninterrupted operation requires explicitly approved temporary coexistence, treat it as traffic management during repaving, not as final architecture. Isolate the transition at the external seam, translate immediately into one current internal contract, give the transition an owner and observable removal trigger, and remove it when the trigger is met.
+
 ## Logical ownership and physical decomposition
 
-A module is a logical owner, not a file. Its implementation may span cohesive private files hidden behind one public interface at one seam. **Physical decomposition** splits independently changing internal responsibilities while preserving that interface, the module's invariants and vocabulary, and every boundary translation. Treat each new file as a private implementation detail; promote it to an owner, adapter, public seam, or test surface only when separate responsibility or variation passes proportional design.
+A module is a logical owner, not a file. Its implementation may span cohesive private files hidden behind one public interface at one seam. **Physical decomposition** splits independently changing internal responsibilities while preserving that interface, the module's invariants and vocabulary, and every boundary translation. Treat each new file as a private implementation detail, not a test surface. If it needs its own caller-facing interface or direct tests, first establish through proportional design that it is a separate logical owner rather than an internal part of the existing module.
 
 Before adding behavior to a module whose implementation contains independently changing responsibilities, either decompose those responsibilities privately behind the existing seam or state the concrete locality reason they are clearer and safer together. A behavior-preserving private split is tidy-first refactoring within the current implementation authority. Every split should improve locality by concentrating understanding and change.
 
@@ -108,7 +120,7 @@ Good interfaces make testing natural:
    }
    ```
 
-2. **Return results, don't produce side effects.**
+2. **Make observable behavior explicit.** Return results when the module's purpose is computation. When its domain purpose is an effect, make that effect explicit in the interface contract and observable at its declared external boundary.
 
    ```typescript
    // Testable
@@ -120,7 +132,7 @@ Good interfaces make testing natural:
    }
    ```
 
-3. **Small surface area.** Fewer methods = fewer tests needed. Fewer params = simpler test setup.
+3. **Small surface area.** Fewer interface elements reduce the number of surface combinations and simplify test setup. The necessary tests are still determined by observable behaviors, established invariants, and credible failures.
 
 ## Relationships
 
@@ -134,9 +146,9 @@ Good interfaces make testing natural:
 
 - **Depth as ratio of implementation-lines to interface-lines** (Ousterhout): rewards padding the implementation. We use depth-as-leverage instead.
 - **"Interface" as the TypeScript `interface` keyword or a class's public methods**: too narrow — interface here includes every fact a caller must know.
-- **"Boundary"**: overloaded with DDD's bounded context. Say **seam** or **interface**.
+- **"Boundary" as the location of an interface**: overloaded with DDD's bounded context. Say **seam** or **interface**. Keep **boundary** for trust, deployment, or change-authority boundaries.
 
 ## Going deeper
 
-- **Deepening a cluster given its dependencies** — see [DEEPENING.md](DEEPENING.md): dependency categories, seam discipline, and replace-don't-layer testing.
+- **Deepening a cluster given its dependencies** — see [DEEPENING.md](DEEPENING.md): when deepening pays, dependency strategies, seam discipline, and replace-don't-layer testing.
 - **Exploring alternative interfaces** — see [DESIGN-IT-TWICE.md](DESIGN-IT-TWICE.md): spin up parallel sub-agents to design the interface several radically different ways, then compare on depth, locality, and seam placement.

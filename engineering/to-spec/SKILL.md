@@ -51,7 +51,7 @@ This list of user stories should be extremely extensive and cover all aspects of
 A list of implementation decisions that were made. This can include:
 
 - The modules that will be built/modified
-- The interfaces of those modules that will be modified
+- The interfaces of those modules that will be built/modified
 - Technical clarifications from the developer
 - Architectural decisions
 - Schema changes
