@@ -1,0 +1,43 @@
+skills/matt/engineering/codebase-design/DEEPENING.md
+  s_cf2df9497ae9eb::t_18aafa473d3795 38,42
+  s_cf2df9497ae9eb::t_ff0f56c07b7c8c 41
+  s_cf2df9497ae9eb::t_4f3ce53dee964e 5,7,9,11,13,17,21,27,36
+  s_cf2df9497ae9eb::t_c3436f1d1f240a 34,39-40,43
+  s_cf2df9497ae9eb::t_e886dcf71045d4 15,19
+  s_cf2df9497ae9eb::t_70e58c772616d9 18
+  s_cf2df9497ae9eb::t_9a192ac2fe9e69 20
+skills/matt/engineering/codebase-design/SKILL.md
+  s_cf2df9497ae9eb::t_086d41dbe8fc6b 12,22,77-79,81,135,149
+  s_cf2df9497ae9eb::t_4f3ce53dee964e 153
+  s_cf2df9497ae9eb::t_3db5eeb50bdebb 93-94
+  s_cf2df9497ae9eb::t_c3436f1d1f240a 103
+  s_cf2df9497ae9eb::t_3c8b78fd332010 82
+  s_cf2df9497ae9eb::t_b5a88aaa4fcbdc 80,99
+  s_cf2df9497ae9eb::t_18aafa473d3795 87
+  s_cf2df9497ae9eb::t_ff0f56c07b7c8c 83,89,123
+  s_cf2df9497ae9eb::t_378d6f49ca6ac7 88
+  s_cf2df9497ae9eb::t_0319f995364342 100
+skills/matt/engineering/to-spec/SKILL.md
+  h_bc87c8dce3742c 54
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "cbc2bbd54b2f6b2de7c7d5210ed9a6e632a150a2",
+  "prompts": {},
+  "humans": {
+    "h_bc87c8dce3742c": {
+      "author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  },
+  "sessions": {
+    "s_cf2df9497ae9eb": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f8988-5952-7350-bb0c-ebaa463c87bd",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
