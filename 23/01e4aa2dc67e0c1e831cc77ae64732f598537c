@@ -1,0 +1,29 @@
+skills/maintenance/sync-matt-skills/scripts/sync_matt_skills.py
+  s_f5742e2569d3af::t_c748b8b3351698 229-230,232-233,236-241,246,254-263,442-468,636-652
+  s_f5742e2569d3af::t_feafda21852690 35,370,377-382,384-386,388-392,415,431,435,616
+  s_f5742e2569d3af::t_fa73b4268148b2 469-470
+skills/maintenance/sync-matt-skills/tests/test_sync_matt_skills.py
+  s_f5742e2569d3af::t_59d527a486ddec 471-492,511-547
+  s_f5742e2569d3af::t_e55fc6aa030aca 310-347,349-356
+  s_f5742e2569d3af::t_2b7d0071008a3f 548
+skills/maintenance/sync-matt-skills/SKILL.md
+  s_f5742e2569d3af::t_08c325cb879774 83-85,89-91
+skills/matt-source-lock.json
+  s_f5742e2569d3af::t_4e3882a0a7d561 1015
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "2301e4aa2dc67e0c1e831cc77ae64732f598537c",
+  "prompts": {},
+  "sessions": {
+    "s_f5742e2569d3af": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fb33b-f8b4-7dc0-99f0-9af92e6b8ab7",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
