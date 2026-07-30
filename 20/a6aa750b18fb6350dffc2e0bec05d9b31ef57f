@@ -1,0 +1,31 @@
+skills/maintenance/review-matt-skills/scripts/review_matt_updates.py
+  s_f5742e2569d3af::t_875d76da05e82d 2,8,11-13,16-17,20,25,30-40,42-47,49,51,58-91,94-104,107-110,112-136,138-155,157,159-170,174-178,184-188,193-195,197,200-205,208,211-215,219-227,231-287,290-304,310,312,314-321,323,325,329-334,336-338,340-351,353-371,373-379
+  s_f5742e2569d3af::t_9d7e2b2b397030 309
+skills/maintenance/review-matt-skills/SKILL.md
+  s_f5742e2569d3af::t_9d7e2b2b397030 14,17-18,32
+  s_f5742e2569d3af::t_875d76da05e82d 2-3,7-9,11-13,15-16,19-23,26,28-31,33-52,54-55,58-73,75,77,80-85
+skills/maintenance/review-matt-skills/tests/test_review_matt_updates.py
+  s_f5742e2569d3af::t_875d76da05e82d 1-71,83-88,90-105,108-156,158-166,168-229
+  s_f5742e2569d3af::t_15054061077740 72-82
+  s_f5742e2569d3af::t_9d7e2b2b397030 89,106-107,157,167
+skills/maintenance/review-matt-skills/agents/openai.yaml
+  s_f5742e2569d3af::t_875d76da05e82d 2-3,5
+skills/maintenance/review-matt-skills/matt-upstream-state.json
+  s_f5742e2569d3af::t_875d76da05e82d 1-5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "20a6aa750b18fb6350dffc2e0bec05d9b31ef57f",
+  "prompts": {},
+  "sessions": {
+    "s_f5742e2569d3af": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fb33b-f8b4-7dc0-99f0-9af92e6b8ab7",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
