@@ -1,0 +1,21 @@
+skills/matt-source-lock.json
+  s_f5742e2569d3af::t_3f86f399ca6ce4 162,1015
+skills/matt/engineering/change-walkthrough/FORMAT.md
+  s_f5742e2569d3af::t_67295891867a2e 66-68
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "af9189277f355f58847ebbb3030c25eccba331d0",
+  "prompts": {},
+  "sessions": {
+    "s_f5742e2569d3af": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fb33b-f8b4-7dc0-99f0-9af92e6b8ab7",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
