@@ -1,0 +1,24 @@
+skills/maintenance/sync-matt-skills/tests/test_sync_matt_skills.py
+  s_f5742e2569d3af::t_fab56ceb2c4d5d 106-107,172-173,201-202
+  s_f5742e2569d3af::t_00dc1cac9933a3 292,295-297
+  s_f5742e2569d3af::t_8922ab3a849642 4,19-26,30
+  s_f5742e2569d3af::t_83e2f1c3864183 223-291,293-294,298
+skills/maintenance/sync-matt-skills/scripts/sync_matt_skills.py
+  s_f5742e2569d3af::t_d90ec70ee24e68 9,29-37,170-181,302-389,396,437-442,447-448,465-466,468-473,512-517,528,538,547
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "274a9447203ff7be8c4a3b3d075434e92c7a789c",
+  "prompts": {},
+  "sessions": {
+    "s_f5742e2569d3af": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fb33b-f8b4-7dc0-99f0-9af92e6b8ab7",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
