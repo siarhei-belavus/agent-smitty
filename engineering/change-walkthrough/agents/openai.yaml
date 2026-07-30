@@ -1,0 +1,5 @@
+interface:
+  display_name: "Change Walkthrough"
+  short_description: "Explore changes through end-to-end flows"
+policy:
+  allow_implicit_invocation: false
