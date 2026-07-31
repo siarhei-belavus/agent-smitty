@@ -102,16 +102,27 @@ class CodeReviewContractTests(unittest.TestCase):
 
     def test_results_are_repository_local_for_standards_and_bundle_wide_for_spec(self) -> None:
         aggregate = markdown_section(self.skill, "### 5. Aggregate without merging axes")
+        self.assertIn("For each selected axis only", aggregate)
         self.assertIn("## Standards — <Repository ID>", aggregate)
         self.assertIn("## Spec — Delivery Bundle", aggregate)
-        self.assertIn("Do not merge, reclassify, or rerank the axes", aggregate)
+        self.assertIn("do not merge, reclassify, or rerank the axes", aggregate.lower())
 
     def test_wip_evidence_uses_a_canonical_git_tree_snapshot(self) -> None:
         pinning = markdown_section(self.skill, "### 1. Pin every target")
         self.assertIn("Worktree snapshot ID", pinning)
         self.assertIn("temporary Git index", pinning)
+        self.assertIn("temporary object store", pinning)
+        self.assertIn("GIT_OBJECT_DIRECTORY", pinning)
+        self.assertIn("GIT_ALTERNATE_OBJECT_DIRECTORIES", pinning)
         self.assertIn("git write-tree", pinning)
         self.assertIn("snapshot ID changes", pinning)
+
+    def test_wip_validation_evidence_is_bound_to_the_snapshot(self) -> None:
+        public_input = markdown_section(self.skill, "## Public input")
+        self.assertIn(
+            "bound to both the Review head and Worktree snapshot ID",
+            public_input,
+        )
 
     def test_changed_targets_invalidate_dependent_evidence(self) -> None:
         freshness = markdown_section(self.skill, "## Evidence freshness")

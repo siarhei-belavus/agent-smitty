@@ -15,7 +15,7 @@ Accept one or more fixed Repository Targets. Treat the existing single-repositor
 - **Review head** as an exact commit SHA;
 - **Authoritative sources**;
 - **Settled seams** and test approaches relevant to that target;
-- repository validation evidence bound to the Review head, when supplied.
+- repository validation evidence bound to the Review head for a committed target or bound to both the Review head and Worktree snapshot ID for WIP, when supplied.
 - for explicit WIP review, a **Worktree snapshot ID** that identifies the captured uncommitted content.
 
 For the existing single-repository form, the user may supply only a fixed point; use the current repository and resolve the current `HEAD` as the exact Review head. When the single-repository worktree is dirty and the user did not select committed or WIP review, disclose the dirty state and ask whether those changes are in scope. Preserve explicit worktree/WIP review by identifying it with both the current exact `HEAD` and an immutable Git tree snapshot of the tracked, staged, and untracked content.
@@ -34,7 +34,7 @@ Do not silently add an unselected axis.
 
 Resolve every Fixed point and Review head once in its target repository. For committed review, use `<fixed-point>...<review-head>` and record `git log <fixed-point>..<review-head> --oneline`.
 
-For explicit worktree review, capture one canonical Git tree without changing the real index or worktree. Point `GIT_INDEX_FILE` at a new temporary Git index, run `git read-tree <review-head>`, `git add -A -- .`, and `git write-tree`, then record the returned tree object ID as the **Worktree snapshot ID**. This uses Git's canonical tree serialization and includes tracked, staged, deleted, renamed, symlink, submodule, and non-ignored untracked state as it would be committed. Review the immutable change set with `git diff <merge-base> <worktree-snapshot-id>` and include the tree object ID in reviewer inputs. Repeat the same temporary-index capture before reporting; when the snapshot ID changes, the review is stale and must restart. If the target cannot be represented by that Git tree, require a committed target instead of claiming WIP freshness.
+For explicit worktree review, capture one canonical Git tree without changing the reviewed repository's index, worktree, or object database. Create a temporary object store and a new temporary Git index outside the repository. Set `GIT_OBJECT_DIRECTORY` to the temporary object store, set `GIT_ALTERNATE_OBJECT_DIRECTORIES` to the reviewed repository's object directory plus its configured alternates, and set `GIT_INDEX_FILE` to the temporary Git index for every snapshot and diff command. With those variables set, run `git read-tree <review-head>`, `git add -A -- .`, and `git write-tree`, then record the returned tree object ID as the **Worktree snapshot ID**. This uses Git's canonical tree serialization and includes tracked, staged, deleted, renamed, symlink, submodule, and non-ignored untracked state as it would be committed. Review the immutable change set with `git diff <merge-base> <worktree-snapshot-id>` while the temporary object store remains available, and include the tree object ID in validation and reviewer inputs. Repeat the same temporary-store capture before reporting; when the snapshot ID changes, the review is stale and must restart. Remove the temporary store only after aggregation. If the target cannot be represented by that Git tree, require a committed target instead of claiming WIP freshness.
 
 Confirm each target resolves and has a non-empty selected change set before starting reviewers. A bad ref or empty target fails here. Do not substitute a branch tip or later `HEAD` for the captured Review head.
 
@@ -86,15 +86,15 @@ Run fresh reviewers concurrently where harness capacity permits; freshness and c
 
 ### 5. Aggregate without merging axes
 
-Report Standards separately for every repository, using one section per target:
+For each selected axis only, emit its result and counts. When Standards is selected, report it separately for every repository, using one section per target:
 
 `## Standards — <Repository ID>`
 
-Report the whole-bundle result once:
+When Spec is selected, report the whole-bundle result once:
 
 `## Spec — Delivery Bundle`
 
-Do not merge, reclassify, or rerank the axes. End with Blocking and Advisory counts per repository Standards result and for the bundle Spec result, plus the highest-severity finding within each result when present.
+Omit the unselected axis entirely. When both are selected, do not merge, reclassify, or rerank the axes. End with Blocking and Advisory counts and the highest-severity finding within each selected result when present.
 
 This skill does not publish branches, does not create or update Review Proposals, and does not change Work Tracker state. A review reports findings and evidence only.
 
