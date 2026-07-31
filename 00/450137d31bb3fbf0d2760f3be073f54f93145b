@@ -1,0 +1,23 @@
+skills/matt/engineering/setup-matt-pocock-skills/issue-tracker-local.md
+  s_ea31d5fa5bbfa0::t_97e785ac55c673 30
+skills/matt/engineering/setup-matt-pocock-skills/issue-tracker-github.md
+  s_ea31d5fa5bbfa0::t_97e785ac55c673 45
+skills/matt/engineering/setup-matt-pocock-skills/issue-tracker-gitlab.md
+  s_ea31d5fa5bbfa0::t_97e785ac55c673 46
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.19",
+  "base_commit_sha": "00450137d31bb3fbf0d2760f3be073f54f93145b",
+  "prompts": {},
+  "sessions": {
+    "s_ea31d5fa5bbfa0": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fb7f5-3496-72f2-9d22-d1cbdd106e83",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
