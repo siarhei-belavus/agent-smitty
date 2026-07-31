@@ -118,12 +118,6 @@ def load_repository(
     origin = git_output(path, "remote", "get-url", "origin")
     if remote and origin != remote:
         errors.append(f"{declared_id} origin does not match its Remote binding")
-    current_branch = git_output(path, "symbolic-ref", "--short", "HEAD")
-    if base_branch and current_branch and current_branch != base_branch:
-        errors.append(
-            f"{declared_id} is on {current_branch}, not Base Branch {base_branch}"
-        )
-
     agents = read(path / "AGENTS.md", errors)
     for pointer in ("docs/agents/code-host.md", "docs/agents/domain.md"):
         if pointer not in agents:

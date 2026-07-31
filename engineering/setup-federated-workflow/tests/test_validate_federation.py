@@ -87,6 +87,58 @@ def write_repository(
 
 
 class ValidateFederationCliTests(unittest.TestCase):
+    def test_validates_configuration_from_delivery_branches(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            home = root / "home"
+            member = root / "member"
+            home_identity = (
+                "home",
+                "git@example.test:group/home.git",
+                "main",
+            )
+            write_repository(
+                home,
+                *home_identity,
+                role="Home",
+                home=home_identity,
+                ticket_origin=True,
+            )
+            write_repository(
+                member,
+                "member",
+                "git@example.test:group/member.git",
+                "master",
+                role="Member",
+                home=home_identity,
+            )
+            run(["git", "switch", "-c", "ai/federation-setup"], home)
+            run(["git", "switch", "-c", "ai/federation-setup"], member)
+            (member / "CONTEXT.md").write_text("# Member Context\n")
+            (home / "CONTEXT-MAP.md").write_text(
+                "# PNL Federated Context Map\n\n"
+                "## Contexts\n\n"
+                "- [Member](member:CONTEXT.md) — member context.\n"
+                "  - Owner: `member`; Remote: "
+                "`git@example.test:group/member.git`; Base Branch: `master`.\n\n"
+                "## External Systems\n\n- None.\n\n"
+                "## Relationships\n\n- None.\n"
+            )
+
+            result = run(
+                [
+                    sys.executable,
+                    str(SCRIPT),
+                    "--home",
+                    f"home={home}",
+                    "--member",
+                    f"member={member}",
+                ],
+                root,
+            )
+
+            self.assertEqual(0, result.returncode, result.stderr)
+
     def test_validates_reciprocal_portable_configuration(self) -> None:
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
