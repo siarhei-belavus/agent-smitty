@@ -1,0 +1,19 @@
+skills/matt/engineering/ask-matt/SKILL.md
+  s_f02de5e71993b0::t_115af44917ee82 23,42,44-46,56,58-59,71,73
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.19",
+  "base_commit_sha": "d12d494fa6824911c66564378bf36bb1df91303e",
+  "prompts": {},
+  "sessions": {
+    "s_f02de5e71993b0": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fb7f6-408d-7ed0-bef7-af42c1b3f7f2",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
