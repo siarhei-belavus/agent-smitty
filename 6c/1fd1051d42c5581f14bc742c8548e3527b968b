@@ -1,0 +1,31 @@
+skills/matt/engineering/ask-matt/SKILL.md
+  s_f02de5e71993b0::t_0cf20751044c80 23,26,42,44,54,56-57,70
+skills/matt/engineering/code-review/agents/openai.yaml
+  s_f02de5e71993b0::t_18c6ca5ed10897 3
+skills/matt/engineering/README.md
+  s_f02de5e71993b0::t_18c6ca5ed10897 17,31
+skills/matt/engineering/implement/SKILL.md
+  s_f02de5e71993b0::t_01c42386b13db1 3,7,9-40,46-56,58-65,67,69,71
+skills/matt/engineering/code-review/SKILL.md
+  s_f02de5e71993b0::t_4cb049f7e235a0 3,6,8,10,12-18,20,22,24-26,28,30,32,34,36,38,40,42,44-47,49,51,53,55-66,68,70,72,74,76,78,80,82,84,86,88,90,92,94,96,98,100
+skills/matt/engineering/implement/agents/openai.yaml
+  s_f02de5e71993b0::t_18c6ca5ed10897 3
+skills/matt/engineering/tests/test_federated_workflow_skill_contracts.py
+  s_f02de5e71993b0::t_5a25a1546cc20b 1-91
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.19",
+  "base_commit_sha": "6c1fd1051d42c5581f14bc742c8548e3527b968b",
+  "prompts": {},
+  "sessions": {
+    "s_f02de5e71993b0": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fb7f6-408d-7ed0-bef7-af42c1b3f7f2",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
