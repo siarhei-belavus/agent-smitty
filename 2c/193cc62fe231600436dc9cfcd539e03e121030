@@ -1,0 +1,31 @@
+skills/matt/engineering/setup-federated-workflow/scripts/validate_federation.py
+  s_8018ffeaba58cc::t_fbe2d3917ea302 1-245
+skills/matt/engineering/setup-federated-workflow/references/provider-bindings.md
+  s_8018ffeaba58cc::t_95137f75cbb114 1-84
+skills/matt/engineering/setup-federated-workflow/references/preflight-and-validation.md
+  s_8018ffeaba58cc::t_95137f75cbb114 1-45
+skills/matt/engineering/setup-federated-workflow/references/domain-federation.md
+  s_8018ffeaba58cc::t_95137f75cbb114 1-56
+skills/matt/engineering/setup-federated-workflow/agents/openai.yaml
+  s_8018ffeaba58cc::t_95137f75cbb114 1-3
+skills/matt/engineering/setup-federated-workflow/SKILL.md
+  s_8018ffeaba58cc::t_95137f75cbb114 1-108
+skills/matt/engineering/setup-federated-workflow/tests/test_validate_federation.py
+  s_8018ffeaba58cc::t_655c5f70417494 1-194
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "2c193cc62fe231600436dc9cfcd539e03e121030",
+  "prompts": {},
+  "sessions": {
+    "s_8018ffeaba58cc": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fb70c-8136-7512-b656-c08e284e5f93",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
