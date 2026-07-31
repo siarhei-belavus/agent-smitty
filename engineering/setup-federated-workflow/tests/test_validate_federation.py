@@ -84,9 +84,184 @@ def write_repository(
         (root / "docs" / "agents" / "triage-labels.md").write_text(
             "# Routing Labels\n"
         )
+    run(["git", "config", "user.name", "Test User"], root)
+    run(["git", "config", "user.email", "test@example.test"], root)
+    run(["git", "add", "."], root)
+    run(["git", "commit", "-m", "test fixture"], root)
 
 
 class ValidateFederationCliTests(unittest.TestCase):
+    def test_rejects_a_configured_base_branch_that_does_not_exist(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            home = root / "home"
+            member = root / "member"
+            home_identity = (
+                "home",
+                "git@example.test:group/home.git",
+                "main",
+            )
+            write_repository(
+                home,
+                *home_identity,
+                role="Home",
+                home=home_identity,
+                ticket_origin=True,
+            )
+            write_repository(
+                member,
+                "member",
+                "git@example.test:group/member.git",
+                "master",
+                role="Member",
+                home=home_identity,
+            )
+            code_host_path = member / "docs" / "agents" / "code-host.md"
+            code_host_path.write_text(
+                code_host_path.read_text().replace(
+                    "- Base Branch: `master`",
+                    "- Base Branch: `missing`",
+                )
+            )
+            (member / "CONTEXT.md").write_text("# Member Context\n")
+            (home / "CONTEXT-MAP.md").write_text(
+                "# PNL Federated Context Map\n\n"
+                "## Contexts\n\n"
+                "- [Member](member:CONTEXT.md) — member context.\n"
+                "  - Owner: `member`; Remote: "
+                "`git@example.test:group/member.git`; Base Branch: `missing`.\n\n"
+                "## External Systems\n\n- None.\n\n"
+                "## Relationships\n\n- None.\n"
+            )
+
+            result = run(
+                [
+                    sys.executable,
+                    str(SCRIPT),
+                    "--home",
+                    f"home={home}",
+                    "--member",
+                    f"member={member}",
+                ],
+                root,
+            )
+
+            self.assertNotEqual(0, result.returncode)
+            self.assertIn(
+                "member configured Base Branch missing does not exist",
+                result.stderr,
+            )
+
+    def test_rejects_any_inconsistent_repeated_map_identity(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            home = root / "home"
+            member = root / "member"
+            home_identity = (
+                "home",
+                "git@example.test:group/home.git",
+                "main",
+            )
+            write_repository(
+                home,
+                *home_identity,
+                role="Home",
+                home=home_identity,
+                ticket_origin=True,
+            )
+            write_repository(
+                member,
+                "member",
+                "git@example.test:group/member.git",
+                "master",
+                role="Member",
+                home=home_identity,
+            )
+            (member / "CONTEXT.md").write_text("# Member Context\n")
+            (home / "CONTEXT-MAP.md").write_text(
+                "# PNL Federated Context Map\n\n"
+                "## Contexts\n\n"
+                "- [First](member:CONTEXT.md) — first context.\n"
+                "  - Owner: `member`; Remote: "
+                "`git@example.test:wrong/member.git`; Base Branch: `master`.\n\n"
+                "- [Second](member:CONTEXT.md) — second context.\n"
+                "  - Owner: `member`; Remote: "
+                "`git@example.test:group/member.git`; Base Branch: `master`.\n\n"
+                "## External Systems\n\n- None.\n\n"
+                "## Relationships\n\n- None.\n"
+            )
+
+            result = run(
+                [
+                    sys.executable,
+                    str(SCRIPT),
+                    "--home",
+                    f"home={home}",
+                    "--member",
+                    f"member={member}",
+                ],
+                root,
+            )
+
+            self.assertNotEqual(0, result.returncode)
+            self.assertIn(
+                "member has an inconsistent portable identity in the Home map",
+                result.stderr,
+            )
+
+    def test_rejects_duplicate_member_arguments(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            home = root / "home"
+            member = root / "member"
+            home_identity = (
+                "home",
+                "git@example.test:group/home.git",
+                "main",
+            )
+            write_repository(
+                home,
+                *home_identity,
+                role="Home",
+                home=home_identity,
+                ticket_origin=True,
+            )
+            write_repository(
+                member,
+                "member",
+                "git@example.test:group/member.git",
+                "master",
+                role="Member",
+                home=home_identity,
+            )
+            (member / "CONTEXT.md").write_text("# Member Context\n")
+            (home / "CONTEXT-MAP.md").write_text(
+                "# PNL Federated Context Map\n\n"
+                "## Contexts\n\n"
+                "- [Member](member:CONTEXT.md) — member context.\n"
+                "  - Owner: `member`; Remote: "
+                "`git@example.test:group/member.git`; Base Branch: `master`.\n\n"
+                "## External Systems\n\n- None.\n\n"
+                "## Relationships\n\n- None.\n"
+            )
+
+            result = run(
+                [
+                    sys.executable,
+                    str(SCRIPT),
+                    "--home",
+                    f"home={home}",
+                    "--member",
+                    f"member={member}",
+                    "--member",
+                    f"member={member}",
+                ],
+                root,
+            )
+
+            self.assertNotEqual(0, result.returncode)
+            self.assertIn("member is supplied more than once", result.stderr)
+
     def test_validates_configuration_from_delivery_branches(self) -> None:
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)

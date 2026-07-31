@@ -118,6 +118,22 @@ def load_repository(
     origin = git_output(path, "remote", "get-url", "origin")
     if remote and origin != remote:
         errors.append(f"{declared_id} origin does not match its Remote binding")
+    local_base = git_output(
+        path,
+        "rev-parse",
+        "--verify",
+        f"refs/heads/{base_branch}^{{commit}}",
+    )
+    remote_base = git_output(
+        path,
+        "rev-parse",
+        "--verify",
+        f"refs/remotes/origin/{base_branch}^{{commit}}",
+    )
+    if base_branch and not (local_base or remote_base):
+        errors.append(
+            f"{declared_id} configured Base Branch {base_branch} does not exist"
+        )
     agents = read(path / "AGENTS.md", errors)
     for pointer in ("docs/agents/code-host.md", "docs/agents/domain.md"):
         if pointer not in agents:
@@ -141,7 +157,12 @@ def load_repository(
 def validate(arguments: argparse.Namespace) -> list[str]:
     errors: list[str] = []
     home_id, home_path = arguments.home
-    member_locations = dict(arguments.member)
+    member_locations: dict[str, Path] = {}
+    for repository_id, path in arguments.member:
+        if repository_id in member_locations:
+            errors.append(f"{repository_id} is supplied more than once")
+            continue
+        member_locations[repository_id] = path
     if home_id in member_locations:
         errors.append("the Home cannot also be supplied as a member")
     repositories = {
@@ -190,14 +211,22 @@ def validate(arguments: argparse.Namespace) -> list[str]:
     if LOCAL_PATH.search(context_map):
         errors.append(f"{map_path} contains a machine-local path")
 
-    mapped = {
-        repository_id: (remote, branch)
-        for repository_id, remote, branch in MAP_REPOSITORY.findall(context_map)
-    }
+    mapped: dict[str, list[tuple[str, str]]] = {}
+    for repository_id, remote, branch in MAP_REPOSITORY.findall(context_map):
+        mapped.setdefault(repository_id, []).append((remote, branch))
     for repository_id, member_path in member_locations.items():
         member = repositories[repository_id]
-        if mapped.get(repository_id) != (member.remote, member.base_branch):
+        identities = mapped.get(repository_id, [])
+        if not identities:
             errors.append(f"{repository_id} has no exact portable identity in the Home map")
+        elif any(
+            identity != (member.remote, member.base_branch)
+            for identity in identities
+        ):
+            errors.append(
+                f"{repository_id} has an inconsistent portable identity "
+                "in the Home map"
+            )
 
     for repository_id, relative_path in CONTEXT_POINTER.findall(context_map):
         repository = repositories.get(repository_id)
