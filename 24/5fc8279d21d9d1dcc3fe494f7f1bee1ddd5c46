@@ -1,0 +1,21 @@
+skills/matt/engineering/ask-matt/SKILL.md
+  s_ea31d5fa5bbfa0::t_a50e758b64662a 58
+skills/matt/engineering/setup-matt-pocock-skills/domain.md
+  s_ea31d5fa5bbfa0::t_a50e758b64662a 11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.19",
+  "base_commit_sha": "245fc8279d21d9d1dcc3fe494f7f1bee1ddd5c46",
+  "prompts": {},
+  "sessions": {
+    "s_ea31d5fa5bbfa0": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fb7f5-3496-72f2-9d22-d1cbdd106e83",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
