@@ -1,0 +1,21 @@
+skills/matt/engineering/README.md
+  s_ea31d5fa5bbfa0::t_bb91a5397ce7fa 11-12,15-16,18,29
+skills/matt/engineering/wayfinder/SKILL.md
+  s_ea31d5fa5bbfa0::t_18de16da02ca16 41,83,89,126-127,136-137
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.19",
+  "base_commit_sha": "46667cc7101c93033ffda83153d90d8a38fa4957",
+  "prompts": {},
+  "sessions": {
+    "s_ea31d5fa5bbfa0": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fb7f5-3496-72f2-9d22-d1cbdd106e83",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
