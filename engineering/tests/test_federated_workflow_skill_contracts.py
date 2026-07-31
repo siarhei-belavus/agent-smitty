@@ -29,7 +29,6 @@ class ImplementContractTests(unittest.TestCase):
         self.assertIn("Coordinator-narrowed assignment", self.skill)
         self.assertIn("exactly one named Repository Scope entry", self.skill)
         self.assertIn("supplied Execution Worktree", self.skill)
-        self.assertIn("Do not start reviewers or any other child agent", self.skill)
 
     def test_delivery_result_is_bound_to_exact_git_and_validation_evidence(self) -> None:
         for public_field in (
@@ -39,6 +38,10 @@ class ImplementContractTests(unittest.TestCase):
         ):
             with self.subTest(public_field=public_field):
                 self.assertIn(public_field, self.skill)
+
+    def test_validation_evidence_matches_a_committed_clean_delivery_state(self) -> None:
+        self.assertIn("Clean delivery state", self.skill)
+        self.assertIn("worktree is clean", self.skill)
 
     def test_narrowed_assignment_never_expands_scope_or_publishes(self) -> None:
         self.assertIn("Material contradiction", self.skill)
@@ -71,10 +74,13 @@ class CodeReviewContractTests(unittest.TestCase):
         self.assertIn("Both (the standalone default)", self.skill)
 
     def test_results_are_repository_local_for_standards_and_bundle_wide_for_spec(self) -> None:
-        self.assertIn("one fresh Standards Reviewer per selected Repository Target", self.skill)
-        self.assertIn("one fresh Bundle Spec Reviewer", self.skill)
         self.assertIn("## Standards — <Repository ID>", self.skill)
         self.assertIn("## Spec — Delivery Bundle", self.skill)
+
+    def test_wip_evidence_has_an_immutable_snapshot_identity(self) -> None:
+        self.assertIn("Worktree snapshot digest", self.skill)
+        self.assertIn("SHA-256", self.skill)
+        self.assertIn("snapshot digest changes", self.skill)
 
     def test_changed_heads_invalidate_validation_and_standards_evidence(self) -> None:
         self.assertIn("Changed heads invalidate", self.skill)

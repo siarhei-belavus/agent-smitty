@@ -39,6 +39,8 @@ Before making changes, create one delivery record per writable Repository Scope 
 
 Do not use one repository's instructions, tests, or validation as authority for another. Preserve existing user work by using the supplied worktree or another isolated writable checkout within the assignment.
 
+Do not mix assignment-owned changes with unrelated worktree content. If the supplied worktree already contains changes, classify them against the assignment before editing. Preserve unrelated content and report a blocker when it cannot be isolated without changing user work.
+
 Use the complete settled seam set and test approaches recorded in the supplied specification, tickets, or resolved design decisions. Do not ask the user to reconfirm them.
 
 When invoked standalone without a settled seam set, identify the complete set of existing, changed, and new seams the solution spans. For each seam, propose the smallest faithful repository-native test approach and its nearest prior art. If materially different caller-facing ownership, interface, seam, or contract choices remain possible, run `/codebase-design` before proposing the set. Ask the user to confirm the complete set and proposed approaches once; the confirmed seams are settled.
@@ -49,7 +51,7 @@ Work in vertical slices within each Repository Delivery. Invoke `/tdd` with the 
 
 Run typechecking and focused tests regularly. After each coherent green iteration, commit focused work to that delivery's current branch. Never commit changes from another repository in the same commit.
 
-Run the full repository-owned validation suite once implementation is complete in each changed repository. Record every command, outcome, and relevant limitation against the exact commit it validated. Resolve and record the **Exact local HEAD** after validation; if the HEAD changes, the prior validation evidence is stale and must be refreshed.
+Before final validation, establish a **Clean delivery state**: every assignment-owned change is committed and the worktree is clean. If unrelated or uncommitted content remains, do not attribute validation to `HEAD`; isolate it safely or return a blocker with the exact status. Run the full repository-owned validation suite once implementation is complete in each changed repository. Record every command, outcome, and relevant limitation against the exact commit it validated. Resolve and record the **Exact local HEAD** and clean-worktree status after validation; if the HEAD or worktree state changes, the prior validation evidence is stale and must be refreshed.
 
 ## Finish the selected mode
 
@@ -59,6 +61,7 @@ For a Coordinator-narrowed assignment, return exactly one Repository Delivery re
 - Execution Worktree;
 - Fixed review base;
 - Exact local HEAD;
+- Clean delivery state;
 - focused commits;
 - Repository validation commands and outcomes;
 - remaining blockers or Material contradiction details;
