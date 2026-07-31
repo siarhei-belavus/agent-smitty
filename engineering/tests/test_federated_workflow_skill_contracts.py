@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+import os
+import subprocess
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -117,12 +120,66 @@ class CodeReviewContractTests(unittest.TestCase):
         self.assertIn("git write-tree", pinning)
         self.assertIn("snapshot ID changes", pinning)
 
+    def test_wip_snapshot_capture_covers_the_repository_root(self) -> None:
+        pinning = markdown_section(self.skill, "### 1. Pin every target")
+        self.assertIn("target repository root as the working directory", pinning)
+        self.assertIn("top-anchored pathspec `:/`", pinning)
+
+    def test_wip_snapshot_evidence_covers_changes_outside_callers_directory(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            temporary = Path(temporary_directory)
+            repository = temporary / "repository"
+            repository.mkdir()
+
+            def git(*arguments: str, environment: dict[str, str] | None = None) -> str:
+                result = subprocess.run(
+                    ["git", *arguments],
+                    cwd=repository,
+                    env=environment,
+                    check=True,
+                    capture_output=True,
+                    text=True,
+                )
+                return result.stdout.strip()
+
+            git("init", "--quiet")
+            git("config", "user.name", "Contract Test")
+            git("config", "user.email", "contract@example.invalid")
+            (repository / "root.txt").write_text("before\n")
+            (repository / "nested").mkdir()
+            (repository / "nested" / "kept.txt").write_text("kept\n")
+            git("add", "-A")
+            git("commit", "--quiet", "-m", "initial")
+            (repository / "root.txt").write_text("after\n")
+
+            object_store = temporary / "objects"
+            object_store.mkdir()
+            environment = os.environ | {
+                "GIT_OBJECT_DIRECTORY": str(object_store),
+                "GIT_ALTERNATE_OBJECT_DIRECTORIES": str(repository / ".git" / "objects"),
+                "GIT_INDEX_FILE": str(temporary / "snapshot-index"),
+            }
+            git("read-tree", "HEAD", environment=environment)
+            git("add", "-A", "--", ":/", environment=environment)
+            snapshot_id = git("write-tree", environment=environment)
+
+            self.assertEqual(
+                "after",
+                git("show", f"{snapshot_id}:root.txt", environment=environment),
+            )
+
     def test_wip_validation_evidence_is_bound_to_the_snapshot(self) -> None:
         public_input = markdown_section(self.skill, "## Public input")
         self.assertIn(
             "bound to both the Review head and Worktree snapshot ID",
             public_input,
         )
+
+    def test_wip_standards_reviewers_receive_the_immutable_change_set(self) -> None:
+        reviews = markdown_section(self.skill, "### 4. Run the selected fresh reviews")
+        self.assertIn("immutable materialized diff", reviews)
+        self.assertIn("Worktree snapshot ID", reviews)
+        self.assertIn("Standards Reviewer", reviews)
 
     def test_changed_targets_invalidate_dependent_evidence(self) -> None:
         freshness = markdown_section(self.skill, "## Evidence freshness")
