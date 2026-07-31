@@ -38,7 +38,7 @@ The map is an **index**, not a store. It lists the decisions made and points at 
 
 ### The map body
 
-The whole map at low resolution, loaded once per session. Open tickets are **not** listed — they are open child issues, found by query.
+The whole map at low resolution, loaded once per session. Open tickets are **not** listed — they are open child items, found by the configured query.
 
 ```markdown
 ## Destination
@@ -80,13 +80,13 @@ A session **claims** a ticket by assigning it to the dev driving the map, **firs
 
 Blocking uses the Work Tracker's **native** dependency relationship — essential because it renders the frontier _visually_ in the tracker UI, so the human sees what's takeable without opening the map. Only a tracker that lacks native blocking falls back to its configured body convention. A ticket is **unblocked** when every ticket blocking it is closed; the **Wayfinder frontier** is the open, unblocked, unclaimed children — the edge of the known.
 
-The answer isn't part of the body — it's recorded on resolution (see [Work through the map](#work-through-the-map)). Assets created while resolving a ticket are linked from the issue, not pasted in.
+The answer isn't part of the body — it's recorded on resolution (see [Work through the map](#work-through-the-map)). Assets created while resolving a ticket are linked from its Work Tracker item, not pasted in.
 
 ## Ticket Types
 
 Every ticket is either **HITL** — human in the loop, worked *with* a human who speaks for themselves — or **AFK**, driven by the agent alone. A HITL ticket only resolves through that live exchange; the agent never stands in for the human's side of it (a grilling agent that answers its own questions has broken this).
 
-- **Research** (AFK): Reading documentation, third-party APIs, or local resources like knowledge bases to surface a fact a decision waits on. Resolved by a `/research` subagent. Use when knowledge outside the current working directory is required.
+- **Research** (AFK): Reading documentation, third-party APIs, or local resources like knowledge bases to surface a fact a decision waits on. A frontier research ticket may be claimed and resolved by a `/research` subagent. Use when knowledge outside the current working directory is required.
 - **Prototype** (HITL): Raise the fidelity of the discussion by making a cheap, rough, concrete artifact to react to — an outline, a rough take, a stub, or UI/logic code via the /prototype skill. Links the prototype as an asset. Use when "how should it look" or "how should it behave" is the key question.
 - **Grilling** (HITL): Conversation via the /grilling and /domain-modeling skills, one question at a time. The default case.
 - **Task** (HITL or AFK): Manual work that must happen before a *decision* can be made — nothing to decide, prototype, or research, but the discussion is blocked until it's done. Signing up for a service so its API can be judged, provisioning access, moving data so its shape can be seen. This is the one type that *does* rather than decides — and it earns its place by unblocking a decision, not by delivering the destination. The agent drives it alone where it can (AFK); otherwise it hands the human a precise checklist (HITL). Resolved when the work is done; the answer records what was done and any resulting facts (credentials location, new URLs, row counts) later tickets depend on.
@@ -123,8 +123,8 @@ User invokes with a loose idea.
 1. **Name the destination.** Run a `/grilling` and `/domain-modeling` session to pin down what this map is finding its way to — the spec, decision, or change. The destination fixes the scope, so it's settled first.
 2. **Map the frontier.** Grill again, **breadth-first** this time: fan out across the whole space rather than deep on any one thread, surfacing the open decisions and the first steps takeable now. **If this surfaces no fog** — the way to the destination is already clear, the whole journey small enough for one session — you don't need a map. Stop and ask the user how they'd like to proceed.
 3. **Create the map** (configured `wayfinder:map` label): Destination and Notes filled in, Decisions-so-far empty, the fog sketched into **Not yet specified**. Include configured Domain Federation orientation when relevant.
-4. **Create the tickets you can specify now** as child issues of the map — then wire blocking edges in a **second pass** (issues need ids before they can reference each other). Wiring sorts them into the frontier and the blocked; everything you can't yet specify stays in the fog — the **Not yet specified** section.
-5. **Fire the research subagents.** For each `research` ticket just created, start a `/research` subagent to resolve it in parallel, capturing its findings as the configured linked asset and resolution.
+4. **Create the tickets you can specify now** as child items of the map — then wire blocking edges in a **second pass** (items need ids before they can reference each other). Wiring sorts them into the frontier and the blocked; everything you can't yet specify stays in the fog — the **Not yet specified** section.
+5. **Claim frontier research.** Re-read the newly wired children and select only `research` tickets on the Wayfinder frontier: open, unblocked, and unassigned. Assign each selected ticket to the dev driving the map, then re-read and verify its claim and blocker state before starting one `/research` subagent. A failed or changed claim stays on the tracker and does not start. Each subagent captures its findings as the configured linked asset and finalizes that claimed ticket's Resolution.
 6. Stop — charting is one session's work; it hand-resolves nothing.
 
 ### Work through the map
@@ -133,8 +133,8 @@ User invokes with a map (URL or number). A ticket is **optional** — without on
 
 1. Load the **map** — the low-res view, not every ticket body.
 2. Choose the ticket. If the user named one, use it. Otherwise take the first frontier ticket in order. **Claim it**: assign it to yourself before any work.
-3. Resolve it — **zoom as needed**: fetch the full body of any related or closed ticket on demand; invoke the skills the `## Notes` block names. If in doubt, use `/grilling` and `/domain-modeling`.
-4. Record the resolution: post the answer as a **resolution comment**, **close** the issue, and **append a context pointer** to the map's Decisions-so-far.
+3. Resolve it — **zoom as needed**: fetch the full body of any related or closed ticket on demand; invoke the skills the `## Notes` block names. If in doubt, use `/grilling` and `/domain-modeling`. Maintain the ticket's single complete `## Resolution draft` as decisions are confirmed.
+4. Record the resolution: re-read the active ticket and finalize that same Workflow-Identity-owned draft as `## Resolution`. When the configured Work Tracker cannot update the draft, publish one complete final Resolution that uses its append-only supersession contract. Then **close** the ticket and **append a context pointer** to the map's Decisions-so-far; do not publish a competing summary Resolution.
 5. Add newly-surfaced tickets (create-then-wire); graduate any fog the answer has made specifiable, clearing each graduated patch from **Not yet specified** so it lives only as its new ticket. If the answer reveals a ticket — this one or another — sits beyond the destination, **rule it out of scope** rather than resolving it on the route. If the decision invalidates other parts of the map, update or delete those tickets.
 
 The user may run unblocked tickets in parallel, so expect other sessions to be editing the tracker concurrently.
