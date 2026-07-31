@@ -16,9 +16,9 @@ Accept one or more fixed Repository Targets. Treat the existing single-repositor
 - **Authoritative sources**;
 - **Settled seams** and test approaches relevant to that target;
 - repository validation evidence bound to the Review head, when supplied.
-- for explicit WIP review, a **Worktree snapshot digest** that identifies the captured uncommitted content.
+- for explicit WIP review, a **Worktree snapshot ID** that identifies the captured uncommitted content.
 
-For the existing single-repository form, the user may supply only a fixed point; use the current repository and resolve the current `HEAD` as the exact Review head. Preserve explicit worktree/WIP review by identifying it with both the current exact `HEAD` and an immutable digest of the captured tracked, staged, and untracked content.
+For the existing single-repository form, the user may supply only a fixed point; use the current repository and resolve the current `HEAD` as the exact Review head. When the single-repository worktree is dirty and the user did not select committed or WIP review, disclose the dirty state and ask whether those changes are in scope. Preserve explicit worktree/WIP review by identifying it with both the current exact `HEAD` and an immutable Git tree snapshot of the tracked, staged, and untracked content.
 
 Select one review mode:
 
@@ -34,11 +34,11 @@ Do not silently add an unselected axis.
 
 Resolve every Fixed point and Review head once in its target repository. For committed review, use `<fixed-point>...<review-head>` and record `git log <fixed-point>..<review-head> --oneline`.
 
-For explicit worktree review, materialize the complete selected change set before starting reviewers: diff tracked and staged content against `git merge-base <fixed-point> <review-head>`, include untracked file paths and contents, store that snapshot as an immutable temporary artifact, and record its SHA-256 **Worktree snapshot digest**. Reviewers inspect the captured artifact rather than a later live worktree. Recompute the selected worktree snapshot before reporting; when the snapshot digest changes, the review is stale and must restart. If an immutable snapshot cannot be captured, require a committed target instead of claiming WIP freshness.
+For explicit worktree review, capture one canonical Git tree without changing the real index or worktree. Point `GIT_INDEX_FILE` at a new temporary Git index, run `git read-tree <review-head>`, `git add -A -- .`, and `git write-tree`, then record the returned tree object ID as the **Worktree snapshot ID**. This uses Git's canonical tree serialization and includes tracked, staged, deleted, renamed, symlink, submodule, and non-ignored untracked state as it would be committed. Review the immutable change set with `git diff <merge-base> <worktree-snapshot-id>` and include the tree object ID in reviewer inputs. Repeat the same temporary-index capture before reporting; when the snapshot ID changes, the review is stale and must restart. If the target cannot be represented by that Git tree, require a committed target instead of claiming WIP freshness.
 
 Confirm each target resolves and has a non-empty selected change set before starting reviewers. A bad ref or empty target fails here. Do not substitute a branch tip or later `HEAD` for the captured Review head.
 
-Changed heads invalidate repository validation and Standards evidence tied to the old head. A changed WIP snapshot digest invalidates every result tied to the earlier snapshot even when `HEAD` is unchanged. Require refreshed evidence and a new fixed review target before treating that delivery as current.
+Apply the complete Evidence freshness rule below before starting reviewers and again before reporting results.
 
 ### 2. Identify authoritative sources and seams
 
@@ -100,4 +100,4 @@ This skill does not publish branches, does not create or update Review Proposals
 
 ## Evidence freshness
 
-Every finding and pass result is bound to the captured exact Review heads and, for WIP, the Worktree snapshot digest. Changed heads or snapshot digests invalidate affected repository validation and Standards results; any Spec result influenced by a changed target is stale. Review the new target rather than carrying an earlier pass forward.
+Every finding and pass result is bound to the captured exact Review heads and, for WIP, the Worktree snapshot ID. Changed heads or snapshot IDs invalidate affected repository validation and Standards results; any Spec result influenced by a changed target is stale. Require refreshed evidence and a new fixed target rather than carrying an earlier pass forward.
