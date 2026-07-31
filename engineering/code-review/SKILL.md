@@ -1,103 +1,100 @@
 ---
 name: code-review
-description: Review committed or worktree changes since a fixed point (commit, branch, tag, or merge-base) along two axes — Standards (does the code follow this repo's documented coding standards?) and Spec (does the code match what the originating issue/PRD asked for?). Runs both reviews in parallel sub-agents and reports them side by side. Use when the user wants to review a branch, a PR, work-in-progress changes, or asks to "review since X".
+description: Review one or more fixed Repository Targets along independently selectable Standards and Spec axes, with repository-local Standards results and one whole-bundle Spec result.
 ---
 
-Two-axis review of changes since a supplied fixed point:
+Review committed or worktree changes since fixed points without modifying the reviewed repositories or external collaboration state.
 
-- **Standards** — does the code conform to this repo's documented coding standards?
-- **Spec** — does the code faithfully implement the originating issue / PRD / spec?
+## Public input
 
-Both axes run as **parallel sub-agents** so they don't pollute each other's context, then this skill aggregates their findings.
+Accept one or more fixed Repository Targets. Treat the existing single-repository invocation as the one-element case. Each target records:
+
+- **Repository ID**;
+- repository or worktree path;
+- **Fixed point**;
+- **Review head** as an exact commit SHA;
+- **Authoritative sources**;
+- **Settled seams** and test approaches relevant to that target;
+- repository validation evidence bound to the Review head, when supplied.
+
+For the existing single-repository form, the user may supply only a fixed point; use the current repository and resolve the current `HEAD` as the exact Review head. Preserve explicit worktree/WIP review: when uncommitted changes are in scope, capture the merge base and include tracked and untracked worktree content while still recording the current exact `HEAD`.
+
+Select one review mode:
+
+- **Standards only**;
+- **Spec only**;
+- **Both (the standalone default)**.
+
+Do not silently add an unselected axis.
 
 ## Process
 
-### 1. Pin the fixed point
+### 1. Pin every target
 
-Use the fixed point supplied by the user or invoking skill — a commit SHA, branch name, tag, `main`, `HEAD~5`, etc. If neither supplied one, ask for it.
+Resolve every Fixed point and Review head once in its target repository. For committed review, use `<fixed-point>...<review-head>` and record `git log <fixed-point>..<review-head> --oneline`. For explicit worktree review, diff the worktree against `git merge-base <fixed-point> <review-head>` and include untracked files.
 
-Resolve and record the current `HEAD` SHA, then capture the review target once:
+Confirm each target resolves and has a non-empty selected change set before starting reviewers. A bad ref or empty target fails here. Do not substitute a branch tip or later `HEAD` for the captured Review head.
 
-- For committed changes, diff `<fixed-point>...<head-sha>`.
-- When worktree changes are in scope, diff the worktree against `git merge-base <fixed-point> <head-sha>` and include the contents of untracked files.
+Changed heads invalidate repository validation and Standards evidence tied to the old head. When a target's current head differs from its Review head, require refreshed repository validation and a new fixed review target before treating that delivery as current.
 
-Use the committed target for an explicitly branch, PR, or committed review; use the worktree target for a WIP, current, or uncommitted review. Otherwise, if the worktree is dirty, disclose it and ask whether those changes are in scope.
+### 2. Identify authoritative sources and seams
 
-Also note the commits via `git log <fixed-point>..<head-sha> --oneline`.
+Use sources supplied with the Repository Targets first. Otherwise find the originating spec in this order:
 
-Before going further, confirm the fixed point resolves (`git rev-parse <fixed-point>`) and the selected review target is non-empty. A bad ref or empty target should fail here — not inside two parallel sub-agents.
+1. issue references in commit messages, following `docs/agents/issue-tracker.md` when present;
+2. a spec, ticket, or resolved decision path supplied by the user;
+3. a matching file under `docs/`, `specs/`, or `.scratch/`;
+4. ask the user only when the selected Spec axis has no authoritative source.
 
-### 2. Identify the spec source
+Start with supplied seam records, then validate every seam against current authoritative sources. Explicit current user direction, specifications, and resolved decisions take precedence over earlier sources and existing public interfaces. Record source conflicts as Spec findings. When no authoritative source settles a seam, mark it unsettled and assess its shape under the `/codebase-design` baseline rather than choosing a design during review.
 
-Look for the originating spec, in this order:
+### 3. Build repository-local Standards baselines
 
-1. Spec, ticket, or resolved decision sources supplied by the user or invoking skill.
-2. Issue references in the commit messages (`#123`, `Closes #45`, GitLab `!67`, etc.). Follow `docs/agents/issue-tracker.md` when present; otherwise use available project tooling.
-3. A PRD/spec file under `docs/`, `specs/`, or `.scratch/` matching the branch name or feature.
-4. If nothing is found, ask the user where the spec is. If they say there isn't one, the **Spec** sub-agent will skip and report "no spec available".
+For each target, read that repository's instructions and documented standards. Add the following Fowler smell baseline unless an authoritative source or documented repository standard explicitly overrides it. Every smell is a judgement call, never automatically a violation:
 
-Start with seam context supplied by the user or invoking skill, then validate every seam against current authoritative sources. Explicit current user direction, specifications, and resolved decisions take precedence over earlier sources and existing public interfaces. Record each settled seam with its source. Treat existing public interfaces as current-state evidence, not authority. Report source conflicts as **Spec** findings; when no authoritative source settles a seam, mark it unsettled and assess its shape under the `/codebase-design` baseline rather than choosing one during review.
+- **Mysterious Name** — a name does not reveal what it does or holds.
+- **Duplicated Code** — the same logic shape appears in more than one changed place.
+- **Feature Envy** — behavior reaches into another object's data more than its own.
+- **Data Clumps** — the same fields or parameters repeatedly travel together.
+- **Primitive Obsession** — a primitive stands in for a domain concept.
+- **Repeated Switches** — repeated conditional dispatch uses the same discriminator.
+- **Shotgun Surgery** — one logical change requires scattered edits.
+- **Divergent Change** — one module changes for unrelated reasons.
+- **Speculative Generality** — unused abstraction or compatibility machinery has no required behavior.
+- **Message Chains** — callers navigate through a long object chain.
+- **Middle Man** — a module mostly delegates without adding depth.
+- **Refused Bequest** — an inheritor ignores most of its inherited contract.
 
-### 3. Build the review baselines
+Determine per target whether the change introduces or reshapes a module, interface, seam, adapter, logical ownership, physical decomposition, or contract. When it does, the Standards Reviewer reads `/codebase-design` in full and applies its deletion test and proportional-design rules.
 
-Anything in the repo that documents how code should be written, such as `CODING_STANDARDS.md` or `CONTRIBUTING.md`.
+Route requirement or settled-decision violations to Spec. Route structural and change-pressure findings to Standards.
 
-On top of whatever the repo documents, the Standards axis always carries the **smell baseline** below — a fixed set of Fowler code smells (_Refactoring_, ch.3) that applies even when a repo documents nothing. Two rules bind it:
+### 4. Run the selected fresh reviews
 
-- **Authoritative sources override.** An explicit specification, resolved design decision, or documented repo standard wins; where it endorses something the baseline would flag, suppress the smell.
-- **Always a judgement call.** Each smell is a labelled heuristic ("possible Feature Envy"), never a hard violation.
+For the Standards axis, start one fresh Standards Reviewer per selected Repository Target. Give each reviewer only its captured target, commit list, repository-local standards, smell baseline, design trigger result, authoritative seam context, and this brief:
 
-Each smell reads _what it is_ → _how to fix_; match it against the diff:
+> Report all material Standards findings per file and hunk. Cite the violated rule or name the relevant heuristic. Label a finding **Blocking** only for a mandatory-standard violation or a structural flaw with a credible future bug or material change-pressure path; label other material findings **Advisory**. Omit mechanical issues reliably enforced by configured tooling.
 
-- **Mysterious Name** — a function, variable, or type whose name doesn't reveal what it does or holds. → rename it; if no honest name comes, the design's murky.
-- **Duplicated Code** — the same logic shape appears in more than one hunk or file in the change. → extract the shared shape, call it from both.
-- **Feature Envy** — a method that reaches into another object's data more than its own. → move the method onto the data it envies.
-- **Data Clumps** — the same few fields or params keep travelling together (a type wanting to be born). → bundle them into one type, pass that.
-- **Primitive Obsession** — a primitive or string standing in for a domain concept that deserves its own type. → give the concept its own small type.
-- **Repeated Switches** — the same `switch`/`if`-cascade on the same type recurs across the change. → replace with polymorphism, or one map both sites share.
-- **Shotgun Surgery** — one logical change forces scattered edits across many files in the diff. → gather what changes together into one module.
-- **Divergent Change** — one file or module is edited for several unrelated reasons. → split so each module changes for one reason.
-- **Speculative Generality** — abstraction, parameters, hooks, compatibility machinery, transitional old/new forms, migration-diary residue, or tests centered on an accidental implementation mistake rather than required behavior. → delete it; leave one intended form and express tests as stable behavior.
-- **Message Chains** — long `a.b().c().d()` navigation the caller shouldn't depend on. → hide the walk behind one method on the first object.
-- **Middle Man** — a class or function that mostly just delegates onward. → cut it, call the real target direct.
-- **Refused Bequest** — a subclass or implementer that ignores or overrides most of what it inherits. → drop the inheritance, use composition.
+For the Spec axis, start one fresh Bundle Spec Reviewer over the complete selected target set. Give it all captured targets and diffs, authoritative sources, settled seams, repository validation evidence, and this brief:
 
-Determine whether the review target introduces or reshapes a module, interface, seam, or adapter, or changes logical ownership, physical decomposition, or a contract. Record whether this design-review trigger applies.
+> Report missing or partial requirements, scope creep, incorrect behavior, unauthorized seam changes, acceptance behavior outside a settled seam, and required behavior not verified through that seam. Route each finding to the affected Repository IDs. Label a finding **Blocking** when it demonstrates a requirement or settled-decision violation or a reachable correctness regression; label other material findings **Advisory**.
 
-Route requirement or settled-decision violations to **Spec**; route structural and change-pressure findings to **Standards**.
+Run fresh reviewers concurrently where harness capacity permits; freshness and complete inputs matter, not a particular internal agent topology. If the selected Spec axis has no source after the user confirms none exists, skip that reviewer and report `no spec available`.
 
-### 4. Spawn both sub-agents in parallel
+### 5. Aggregate without merging axes
 
-Send a single message with two `Agent` tool calls. Use the `general-purpose` subagent for both.
+Report Standards separately for every repository, using one section per target:
 
-**Standards sub-agent prompt** — include:
+`## Standards — <Repository ID>`
 
-- The captured review target and commit list.
-- The standards-source files, smell baseline, routing rule, and design-review trigger result from step 3.
-- The seam context, including authoritative sources and any unsettled seams.
-- The brief: "When the design-review trigger applies, read `/codebase-design` in full, apply its glossary and policies, and perform a structural simplification scan using its deletion test and proportional-design rules. Do not run a design workflow or choose an unsettled design; if the skill is unavailable, report this review as incomplete. Report all material Standards findings per file/hunk, citing each violated rule or naming the relevant heuristic and quoting the hunk. Label a finding **Blocking** only for a mandatory-standard violation or a structural flaw with a credible future bug or change-pressure path and material impact; label other material findings **Advisory**. Treat proportional-design findings as judgement calls unless an authoritative source makes them mandatory. Omit purely mechanical issues reliably enforced by configured tooling. Keep the report under 400 words when possible."
+Report the whole-bundle result once:
 
-**Spec sub-agent prompt** — include:
+`## Spec — Delivery Bundle`
 
-- The captured review target and commit list.
-- The paths or fetched contents of the spec and decision sources.
-- The seam context, including authoritative sources and any unsettled seams.
-- The routing rule from step 3.
-- The brief: "Report all material Spec findings: missing or partial requirements, scope creep, incorrect implementation, acceptance behavior outside a settled seam, unauthorized seam changes, and acceptance behavior not verified through that seam. Label a finding **Blocking** when it demonstrates a requirement or settled-decision violation, or a reachable correctness/regression against intended behavior; label other material findings **Advisory**. Cite the authoritative source for each finding. Keep the report under 400 words when possible."
+Do not merge, reclassify, or rerank the axes. End with Blocking and Advisory counts per repository Standards result and for the bundle Spec result, plus the highest-severity finding within each result when present.
 
-If the spec is missing, skip the Spec sub-agent and note this in the final report.
+This skill does not publish branches, does not create or update Review Proposals, and does not change Work Tracker state. A review reports findings and evidence only.
 
-### 5. Aggregate
+## Evidence freshness
 
-Present the two reports under `## Standards` and `## Spec` headings, verbatim or lightly cleaned. Do **not** merge, reclassify, or rerank findings — the two axes are deliberately separate (see _Why two axes_).
-
-End with a one-line summary of Blocking and Advisory counts per axis and the highest-severity finding reported by each reviewer, if any. Do not pick a single winner across axes.
-
-## Why two axes
-
-A change can pass one axis and fail the other:
-
-- Code that follows every standard but implements the wrong thing → **Standards pass, Spec fail.**
-- Code that does exactly what the issue asked but breaks the project's conventions → **Spec pass, Standards fail.**
-
-Reporting them separately stops one axis from masking the other.
+Every finding and pass result is bound to the captured exact Review heads. Changed heads invalidate affected repository validation and Standards results; any Spec result influenced by a changed head is stale. Review the new target rather than carrying an earlier pass forward.
