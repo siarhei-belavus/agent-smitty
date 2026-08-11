@@ -1,0 +1,22 @@
+skills/matt/engineering/code-review/SKILL.md
+  s_f02de5e71993b0::t_2300601ce21ebb 35,37
+skills/matt/engineering/tests/test_federated_workflow_skill_contracts.py
+  s_f02de5e71993b0::t_73d3c1f5138f6c 176-236
+  s_f02de5e71993b0::t_b8a7dbeb42cb66 128-132
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "1dec1d19be86e6daa8d33bfe8003f14a31f99d13",
+  "prompts": {},
+  "sessions": {
+    "s_f02de5e71993b0": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fb7f6-408d-7ed0-bef7-af42c1b3f7f2",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
