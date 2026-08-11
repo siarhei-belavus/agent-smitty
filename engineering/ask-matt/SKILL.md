@@ -20,14 +20,14 @@ The route most work travels. You have an idea and want it built.
    - **`/prototype`** to answer the question with throwaway code,
    - **`/handoff`** back what you learned, and reference it from the original idea thread.
 3. **Branch — is this a multi-session build?**
-   - **Yes** → **`/to-spec`** (turn the thread into a spec), then **`/to-tickets`** to split it into tracer-bullet tickets, each declaring its **blocking edges**. On a local tracker that's one file per ticket under `.scratch/<feature>/issues/`; on a real tracker the edges become native blocking links. Route each eligible ticket in a configured delivery through **`/coordinate-delivery <ticket reference>`**, one fresh root activation per ticket. Use **`/implement`** directly only for explicitly authorized standalone execution.
+   - **Yes** → **`/to-spec`** (turn the thread into a spec), then **`/to-tickets`** to split it into tracer-bullet tickets, each declaring its **blocking edges**. On a local tracker that's one file per ticket under `.scratch/<feature>/issues/`; on a real tracker the edges become native blocking links. Work each eligible ticket in a fresh context through an execution skill that is actually installed and explicitly authorized; in the current catalog that executable path is **`/implement`**.
    - **No** → **`/implement`** right here, in the same context window.
 
-   On the standalone path, **`/implement`** drives **`/tdd`** internally — one red-green slice at a time — and closes out with **`/code-review`** before committing. On the configured path, **`/coordinate-delivery`** owns ticket authority and routes each authorized Repository Delivery through its implementation, validation, and review lifecycle. Reach for **`/tdd`** or **`/code-review`** directly only when you want those standalone surfaces.
+   **`/implement`** drives **`/tdd`** internally — one red-green slice at a time — and closes out with **`/code-review`** before committing. Reach for **`/tdd`** or **`/code-review`** directly only when you want those narrower standalone surfaces.
 
 ### Context hygiene
 
-Keep steps 1–3 in **one unbroken context window** — don't compact or clear until after `/to-tickets` — so the grilling, spec, and tickets all build on the same thinking. Each configured `/coordinate-delivery` activation or explicitly authorized standalone `/implement` then starts fresh from its ticket authority.
+Keep steps 1–3 in **one unbroken context window** — don't compact or clear until after `/to-tickets` — so the grilling, spec, and tickets all build on the same thinking. Each explicitly authorized `/implement` then starts fresh from its ticket authority.
 
 The limit on this is the **[smart zone](https://www.aihero.dev/ai-coding-dictionary/smart-zone)**: the window (~120k tokens on state-of-the-art models) within which the model still reasons sharply. If a session approaches it before `/to-tickets`, don't push on degraded — `/handoff` and continue in a fresh thread.
 
@@ -35,7 +35,7 @@ The limit on this is the **[smart zone](https://www.aihero.dev/ai-coding-diction
 
 A starting situation that generates work, then merges onto the main flow.
 
-- **Bugs and requests piling up** → **`/triage`**. It moves issues through triage roles and produces agent-ready issues for configured **`/coordinate-delivery`** execution; direct **`/implement`** remains the explicitly authorized standalone route.
+- **Bugs and requests piling up** → **`/triage`**. It moves issues through triage roles and produces agent-ready issues for a separately authorized execution step; in the current catalog, invoke **`/implement`** for that work.
 
   Triage is only for issues **you didn't create** — bug reports, incoming feature requests, anything that arrives raw. Tickets that `/to-tickets` produced are already agent-ready, so **don't triage them**.
 
@@ -43,7 +43,7 @@ A starting situation that generates work, then merges onto the main flow.
 
 - **A huge, foggy effort — a greenfield project or a huge feature build, too big for one session** → **`/wayfinder`**, the most cognitively demanding flow here. When the way from here to the destination isn't visible yet, it charts a **shared map** of **decision tickets** on the issue tracker. Each ticket has one claimant; independent ready research may proceed in parallel, while dependent decisions wait for their blockers — producing **decisions, not deliverables** — until the fog is pushed back and the way is clear. Where **`/grill-with-docs`** sharpens an idea you can hold in one session, wayfinder is for the idea you can't — and it's slower and denser, so save it for exactly that, never a well-scoped feature.
 
-  When the map clears, **it hands off, it doesn't build**: merge onto the main flow at **`/to-spec`**, which collapses the map's linked decisions into a buildable plan, then `/to-tickets` and configured `/coordinate-delivery`. Looping the map straight into `/implement` skips that collapse and throws the linked detail away — use `/implement` only when the effort turned out genuinely small and receives explicit standalone execution authority.
+  When the map clears, **it hands off, it doesn't build**: merge onto the main flow at **`/to-spec`**, which collapses the map's linked decisions into a buildable plan, then `/to-tickets` and the installed `/implement` path. Looping the map straight into `/implement` skips that collapse and throws the linked detail away — do that only when the effort turned out genuinely small and receives explicit execution authority.
 
 ## Codebase health
 
