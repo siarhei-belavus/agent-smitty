@@ -125,6 +125,11 @@ class CodeReviewContractTests(unittest.TestCase):
         self.assertIn("target repository root as the working directory", pinning)
         self.assertIn("top-anchored pathspec `:/`", pinning)
 
+    def test_wip_comparison_base_is_pinned_from_fixed_target_history(self) -> None:
+        pinning = markdown_section(self.skill, "### 1. Pin every target")
+        self.assertIn("git merge-base <fixed-point> <review-head>", pinning)
+        self.assertIn("exact **Comparison base**", pinning)
+
     def test_wip_snapshot_evidence_covers_changes_outside_callers_directory(self) -> None:
         with tempfile.TemporaryDirectory() as temporary_directory:
             temporary = Path(temporary_directory)
@@ -167,6 +172,67 @@ class CodeReviewContractTests(unittest.TestCase):
                 "after",
                 git("show", f"{snapshot_id}:root.txt", environment=environment),
             )
+
+    def test_wip_diff_uses_the_pinned_base_for_divergent_history(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            temporary = Path(temporary_directory)
+            repository = temporary / "repository"
+            repository.mkdir()
+
+            def git(*arguments: str, environment: dict[str, str] | None = None) -> str:
+                result = subprocess.run(
+                    ["git", *arguments],
+                    cwd=repository,
+                    env=environment,
+                    check=True,
+                    capture_output=True,
+                    text=True,
+                )
+                return result.stdout.strip()
+
+            git("init", "--quiet")
+            git("config", "user.name", "Contract Test")
+            git("config", "user.email", "contract@example.invalid")
+            (repository / "shared.txt").write_text("shared\n")
+            git("add", "-A")
+            git("commit", "--quiet", "-m", "shared base")
+            shared_base = git("rev-parse", "HEAD")
+
+            git("checkout", "--quiet", "-b", "fixed")
+            (repository / "fixed-only.txt").write_text("fixed\n")
+            git("add", "-A")
+            git("commit", "--quiet", "-m", "fixed side")
+            fixed_point = git("rev-parse", "HEAD")
+
+            git("checkout", "--quiet", "-b", "reviewed", shared_base)
+            (repository / "reviewed.txt").write_text("reviewed\n")
+            git("add", "-A")
+            git("commit", "--quiet", "-m", "reviewed side")
+            review_head = git("rev-parse", "HEAD")
+            (repository / "wip.txt").write_text("wip\n")
+
+            comparison_base = git("merge-base", fixed_point, review_head)
+            self.assertEqual(shared_base, comparison_base)
+
+            object_store = temporary / "objects"
+            object_store.mkdir()
+            environment = os.environ | {
+                "GIT_OBJECT_DIRECTORY": str(object_store),
+                "GIT_ALTERNATE_OBJECT_DIRECTORIES": str(repository / ".git" / "objects"),
+                "GIT_INDEX_FILE": str(temporary / "snapshot-index"),
+            }
+            git("read-tree", review_head, environment=environment)
+            git("add", "-A", "--", ":/", environment=environment)
+            snapshot_id = git("write-tree", environment=environment)
+            changed_files = git(
+                "diff",
+                "--name-only",
+                comparison_base,
+                snapshot_id,
+                environment=environment,
+            ).splitlines()
+
+            self.assertEqual(["reviewed.txt", "wip.txt"], changed_files)
 
     def test_wip_validation_evidence_is_bound_to_the_snapshot(self) -> None:
         public_input = markdown_section(self.skill, "## Public input")
