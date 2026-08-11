@@ -1,0 +1,21 @@
+skills/matt/engineering/ask-matt/SKILL.md
+  s_ea31d5fa5bbfa0::t_46c88a7d0aff0a 23,26,30,38,46
+skills/matt/engineering/to-tickets/SKILL.md
+  s_ea31d5fa5bbfa0::t_46c88a7d0aff0a 170
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "00c5b1a20b1de9cdb92474d69f746aa79eeaf392",
+  "prompts": {},
+  "sessions": {
+    "s_ea31d5fa5bbfa0": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fb7f5-3496-72f2-9d22-d1cbdd106e83",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
