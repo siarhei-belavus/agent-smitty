@@ -28,6 +28,7 @@ Every human-confirmed change produces a complete [Domain Model Delta](DOMAIN-MOD
 - A composed or model-invoked use returns each delta to the invoking workflow without writing canonical artifacts. It may apply a delta only when that invocation explicitly grants canonical capture.
 
 Capture authority changes only the destination, never the modeling depth or delta contents. If the routed owner is unavailable, return the complete delta and report the unavailable owner instead of writing a substitute.
+The skill does not select a planning persistence destination or depend on caller identity.
 
 ## File structure
 
