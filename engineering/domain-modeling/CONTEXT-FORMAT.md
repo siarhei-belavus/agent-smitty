@@ -58,3 +58,13 @@ The skill infers which structure applies:
 - If neither exists, create a root `CONTEXT.md` lazily when the first term is resolved
 
 When multiple contexts exist, infer which one the current topic relates to. If unclear, ask.
+
+## Federated context maps
+
+When configured Domain Orientation identifies a Federated Context Map, its canonical context links use Repository-qualified Context Pointers:
+
+```md
+- [Import](pnl-import-service:CONTEXT.md) — imports workbook data into PNL.
+```
+
+The pointer form is `<Repository ID>:<repo-relative path>`. Resolve the Repository ID through the configured portable repository identity. Do not mix these pointers with repository-relative links in the same map, infer membership from nearby checkouts, or copy glossary content into the map.
