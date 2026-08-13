@@ -20,7 +20,7 @@ Work from whatever is already in the conversation context. If the user passes a 
 
 If you have not already explored the codebase, do so to understand the current state of the code. Ticket titles and descriptions should use the project's domain glossary vocabulary, and respect ADRs in the area you're touching.
 
-Look for opportunities to prefactor the code to make the implementation easier. "Make the change easy, then make the easy change." Do not turn exploration into new open-ended discovery or use it to introduce authority absent from the source.
+Look for opportunities to prefactor the code to make the implementation easier. "Make the change easy, then make the easy change." Keep exploration bounded to understanding the current state needed for transformation.
 
 ### 3. Draft vertical slices
 
@@ -46,7 +46,7 @@ For each proposed slice, derive the complete executable contract from its source
 - narrow Context Scope without reducing any relevant Domain Model Delta; and
 - copy every created, changed, or materially relied-on cross-repository Settled Seam from Testing Decisions.
 
-Do not introduce a repository, context, seam, validation approach, or decision absent from the source. If a material contract field is missing or unsettled, return to clarification or planning instead of publishing the ticket.
+Run the shared Source authority and Composition invariants as a preflight. If either fails, return to clarification or planning instead of publishing the ticket.
 
 **Wide refactors are the exception to vertical slicing.** A **wide refactor** is one mechanical change — rename a column, retype a shared symbol — whose **blast radius** fans across the whole codebase, so no independently green vertical slice can contain it. Sequence the migration as a coordinated cutover: divide mechanical work into batches sized by blast radius (per package, per directory) on an integration branch, then block one final integrate-and-verify ticket on every batch. Individual batches may be temporarily red; the final ticket establishes the single new form and restores green CI. Carry an old and new form together only when the source specification explicitly records approved external compatibility and its removal condition.
 
@@ -113,6 +113,6 @@ Do NOT close or modify any parent issue.
 
 </ticket-body-template>
 
-In either form, avoid implementation file paths or code snippets — they go stale fast. Portable repository descriptors, Repository-qualified Context Pointers, canonical artifact pointers, and settled seam locations are required contract fields, not implementation guidance. If a prototype produced a snippet that encodes a decision more precisely than prose can (state machine, reducer, schema, type shape), inline it and note briefly that it came from a prototype. Trim to the decision-rich parts — not a working demo, just the important bits.
+Avoid additional implementation file paths or code snippets. If a prototype produced a snippet that encodes a decision more precisely than prose can (state machine, reducer, schema, type shape), inline it and note briefly that it came from a prototype. Trim to the decision-rich parts — not a working demo, just the important bits.
 
 Publishing the validated tickets completes this planning skill. A ticket with exactly one writable Repository Scope entry may proceed in a fresh `/implement` context. Leave a multi-repository ticket at the durable planning handoff until an installed execution skill explicitly supports its complete contract. The ticket remains complete enough for that later coordinator to consume without reconstructing planning history.

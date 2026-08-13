@@ -2,7 +2,7 @@
 
 An Agent Brief is a structured comment posted on the configured Work Tracker before a request moves to `ready-for-agent`. It is the authoritative specification that an AFK agent will execute. The original body and discussion remain context; the Agent Brief is the self-contained executable contract.
 
-Read the shared [planning artifact contracts](../PLANNING-ARTIFACT-CONTRACTS.md) before drafting or validating a brief. This file owns the Agent Brief section order and template; the shared contract owns the semantic records and cross-artifact invariants. A brief cannot rely on prior chat, Wayfinder traversal, checkout layout, or private prompt structure.
+Read the shared [planning artifact contracts](../PLANNING-ARTIFACT-CONTRACTS.md) before drafting or validating a brief. This file owns the Agent Brief section order and template; the shared contract owns the semantic records and cross-artifact invariants.
 
 ## Principles
 
@@ -11,16 +11,15 @@ Read the shared [planning artifact contracts](../PLANNING-ARTIFACT-CONTRACTS.md)
 The request may sit in `ready-for-agent` for days or weeks. Write the brief so it survives renames and refactors.
 
 - Describe caller-visible interfaces, types, and behavioral contracts.
-- Include portable repository descriptors, Repository-qualified Context Pointers, canonical artifact pointers, and settled seam locations because they are durable contract fields.
 - Do not include implementation file paths or line numbers.
 
 ### Behavioral, not procedural
 
 Describe what the system should do, not a sequence of edits. Current behavior, desired behavior, error cases, and durable interface guidance belong inside `What to build`; they are not duplicate top-level contract sections.
 
-### Complete and source-authorized
+### Complete
 
-Every criterion must be independently verifiable. State scope boundaries and dependencies. Transform only repositories, contexts, seams, validation methods, Domain Model Deltas, and decisions present in authoritative source material. If a material field is absent or unsettled, the request is not ready; do not fill the gap by inference.
+Every criterion must be independently verifiable. State scope boundaries and dependencies. Run the shared Source authority and Composition invariants as the readiness preflight.
 
 ## Complete contract
 

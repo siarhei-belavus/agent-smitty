@@ -76,7 +76,7 @@ Show counts and a one-line summary per item. Let the maintainer pick.
 4. **Grill (if needed).** If the request needs fleshing out, run the `/grilling` and `/domain-modeling` skills together — grill it into shape one question at a time. Follow Domain Modeling's planning boundary: capture confirmed future-state language and decisions in the durable planning Resolution, not directly in canonical documents unless the requested outcome explicitly authorizes that documentation change.
 
 5. **Apply the outcome:**
-   - `ready-for-agent` — first post a complete executable Agent Brief comment ([AGENT-BRIEF.md](AGENT-BRIEF.md)), then re-read the public comment and resulting Work Tracker state. Apply the mapped Routing Label only when all required sections, a non-empty writable Repository Scope, resolvable references, Context Scope, applicable seams and validation obligations, and dependencies are complete and source-authorized. A settled cross-repository request may go directly here; cross-repository scope alone does not require a specification or Wayfinder map.
+   - `ready-for-agent` — first post a complete executable Agent Brief comment ([AGENT-BRIEF.md](AGENT-BRIEF.md)), then re-read the public comment and resulting Work Tracker state. Apply the mapped Routing Label only after its readiness preflight passes. A settled cross-repository request may go directly here; cross-repository scope alone does not require a specification or Wayfinder map.
    - `ready-for-human` — same structure as an agent brief, but note why it can't be delegated (judgment calls, external access, design decisions, manual testing).
    - `needs-info` — post triage notes (template below).
    - `wontfix` — close, with the comment depending on *why*:

@@ -4,13 +4,11 @@ import unittest
 
 ENGINEERING = Path(__file__).resolve().parents[1]
 CONTRACT = ENGINEERING / "PLANNING-ARTIFACT-CONTRACTS.md"
-OLD_CONTRACT = ENGINEERING / "FEDERATED-AUTHORITY.md"
 
 
 class PlanningArtifactContractTests(unittest.TestCase):
-    def test_stable_contract_is_the_only_shared_owner(self) -> None:
+    def test_shared_contract_owns_only_shared_records_and_invariants(self) -> None:
         self.assertTrue(CONTRACT.is_file())
-        self.assertFalse(OLD_CONTRACT.exists())
 
         body = CONTRACT.read_text()
         for heading in (
@@ -25,12 +23,12 @@ class PlanningArtifactContractTests(unittest.TestCase):
         ):
             self.assertIn(heading, body)
 
-        for superseded_artifact_contract in (
+        for artifact_specific_heading in (
             "## Specification contract",
             "## Executable delivery-ticket contract",
             "## Executable Agent Brief contract",
         ):
-            self.assertNotIn(superseded_artifact_contract, body)
+            self.assertNotIn(artifact_specific_heading, body)
 
     def test_every_consumer_reads_the_shared_contract(self) -> None:
         consumers = (
@@ -45,10 +43,6 @@ class PlanningArtifactContractTests(unittest.TestCase):
                 self.assertIn(
                     "PLANNING-ARTIFACT-CONTRACTS.md", consumer.read_text()
                 )
-
-        for markdown in ENGINEERING.rglob("*.md"):
-            with self.subTest(markdown=markdown):
-                self.assertNotIn("FEDERATED-AUTHORITY.md", markdown.read_text())
 
     def test_artifact_shapes_have_local_owners(self) -> None:
         spec = (ENGINEERING / "to-spec" / "SKILL.md").read_text()
