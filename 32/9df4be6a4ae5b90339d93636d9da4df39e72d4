@@ -1,0 +1,24 @@
+skills/matt/engineering/improve-codebase-architecture/SKILL.md
+  s_ea31d5fa5bbfa0::t_fd85a93dd07bb4 64,68
+skills/matt/engineering/to-tickets/SKILL.md
+  s_ea31d5fa5bbfa0::t_3d1beac2413d1a 45
+skills/matt/engineering/tests/test_planning_artifact_contracts.py
+  s_ea31d5fa5bbfa0::t_cefc284c375c4e 94
+  s_ea31d5fa5bbfa0::t_fd85a93dd07bb4 93
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "329df4be6a4ae5b90339d93636d9da4df39e72d4",
+  "prompts": {},
+  "sessions": {
+    "s_ea31d5fa5bbfa0": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fb7f5-3496-72f2-9d22-d1cbdd106e83",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
