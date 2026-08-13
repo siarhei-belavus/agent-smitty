@@ -42,7 +42,7 @@ Give each ticket its **blocking edges** — the other tickets that must complete
 For each proposed slice, derive the complete executable contract from its source:
 
 - narrow Repository References to the minimal complete set;
-- give Repository Scope a non-empty writable subset of Repository Scope entries;
+- give Repository Scope a non-empty writable subset of Repository References;
 - narrow Context Scope without reducing any relevant Domain Model Delta; and
 - copy every created, changed, or materially relied-on cross-repository Settled Seam from Testing Decisions.
 
