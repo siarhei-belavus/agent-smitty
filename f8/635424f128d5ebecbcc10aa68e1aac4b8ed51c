@@ -1,0 +1,25 @@
+skills/matt/engineering/to-tickets/SKILL.md
+  s_ea31d5fa5bbfa0::t_c584cd187533d9 23,49,116
+skills/matt/engineering/triage/SKILL.md
+  s_ea31d5fa5bbfa0::t_c584cd187533d9 79
+skills/matt/engineering/tests/test_planning_artifact_contracts.py
+  s_ea31d5fa5bbfa0::t_c584cd187533d9 10,26,31
+skills/matt/engineering/triage/AGENT-BRIEF.md
+  s_ea31d5fa5bbfa0::t_c584cd187533d9 5,20,22
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "f8635424f128d5ebecbcc10aa68e1aac4b8ed51c",
+  "prompts": {},
+  "sessions": {
+    "s_ea31d5fa5bbfa0": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fb7f5-3496-72f2-9d22-d1cbdd106e83",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
