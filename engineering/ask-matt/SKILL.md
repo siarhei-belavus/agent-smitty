@@ -14,7 +14,7 @@ A **flow** is a path through the skills. Most paths run along one **main flow**,
 
 The route most work travels. You have an idea and want it built.
 
-1. **`/grill-with-docs`** — sharpen the idea by interview. Start here when you **have a codebase**: it's stateful, retaining routed glossary and ADR proposals in the active planning record for later authorized documentation. (No codebase? Use `/grill-me` — see Standalone. Both run the same `/grilling` primitive; `grill-with-docs` is the one that leaves a paper trail.)
+1. **`/grill-with-docs`** — sharpen the idea by interview. Start here when you **have a codebase**: it applies the project's domain language and keeps complete Domain Model Deltas in the current conversation for `/to-spec`. (No codebase? Use `/grill-me` — see Standalone. Both run the same `/grilling` primitive; `grill-with-docs` adds domain modeling.)
 2. **Branch — can you settle every question in conversation?** If a question needs a runnable answer (state, business logic, a UI you have to see), detour through a prototype, bridged by **`/handoff`** in both directions (see Crossing sessions):
    - **`/handoff`** out, then open a fresh session against that file,
    - **`/prototype`** to answer the question with throwaway code,
@@ -55,7 +55,7 @@ Not feature work — upkeep.
 
 Two model-invoked references that run _beneath_ the other skills — each the single source of truth for its vocabulary. Reach for them directly when the **words**, not the process, are the problem; or let the skills above pull them in.
 
-- **`/domain-modeling`** — sharpen the project's _domain_ language: challenge a fuzzy term, resolve an overloaded word ("account" doing three jobs), and test whether a hard-to-reverse decision merits an ADR. During planning, `/grill-with-docs` uses it to preserve routed proposals in the owned Resolution draft; explicitly authorized documentation work updates the canonical `CONTEXT.md` or ADR owner.
+- **`/domain-modeling`** — sharpen the project's _domain_ language: challenge a fuzzy term, resolve an overloaded word ("account" doing three jobs), and test whether a hard-to-reverse decision merits an ADR. It returns complete Domain Model Deltas to invoking workflows. An explicit standalone invocation captures them in the routed canonical `CONTEXT.md`, `CONTEXT-MAP.md`, or ADR owner by default.
 - **`/codebase-design`** — the deep-module vocabulary (module, interface, depth, seam, adapter, leverage, locality) for designing a module's *shape*: a lot of behaviour behind a small interface at a clean seam. `/to-spec`, `/implement`, and standalone `/tdd` invoke it when design decisions are unsettled; `/improve-codebase-architecture` invokes it directly.
 
 ## Crossing sessions

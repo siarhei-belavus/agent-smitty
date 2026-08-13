@@ -1,6 +1,6 @@
 # Planning Artifact Contracts
 
-This document is the logical owner of the semantic records and invariants shared by planning artifacts. `/to-spec` owns the specification shape, `/to-tickets` owns the delivery-ticket shape, and `triage/AGENT-BRIEF.md` owns the Agent Brief shape. Work Tracker bindings own provider-specific publication and state changes.
+This document is the logical owner of the planning-specific records and composition invariants shared by planning artifacts. `/domain-modeling` owns the Domain Model Delta output contract, `/to-spec` owns the specification shape, `/to-tickets` owns the delivery-ticket shape, and `triage/AGENT-BRIEF.md` owns the Agent Brief shape. Work Tracker bindings own provider-specific publication and state changes.
 
 Consumers must be able to validate every record through the published artifact and resulting Work Tracker state. Prior chat, hidden invocation history, checkout layout, and private prompt structure are not authority.
 
@@ -25,25 +25,11 @@ A Repository Reference makes one repository resolvable without granting write au
 Context Scope contains the complete artifact-relevant set of:
 
 - Repository-qualified Context Pointers in the form `<Repository ID>:<repo-relative path>`; and
-- accepted Domain Model Deltas that govern the artifact.
+- accepted [Domain Model Deltas](./domain-modeling/DOMAIN-MODEL-DELTA.md) that govern the artifact.
 
 Every pointer and delta owner resolves through a Repository Reference. Use `None — <reason>` only when no canonical context applies; never use it to bypass unresolved product language.
 
-### Domain Model Delta
-
-Effective planning language is the ordered combination of oriented Canonical Context Documents and accepted Domain Model Deltas from the current effort. Promote every relevant delta without semantic reduction. As applicable, a delta retains:
-
-- owning Repository ID and Canonical Context Pointer;
-- add, change, or supersede operation;
-- exact terms and definitions;
-- relationships, invariants, boundaries, scenarios, and counterexamples;
-- rationale and rejected alternatives;
-- complete architecture-decision rationale when the ADR threshold was met;
-- originating decision provenance;
-- canonical documentation obligations; and
-- contradiction conditions that require escalation rather than reinterpretation.
-
-A summary or pointer may index the source, but cannot replace this document-ready payload.
+Effective planning language is the ordered combination of oriented Canonical Context Documents and accepted Domain Model Deltas from the current effort. Promote every relevant delta without semantic reduction.
 
 ### Settled Seam
 

@@ -1,6 +1,6 @@
 ---
 name: domain-modeling
-description: Build and sharpen a project's domain model. Use when the user wants to pin down domain terminology or a ubiquitous language, record an architectural decision, or when another skill needs to maintain the domain model.
+description: Build and sharpen a project's domain model, returning complete Domain Model Deltas and applying them to canonical documentation when the invocation grants that authority.
 ---
 
 # Domain Modeling
@@ -20,14 +20,14 @@ Follow Repository-qualified Context Pointers through the configured portable rep
 
 If the canonical owner or its configured artifact is unavailable, report the unavailable owner and preserve the proposed change for routing. Do not create a local substitute, duplicate canonical content, or silently choose another repository.
 
-## Planning and write authority
+## Output and capture authority
 
-Domain modeling keeps the same depth in planning as in direct documentation work, but planning results are not repository-wide current truth yet.
+Every human-confirmed change produces a complete [Domain Model Delta](DOMAIN-MODEL-DELTA.md) immediately. Do not batch confirmed results or reduce them to reminders.
 
-- When composed inside `/grill-with-docs` or `/wayfinder`, record each human-confirmed result immediately in the active planning ticket's single complete `## Resolution draft`. Preserve the owning Repository ID and Canonical Context Pointer, operation, exact language, relationships, invariants, boundaries, scenarios and counterexamples, rationale and rejected alternatives, complete ADR rationale when applicable, provenance, canonical documentation obligations, and contradiction conditions. Finalize that same draft as `## Resolution` when shared understanding is confirmed. Follow the configured Work Tracker's update-own-comment or append-only supersession behavior.
-- A standalone invocation writes canonical domain artifacts only when the user explicitly authorized an in-place domain-documentation change. Otherwise discuss or return the same full-fidelity Domain Model Delta without writing it.
+- An explicit standalone invocation grants canonical capture by default: apply each confirmed delta immediately to its routed `CONTEXT.md`, `CONTEXT-MAP.md`, or ADR owner unless the user asks for discussion only.
+- A composed or model-invoked use returns each delta to the invoking workflow without writing canonical artifacts. It may apply a delta only when that invocation explicitly grants canonical capture.
 
-Effective planning language is the ordered combination of the oriented Canonical Context Documents and the accepted Domain Model Deltas in the current effort. A later accepted delta governs artifacts derived from that effort without becoming canonical current truth before its authorized Repository Delivery is accepted.
+Capture authority changes only the destination, never the modeling depth or delta contents. If the routed owner is unavailable, return the complete delta and report the unavailable owner instead of writing a substitute.
 
 ## File structure
 
@@ -59,7 +59,7 @@ If a `CONTEXT-MAP.md` exists at the root, the repo has multiple contexts. The ma
 │       └── docs/adr/
 ```
 
-Create files lazily — only when you have something authorized to write and only in the routed owner. If no `CONTEXT.md` exists, create one when the first term is resolved and the current repository is its confirmed canonical owner. If no `docs/adr/` exists, create it when the first owned ADR is needed.
+Under canonical capture, create files lazily and only in the routed owner. If no `CONTEXT.md` exists, create one when the first term is resolved and the current repository is its confirmed canonical owner. If no `docs/adr/` exists, create it when the first owned ADR is needed.
 
 ## During the session
 
@@ -81,7 +81,7 @@ When the user states how something works, check whether the code agrees. If you 
 
 ### Capture resolved language immediately
 
-When a term is resolved, capture it right there. Don't batch these up. In explicitly authorized documentation work, update the routed `CONTEXT.md` using [CONTEXT-FORMAT.md](./CONTEXT-FORMAT.md). In planning, update the active Resolution draft with the full-fidelity delta instead.
+When a term is resolved, emit its complete Domain Model Delta right there. Under canonical capture, also update the routed `CONTEXT.md` using [CONTEXT-FORMAT.md](./CONTEXT-FORMAT.md). Otherwise return the delta to the invoking workflow.
 
 `CONTEXT.md` should be totally devoid of implementation details. Do not treat `CONTEXT.md` as a spec, a scratch pad, or a repository for implementation decisions. It is a glossary and nothing else.
 
@@ -93,4 +93,4 @@ Only offer to record an ADR decision when all three are true:
 2. **Surprising without context** — a future reader will wonder "why did they do it this way?"
 3. **The result of a real trade-off** — there were genuine alternatives and you picked one for specific reasons
 
-If any of the three is missing, skip the ADR. For authorized documentation work, use [ADR-FORMAT.md](./ADR-FORMAT.md) in the routed owner. During planning, preserve the complete decision and documentation obligation in the Resolution draft instead of writing the canonical ADR.
+If any of the three is missing, skip the ADR. Under canonical capture, use [ADR-FORMAT.md](./ADR-FORMAT.md) in the routed owner. Otherwise include the complete decision rationale and canonical documentation obligation in the returned delta.

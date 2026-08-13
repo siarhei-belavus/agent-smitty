@@ -12,7 +12,7 @@ Reachable only when you type them (Claude Code: `disable-model-invocation: true`
 
 - **[ask-matt](./ask-matt/SKILL.md)** — Ask which skill or flow fits your situation. A router over the user-invoked skills in this repo.
 - **[change-walkthrough](./change-walkthrough/SKILL.md)** — Explore a change set as a semantic zoom through end-to-end scenarios, one logical hop at a time.
-- **[grill-with-docs](./grill-with-docs/SKILL.md)** — Grilling session that sharpens the domain model and captures confirmed planning changes with their canonical owners.
+- **[grill-with-docs](./grill-with-docs/SKILL.md)** — One-session grilling with domain modeling that carries complete deltas in conversation to specification synthesis.
 - **[triage](./triage/SKILL.md)** — Move configured Work Tracker requests through triage and require a complete executable Agent Brief before `ready-for-agent`.
 - **[improve-codebase-architecture](./improve-codebase-architecture/SKILL.md)** — Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through whichever one you pick.
 - **[setup-matt-pocock-skills](./setup-matt-pocock-skills/SKILL.md)** — Configure this repo for the engineering skills (issue tracker, triage labels, domain doc layout). Run once per repo.
@@ -30,7 +30,7 @@ Model- or user-reachable (rich trigger phrasing so the model can reach for them)
 - **[diagnosing-bugs](./diagnosing-bugs/SKILL.md)** — Disciplined diagnosis loop for hard bugs and performance regressions: reproduce → minimise → hypothesise → instrument → fix → regression-test.
 - **[research](./research/SKILL.md)** — Investigate a question against high-trust primary sources and capture the findings as a cited Markdown file in the repo, run as a background agent.
 - **[tdd](./tdd/SKILL.md)** — Test-driven development with a red-green-refactor loop. Builds features or fixes bugs one vertical slice at a time.
-- **[domain-modeling](./domain-modeling/SKILL.md)** — Sharpen domain language, route canonical artifacts through Domain Orientation, and preserve full-fidelity planning deltas until their owner is authorized to write them.
+- **[domain-modeling](./domain-modeling/SKILL.md)** — Sharpen domain language and return complete Domain Model Deltas, with default canonical capture for explicit standalone use.
 - **[codebase-design](./codebase-design/SKILL.md)** — Shared discipline and vocabulary for designing deep modules: small interfaces, clean seams, testable through the interface.
 - **[code-review](./code-review/SKILL.md)** — Two-axis review of the diff since a fixed point: **Standards** (does it follow the repo's coding standards, plus a Fowler smell baseline?) and **Spec** (does it faithfully implement the originating issue/PRD?), run as parallel sub-agents.
 - **[resolving-merge-conflicts](./resolving-merge-conflicts/SKILL.md)** — Work through an in-progress git merge or rebase conflict hunk by hunk, resolving by intent traced to each side's primary source, then finish the operation — never `--abort`.
