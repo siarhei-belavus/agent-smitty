@@ -79,6 +79,12 @@ class PlanningArtifactContractTests(unittest.TestCase):
         self.assertIn("/grill-with-docs", triage)
         self.assertNotIn("run the `/grilling` and `/domain-modeling` skills together", triage)
 
+        architecture = (
+            ENGINEERING / "improve-codebase-architecture" / "SKILL.md"
+        ).read_text()
+        self.assertIn("do not grant canonical capture", architecture)
+        self.assertIn("current conversation", architecture)
+
     def test_every_consumer_reads_the_shared_contract(self) -> None:
         consumers = (
             ENGINEERING / "to-spec" / "SKILL.md",

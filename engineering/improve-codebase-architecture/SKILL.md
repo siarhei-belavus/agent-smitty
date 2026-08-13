@@ -63,9 +63,9 @@ Do NOT propose interfaces yet. After the file is written, ask the user: "Which o
 
 Once the user picks a candidate, run the `/grilling` skill to walk the decision tree with them — constraints, dependencies, the shape of the deepened module, what sits behind the seam, what tests survive.
 
-This workflow explicitly grants `/domain-modeling` canonical capture so domain-documentation effects happen inline as decisions crystallize:
+Run `/domain-modeling` as decisions crystallize, but do not grant canonical capture for the proposed future architecture. Keep every returned Domain Model Delta in the current conversation so the selected idea can enter `/grill-with-docs` and the normal specification flow:
 
-- **Naming a deepened module after a concept not in `CONTEXT.md`?** Add the term to `CONTEXT.md`. Create the file lazily if it doesn't exist.
-- **Sharpening a fuzzy term during the conversation?** Update `CONTEXT.md` right there.
-- **User rejects the candidate with a load-bearing reason?** Offer an ADR, framed as: _"Want me to record this as an ADR so future architecture reviews don't re-suggest it?"_ Only offer when the reason would actually be needed by a future explorer to avoid re-suggesting the same thing — skip ephemeral reasons ("not worth it right now") and self-evident ones.
+- **Naming a proposed deepened module after a concept not in `CONTEXT.md`?** Return the complete proposed glossary delta without presenting the future module as current truth.
+- **Sharpening a fuzzy term during the conversation?** Preserve the complete clarified-language delta for the subsequent planning flow.
+- **User rejects the candidate with a load-bearing reason?** Offer an ADR, framed as: _"Want me to record this as an ADR so future architecture reviews don't re-suggest it?"_ Only that explicit approval grants canonical capture for the ADR. Skip ephemeral reasons ("not worth it right now") and self-evident ones.
 - **Want to explore alternative interfaces for the deepened module?** Run the `/codebase-design` skill and use its design-it-twice parallel sub-agent pattern.
