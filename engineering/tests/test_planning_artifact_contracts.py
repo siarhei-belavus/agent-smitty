@@ -24,15 +24,14 @@ class PlanningArtifactContractTests(unittest.TestCase):
         ):
             self.assertIn(heading, body)
 
-        for artifact_specific_heading in (
-            "## Specification contract",
-            "## Executable delivery-ticket contract",
-            "## Executable Agent Brief contract",
+        for local_owner in (
+            "`/to-spec` owns the specification shape",
+            "`/to-tickets` owns the delivery-ticket shape",
+            "`triage/AGENT-BRIEF.md` owns the Agent Brief shape",
         ):
-            self.assertNotIn(artifact_specific_heading, body)
+            self.assertIn(local_owner, body)
 
         self.assertIn("domain-modeling/DOMAIN-MODEL-DELTA.md", body)
-        self.assertNotIn("### Domain Model Delta", body)
 
     def test_domain_modeling_owns_its_output_without_knowing_callers(self) -> None:
         self.assertTrue(DOMAIN_MODEL_DELTA.is_file())
@@ -51,16 +50,25 @@ class PlanningArtifactContractTests(unittest.TestCase):
 
         skill = DOMAIN_MODELING.read_text()
         self.assertIn("DOMAIN-MODEL-DELTA.md", skill)
-        self.assertIn("explicit standalone invocation", skill)
-        self.assertIn("canonical capture", skill)
-        self.assertIn("return", skill)
-        for caller_detail in (
+        self.assertIn(
+            "An explicit standalone invocation grants canonical capture by default",
+            skill,
+        )
+        self.assertIn(
+            "A composed or model-invoked use returns each delta to the invoking "
+            "workflow without writing canonical artifacts",
+            skill,
+        )
+        self.assertIn(
+            "does not select a planning persistence destination or depend on "
+            "caller identity",
+            skill,
+        )
+        for coupled_caller in (
             "/grill-with-docs",
             "/wayfinder",
-            "Resolution draft",
-            "Work Tracker",
         ):
-            self.assertNotIn(caller_detail, skill)
+            self.assertNotIn(coupled_caller, skill)
 
     def test_outer_planning_workflows_own_capture(self) -> None:
         grill = (ENGINEERING / "grill-with-docs" / "SKILL.md").read_text()
@@ -68,8 +76,7 @@ class PlanningArtifactContractTests(unittest.TestCase):
         self.assertIn("/domain-modeling", grill)
         self.assertIn("current conversation", grill)
         self.assertIn("/to-spec", grill)
-        self.assertNotIn("Resolution draft", grill)
-        self.assertNotIn("Work Tracker", grill)
+        self.assertIn("The outer workflow owns any durable capture", grill)
 
         wayfinder = (ENGINEERING / "wayfinder" / "SKILL.md").read_text()
         self.assertIn("/grill-with-docs", wayfinder)
@@ -77,7 +84,8 @@ class PlanningArtifactContractTests(unittest.TestCase):
 
         triage = (ENGINEERING / "triage" / "SKILL.md").read_text()
         self.assertIn("/grill-with-docs", triage)
-        self.assertNotIn("run the `/grilling` and `/domain-modeling` skills together", triage)
+        self.assertIn("Keep returned Domain Model Deltas in the current triage context", triage)
+        self.assertIn("promote every relevant delta without reduction into the Agent Brief", triage)
 
         architecture = (
             ENGINEERING / "improve-codebase-architecture" / "SKILL.md"
@@ -99,6 +107,18 @@ class PlanningArtifactContractTests(unittest.TestCase):
                     "PLANNING-ARTIFACT-CONTRACTS.md", consumer.read_text()
                 )
 
+    def test_to_spec_accepts_conversation_or_durable_wayfinder_authority(self) -> None:
+        spec = (ENGINEERING / "to-spec" / "SKILL.md").read_text()
+        for required_clause in (
+            "With no Wayfinder map reference",
+            "load the map through the configured Work Tracker binding",
+            "re-read every final `## Resolution` linked from its Decisions-so-far",
+            "The linked Resolutions, not their one-line map gists",
+            "return it to Wayfinder instead of guessing",
+            "When both sources are supplied",
+        ):
+            self.assertIn(required_clause, spec)
+
     def test_artifact_shapes_have_local_owners(self) -> None:
         spec = (ENGINEERING / "to-spec" / "SKILL.md").read_text()
         ticket = (ENGINEERING / "to-tickets" / "SKILL.md").read_text()
@@ -119,8 +139,6 @@ class PlanningArtifactContractTests(unittest.TestCase):
 
         self.assertEqual(ticket.count("<ticket-body-template>"), 1)
         self.assertEqual(ticket.count("</ticket-body-template>"), 1)
-        self.assertNotIn("<local-ticket-template>", ticket)
-        self.assertNotIn("<issue-template>", ticket)
         for heading in (
             "## Parent",
             "## What to build",

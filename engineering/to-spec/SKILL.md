@@ -1,26 +1,32 @@
 ---
 name: to-spec
-description: Turn the current conversation into a spec and publish it to the configured Work Tracker — no interview, just synthesis of what you've already discussed.
+description: Turn the current conversation or a durable Wayfinder map into a spec and publish it to the configured Work Tracker — no interview, just synthesis of accepted planning authority.
 disable-model-invocation: true
 ---
 
-This skill takes the current conversation context and codebase understanding and produces a spec (you may know this document as a PRD). Do NOT interview the user — just synthesize what you already know.
+This skill takes accepted planning authority and codebase understanding and produces a spec (you may know this document as a PRD). Planning authority may be the current conversation, a supplied Wayfinder map reference, or both. Do NOT interview the user — synthesize what the selected sources already establish.
 
 Read the shared [planning artifact contracts](../PLANNING-ARTIFACT-CONTRACTS.md) before producing the specification. This skill owns the specification section order and template; the shared contract owns the semantic records and cross-artifact invariants. Use the configured Work Tracker and Domain Orientation when their bindings exist; preserve standalone behavior when they do not.
 
 ## Process
 
-1. Perform configured Domain Orientation, then explore the referenced repositories only as needed to understand current state. Use the effective planning language throughout: oriented Canonical Context Documents followed by relevant accepted Domain Model Deltas. Respect applicable ADRs.
+1. Select and load the planning source:
 
-2. Materialize the complete solution-level Repository References and Context Scope already established by discovery or planning. Bounded source validation is allowed; do not begin new open-ended discovery. Return unresolved material questions to discovery or planning.
+   - With no Wayfinder map reference, use the accepted decisions and Domain Model Deltas in the current conversation.
+   - With a Wayfinder map reference, load the map through the configured Work Tracker binding, then re-read every final `## Resolution` linked from its Decisions-so-far. The linked Resolutions, not their one-line map gists, carry the durable decisions and deltas. If the destination still has open decision tickets or material fog, return it to Wayfinder instead of guessing.
+   - When both sources are supplied, treat the durable map and linked Resolutions as the baseline and add only explicitly accepted decisions from the current conversation. Surface contradictions instead of silently choosing one source.
 
-3. Sketch out the complete set of seams at which you're going to test the feature. Existing seams should be preferred to new ones. Use the highest seam possible. If new seams are needed, propose them at the highest point you can. The fewer seams across the codebase, the better - the ideal number is one.
+2. Perform configured Domain Orientation, then explore the referenced repositories only as needed to understand current state. Use the effective planning language throughout: oriented Canonical Context Documents followed by every relevant accepted Domain Model Delta from the selected planning source. Respect applicable ADRs.
+
+3. Materialize the complete solution-level Repository References and Context Scope already established by discovery or planning. Bounded source validation is allowed; do not begin new open-ended discovery. Return unresolved material questions to discovery or planning.
+
+4. Sketch out the complete set of seams at which you're going to test the feature. Existing seams should be preferred to new ones. Use the highest seam possible. If new seams are needed, propose them at the highest point you can. The fewer seams across the codebase, the better - the ideal number is one.
 
 When materially different caller-facing ownership, interface, seam, or contract choices remain possible, run `/codebase-design` before proposing the set. For each seam, propose the smallest faithful repository-native test approach and its nearest prior art. Check with the user that the complete seam set and proposed approaches match their expectations; the confirmed records are settled.
 
-4. Record every confirmed repository-local and cross-repository Settled Seam only in Testing Decisions. Preserve full-fidelity Domain Model Deltas, architecture rationale, provenance, and canonical documentation obligations in Context Scope and the applicable decisions.
+5. Record every confirmed repository-local and cross-repository Settled Seam only in Testing Decisions. Preserve full-fidelity Domain Model Deltas, architecture rationale, provenance, and canonical documentation obligations in Context Scope and the applicable decisions.
 
-5. Write the spec using the template below, then publish it to the Ticket Origin Repository's configured Work Tracker. A specification is planning authority, not an executable delivery ticket; do not apply an execution Routing Label solely because the specification was published.
+6. Write the spec using the template below, then publish it to the Ticket Origin Repository's configured Work Tracker. A specification is planning authority, not an executable delivery ticket; do not apply an execution Routing Label solely because the specification was published.
 
 <spec-template>
 
