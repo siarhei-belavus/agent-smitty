@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 This skill takes the current conversation context and codebase understanding and produces a spec (you may know this document as a PRD). Do NOT interview the user — just synthesize what you already know.
 
-Read the shared [federated planning authority contract](../FEDERATED-AUTHORITY.md) before producing the specification. Use the configured Work Tracker and Domain Orientation when their bindings exist; preserve standalone behavior when they do not.
+Read the shared [planning artifact contracts](../PLANNING-ARTIFACT-CONTRACTS.md) before producing the specification. This skill owns the specification section order and template; the shared contract owns the semantic records and cross-artifact invariants. Use the configured Work Tracker and Domain Orientation when their bindings exist; preserve standalone behavior when they do not.
 
 ## Process
 
@@ -18,7 +18,7 @@ Read the shared [federated planning authority contract](../FEDERATED-AUTHORITY.m
 
 When materially different caller-facing ownership, interface, seam, or contract choices remain possible, run `/codebase-design` before proposing the set. For each seam, propose the smallest faithful repository-native test approach and its nearest prior art. Check with the user that the complete seam set and proposed approaches match their expectations; the confirmed records are settled.
 
-4. Record every confirmed repository-local and cross-repository seam only in Testing Decisions, using the complete fields from the shared contract. Preserve full-fidelity Domain Model Deltas, architecture rationale, provenance, and canonical documentation obligations in Context Scope and the applicable decisions.
+4. Record every confirmed repository-local and cross-repository Settled Seam only in Testing Decisions. Preserve full-fidelity Domain Model Deltas, architecture rationale, provenance, and canonical documentation obligations in Context Scope and the applicable decisions.
 
 5. Write the spec using the template below, then publish it to the Ticket Origin Repository's configured Work Tracker. A specification is planning authority, not an executable delivery ticket; do not apply an execution Routing Label solely because the specification was published.
 
@@ -46,11 +46,11 @@ This list of user stories should be extremely extensive and cover all aspects of
 
 ## Repository References
 
-The complete confirmed solution-level repository set. For each repository include Repository ID, remote, and Base Branch. References grant no write authority.
+The complete confirmed solution-level set of Repository Reference records. References grant no write authority.
 
 ## Context Scope
 
-The complete relevant set of Repository-qualified Context Pointers, plus every accepted Domain Model Delta and its provenance and canonical documentation obligations. If no canonical context applies, write `None — <reason>`.
+The complete relevant Context Scope record. If no canonical context applies, write `None — <reason>`.
 
 ## Implementation Decisions
 
@@ -75,7 +75,7 @@ Exception: if a prototype produced a snippet that encodes a decision more precis
 A list of testing decisions that were made. Include:
 
 - A description of what makes a good test (only test external behavior, not implementation details)
-- Every repository-local and cross-repository settled seam, including its owning module and Repository ID, providers and consumers, caller/test-visible interface, location, status, observable behavior, validation obligations and evidence, selected repository-native approach, and nearest prior art
+- Every repository-local and cross-repository Settled Seam record
 
 This is the sole specification section that owns settled seams. Do not add Repository Scope or a separate Cross-Repository Seams section to a specification.
 

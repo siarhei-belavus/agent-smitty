@@ -2,6 +2,10 @@
 
 Skills I use daily for code work.
 
+## Shared contracts
+
+- **[Planning Artifact Contracts](./PLANNING-ARTIFACT-CONTRACTS.md)** — Normalized repository, context, decision, seam, validation, scope, and dependency records shared by specification, ticket, and triage artifacts.
+
 ## User-invoked
 
 Reachable only when you type them (Claude Code: `disable-model-invocation: true`; Codex: `policy.allow_implicit_invocation: false` in `agents/openai.yaml`).

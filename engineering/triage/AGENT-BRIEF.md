@@ -2,7 +2,7 @@
 
 An Agent Brief is a structured comment posted on the configured Work Tracker before a request moves to `ready-for-agent`. It is the authoritative specification that an AFK agent will execute. The original body and discussion remain context; the Agent Brief is the self-contained executable contract.
 
-Read the shared [federated planning authority contract](../FEDERATED-AUTHORITY.md) before drafting or validating a brief. A brief cannot rely on prior chat, Wayfinder traversal, checkout layout, or private prompt structure.
+Read the shared [planning artifact contracts](../PLANNING-ARTIFACT-CONTRACTS.md) before drafting or validating a brief. This file owns the Agent Brief section order and template; the shared contract owns the semantic records and cross-artifact invariants. A brief cannot rely on prior chat, Wayfinder traversal, checkout layout, or private prompt structure.
 
 ## Principles
 
@@ -42,6 +42,9 @@ Describe the complete desired behavior, including relevant edge and error cases.
 **Key interfaces:**
 - Name durable caller-visible interfaces and contracts, not files or implementation steps.
 
+**Settled decisions:**
+- Preserve complete relevant source-authorized implementation and architecture decisions.
+
 ### Acceptance criteria
 
 - [ ] Specific, independently verifiable criterion 1
@@ -49,25 +52,19 @@ Describe the complete desired behavior, including relevant edge and error cases.
 
 ### Repository References
 
-| Repository ID | Remote | Base Branch |
-| --- | --- | --- |
-| `<id>` | `<remote>` | `<branch>` |
+<minimal complete set of Repository Reference records>
 
 ### Repository Scope
 
-- `<writable Repository ID>`
-  - Required outcome: <repository-owned result>
-  - Repository-local settled seams: <complete applicable seam records, or `None — <reason>`>
-  - Repository-owned validation obligations: <commands, methods, and required evidence>
+<one Repository Scope entry per writable repository>
 
 ### Context Scope
 
-- `<Repository ID>:<repo-relative canonical context path>`
-- <complete relevant Domain Model Deltas with provenance and canonical documentation obligations>
+<complete relevant Context Scope record>
 
 ### Cross-Repository Seams
 
-<complete applicable seam records and validation obligations, or `None — <reason>`>
+<complete applicable cross-repository Settled Seam records, or `None — <reason>`>
 
 ### Out of scope
 
@@ -85,12 +82,9 @@ For a single-repository request, keep the same contract with one Repository Refe
 
 Before applying `ready-for-agent`, re-read the posted public comment and resulting Work Tracker state. Verify that:
 
-- all eight contract sections are present and substantive;
-- Repository References are the minimal complete source-authorized set;
-- Repository Scope is non-empty, writable, and a subset of those references;
-- Context Scope is non-empty or contains an explicit justified `None`;
-- relevant Domain Model Deltas, architecture decisions, seams, validation obligations, and provenance are preserved without reduction;
+- all eight Agent Brief sections are present and substantive;
+- every shared semantic record and composition invariant is satisfied;
 - blockers and Routing Labels agree with authoritative Work Tracker state;
-- no repository, context, seam, validation method, or decision was invented.
+- every field is verifiable from the public comment and Work Tracker state.
 
 If any check fails, the request is not ready. A direct maintainer override may skip grilling, but it cannot bypass this contract.

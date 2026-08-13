@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # Triage
 
-Move requests on the configured Work Tracker through a small state machine of triage roles. Read the shared [federated planning authority contract](../FEDERATED-AUTHORITY.md), the configured Work Tracker binding, and Domain Orientation before acting. Preserve standalone behavior when those bindings do not exist.
+Move requests on the configured Work Tracker through a small state machine of triage roles. Read the shared [planning artifact contracts](../PLANNING-ARTIFACT-CONTRACTS.md), the configured Work Tracker binding, and Domain Orientation before acting. Preserve standalone behavior when those bindings do not exist.
 
 If this repository treats external Review Proposals as a request surface (see the Work Tracker binding), triage covers them too: **a Review Proposal is a request with attached code** — same roles, same states, same machine, with a few deltas marked "for a Review Proposal" below. Resolve a bare `#42` through the configured binding rather than Git-remote inference.
 

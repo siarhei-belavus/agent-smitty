@@ -8,7 +8,7 @@ disable-model-invocation: true
 
 Break a plan, spec, or conversation into a set of **tickets** — tracer-bullet vertical slices, each declaring the tickets that **block** it.
 
-Read the shared [federated planning authority contract](../FEDERATED-AUTHORITY.md) first. Use the configured Work Tracker, Routing Label mapping, and Domain Orientation when their bindings exist; preserve standalone Local Markdown behavior when they do not.
+Read the shared [planning artifact contracts](../PLANNING-ARTIFACT-CONTRACTS.md) first. This skill owns the delivery-ticket section order and template; the shared contract owns the semantic records and cross-artifact invariants. Use the configured Work Tracker, Routing Label mapping, and Domain Orientation when their bindings exist; preserve standalone Local Markdown behavior when they do not.
 
 ## Process
 
@@ -31,6 +31,7 @@ Break the work into **tracer bullet** tickets.
 - Each slice cuts a narrow but COMPLETE path through every layer (schema, API, UI, tests) — vertical, NOT a horizontal slice of one layer
 - A completed slice is demoable or verifiable on its own
 - Each slice is sized to fit in a single fresh context window
+- Carry every source Implementation Decision and architecture decision relevant to the slice inside What to build
 - Carry every source Testing Decision relevant to the slice, including its settled seams, selected test approaches, and nearest prior art
 - Any prefactoring should be done first
 
@@ -41,9 +42,9 @@ Give each ticket its **blocking edges** — the other tickets that must complete
 For each proposed slice, derive the complete executable contract from its source:
 
 - narrow Repository References to the minimal complete set;
-- give Repository Scope a non-empty writable subset with an outcome, repository-local seams, and repository-owned validation obligations;
-- narrow Context Scope and copy every relevant Domain Model Delta in full with provenance and documentation obligations;
-- copy every created, changed, or materially relied-on Cross-Repository Seam and its validation obligations from Testing Decisions.
+- give Repository Scope a non-empty writable subset of Repository Scope entries;
+- narrow Context Scope without reducing any relevant Domain Model Delta; and
+- copy every created, changed, or materially relied-on cross-repository Settled Seam from Testing Decisions.
 
 Do not introduce a repository, context, seam, validation approach, or decision absent from the source. If a material contract field is missing or unsettled, return to clarification or planning instead of publishing the ticket.
 
@@ -68,26 +69,22 @@ Iterate until the user approves the breakdown.
 
 ### 5. Publish the tickets to the configured tracker
 
-Publish the approved tickets. **How** depends on the tracker `/setup-matt-pocock-skills` configured — the tickets are the same either way, only the shape of the blocking edges changes:
+Publish the approved tickets. **How** depends on the tracker `/setup-matt-pocock-skills` configured — the ticket body below is the same either way, only its provider envelope and the shape of the blocking edges change:
 
-- **Local Markdown** → write one file per ticket under `.scratch/<feature-slug>/issues/<NN>-<slug>.md`, numbered from `01` in dependency order (blockers first). Each file carries the same complete semantic sections as a real Work Tracker ticket; its Blocked by section names the numbers/titles it depends on.
+- **Local Markdown** → write one file per ticket under `.scratch/<feature-slug>/issues/<NN>-<slug>.md`, numbered from `01` in dependency order (blockers first). Prepend `# <NN> — <Ticket title>` and `**Status:** ready-for-agent` to the body. Its Blocked by section names the numbers/titles it depends on.
 - **Configured Work Tracker** → publish one item per ticket in dependency order (blockers first) so each ticket's blocking edges can reference durable identifiers. Use the configured native blocking/sub-item relationship where available and its documented fallback otherwise. Apply the mapped `ready-for-agent` Routing Label only after re-reading the resulting item and verifying its complete executable contract and state.
 
 Do NOT close or modify any parent issue.
 
-<local-ticket-template>
-
-# <NN> — <Ticket title>
-
-**Status:** ready-for-agent
+<ticket-body-template>
 
 ## Parent
 
-<source specification or planning artifact, or `None — <reason>`>
+<durable source specification or planning-artifact reference, or `None — <reason>`>
 
 ## What to build
 
-<the end-to-end behaviour this ticket makes work, from the user's perspective — not a layer-by-layer implementation list>
+<the end-to-end behaviour this ticket makes work, plus complete relevant source-authorized implementation and architecture decisions — not a layer-by-layer edit list>
 
 ## Acceptance criteria
 
@@ -96,74 +93,25 @@ Do NOT close or modify any parent issue.
 
 ## Repository References
 
-| Repository ID | Remote | Base Branch |
-| --- | --- | --- |
-| `<id>` | `<remote>` | `<branch>` |
+<minimal complete set of Repository Reference records>
 
 ## Repository Scope
 
-- `<writable Repository ID>`
-  - Required outcome: <repository-owned result>
-  - Repository-local settled seams: <complete applicable seam records, or `None — <reason>`>
-  - Repository-owned validation obligations: <commands, methods, and evidence>
+<one Repository Scope entry per writable repository>
 
 ## Context Scope
 
-- `<Repository ID>:<repo-relative canonical context path>`
-- <complete relevant Domain Model Deltas with provenance and documentation obligations>
+<minimal relevant Context Scope record>
 
 ## Cross-Repository Seams
 
-<complete applicable seam records and validation obligations, or `None — <reason>`>
+<complete applicable cross-repository Settled Seam records, or `None — <reason>`>
 
 ## Blocked by
 
-<titles of blocking tickets, or `None — can start immediately`>
+<durable references to blocking tickets, or `None — can start immediately`>
 
-</local-ticket-template>
-
-<issue-template>
-
-## Parent
-
-A reference to the parent item on the Work Tracker, or `None — <reason>`.
-
-## What to build
-
-The end-to-end behaviour this ticket makes work, from the user's perspective — not layer-by-layer implementation.
-
-## Acceptance criteria
-
-- [ ] Criterion 1
-- [ ] Criterion 2
-
-## Repository References
-
-| Repository ID | Remote | Base Branch |
-| --- | --- | --- |
-| `<id>` | `<remote>` | `<branch>` |
-
-## Repository Scope
-
-- `<writable Repository ID>`
-  - Required outcome: <repository-owned result>
-  - Repository-local settled seams: <complete applicable seam records, or `None — <reason>`>
-  - Repository-owned validation obligations: <commands, methods, and evidence>
-
-## Context Scope
-
-- `<Repository ID>:<repo-relative canonical context path>`
-- <complete relevant Domain Model Deltas with provenance and documentation obligations>
-
-## Cross-Repository Seams
-
-<complete applicable seam records and validation obligations, or `None — <reason>`>
-
-## Blocked by
-
-- A reference to each blocking ticket, or `None — can start immediately`.
-
-</issue-template>
+</ticket-body-template>
 
 In either form, avoid implementation file paths or code snippets — they go stale fast. Portable repository descriptors, Repository-qualified Context Pointers, canonical artifact pointers, and settled seam locations are required contract fields, not implementation guidance. If a prototype produced a snippet that encodes a decision more precisely than prose can (state machine, reducer, schema, type shape), inline it and note briefly that it came from a prototype. Trim to the decision-rich parts — not a working demo, just the important bits.
 
