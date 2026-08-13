@@ -90,7 +90,8 @@ class PlanningArtifactContractTests(unittest.TestCase):
         architecture = (
             ENGINEERING / "improve-codebase-architecture" / "SKILL.md"
         ).read_text()
-        self.assertIn("do not grant canonical capture", architecture)
+        self.assertIn("run `/grill-with-docs` as an output-only planning session", architecture)
+        self.assertIn("Do not grant canonical capture", architecture)
         self.assertIn("current conversation", architecture)
 
     def test_every_consumer_reads_the_shared_contract(self) -> None:
