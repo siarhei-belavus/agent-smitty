@@ -1,0 +1,41 @@
+skills/matt/engineering/tests/test_planning_artifact_contracts.py
+  s_ea31d5fa5bbfa0::t_a75722bf7acabf 7-8,34-80
+  s_ea31d5fa5bbfa0::t_115faf400fc83a 81
+skills/matt/engineering/improve-codebase-architecture/SKILL.md
+  s_ea31d5fa5bbfa0::t_6fafebc7b57574 66
+skills/matt/engineering/domain-modeling/DOMAIN-MODEL-DELTA.md
+  s_ea31d5fa5bbfa0::t_5e3811f0116ff3 1-17
+skills/matt/engineering/README.md
+  s_ea31d5fa5bbfa0::t_6fafebc7b57574 15,33
+skills/matt/engineering/domain-modeling/SKILL.md
+  s_ea31d5fa5bbfa0::t_5e3811f0116ff3 3,23,25,27-28,30,62,84,96
+skills/matt/engineering/triage/SKILL.md
+  s_ea31d5fa5bbfa0::t_6fafebc7b57574 76
+skills/matt/engineering/PLANNING-ARTIFACT-CONTRACTS.md
+  s_ea31d5fa5bbfa0::t_5e3811f0116ff3 28,32
+  s_ea31d5fa5bbfa0::t_6fafebc7b57574 3
+skills/matt/engineering/wayfinder/SKILL.md
+  s_ea31d5fa5bbfa0::t_6fafebc7b57574 15,22,91,123,136
+skills/matt/engineering/setup-matt-pocock-skills/domain.md
+  s_ea31d5fa5bbfa0::t_6fafebc7b57574 11
+skills/matt/engineering/ask-matt/SKILL.md
+  s_ea31d5fa5bbfa0::t_6fafebc7b57574 17,58
+skills/matt/engineering/grill-with-docs/SKILL.md
+  s_ea31d5fa5bbfa0::t_6fafebc7b57574 3,7-9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "815b6bb3ad41a4c5ab6cd1934b58afa1ffe8b19a",
+  "prompts": {},
+  "sessions": {
+    "s_ea31d5fa5bbfa0": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fb7f5-3496-72f2-9d22-d1cbdd106e83",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
