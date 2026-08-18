@@ -18,9 +18,7 @@ Work from whatever is already in the conversation context. If the user passes a 
 
 ### 2. Explore the codebase (optional)
 
-If you have not already explored the codebase, do so to understand the current state of the code. Ticket titles and descriptions should use the project's domain glossary vocabulary, and respect ADRs in the area you're touching.
-
-Look for opportunities to prefactor the code to make the implementation easier. "Make the change easy, then make the easy change." Keep exploration bounded to understanding the current state needed for transformation.
+If needed, inspect the current code only to understand and faithfully narrow the accepted source authority. Ticket titles and descriptions should use the project's domain glossary vocabulary and respect ADRs in the area you're touching. This transformation must not discover or introduce a new implementation decision, seam, repository, validation method, or refactor; return an insufficient source to clarification or planning.
 
 ### 3. Draft vertical slices
 
@@ -33,7 +31,6 @@ Break the work into **tracer bullet** tickets.
 - Each slice is sized to fit in a single fresh context window
 - Carry every source Implementation Decision and architecture decision relevant to the slice inside What to build
 - Carry every source Testing Decision relevant to the slice, including its settled seams, selected test approaches, and nearest prior art
-- Any prefactoring should be done first
 
 </vertical-slice-rules>
 
