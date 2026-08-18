@@ -14,7 +14,7 @@ A **flow** is a path through the skills. Most paths run along one **main flow**,
 
 The route most work travels. You have an idea and want it built.
 
-1. **`/grill-with-docs`** — sharpen the idea by interview. Start here when you **have a codebase**: it applies the project's domain language and keeps complete Domain Model Deltas in the current conversation for `/to-spec`. (No codebase? Use `/grill-me` — see Standalone. Both run the same `/grilling` primitive; `grill-with-docs` adds domain modeling.)
+1. **`/grill-with-docs`** — sharpen the idea by interview. Start here when you **have a codebase**: it applies the project's domain language and returns complete Domain Model Deltas with the sharpened result. In this flow, the current conversation retains that result as planning authority for `/to-spec`. (No codebase? Use `/grill-me` — see Standalone. Both run the same `/grilling` primitive; `grill-with-docs` adds domain modeling.)
 2. **Branch — can you settle every question in conversation?** If a question needs a runnable answer (state, business logic, a UI you have to see), detour through a prototype, bridged by **`/handoff`** in both directions (see Crossing sessions):
    - **`/handoff`** out, then open a fresh session against that file,
    - **`/prototype`** to answer the question with throwaway code,

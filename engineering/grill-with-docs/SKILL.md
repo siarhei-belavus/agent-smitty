@@ -1,9 +1,9 @@
 ---
 name: grill-with-docs
-description: A one-session interview that sharpens a plan or design through grilling and domain modeling, ready for specification synthesis.
+description: A one-session interview that sharpens a plan or design through grilling and output-only domain modeling, returning complete Domain Model Deltas.
 disable-model-invocation: true
 ---
 
-Run a `/grilling` session using the `/domain-modeling` skill. This is planning, so do not grant canonical capture. Keep every returned Domain Model Delta at full fidelity in the current conversation and carry the complete set forward to `/to-spec`.
+Run a `/grilling` session with `/domain-modeling` in output-only mode. Preserve every human-confirmed Domain Model Delta at full fidelity and return the complete set with the sharpened plan or design.
 
-When another workflow invokes this skill, return the complete deltas to that workflow. The outer workflow owns any durable capture; this skill neither selects nor infers a persistence destination.
+This skill neither selects nor infers a persistence destination. The invoker owns any durable capture and subsequent transformation of the result.

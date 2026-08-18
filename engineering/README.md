@@ -12,7 +12,7 @@ Reachable only when you type them (Claude Code: `disable-model-invocation: true`
 
 - **[ask-matt](./ask-matt/SKILL.md)** — Ask which skill or flow fits your situation. A router over the user-invoked skills in this repo.
 - **[change-walkthrough](./change-walkthrough/SKILL.md)** — Explore a change set as a semantic zoom through end-to-end scenarios, one logical hop at a time.
-- **[grill-with-docs](./grill-with-docs/SKILL.md)** — One-session grilling with domain modeling that carries complete deltas in conversation to specification synthesis.
+- **[grill-with-docs](./grill-with-docs/SKILL.md)** — One-session grilling with output-only domain modeling that returns a sharpened plan or design with complete Domain Model Deltas.
 - **[triage](./triage/SKILL.md)** — Move configured Work Tracker requests through triage and require a complete executable Agent Brief before `ready-for-agent`.
 - **[improve-codebase-architecture](./improve-codebase-architecture/SKILL.md)** — Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through whichever one you pick.
 - **[setup-matt-pocock-skills](./setup-matt-pocock-skills/SKILL.md)** — Configure this repo for the engineering skills (issue tracker, triage labels, domain doc layout). Run once per repo.
