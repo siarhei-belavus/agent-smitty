@@ -1,0 +1,25 @@
+skills/matt/engineering/grill-with-docs/agents/openai.yaml
+  s_ea31d5fa5bbfa0::t_49de16c8859f07 3
+skills/matt/engineering/grill-with-docs/SKILL.md
+  s_ea31d5fa5bbfa0::t_49de16c8859f07 3,7,9
+skills/matt/engineering/ask-matt/SKILL.md
+  s_ea31d5fa5bbfa0::t_49de16c8859f07 17
+skills/matt/engineering/README.md
+  s_ea31d5fa5bbfa0::t_49de16c8859f07 15
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "683d45d06780021a34fc0ced2e8c2a2ca5f2b5b6",
+  "prompts": {},
+  "sessions": {
+    "s_ea31d5fa5bbfa0": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fb7f5-3496-72f2-9d22-d1cbdd106e83",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
