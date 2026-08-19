@@ -34,13 +34,13 @@ For every referenced repository, read the applicable repository instructions, Co
 
 Create a new run-specific persistent worktree root outside existing user checkouts. Fetch each configured Base Branch from its declared remote and pin its fresh exact commit. Never derive the delivery base from a pre-existing local branch.
 
-For every Repository Scope entry, create one new uniquely named delivery branch and one clean isolated worktree at that pinned base. Keep read-only repositories outside writable scope. Record Repository ID, Repository Reference, persistent worktree path, branch, and fixed base.
+For every Repository Scope entry, create one clean isolated worktree at that pinned base. Create a new uniquely named delivery branch only when the entry's required outcome requires changes; keep validation-only or explicit no-change entries at the pinned commit. Keep read-only repositories outside writable scope. Record Repository ID, Repository Reference, persistent worktree path, branch when applicable, and fixed base.
 
 **Complete when:** every Repository Delivery has one clean isolated worktree whose `HEAD` equals its recorded fixed base, and no existing user checkout or branch was changed.
 
 ## 4. Execute flat deliveries
 
-Start exactly one direct-child implementation agent for each Repository Delivery. Give it a Coordinator-narrowed `/implement` assignment containing only:
+Classify every Repository Scope entry by its required outcome. Start exactly one direct-child implementation agent only for each Repository Delivery that requires changes. Give it a Coordinator-narrowed `/implement` assignment containing only:
 
 - its Repository ID, Reference, Execution Worktree, delivery branch, and fixed base;
 - the ticket and other authoritative sources;
@@ -49,9 +49,9 @@ Start exactly one direct-child implementation agent for each Repository Delivery
 
 Require the child to follow `/implement`'s public Coordinator-narrowed contract, start no child agents or reviewers, and return exactly one Repository Delivery result. The coordinator alone owns publication, Review Proposals, Work Tracker changes, and bundle review.
 
-Wait for every result. Verify each result against its assigned worktree and fixed base. A delivery with no diff is unchanged; record it and exclude it from publication and proposals.
+For every validation-only or explicit no-change entry, record its exact stable base and head and satisfy its applicable Validation Obligations without an implementation agent. Wait for every implementation result and verify it against its assigned worktree and fixed base. A delivery expected to change but returning no diff is unchanged; record it and exclude it from publication and proposals.
 
-**Complete when:** every scope entry has one attributable result, every changed worktree is clean at its reported exact local head, and every repository validation result is bound to that head.
+**Complete when:** every scope entry is attributable to either one implementation result or one coordinator-owned validation record, every changed worktree is clean at its reported exact local head, and every repository validation result is bound to that head.
 
 ## 5. Review exact heads
 
