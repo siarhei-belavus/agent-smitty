@@ -1,0 +1,22 @@
+skills/matt/engineering/coordinate-delivery/references/successful-delivery-handoff.md
+  s_8cdecc083bbe37::t_36a2f98ea28032 68-69,71-74,86-88
+skills/matt/engineering/coordinate-delivery/references/durable-transition-recovery.md
+  s_8cdecc083bbe37::t_2aaee846b93b6c 71-75,106
+  s_8cdecc083bbe37::t_36a2f98ea28032 81-93,108-110,114-116
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "6408d5493093f413905eba6af229129ae68b1f34",
+  "prompts": {},
+  "sessions": {
+    "s_8cdecc083bbe37": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0191b-44c6-70d0-b4da-c0277d521e31",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
