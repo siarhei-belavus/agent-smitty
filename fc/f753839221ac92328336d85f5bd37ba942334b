@@ -1,0 +1,21 @@
+skills/matt/engineering/coordinate-delivery/references/durable-human-boundary.md
+  s_8cdecc083bbe37::t_186e6c7817af24 155-161
+skills/matt/engineering/coordinate-delivery/SKILL.md
+  s_8cdecc083bbe37::t_186e6c7817af24 94-96,148-154
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "fcf753839221ac92328336d85f5bd37ba942334b",
+  "prompts": {},
+  "sessions": {
+    "s_8cdecc083bbe37": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0191b-44c6-70d0-b4da-c0277d521e31",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
