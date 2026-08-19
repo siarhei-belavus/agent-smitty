@@ -1,0 +1,27 @@
+skills/matt/engineering/coordinate-delivery/references/durable-boundaries-and-handoff.md
+  s_8cdecc083bbe37::t_2c6cfb1483ed96 26-39,42-65
+  s_8cdecc083bbe37::t_4965532c18cdfd 338-350
+  s_8cdecc083bbe37::t_b37ed87e0cdc65 352-360,396-405,415-418,470-474
+  s_8cdecc083bbe37::t_530d32d2a719af 463-468,478-487,492-498,502-505,514-515
+  s_8cdecc083bbe37::t_1eaa709bcf5a59 550-553
+  s_8cdecc083bbe37::t_6d3a4bc97f7eea 409-410,414
+  s_8cdecc083bbe37::t_f20f6bc7252b45 40-41
+  s_8cdecc083bbe37::t_c46c289666535b 351
+  s_8cdecc083bbe37::t_0e0f3536603171 469
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "60ad136cc48e53bb4bacd7bc98a5a943fb2110b8",
+  "prompts": {},
+  "sessions": {
+    "s_8cdecc083bbe37": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0191b-44c6-70d0-b4da-c0277d521e31",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
