@@ -1,0 +1,72 @@
+skills/matt/engineering/README.md
+  s_8cdecc083bbe37::t_4913bf14f0769a 15
+  s_8cdecc083bbe37::t_a85d1aac1ae68a 22
+  s_8cdecc083bbe37::t_f851529ec1e763 34
+  s_8cdecc083bbe37::t_f79ea8c4a61500 33
+skills/matt/engineering/coordinate-delivery/SKILL.md
+  s_8cdecc083bbe37::t_4913bf14f0769a 1-2,4-9
+  s_8cdecc083bbe37::t_7a5e5257b4d773 48-49,52,57
+  s_8cdecc083bbe37::t_57b9e91e725866 33-34
+  s_8cdecc083bbe37::t_883108bf6df59f 33
+  s_8cdecc083bbe37::t_3ab4df061c4cf5 33
+  s_8cdecc083bbe37::t_883d762dbf5255 60
+  s_8cdecc083bbe37::t_037949b1c0eb59 33
+  s_8cdecc083bbe37::t_338bc7dc27cbd1 3,10-17,19-22,25-26,35-37,39,41,43-47,50-51,53-56,58,61-62
+  s_8cdecc083bbe37::t_b141cd68f90544 18,23-24,27-32,59
+skills/matt/engineering/ask-matt/SKILL.md
+  s_8cdecc083bbe37::t_4913bf14f0769a 28-29
+  s_8cdecc083bbe37::t_65050422b6875c 26
+  s_8cdecc083bbe37::t_a85d1aac1ae68a 81-82
+  s_8cdecc083bbe37::t_f79ea8c4a61500 83
+skills/matt/engineering/coordinate-delivery/agents/openai.yaml
+  s_8cdecc083bbe37::t_4913bf14f0769a 1-5
+skills/matt/engineering/coordinate-delivery/references/activation-and-preparation.md
+  s_8cdecc083bbe37::t_7a5e5257b4d773 1-3,5-7,12,14,21,26,30,32,34,40,44-46,51,54,56,62,65,67,70,78,82
+  s_8cdecc083bbe37::t_2b2d4296d82fc2 4,8,12-19,21-23,26-39,41-43,47-50,52-53,55,57-61,63-64,66,68-69,71-77,79-81,83-86
+  s_8cdecc083bbe37::t_b141cd68f90544 9-11,20,24-25
+skills/matt/engineering/coordinate-delivery/references/execution-attempt.md
+  s_8cdecc083bbe37::t_57dbc46dbd82df 1-2,26-28,32,39,42,44,50,57,61-63
+  s_8cdecc083bbe37::t_5549e197defb30 34
+  s_8cdecc083bbe37::t_6bc5fced76401d 45-49,51-56,60
+  s_8cdecc083bbe37::t_765125a11dd6d6 3-25,29-31,33,35-44,50,57-59,64-101
+skills/matt/engineering/coordinate-delivery/references/durable-boundaries-and-handoff.md
+  s_8cdecc083bbe37::t_9f1b724ad63e25 2,23-25,51-53,101-102,108
+  s_8cdecc083bbe37::t_57b9e91e725866 51
+  s_8cdecc083bbe37::t_ad24109cd2fa5c 7
+  s_8cdecc083bbe37::t_4302049dd37200 23
+  s_8cdecc083bbe37::t_ef8168dea26760 20,23,81
+  s_8cdecc083bbe37::t_9d2c014c98ee4c 13
+  s_8cdecc083bbe37::t_917020189329cb 20
+  s_8cdecc083bbe37::t_84c4e9dc90ac71 7
+  s_8cdecc083bbe37::t_384c9dda66f6b3 73
+  s_8cdecc083bbe37::t_6cd800e5864ee2 12
+  s_8cdecc083bbe37::t_e79d3b8df45e1c 35,37
+  s_8cdecc083bbe37::t_263fad8bbdf5ce 23
+  s_8cdecc083bbe37::t_c6c0a3d23cfadf 1-116
+skills/matt/engineering/implement/SKILL.md
+  s_8cdecc083bbe37::t_a3eee06b554567 3,9,11,32,42,44,48
+skills/matt/engineering/setup-federated-workflow/references/preflight-and-validation.md
+  s_8cdecc083bbe37::t_f79ea8c4a61500 12-13,44-45
+skills/matt/engineering/setup-federated-workflow/agents/openai.yaml
+  s_8cdecc083bbe37::t_f79ea8c4a61500 3
+skills/matt/engineering/setup-federated-workflow/SKILL.md
+  s_8cdecc083bbe37::t_f79ea8c4a61500 3,38,69-70,96-97,107
+skills/matt/engineering/setup-federated-workflow/references/provider-bindings.md
+  s_8cdecc083bbe37::t_f79ea8c4a61500 84
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "ad062bfb0f965b9cdb5b867006a034d9b1a21064",
+  "prompts": {},
+  "sessions": {
+    "s_8cdecc083bbe37": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0191b-44c6-70d0-b4da-c0277d521e31",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
