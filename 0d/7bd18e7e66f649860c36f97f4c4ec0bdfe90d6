@@ -1,0 +1,31 @@
+skills/matt/engineering/coordinate-delivery/references/durable-boundaries-and-handoff.md
+  s_8cdecc083bbe37::t_f77bf2967fb909 114-115,125-139
+  s_8cdecc083bbe37::t_26dedbc6e4230e 305-306,309,317-323
+  s_8cdecc083bbe37::t_08613a0e6d6e78 434-435
+  s_8cdecc083bbe37::t_84c4e9dc90ac71 6-25,41-42
+  s_8cdecc083bbe37::t_5934c0e614c2d0 297-303,312-316,324-326,330-333
+  s_8cdecc083bbe37::t_a95510a4b684b5 172-179
+  s_8cdecc083bbe37::t_384c9dda66f6b3 417-420,424-433
+  s_8cdecc083bbe37::t_67a09e2b83623e 219-226
+  s_8cdecc083bbe37::t_00a7b39694462b 77-78,82-91
+  s_8cdecc083bbe37::t_76935543bf0a08 310-311
+  s_8cdecc083bbe37::t_6cd800e5864ee2 143-167
+  s_8cdecc083bbe37::t_ff08ec01fadc9e 43-45
+  s_8cdecc083bbe37::t_e35aa36d790330 304
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "0d7bd18e7e66f649860c36f97f4c4ec0bdfe90d6",
+  "prompts": {},
+  "sessions": {
+    "s_8cdecc083bbe37": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0191b-44c6-70d0-b4da-c0277d521e31",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
