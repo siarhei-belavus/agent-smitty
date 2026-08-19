@@ -20,10 +20,10 @@ The route most work travels. You have an idea and want it built.
    - **`/prototype`** to answer the question with throwaway code,
    - **`/handoff`** back what you learned, and reference it from the original idea thread.
 3. **Branch — is this a multi-session build?**
-   - **Yes** → **`/to-spec`** (turn the thread into a spec), then **`/to-tickets`** to split it into tracer-bullet tickets, each declaring its **blocking edges**. On a local tracker that's one file per ticket under `.scratch/<feature>/issues/`; on a real tracker the edges become native blocking links. Work each eligible ticket in a fresh **`/implement`** context across its complete authorized Repository Scope.
+   - **Yes** → **`/to-spec`** (turn the thread into a spec), then **`/to-tickets`** to split it into tracer-bullet tickets, each declaring its **blocking edges**. On a local tracker that's one file per ticket under `.scratch/<feature>/issues/`; on a real tracker the edges become native blocking links. Run each eligible agent-ready ticket through **`/coordinate-delivery`** for its complete federated delivery and human handoff.
    - **No** → **`/implement`** right here, in the same context window.
 
-   Either way, **`/implement`** builds each issue by driving **`/tdd`** internally — one red-green slice at a time across one or more authorized Repository Deliveries. Standalone work closes with **`/code-review`** over the fixed target set: repository-local Standards results and one whole-bundle Spec result. A Coordinator can instead narrow `/implement` to one supplied Execution Worktree, where it returns exact local evidence without review or publication. Reach for **`/tdd`** on its own when you just want to build a concrete behaviour test-first without a full spec, and **`/code-review`** on its own whenever you want to review one branch or a complete multi-repository bundle.
+   **`/coordinate-delivery`** claims one agent-ready Work Tracker ticket, prepares isolated Repository Deliveries, narrows each one to **`/implement`**, then owns publication, bundle review, and the ready-for-human handoff. Use **`/implement`** directly for an already-authorized standalone assignment; it drives **`/tdd`** internally and closes with **`/code-review`**. Reach for **`/tdd`** on its own when you just want to build a concrete behaviour test-first, and **`/code-review`** on its own whenever you want to review one branch or a complete multi-repository bundle.
 
 ### Context hygiene
 
@@ -35,7 +35,7 @@ The limit on this is the **[smart zone](https://www.aihero.dev/ai-coding-diction
 
 A starting situation that generates work, then merges onto the main flow.
 
-- **Bugs and requests piling up** → **`/triage`**. It moves issues through triage roles and produces agent-ready issues for a separately authorized `/implement` step across the complete authorized Repository Scope.
+- **Bugs and requests piling up** → **`/triage`**. It moves issues through triage roles and produces agent-ready issues for a separately invoked `/coordinate-delivery` run.
 
   Triage is only for issues **you didn't create** — bug reports, incoming feature requests, anything that arrives raw. Tickets that `/to-tickets` produced are already agent-ready, so **don't triage them**.
 

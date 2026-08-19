@@ -18,6 +18,7 @@ Reachable only when you type them (Claude Code: `disable-model-invocation: true`
 - **[setup-matt-pocock-skills](./setup-matt-pocock-skills/SKILL.md)** — Configure this repo for the engineering skills (issue tracker, triage labels, domain doc layout). Run once per repo.
 - **[to-spec](./to-spec/SKILL.md)** — Synthesize a solution-level specification with Repository References, Context Scope, and complete Testing Decisions, then publish it to the configured Work Tracker.
 - **[to-tickets](./to-tickets/SKILL.md)** — Transform settled source authority into self-contained tracer-bullet delivery tickets, one file per ticket locally or provider-native items on the configured Work Tracker.
+- **[coordinate-delivery](./coordinate-delivery/SKILL.md)** — Coordinate one agent-ready ticket through its complete federated delivery and human handoff.
 - **[implement](./implement/SKILL.md)** — Build one or more authorized Repository Deliveries with `/tdd`, exact-head validation evidence, and standalone bundle review or strict Coordinator narrowing.
 - **[wayfinder](./wayfinder/SKILL.md)** — Plan a huge, foggy effort as a configured Work Tracker map of decision tickets while preserving its planning-only frontier.
 

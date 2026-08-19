@@ -1,0 +1,5 @@
+interface:
+  display_name: "Coordinate Delivery"
+  short_description: "Deliver one agent-ready federated ticket"
+policy:
+  allow_implicit_invocation: false
