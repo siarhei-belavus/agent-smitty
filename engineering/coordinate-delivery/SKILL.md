@@ -57,7 +57,7 @@ For every validation-only or explicit no-change entry, record its exact stable b
 
 For every changed Repository Delivery, verify the fixed-base diff and repository validation evidence at the reported exact head. Invoke `/code-review` in **Standards only** mode with one fixed Repository Target per changed repository, its authoritative sources, settled seams, and exact-head validation evidence.
 
-Continue only when every fresh Standards result has no Blocking finding. Record Advisory findings for handoff. Any changed head makes its repository validation and Standards result stale.
+Record Advisory findings for handoff. The bundle has one correction/recheck round across Steps 5 and 7. When Standards has an attributable Blocking finding within authorized implementation, route it to the affected existing Implementation Agent, then refresh repository validation and Standards for every changed head. Any changed head makes its prior validation, review, and downstream evidence stale. Continue only when the fresh Standards result has no Blocking finding. If a Blocking persists or its correction requires a material scope, acceptance, seam, or decision change, report the exact obstacle and stop further mutation.
 
 **Complete when:** every changed exact head has current repository validation evidence and a fresh passing Standards result.
 
@@ -71,7 +71,9 @@ Using each changed repository's Code Host binding, publish only its delivery bra
 
 Run every declared Cross-Repository Validation Obligation against the published exact heads, using its named Validation Source, prerequisites, method, scenario, expected result, and evidence format. Record commands, outcomes, and limitations against the complete head set.
 
-Then invoke `/code-review` in **Spec only** mode once over the complete changed Repository Target set. Supply the ticket and other authoritative sources, all settled seams, repository and cross-repository validation evidence, and verified Review Proposals. Continue only when the fresh Bundle Spec result has no Blocking finding; record Advisory findings for handoff.
+Then invoke `/code-review` in **Spec only** mode once over the complete changed Repository Target set. Supply the ticket and other authoritative sources, all settled seams, repository and cross-repository validation evidence, and verified Review Proposals. Record Advisory findings for handoff.
+
+When Bundle Spec has an attributable Blocking finding and the correction/recheck round remains, route it to each affected existing Implementation Agent. Every changed head requires fresh repository validation and Standards, exact-head republication and Review Proposal verification, complete cross-repository validation, and a fresh Bundle Spec review. Continue only when the fresh Bundle Spec result has no Blocking finding. If the round is already spent, a Blocking persists, or correction requires a material scope, acceptance, seam, or decision change, report the exact obstacle and stop further mutation.
 
 **Complete when:** the published exact-head bundle satisfies every declared validation obligation and has a fresh passing Bundle Spec result.
 
@@ -84,6 +86,7 @@ Search existing ticket notes for that key. When absent, append one handoff note 
 - every fixed base, exact published head, branch, and Review Proposal;
 - repository-local and cross-repository validation evidence;
 - Standards and Bundle Spec outcomes, including Advisory findings;
+- required human actions and the explicit Review Proposal merge and rollout order;
 - unchanged Repository Scope entries and material limitations.
 
 When the key is already present, verify its recorded bundle matches instead of adding another note. Apply only missing final-state mutations: remove the Workflow Identity assignment, replace `ready-for-agent` with exactly the configured `ready-for-human` Routing Label, and leave the ticket open. Re-read ticket and note state.
