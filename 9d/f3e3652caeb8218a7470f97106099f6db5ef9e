@@ -1,0 +1,23 @@
+skills/matt/engineering/coordinate-delivery/SKILL.md
+  s_8cdecc083bbe37::t_b0943593a6fd3b 59-61
+  s_8cdecc083bbe37::t_883108bf6df59f 36-47
+skills/matt/engineering/coordinate-delivery/references/durable-boundaries-and-handoff.md
+  s_8cdecc083bbe37::t_883108bf6df59f 42-59,67-76
+  s_8cdecc083bbe37::t_61da508ff3a010 60-66
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "9df3e3652caeb8218a7470f97106099f6db5ef9e",
+  "prompts": {},
+  "sessions": {
+    "s_8cdecc083bbe37": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0191b-44c6-70d0-b4da-c0277d521e31",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": null
+    }
+  }
+}
