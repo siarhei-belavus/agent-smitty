@@ -1,0 +1,23 @@
+skills/matt/engineering/coordinate-delivery/references/durable-human-boundary.md
+  s_8cdecc083bbe37::t_98f95d11e6195a 144-147
+skills/matt/engineering/coordinate-delivery/references/durable-provider-protocol.md
+  s_8cdecc083bbe37::t_98f95d11e6195a 170-175,238-252
+skills/matt/engineering/coordinate-delivery/references/execution-attempt.md
+  s_8cdecc083bbe37::t_98f95d11e6195a 66-93,96-98,104-108
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "3ceb3bce62052914be4f55990a33d919b0363fa3",
+  "prompts": {},
+  "sessions": {
+    "s_8cdecc083bbe37": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0191b-44c6-70d0-b4da-c0277d521e31",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
