@@ -63,9 +63,9 @@ Continue only when every fresh Standards result has no Blocking finding. Record 
 
 ## 6. Publish Review Proposals
 
-Using each changed repository's Code Host binding, publish only its delivery branch and verify the remote branch resolves to the intended exact head. Create exactly one Review Proposal from that branch to the configured Base Branch, then re-read its source, target, review state, and head revision. Unchanged repositories receive neither a published delivery branch nor a Review Proposal.
+Using each changed repository's Code Host binding, publish only its delivery branch and verify the remote branch resolves to the intended exact head. Create exactly one Draft Review Proposal from that branch to the configured Base Branch and keep it Draft until bundle validation and Spec review pass. Re-read its source, target, draft state, and head revision. Unchanged repositories receive neither a published delivery branch nor a Review Proposal.
 
-**Complete when:** each changed Repository Delivery has one published exact head and exactly one verified Review Proposal, with no protected Base Branch changed.
+**Complete when:** each changed Repository Delivery has one published exact head and exactly one verified Draft Review Proposal at that head, with no protected Base Branch changed.
 
 ## 7. Validate the bundle
 
