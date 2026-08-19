@@ -1,0 +1,25 @@
+skills/matt/engineering/coordinate-delivery/references/activation-and-preparation.md
+  s_8cdecc083bbe37::t_ef8168dea26760 39-43,86-92
+  s_8cdecc083bbe37::t_6b822549dfb868 70-71
+  s_8cdecc083bbe37::t_fd2e314eb9e66f 63-69,72-76
+skills/matt/engineering/coordinate-delivery/SKILL.md
+  s_8cdecc083bbe37::t_ef8168dea26760 27-48
+skills/matt/engineering/coordinate-delivery/references/durable-boundaries-and-handoff.md
+  s_8cdecc083bbe37::t_ef8168dea26760 88-89,106-125,128-135,158-176,262,267-277
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "3ae150ad0877dc5f49b19ad29d5fd55c378c14d6",
+  "prompts": {},
+  "sessions": {
+    "s_8cdecc083bbe37": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0191b-44c6-70d0-b4da-c0277d521e31",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
