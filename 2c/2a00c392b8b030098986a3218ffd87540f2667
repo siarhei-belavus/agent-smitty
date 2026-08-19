@@ -1,0 +1,50 @@
+skills/matt/engineering/setup-federated-workflow/references/preflight-and-validation.md
+  s_8cdecc083bbe37::t_2085392298ed43 14-16,37-39
+  s_8cdecc083bbe37::t_6a81d0987dccc0 12-13,36,51-54
+skills/matt/engineering/ask-matt/SKILL.md
+  s_8cdecc083bbe37::t_a85d1aac1ae68a 81-83
+skills/matt/engineering/implement/SKILL.md
+  s_8cdecc083bbe37::t_a3eee06b554567 3,9,11,32,42,44,48
+skills/matt/engineering/setup-federated-workflow/agents/openai.yaml
+  s_8cdecc083bbe37::t_dca05e7650e42e 3
+skills/matt/engineering/coordinate-delivery/references/durable-provider-protocol.md
+  s_8cdecc083bbe37::t_b3bb95ae3d0eeb 12-53,69-74,93-97
+skills/matt/engineering/README.md
+  s_8cdecc083bbe37::t_a85d1aac1ae68a 22,33
+  s_8cdecc083bbe37::t_f851529ec1e763 34
+skills/matt/engineering/coordinate-delivery/references/execution-attempt.md
+  s_8cdecc083bbe37::t_d08e2be33137b7 113-122
+  s_8cdecc083bbe37::t_c895823761be11 101-105
+  s_8cdecc083bbe37::t_4e764e94aa4c81 106-112,125-133
+skills/matt/engineering/coordinate-delivery/references/durable-transition-recovery.md
+  s_8cdecc083bbe37::t_e95b32796115f5 6-8
+  s_8cdecc083bbe37::t_c8063d19de623c 24-32,55-56,59,64-67,69,73-74
+  s_8cdecc083bbe37::t_8d43979f93d753 52-54,60-63,116-119,245-249,255-256
+  s_8cdecc083bbe37::t_b97dbdf9e9153d 70-72
+  s_8cdecc083bbe37::t_649089e9f2d1ac 254
+skills/matt/engineering/coordinate-delivery/SKILL.md
+  s_8cdecc083bbe37::t_2085392298ed43 26-31
+  s_8cdecc083bbe37::t_e7d8df8dd3fb18 21-25,32
+skills/matt/engineering/setup-federated-workflow/SKILL.md
+  s_8cdecc083bbe37::t_5c4cdde41005d3 109-111
+  s_8cdecc083bbe37::t_f581c97ebeeb03 38-39,70-71,97-99
+  s_8cdecc083bbe37::t_dca05e7650e42e 3
+skills/matt/engineering/setup-federated-workflow/references/provider-bindings.md
+  s_8cdecc083bbe37::t_825b17fc929779 57,76-88,98-102
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "2c2a00c392b8b030098986a3218ffd87540f2667",
+  "prompts": {},
+  "sessions": {
+    "s_8cdecc083bbe37": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0191b-44c6-70d0-b4da-c0277d521e31",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
