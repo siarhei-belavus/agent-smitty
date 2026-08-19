@@ -1,0 +1,36 @@
+skills/matt/engineering/ask-matt/SKILL.md
+  s_8cdecc083bbe37::t_65050422b6875c 26
+skills/matt/engineering/coordinate-delivery/references/activation-and-preparation.md
+  s_8cdecc083bbe37::t_49309aaa9f9cd7 66-69,71-77
+  s_8cdecc083bbe37::t_7b822f26d32341 70
+skills/matt/engineering/coordinate-delivery/references/execution-attempt.md
+  s_8cdecc083bbe37::t_65050422b6875c 30-34,51,101-115
+  s_8cdecc083bbe37::t_f5561e881bf76b 116-118
+skills/matt/engineering/coordinate-delivery/SKILL.md
+  s_8cdecc083bbe37::t_65050422b6875c 33-41
+skills/matt/engineering/coordinate-delivery/references/successful-delivery-handoff.md
+  s_8cdecc083bbe37::t_49309aaa9f9cd7 68-73
+skills/matt/engineering/coordinate-delivery/references/durable-provider-protocol.md
+  s_8cdecc083bbe37::t_49309aaa9f9cd7 59-63
+  s_8cdecc083bbe37::t_65050422b6875c 14-19,26-37,46-56,58,243-246
+  s_8cdecc083bbe37::t_b56a9603ae7a9f 57
+  s_8cdecc083bbe37::t_7b822f26d32341 20-25
+  s_8cdecc083bbe37::t_70b1fcca192d08 38-45,64-76
+  s_8cdecc083bbe37::t_8abd82753faa20 188-194,196-210
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "2fb5e40de3e4e5fd6f3957c80b4f5d4392af3bb5",
+  "prompts": {},
+  "sessions": {
+    "s_8cdecc083bbe37": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0191b-44c6-70d0-b4da-c0277d521e31",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
