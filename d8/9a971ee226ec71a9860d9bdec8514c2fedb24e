@@ -1,0 +1,22 @@
+skills/matt/engineering/coordinate-delivery/references/durable-boundaries-and-handoff.md
+  s_8cdecc083bbe37::t_883108bf6df59f 42-59,67-76
+  s_8cdecc083bbe37::t_61da508ff3a010 60-66
+skills/matt/engineering/coordinate-delivery/SKILL.md
+  s_8cdecc083bbe37::t_883108bf6df59f 36-47
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "d89a971ee226ec71a9860d9bdec8514c2fedb24e",
+  "prompts": {},
+  "sessions": {
+    "s_8cdecc083bbe37": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0191b-44c6-70d0-b4da-c0277d521e31",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
