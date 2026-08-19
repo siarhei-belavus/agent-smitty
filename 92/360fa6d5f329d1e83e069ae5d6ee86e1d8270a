@@ -1,0 +1,42 @@
+skills/matt/engineering/coordinate-delivery/references/durable-transition-recovery.md
+  s_8cdecc083bbe37::t_710b6860e811a7 51-55,75-76,107-109,177-178
+  s_8cdecc083bbe37::t_ecb9afa1da53b4 284
+  s_8cdecc083bbe37::t_53e5fd3df21169 1-50,56-74,77-106,110-176,179-283,285-306
+skills/matt/engineering/coordinate-delivery/references/durable-provider-protocol.md
+  s_8cdecc083bbe37::t_bfa5665a9e7a75 1-135,139-200
+  s_8cdecc083bbe37::t_710b6860e811a7 136-138
+skills/matt/engineering/coordinate-delivery/references/successful-delivery-handoff.md
+  s_8cdecc083bbe37::t_64fe132cc7ebe9 1-48,51-56,59-78,82-112
+  s_8cdecc083bbe37::t_05eeeca690b6c8 49-50,57-58,79-81
+skills/matt/engineering/coordinate-delivery/SKILL.md
+  s_8cdecc083bbe37::t_ec09e51422effe 52,61
+  s_8cdecc083bbe37::t_883d762dbf5255 116-122
+  s_8cdecc083bbe37::t_ecb9afa1da53b4 90,92
+skills/matt/engineering/coordinate-delivery/references/execution-attempt.md
+  s_8cdecc083bbe37::t_ecb9afa1da53b4 37
+  s_8cdecc083bbe37::t_883d762dbf5255 130-135
+skills/matt/engineering/coordinate-delivery/references/durable-boundaries-and-handoff.md
+  s_8cdecc083bbe37::t_7b45194c3bff44 1-19
+skills/matt/engineering/coordinate-delivery/references/durable-human-boundary.md
+  s_8cdecc083bbe37::t_05eeeca690b6c8 32-33,55-57,71-72,75-76,87-88,113-114,118-120
+  s_8cdecc083bbe37::t_3e1576789f750c 1-31,34-54,58-70,73-74,77-86,89-112,115-117,121-137
+skills/matt/engineering/coordinate-delivery/references/activation-and-preparation.md
+  s_8cdecc083bbe37::t_ecb9afa1da53b4 40,87,96,105,134,179
+  s_8cdecc083bbe37::t_883d762dbf5255 183-188
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "92360fa6d5f329d1e83e069ae5d6ee86e1d8270a",
+  "prompts": {},
+  "sessions": {
+    "s_8cdecc083bbe37": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0191b-44c6-70d0-b4da-c0277d521e31",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
