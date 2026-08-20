@@ -1,0 +1,19 @@
+{
+  "id": "response-replan",
+  "state": {
+    "ticket": {"state": "open", "routing": "ready-for-agent", "assignee": null},
+    "checkpoint": {"id": "checkpoint:design", "next_step": "implementation", "heads": {"agent": "aaa111"}},
+    "requests": [{"id": "request:design", "checkpoint_id": "checkpoint:design", "kind": "escalation", "status": "completed", "response_id": "response:design"}],
+    "responses": [{"id": "response:design", "request_id": "request:design", "body": "Use the approved replacement plan."}],
+    "reconciliations": [{"response_id": "response:design", "disposition": "replan", "resumption_plan": {"id": "plan:replacement", "status": "execution-ready"}}],
+    "heads": {"agent": "aaa111"},
+    "required_changes": ["agent"]
+  },
+  "expected": {
+    "result": "resume",
+    "source": "checkpoint-response",
+    "disposition": "replan",
+    "resumption_record_id": "resumption:checkpoint:design:response:design",
+    "event_order": ["resumption:checkpoint:design:response:design", "attempt:checkpoint:design:response:design"]
+  }
+}

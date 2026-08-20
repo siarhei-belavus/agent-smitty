@@ -1,0 +1,17 @@
+{
+  "id": "mixed-resume-sources",
+  "state": {
+    "ticket": {"state": "open", "routing": "ready-for-agent", "assignee": null},
+    "checkpoint": {"id": "checkpoint:mixed", "next_step": "implementation", "heads": {}},
+    "requests": [{"id": "request:mixed", "checkpoint_id": "checkpoint:mixed", "kind": "escalation", "status": "completed", "response_id": "response:mixed"}],
+    "responses": [{"id": "response:mixed", "request_id": "request:mixed", "body": "Continue."}],
+    "reconciliations": [{"response_id": "response:mixed", "disposition": "continue"}],
+    "feedback": [{"id": "feedback:mixed", "status": "actionable", "review_round": "completed", "repositories": ["agent"]}]
+  },
+  "expected": {
+    "result": "human-boundary",
+    "boundary_reason": "mixed-resume-sources",
+    "claim": "none",
+    "attempt_id": null
+  }
+}

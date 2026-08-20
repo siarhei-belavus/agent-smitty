@@ -1,0 +1,70 @@
+{
+  "id": "environment-blocker-continue",
+  "state": {
+    "ticket": {
+      "state": "open",
+      "routing": "ready-for-agent",
+      "assignee": null
+    },
+    "checkpoint": {
+      "id": "checkpoint:environment-blocker",
+      "next_step": "prepare",
+      "heads": {
+        "agent": "aaa111"
+      }
+    },
+    "requests": [
+      {
+        "id": "request:restore-environment",
+        "checkpoint_id": "checkpoint:environment-blocker",
+        "kind": "escalation",
+        "status": "completed",
+        "response_id": "response:environment-restored"
+      }
+    ],
+    "responses": [
+      {
+        "id": "response:environment-restored",
+        "request_id": "request:restore-environment",
+        "body": "The required environment is restored. Continue from the preserved delivery state."
+      }
+    ],
+    "reconciliations": [
+      {
+        "response_id": "response:environment-restored",
+        "disposition": "continue"
+      }
+    ],
+    "heads": {
+      "agent": "aaa111"
+    },
+    "required_changes": [
+      "agent"
+    ]
+  },
+  "expected": {
+    "result": "resume",
+    "source": "checkpoint-response",
+    "disposition": "continue",
+    "claim": "acquire",
+    "routing": "claimed-ready-for-agent",
+    "checkpoint_id": "checkpoint:environment-blocker",
+    "active_request_id": null,
+    "resumption_record_id": "resumption:checkpoint:environment-blocker:response:environment-restored",
+    "attempt_id": "attempt:checkpoint:environment-blocker:response:environment-restored",
+    "attempt_kind": "normal",
+    "implementation_repositories": [
+      "agent"
+    ],
+    "event_order": [
+      "resumption:checkpoint:environment-blocker:response:environment-restored",
+      "attempt:checkpoint:environment-blocker:response:environment-restored"
+    ],
+    "evidence": {
+      "invalidate": [],
+      "preserve": []
+    },
+    "boundary_reason": null,
+    "request_actions": []
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "runtime-proven-termination",
+  "state": {
+    "ticket": {"state": "open", "routing": "ready-for-agent", "assignee": null},
+    "checkpoint": {"id": "checkpoint:runtime", "next_step": "validation", "heads": {"agent": "aaa111"}},
+    "requests": [],
+    "runtime": {"activation_id": "activation:lost-worker", "status": "terminated", "evidence_id": "runtime:exit-137"},
+    "heads": {"agent": "aaa111"},
+    "required_changes": []
+  },
+  "expected": {
+    "result": "resume",
+    "source": "runtime-termination",
+    "disposition": "continue",
+    "resumption_record_id": "resumption:checkpoint:runtime:runtime:activation:lost-worker",
+    "attempt_id": "attempt:checkpoint:runtime:runtime:activation:lost-worker"
+  }
+}

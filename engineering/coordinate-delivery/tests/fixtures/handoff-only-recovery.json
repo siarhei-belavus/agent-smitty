@@ -1,0 +1,21 @@
+{
+  "id": "handoff-only-recovery",
+  "state": {
+    "ticket": {"state": "open", "routing": "ready-for-agent", "assignee": null},
+    "checkpoint": {"id": "checkpoint:handoff", "next_step": "complete-handoff", "heads": {"agent": "aaa111"}},
+    "requests": [],
+    "runtime": {"activation_id": "activation:handoff", "status": "terminated", "evidence_id": "runtime:terminated"},
+    "heads": {"agent": "aaa111"},
+    "required_changes": [],
+    "review_proposals": [{"id": "proposal:agent", "repository": "agent", "head": "aaa111"}],
+    "handoff": {"status": "incomplete", "key": "handoff:bundle"}
+  },
+  "expected": {
+    "result": "resume",
+    "source": "runtime-termination",
+    "disposition": "continue",
+    "attempt_kind": "handoff-only",
+    "implementation_repositories": [],
+    "review_proposals": {"reuse": ["proposal:agent"], "create": []}
+  }
+}
