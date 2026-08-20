@@ -34,7 +34,7 @@ Create a run-specific persistent root outside existing user checkouts. Fetch eve
 
 ## 4. Execute one flat attempt
 
-Start exactly one direct-child Implementation Agent for each delivery requiring changes. Give it a Coordinator-narrowed repository delivery assignment with the resolved path to the [Repository delivery implementation contract](../../../../docs/agents/repository-delivery-implementation.md), and require it to read and apply that contract before mutation. Include the Repository ID and Reference, Execution Worktree, branch, fixed base, authoritative sources, repository-specific outcome, Settled Seams and test approaches, Validation Obligations, repository instructions, and validation commands. Require the contract's one Repository Delivery result. Record validation-only and no-change deliveries directly.
+Start exactly one direct-child Implementation Agent for each delivery requiring changes. Invoke the model-invoked `implement` skill in Coordinator-narrowed mode. Include the Repository ID and Reference, Execution Worktree, branch, fixed base, authoritative sources, repository-specific outcome, Settled Seams and test approaches, Validation Obligations, repository instructions, and validation commands. Require its one Repository Delivery result. Record validation-only and no-change deliveries directly.
 
 Verify every result against its assigned worktree and base; classify an expected change with no diff as unchanged.
 
