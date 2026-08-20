@@ -7,12 +7,12 @@ This file is the single source of truth for Coordinator lifecycle records. Publi
 - Every record ID is unique and every relationship resolves bidirectionally to the named record.
 - One current Execution Checkpoint has at most one active Human Action Request and one linked free-form Human Response.
 - Repository evidence names its repository and exact head; cross-repository evidence names its complete influencing-head set; Bundle Spec evidence names the complete bundle head set. A mismatch is stale evidence.
-- Runtime termination evidence names the provider record, interrupted activation, checkpoint, and observed termination outcome. Elapsed time is not evidence.
+- Runtime termination evidence names the provider record, its execution URL or equivalent runtime reference when available, the checkpoint, and the observed termination outcome. The runtime reference supports observability and liveness diagnosis; it establishes neither the claim nor recovery authority. Elapsed time is not evidence.
 - Append-only successors preserve history and identify the current record.
 
 ## Execution Checkpoint
 
-Record the checkpoint, ticket, activation and attempt IDs, trigger, provider timestamp, ticket/routing/claim snapshot, resolved dependencies and authority, and the next permissible step with prerequisites. For every Repository Delivery record its base, branch, exact Published Delivery Head, Review Proposal, preserved worktree state, and outcome. Record exact-head repository, Standards, cross-repository, and Bundle Spec evidence; affected and preserved deliveries; invalidated, preserved, and pending evidence; the active request ID or explicit absence; local-only exclusions; runtime pointers; and limitations.
+Record the checkpoint, ticket, Execution Attempt ID, trigger, provider timestamp, ticket/routing/claim snapshot, resolved dependencies and authority, and the next permissible step with prerequisites. For every Repository Delivery record its base, branch, exact Published Delivery Head, Review Proposal, preserved worktree state, and outcome. Record exact-head repository, Standards, cross-repository, and Bundle Spec evidence; affected and preserved deliveries; invalidated, preserved, and pending evidence; the active request ID or explicit absence; local-only exclusions; an execution URL or equivalent runtime reference when the runtime provides one; and limitations.
 
 ## Human Action Request
 
@@ -30,6 +30,6 @@ For `replan`, record a human-produced or explicitly delegated execution-ready pl
 
 ## Resumption Record
 
-Record the ID, ticket, new activation, next attempt, exactly one response/feedback/runtime source, `continue` or `replan`, checkpoint, plan when applicable, affected and preserved deliveries, previous and launch exact heads, reused proposals, invalidated evidence, preserved identical-head evidence, required refresh, re-read routing/claim state, next step, and limitations.
+Record the ID, ticket, next Execution Attempt ID, exactly one response/feedback/runtime source, `continue` or `replan`, checkpoint, plan when applicable, affected and preserved deliveries, previous and launch exact heads, reused proposals, invalidated evidence, preserved identical-head evidence, required refresh, re-read routing/claim state, next step, and limitations.
 
 Publish and re-read this record after a successful Resume Gate and before the named Execution Attempt. Verify its launch heads against provider truth.

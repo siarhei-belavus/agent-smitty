@@ -1,16 +1,16 @@
 ---
 name: implement
-description: "Implement repository deliveries from authoritative specs or tickets. Use for standalone implementation and when coordinate-delivery dispatches one Coordinator-narrowed repository delivery."
+description: "Implement repository deliveries from authoritative specs or tickets. Use for standalone implementation and for one repository delivery narrowed by coordinate-delivery."
 ---
 
 Implement the work described by the user in the authoritative spec or tickets.
 
-## Select the assignment mode
+## Resolve the assignment
 
 Classify the assignment before changing a checkout.
 
-- For one or more user-authorized Repository Deliveries, read [Standalone assignments](STANDALONE.md).
-- For exactly one Repository Delivery dispatched by `coordinate-delivery`, read [Coordinator-narrowed assignments](COORDINATOR-NARROWED.md).
+- When the user authorizes one or more writable Repository Deliveries directly, read [Standalone assignments](STANDALONE.md).
+- When `coordinate-delivery` supplies one complete narrowing assignment for exactly one Repository Scope entry, read [Coordinator narrowing](COORDINATOR-NARROWED.md).
 
 Every writable Repository Delivery must supply or resolve:
 
@@ -24,7 +24,7 @@ Every writable Repository Delivery must supply or resolve:
 
 Read-only context and validation repositories remain outside writable scope. Missing authority, a worktree that disagrees with the assignment, or a required change to approved scope, acceptance behavior, or a Settled Seam is a **Material contradiction**. Preserve safe work and return the conflicting sources. Authority comes from the assignment, not inference.
 
-**Complete when:** the assignment mode, writable scope, authority, and every required delivery field are resolved, or a Material contradiction has been returned without mutation.
+**Complete when:** the writable scope, authority, and every required delivery field are resolved, or a Material contradiction has been returned without mutation.
 
 ## Prepare each delivery
 
@@ -60,4 +60,4 @@ Return one **Repository Delivery result** for each writable entry with:
 - repository validation commands and outcomes;
 - remaining blockers or Material contradiction details.
 
-**Complete when:** every authorized Repository Delivery satisfies the selected mode's completion requirements and the requested result has been returned.
+**Complete when:** every authorized Repository Delivery satisfies its assignment's completion requirements and the requested result has been returned.

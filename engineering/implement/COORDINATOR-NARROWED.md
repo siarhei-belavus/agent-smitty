@@ -1,6 +1,6 @@
-# Coordinator-narrowed assignments
+# Coordinator narrowing
 
-A Coordinator-narrowed assignment accepts exactly one named Repository Scope entry and one supplied Execution Worktree. The Coordinator must supply every delivery field required by `SKILL.md`.
+The Coordinator gives its direct child one complete textual narrowing assignment for exactly one named Repository Scope entry and one supplied Execution Worktree. The assignment includes every delivery field required by `SKILL.md`.
 
 Change only that Execution Worktree. Start no child agent or reviewer. Change no Code Host or Work Tracker state. The Coordinator owns all other scope entries, validation-only deliveries, publication, Review Proposals, Work Tracker state, and bundle review.
 
