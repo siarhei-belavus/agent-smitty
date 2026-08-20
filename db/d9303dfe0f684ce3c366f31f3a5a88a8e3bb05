@@ -1,0 +1,27 @@
+skills/matt/engineering/coordinate-delivery/RUNTIME-TERMINATION.md
+  s_a350986542ad2f::t_2490e39232332f 3,5
+skills/matt/engineering/coordinate-delivery/SKILL.md
+  s_a350986542ad2f::t_2490e39232332f 13,17-19
+  s_a350986542ad2f::t_48a4d789f09a0f 15
+skills/matt/engineering/coordinate-delivery/RECOVERY.md
+  s_a350986542ad2f::t_48a4d789f09a0f 21,23
+  s_a350986542ad2f::t_c8c69eb80a576c 7
+  s_a350986542ad2f::t_2490e39232332f 3,5,17
+  s_a350986542ad2f::t_e0825d7c8b7458 6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "dbd9303dfe0f684ce3c366f31f3a5a88a8e3bb05",
+  "prompts": {},
+  "sessions": {
+    "s_a350986542ad2f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a01e13-6e71-71a3-94c1-f393bb9b3142",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
