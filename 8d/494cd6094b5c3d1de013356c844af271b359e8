@@ -1,0 +1,23 @@
+skills/matt/engineering/coordinate-delivery/SKILL.md
+  s_a350986542ad2f::t_7eba437c24a9f1 63,65,67
+skills/matt/engineering/coordinate-delivery/ARTIFACTS.md
+  s_a350986542ad2f::t_7eba437c24a9f1 9,15,33
+skills/matt/engineering/coordinate-delivery/RECOVERY.md
+  s_a350986542ad2f::t_7eba437c24a9f1 17,19
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "8d494cd6094b5c3d1de013356c844af271b359e8",
+  "prompts": {},
+  "sessions": {
+    "s_a350986542ad2f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a01e13-6e71-71a3-94c1-f393bb9b3142",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
