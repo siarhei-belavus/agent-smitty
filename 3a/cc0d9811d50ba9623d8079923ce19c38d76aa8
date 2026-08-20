@@ -1,0 +1,66 @@
+skills/matt/engineering/coordinate-delivery/tests/fixtures/contradictory-active-requests.json
+  s_a350986542ad2f::t_37e5b56ee84eef 1-28
+skills/matt/engineering/coordinate-delivery/tests/fixtures/unresolved-active-request.json
+  s_a350986542ad2f::t_37e5b56ee84eef 1-27
+skills/matt/engineering/coordinate-delivery/ARTIFACTS.md
+  s_a350986542ad2f::t_8cee73d898418c 1-54
+skills/matt/engineering/coordinate-delivery/tests/fixtures/runtime-proven-termination.json
+  s_a350986542ad2f::t_5751c471a297c2 1-18
+skills/matt/engineering/coordinate-delivery/tests/fixtures/superseded-without-successor.json
+  s_a350986542ad2f::t_37e5b56ee84eef 1-27
+skills/matt/engineering/coordinate-delivery/tests/fixtures/indeterminate-runtime-liveness.json
+  s_a350986542ad2f::t_777a354e40106b 1-17
+skills/matt/engineering/coordinate-delivery/tests/fixtures/exact-head-drift.json
+  s_a350986542ad2f::t_777a354e40106b 1-34
+skills/matt/engineering/coordinate-delivery/tests/fixtures/environment-blocker-continue.json
+  s_a350986542ad2f::t_bd3ab034c8783b 1-70
+skills/matt/engineering/coordinate-delivery/tests/fixtures/planned-verification-indeterminate.json
+  s_a350986542ad2f::t_37e5b56ee84eef 1-33
+skills/matt/engineering/coordinate-delivery/tests/fixtures/actionable-review-feedback.json
+  s_a350986542ad2f::t_5751c471a297c2 1-18
+skills/matt/engineering/coordinate-delivery/tests/test_lifecycle_replay.py
+  s_a350986542ad2f::t_37e5b56ee84eef 16,25-26,34-35,40-47,49-51
+  s_a350986542ad2f::t_5751c471a297c2 54-65,78
+  s_a350986542ad2f::t_777a354e40106b 27-33,36,52,66-77
+  s_a350986542ad2f::t_bd3ab034c8783b 1-15,17-24,37-39,48,53,79-81
+skills/matt/engineering/coordinate-delivery/tests/fixtures/local-only-dirty-work.json
+  s_a350986542ad2f::t_777a354e40106b 1-17
+skills/matt/engineering/coordinate-delivery/tests/test_skill_contract.py
+  s_a350986542ad2f::t_44d7c4c91102a8 1-137
+skills/matt/engineering/coordinate-delivery/tests/fixtures/fresh-initial-attempt.json
+  s_a350986542ad2f::t_5751c471a297c2 1-17
+skills/matt/engineering/coordinate-delivery/tests/fixtures/response-replan.json
+  s_a350986542ad2f::t_5751c471a297c2 1-19
+skills/matt/engineering/coordinate-delivery/LIFECYCLE.md
+  s_a350986542ad2f::t_92d24f28c60dd9 1-60
+skills/matt/engineering/coordinate-delivery/tests/fixtures/handoff-only-recovery.json
+  s_a350986542ad2f::t_777a354e40106b 1-21
+skills/matt/engineering/coordinate-delivery/tests/fixtures/response-replan-without-plan.json
+  s_a350986542ad2f::t_5751c471a297c2 1-16
+skills/matt/engineering/coordinate-delivery/scripts/replay_lifecycle.py
+  s_a350986542ad2f::t_30079f1330f76b 1-26,28-32,108-110,113-118,184-189,192,234,270-285
+  s_a350986542ad2f::t_87415041c9be0c 61-86,93-94,102-107,190-191,193-203,205-233,235-269
+  s_a350986542ad2f::t_3c708289c7dea0 89,204
+  s_a350986542ad2f::t_11f3b24a898088 111-112,119-153,182-183
+  s_a350986542ad2f::t_129c6854842794 27,33-60,87-88,90-92,95-101,154-181
+skills/matt/engineering/coordinate-delivery/tests/fixtures/mixed-resume-sources.json
+  s_a350986542ad2f::t_5751c471a297c2 1-17
+skills/matt/engineering/coordinate-delivery/SKILL.md
+  s_a350986542ad2f::t_b13551ffb567a1 7,9,11,13,15,17,19,21,23,25,31,33,35,37,39,41,43,47,49,51,55,57,61,63,65,69,71,73,75
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "3acc0d9811d50ba9623d8079923ce19c38d76aa8",
+  "prompts": {},
+  "sessions": {
+    "s_a350986542ad2f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a01e13-6e71-71a3-94c1-f393bb9b3142",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
