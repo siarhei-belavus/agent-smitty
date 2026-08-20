@@ -1,7 +1,5 @@
 # Human Boundary
 
-Read this file when a gate requires human authority, preparation remains blocked after bounded recovery, authoritative intent is contradictory, a material design decision appears, planned human verification is due, local-only work lacks provenance, or another branch directs here.
-
 Preserve safe work and publish a recoverable changed head when authorized and safe. Record local-only work without treating it as a Published Delivery Head. Pause affected and dependent deliveries while preserving unrelated valid work.
 
 An Environment Preparation Blocker follows bounded recovery without destructive repair. A Specification Contradiction records the conflicting or missing authority. A Material Design Opportunity records the settled decision, evidence-backed alternative, and required human choice.

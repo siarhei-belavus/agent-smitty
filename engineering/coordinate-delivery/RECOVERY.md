@@ -1,7 +1,5 @@
 # Recovery
 
-Read this file when an activation finds any prior checkpoint, request, response, Resumption Record, existing Review Proposal, or handoff.
-
 Re-read the ticket, dependencies, routing, assignees, coordination notes, Review Proposals and feedback, Published Delivery Heads, and evidence bindings. Validate every lifecycle record against [the artifact invariants](ARTIFACTS.md#record-invariants). Durable provider state must suffice in a fresh context; live memory supplies no missing fact. Preserve local-only dirty work but exclude it from authority until a human establishes provenance.
 
 Classify a matching handoff before the Resume Gate. When its ticket, deterministic bundle key, exact heads, proposals, and evidence match current provider truth, Step 8's completion criterion already holds, and no unresolved lifecycle record remains, treat the delivery as terminal: report the existing handoff and return without a new request, claim, Resume Gate, or mutation. When delivery results are complete but the handoff note or final effects are incomplete, continue through the Resume Gate and then read [handoff-only recovery](HANDOFF-ONLY.md). A contradictory handoff enters the [human-boundary branch](HUMAN-BOUNDARY.md).
