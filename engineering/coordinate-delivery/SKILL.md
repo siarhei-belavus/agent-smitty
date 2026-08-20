@@ -10,11 +10,13 @@ Use repository-owned bindings for every provider operation. Persist no provider 
 
 ## 1. Establish activation authority
 
-Resolve the ticket only through the configured Ticket Origin Repository. Read its `AGENTS.md`, Work Tracker, Routing Label, Domain Orientation, and Code Host bindings, then the complete ticket, comments, dependencies, coordination notes, Review Feedback, Code Host state, and authoritative runtime state.
+Resolve the ticket only through the configured Ticket Origin Repository. Read its `AGENTS.md`, Work Tracker, Routing Label, Domain Orientation, and Code Host bindings, then the complete ticket, comments, dependencies, coordination notes, Review Feedback, and Code Host state.
 
-When any prior checkpoint, request, response, Resumption Record, existing Review Proposal, handoff, assigned claim, or interrupted activation exists, read [recovery](RECOVERY.md) before claiming or mutating the ticket. Otherwise require an open, unblocked, unassigned ticket carrying exactly `ready-for-agent`; resolve the Workflow Identity, assign only it, and re-read the claim.
+Classify the claim before recovery. A claim is current only when activation authority, including a verified dispatcher entry, shows that it was acquired for this Coordinator Activation and a provider re-read shows the ticket assigned solely to the Workflow Identity; retain that claim. An assignment without this proof is foreign or interrupted, so read [runtime termination](RUNTIME-TERMINATION.md) before mutation.
 
-**Complete when:** either recovery has produced and verified its required durable result or this is an initial activation whose open ticket is unblocked, exactly `ready-for-agent`, and solely assigned to the Workflow Identity.
+When any prior checkpoint, request, response, Resumption Record, existing Review Proposal, or handoff exists, read [recovery](RECOVERY.md) before mutation. Otherwise require an open, unblocked ticket carrying exactly `ready-for-agent`; retain its current-activation claim or, when unassigned, resolve the Workflow Identity, assign only it, and re-read the claim.
+
+**Complete when:** either recovery has produced and verified its terminal or resumable durable result, or the open ticket is unblocked, exactly `ready-for-agent`, solely assigned to the Workflow Identity, and the claim is verified for this Coordinator Activation.
 
 ## 2. Validate the delivery contract
 
