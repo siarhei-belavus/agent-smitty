@@ -1,0 +1,55 @@
+skills/matt/engineering/coordinate-delivery/scripts/replay_lifecycle.py
+  s_a350986542ad2f::t_48335a61609719 42-43,45-50,54,66-86,90-109,156,342-347
+  s_a350986542ad2f::t_04fd43ebf0df85 44,51-53,55-65,87-89,110-115,134
+  s_a350986542ad2f::t_3c9fef12f22d43 33-41,116-133,135-155,157-176,193-197,200-205,209-211,268-271,348-349,367
+skills/matt/engineering/coordinate-delivery/tests/fixtures/duplicate-durable-record-id.json
+  s_a350986542ad2f::t_da8140dbd1efb7 1-20
+skills/matt/engineering/coordinate-delivery/tests/test_skill_contract.py
+  s_a350986542ad2f::t_357eadbe91dff3 117
+  s_a350986542ad2f::t_da8140dbd1efb7 78-82,115,118-120,137-146
+  s_a350986542ad2f::t_83da1eddc35452 116
+skills/matt/engineering/coordinate-delivery/tests/test_lifecycle_replay.py
+  s_a350986542ad2f::t_357eadbe91dff3 84
+  s_a350986542ad2f::t_da8140dbd1efb7 71,80-82,85-86
+  s_a350986542ad2f::t_83da1eddc35452 83
+  s_a350986542ad2f::t_73e06ba6756f49 87-89
+  s_a350986542ad2f::t_1f8badf159444b 90-91
+skills/matt/engineering/coordinate-delivery/ARTIFACTS.md
+  s_a350986542ad2f::t_3c9fef12f22d43 16
+skills/matt/engineering/coordinate-delivery/tests/fixtures/unbound-runtime-termination.json
+  s_a350986542ad2f::t_da8140dbd1efb7 1-10
+skills/matt/engineering/coordinate-delivery/tests/fixtures/mismatched-response-request.json
+  s_a350986542ad2f::t_da8140dbd1efb7 1-14
+skills/matt/engineering/coordinate-delivery/tests/fixtures/misbound-runtime-termination.json
+  s_a350986542ad2f::t_357eadbe91dff3 1-10
+skills/matt/engineering/coordinate-delivery/tests/fixtures/runtime-proven-termination.json
+  s_a350986542ad2f::t_c4782890aa3fcd 7
+skills/matt/engineering/coordinate-delivery/SKILL.md
+  s_a350986542ad2f::t_3c9fef12f22d43 61
+skills/matt/engineering/coordinate-delivery/tests/fixtures/local-only-dirty-work.json
+  s_a350986542ad2f::t_c4782890aa3fcd 7
+skills/matt/engineering/coordinate-delivery/tests/fixtures/stale-evidence-bindings.json
+  s_a350986542ad2f::t_da8140dbd1efb7 1-29
+skills/matt/engineering/coordinate-delivery/LIFECYCLE.md
+  s_a350986542ad2f::t_3c9fef12f22d43 20
+skills/matt/engineering/coordinate-delivery/tests/fixtures/incomplete-durable-record.json
+  s_a350986542ad2f::t_83da1eddc35452 1-11
+skills/matt/engineering/coordinate-delivery/tests/fixtures/handoff-only-recovery.json
+  s_a350986542ad2f::t_c4782890aa3fcd 7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "d2bbe29786f415ec411650bf207a7d2288fb842c",
+  "prompts": {},
+  "sessions": {
+    "s_a350986542ad2f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a01e13-6e71-71a3-94c1-f393bb9b3142",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
