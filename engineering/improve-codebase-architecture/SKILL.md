@@ -10,7 +10,7 @@ Surface architectural friction and propose **deepening opportunities** — refac
 
 This command is _informed_ by the project's domain model and built on a shared design vocabulary:
 
-- Run the `/codebase-design` skill for the architecture vocabulary (**module**, **interface**, **depth**, **seam**, **adapter**, **leverage**, **locality**) and its principles (the deletion test, "the interface is the test surface", "one adapter = hypothetical seam, two = real"). Use these terms exactly in every suggestion — don't drift into "component," "service," "API," or "boundary."
+- Use the `codebase-design` skill for the architecture vocabulary (**module**, **interface**, **depth**, **seam**, **adapter**, **leverage**, **locality**) and its principles (the deletion test, "the interface is the test surface", "one adapter = hypothetical seam, two = real"). Use these terms exactly in every suggestion — don't drift into "component," "service," "API," or "boundary."
 - The domain language in `CONTEXT.md` gives names to good seams; ADRs in `docs/adr/` record decisions this command should not re-litigate.
 
 ## Process
@@ -24,7 +24,7 @@ This command is _informed_ by the project's domain model and built on a shared d
 
 Read the project's domain glossary (`CONTEXT.md`) and any ADRs in the area you're touching first.
 
-Then use the Agent tool with `subagent_type=Explore` to walk the codebase. Don't follow rigid heuristics — explore organically and note where you experience friction:
+Then delegate a bounded codebase exploration to a subagent. Don't follow rigid heuristics — explore organically and note where you experience friction:
 
 - Where does understanding one concept require bouncing between many small modules?
 - Where are modules **shallow** — interface nearly as complex as the implementation?
@@ -51,7 +51,7 @@ For each candidate, render a card with:
 
 End the report with a **Top recommendation** section: which candidate you'd tackle first and why.
 
-**Use CONTEXT.md vocabulary for the domain, and the `/codebase-design` vocabulary for the architecture.** If `CONTEXT.md` defines "Order," talk about "the Order intake module" — not "the FooBarHandler," and not "the Order service."
+**Use CONTEXT.md vocabulary for the domain, and the `codebase-design` vocabulary for the architecture.** If `CONTEXT.md` defines "Order," talk about "the Order intake module" — not "the FooBarHandler," and not "the Order service."
 
 **ADR conflicts**: if a candidate contradicts an existing ADR, only surface it when the friction is real enough to warrant revisiting the ADR. Mark it clearly in the card (e.g. a warning callout: _"contradicts ADR-0007 — but worth reopening because…"_). Don't list every theoretical refactor an ADR forbids.
 
@@ -61,9 +61,9 @@ Do NOT propose interfaces yet. After the file is written, ask the user: "Which o
 
 ### 3. Grilling loop
 
-Once the user picks a candidate, run `/grill-with-docs` as an output-only planning session to walk the decision tree with them — constraints, dependencies, the shape of the deepened module, what sits behind the seam, what tests survive. Do not grant canonical capture for the proposed future architecture. Keep every returned Domain Model Delta in the current conversation so the selected idea can enter the normal specification flow:
+Once the user picks a candidate, use `grill-with-docs` as an output-only planning session to walk the decision tree with them — constraints, dependencies, the shape of the deepened module, what sits behind the seam, what tests survive. Do not grant canonical capture for the proposed future architecture. Keep every returned Domain Model Delta in the current conversation so the selected idea can enter the normal specification flow:
 
 - **Naming a proposed deepened module after a concept not in `CONTEXT.md`?** Return the complete proposed glossary delta without presenting the future module as current truth.
 - **Sharpening a fuzzy term during the conversation?** Preserve the complete clarified-language delta for the subsequent planning flow.
-- **User rejects the candidate with a load-bearing reason?** Offer an ADR, framed as: _"Want me to record this as an ADR so future architecture reviews don't re-suggest it?"_ Only that explicit approval invokes `/domain-modeling` with canonical capture limited to the routed ADR. Skip ephemeral reasons ("not worth it right now") and self-evident ones.
-- **Want to explore alternative interfaces for the deepened module?** Run the `/codebase-design` skill and use its design-it-twice parallel sub-agent pattern.
+- **User rejects the candidate with a load-bearing reason?** Offer an ADR, framed as: _"Want me to record this as an ADR so future architecture reviews don't re-suggest it?"_ Only that explicit approval invokes `domain-modeling` with canonical capture limited to the routed ADR. Skip ephemeral reasons ("not worth it right now") and self-evident ones.
+- **Want to explore alternative interfaces for the deepened module?** Use the `codebase-design` skill and its design-it-twice parallel sub-agent pattern.

@@ -66,7 +66,7 @@ Iterate until the user approves the breakdown.
 
 ### 5. Publish the tickets to the configured tracker
 
-Publish the approved tickets. **How** depends on the tracker `/setup-matt-pocock-skills` configured — the ticket body below is the same either way, only its provider envelope and the shape of the blocking edges change:
+Publish the approved tickets. **How** depends on the tracker the `setup-matt-pocock-skills` skill configured — the ticket body below is the same either way, only its provider envelope and the shape of the blocking edges change:
 
 - **Local Markdown** → write one file per ticket under `.scratch/<feature-slug>/issues/<NN>-<slug>.md`, numbered from `01` in dependency order (blockers first). Prepend `# <NN> — <Ticket title>` and `**Status:** ready-for-agent` to the body. Its Blocked by section names the numbers/titles it depends on.
 - **Configured Work Tracker** → publish one item per ticket in dependency order (blockers first) so each ticket's blocking edges can reference durable identifiers. Use the configured native blocking/sub-item relationship where available and its documented fallback otherwise. Apply the mapped `ready-for-agent` Routing Label only after re-reading the resulting item and verifying its complete executable contract and state.
@@ -112,4 +112,4 @@ Do NOT close or modify any parent issue.
 
 Avoid additional implementation file paths or code snippets. If a prototype produced a snippet that encodes a decision more precisely than prose can (state machine, reducer, schema, type shape), inline it and note briefly that it came from a prototype. Trim to the decision-rich parts — not a working demo, just the important bits.
 
-Publishing the validated tickets completes this planning skill. Each eligible ticket may proceed in a fresh `/implement` context across its complete authorized Repository Scope without reconstructing planning history.
+Publishing the validated tickets completes this planning skill. Each eligible ticket may proceed in a fresh `implement` context across its complete authorized Repository Scope without reconstructing planning history.

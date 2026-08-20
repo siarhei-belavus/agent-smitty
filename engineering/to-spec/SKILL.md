@@ -22,7 +22,7 @@ Read the shared [planning artifact contracts](../PLANNING-ARTIFACT-CONTRACTS.md)
 
 4. Sketch out the complete set of seams at which you're going to test the feature. Existing seams should be preferred to new ones. Use the highest seam possible. If new seams are needed, propose them at the highest point you can. The fewer seams across the codebase, the better - the ideal number is one.
 
-When materially different caller-facing ownership, interface, seam, or contract choices remain possible, run `/codebase-design` before proposing the set. For each seam, propose the smallest faithful repository-native test approach and its nearest prior art. Check with the user that the complete seam set and proposed approaches match their expectations; the confirmed records are settled.
+When materially different caller-facing ownership, interface, seam, or contract choices remain possible, use the `codebase-design` skill before proposing the set. For each seam, propose the smallest faithful repository-native test approach and its nearest prior art. Check with the user that the complete seam set and proposed approaches match their expectations; the confirmed records are settled.
 
 5. Record every confirmed repository-local and cross-repository Settled Seam only in Testing Decisions. Preserve full-fidelity Domain Model Deltas, architecture rationale, provenance, and canonical documentation obligations in Context Scope and the applicable decisions.
 

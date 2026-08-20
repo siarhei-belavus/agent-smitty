@@ -40,13 +40,13 @@ For a Review Proposal, the same states read against the attached code: `ready-fo
 
 Every triaged request should carry exactly one category role and one state role. If state roles conflict, flag it and ask the maintainer before doing anything else.
 
-These are canonical role names — the actual Routing Label strings used in the Work Tracker may differ. Use `docs/agents/triage-labels.md` when present; run the applicable setup skill if no mapping has been configured.
+These are canonical role names — the actual Routing Label strings used in the Work Tracker may differ. Use `docs/agents/triage-labels.md` when present; ask the maintainer to run the applicable setup skill if no mapping has been configured.
 
 State transitions: an unlabeled request normally goes to `needs-triage` first; from there it moves to `needs-info`, `ready-for-agent`, `ready-for-human`, or `wontfix`. `needs-info` returns to `needs-triage` once the reporter replies. The maintainer can override at any time — flag transitions that look unusual and ask before proceeding.
 
 ## Invocation
 
-The maintainer invokes `/triage` and describes what they want in natural language. Interpret the request and act. Examples:
+The maintainer invokes the `triage` skill and describes what they want in natural language. Interpret the request and act. Examples:
 
 - "Show me anything that needs my attention"
 - "Let's look at #42" (request or Review Proposal)
@@ -73,7 +73,7 @@ Show counts and a one-line summary per item. Let the maintainer pick.
 
 3. **Verify the claim.** Before any grilling, check that the claim holds up. For a bug, reproduce it from the reporter's steps. For a Review Proposal, confirm the diff does what it claims — check it out, run the relevant tests or commands. Report what happened: confirmed (with code path), failed, or insufficient detail (a strong `needs-info` signal). A confirmed verification makes a much stronger agent brief.
 
-4. **Grill (if needed).** If the request needs fleshing out, run `/grill-with-docs` — grill it into shape one question at a time without granting canonical capture. Keep returned Domain Model Deltas in the current triage context. Before a cross-session `needs-info` pause, preserve confirmed deltas in the established-so-far triage notes; before `ready-for-agent`, promote every relevant delta without reduction into the Agent Brief.
+4. **Grill (if needed).** If the request needs fleshing out, use the `grill-with-docs` skill without granting canonical capture. Keep returned Domain Model Deltas in the current triage context. Before a cross-session `needs-info` pause, preserve confirmed deltas in the established-so-far triage notes; before `ready-for-agent`, promote every relevant delta without reduction into the Agent Brief.
 
 5. **Apply the outcome:**
    - `ready-for-agent` — first post a complete executable Agent Brief comment ([AGENT-BRIEF.md](AGENT-BRIEF.md)), then re-read the public comment and resulting Work Tracker state. Apply the mapped Routing Label only after its readiness preflight passes. A settled cross-repository request may go directly here; cross-repository scope alone does not require a specification or Wayfinder map.

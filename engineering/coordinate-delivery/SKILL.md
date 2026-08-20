@@ -40,14 +40,14 @@ For every Repository Scope entry, create one clean isolated worktree at that pin
 
 ## 4. Execute flat deliveries
 
-Classify every Repository Scope entry by its required outcome. Start exactly one direct-child implementation agent only for each Repository Delivery that requires changes. Give it a Coordinator-narrowed `/implement` assignment containing only:
+Classify every Repository Scope entry by its required outcome. Start exactly one direct-child implementation agent only for each Repository Delivery that requires changes. Give it a Coordinator-narrowed `implement` assignment containing only:
 
 - its Repository ID, Reference, Execution Worktree, delivery branch, and fixed base;
 - the ticket and other authoritative sources;
 - its repository-owned outcome, complete applicable Settled Seams, and Validation Obligations;
 - the repository instructions and validation commands discovered for that repository.
 
-Require the child to follow `/implement`'s public Coordinator-narrowed contract, start no child agents or reviewers, and return exactly one Repository Delivery result. The coordinator alone owns publication, Review Proposals, Work Tracker changes, and bundle review.
+Require the child to follow the `implement` skill's public Coordinator-narrowed contract, start no child agents or reviewers, and return exactly one Repository Delivery result. The coordinator alone owns publication, Review Proposals, Work Tracker changes, and bundle review.
 
 For every validation-only or explicit no-change entry, record its exact stable base and head and satisfy its applicable Validation Obligations without an implementation agent. Wait for every implementation result and verify it against its assigned worktree and fixed base. A delivery expected to change but returning no diff is unchanged; record it and exclude it from publication and proposals.
 
@@ -55,7 +55,7 @@ For every validation-only or explicit no-change entry, record its exact stable b
 
 ## 5. Review exact heads
 
-For every changed Repository Delivery, verify the fixed-base diff and repository validation evidence at the reported exact head. Invoke `/code-review` in **Standards only** mode with one fixed Repository Target per changed repository, its authoritative sources, settled seams, and exact-head validation evidence.
+For every changed Repository Delivery, verify the fixed-base diff and repository validation evidence at the reported exact head. Use the `code-review` skill in **Standards only** mode with one fixed Repository Target per changed repository, its authoritative sources, settled seams, and exact-head validation evidence.
 
 Record Advisory findings for handoff. The bundle has one correction/recheck round across Steps 5 and 7. When Standards has an attributable Blocking finding within authorized implementation, route it to the affected existing Implementation Agent, then refresh repository validation and Standards for every changed head. Any changed head makes its prior validation, review, and downstream evidence stale. Continue only when the fresh Standards result has no Blocking finding. If a Blocking persists or its correction requires a material scope, acceptance, seam, or decision change, report the exact obstacle and stop further mutation.
 
@@ -71,7 +71,7 @@ Using each changed repository's Code Host binding, publish only its delivery bra
 
 Run every declared Cross-Repository Validation Obligation against the published exact heads, using its named Validation Source, prerequisites, method, scenario, expected result, and evidence format. Record commands, outcomes, and limitations against the complete head set.
 
-Then invoke `/code-review` in **Spec only** mode once over the complete changed Repository Target set. Supply the ticket and other authoritative sources, all settled seams, repository and cross-repository validation evidence, and verified Review Proposals. Record Advisory findings for handoff.
+Then use the `code-review` skill in **Spec only** mode once over the complete changed Repository Target set. Supply the ticket and other authoritative sources, all settled seams, repository and cross-repository validation evidence, and verified Review Proposals. Record Advisory findings for handoff.
 
 When Bundle Spec has an attributable Blocking finding and the correction/recheck round remains, route it to each affected existing Implementation Agent. Every changed head requires fresh repository validation and Standards, exact-head republication and Review Proposal verification, complete cross-repository validation, and a fresh Bundle Spec review. Continue only when the fresh Bundle Spec result has no Blocking finding. If the round is already spent, a Blocking persists, or correction requires a material scope, acceptance, seam, or decision change, report the exact obstacle and stop further mutation.
 
