@@ -1,6 +1,6 @@
 # Planning Artifact Contracts
 
-This document is the logical owner of the planning-specific records and composition invariants shared by planning artifacts. `/domain-modeling` owns the Domain Model Delta output contract, `/to-spec` owns the specification shape, `/to-tickets` owns the delivery-ticket shape, and `triage/AGENT-BRIEF.md` owns the Agent Brief shape. Work Tracker bindings own provider-specific publication and state changes.
+This document is the logical owner of the planning-specific records and composition invariants shared by planning artifacts. The `domain-modeling` skill owns the Domain Model Delta output contract, `to-spec` owns the specification shape, `to-tickets` owns the delivery-ticket shape, and `triage/AGENT-BRIEF.md` owns the Agent Brief shape. Work Tracker bindings own provider-specific publication and state changes.
 
 Consumers must be able to validate every record through the published artifact and resulting Work Tracker state. Prior chat, hidden invocation history, checkout layout, and private prompt structure are not authority.
 

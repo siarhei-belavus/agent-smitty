@@ -43,11 +43,11 @@ Do not mix assignment-owned changes with unrelated worktree content. If the supp
 
 Use the complete settled seam set and test approaches recorded in the supplied specification, tickets, or resolved design decisions. Do not ask the user to reconfirm them.
 
-When invoked standalone without a settled seam set, identify the complete set of existing, changed, and new seams the solution spans. For each seam, propose the smallest faithful repository-native test approach and its nearest prior art. If materially different caller-facing ownership, interface, seam, or contract choices remain possible, run `/codebase-design` before proposing the set. Ask the user to confirm the complete set and proposed approaches once; the confirmed seams are settled.
+When invoked standalone without a settled seam set, identify the complete set of existing, changed, and new seams the solution spans. For each seam, propose the smallest faithful repository-native test approach and its nearest prior art. If materially different caller-facing ownership, interface, seam, or contract choices remain possible, use the `codebase-design` skill before proposing the set. Ask the user to confirm the complete set and proposed approaches once; the confirmed seams are settled.
 
 ## Implement and validate
 
-Work in vertical slices within each Repository Delivery. Invoke `/tdd` with the authoritative sources and complete settled seam records, including each seam's owning module, caller/test-visible interface, location, status, observable behavior, selected test approach, and nearest prior art.
+Work in vertical slices within each Repository Delivery. Use the `tdd` skill with the authoritative sources and complete settled seam records, including each seam's owning module, caller/test-visible interface, location, status, observable behavior, selected test approach, and nearest prior art.
 
 Run typechecking and focused tests regularly. After each coherent green iteration, commit focused work to that delivery's current branch. Never commit changes from another repository in the same commit.
 
@@ -67,8 +67,8 @@ For a Coordinator-narrowed assignment, return exactly one Repository Delivery re
 - remaining blockers or Material contradiction details;
 - confirmation that no Code Host publication or Work Tracker change was performed.
 
-For a Standalone assignment, invoke `/code-review` once with all fixed Repository Targets, both axes selected, the authoritative sources, and the same settled seam and test-approach records. Fix Blocking findings only in affected Repository Deliveries, validate and commit those changes, and repeat the required review against the original fixed bases. Escalate any finding whose resolution would change scope, acceptance behavior, or a settled seam.
+For a Standalone assignment, use the `code-review` skill once with all fixed Repository Targets, both axes selected, the authoritative sources, and the same settled seam and test-approach records. Fix Blocking findings only in affected Repository Deliveries, validate and commit those changes, and repeat the required review against the original fixed bases. Escalate any finding whose resolution would change scope, acceptance behavior, or a settled seam.
 
 Changed heads require refreshed repository validation and fresh Standards review before the next whole-bundle Spec review. Finish only when every latest committed head passes full repository validation and the latest selected review has no Blocking findings.
 
-Standalone `/implement` does not publish branches, create or update Review Proposals, or change Work Tracker state unless the user gives that explicit authority separately.
+Standalone mode does not publish branches, create or update Review Proposals, or change Work Tracker state unless the user gives that explicit authority separately.

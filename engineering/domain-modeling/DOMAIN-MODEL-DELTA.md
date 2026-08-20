@@ -1,6 +1,6 @@
 # Domain Model Delta
 
-A Domain Model Delta is the public result of confirming a domain-language or architecture change through `/domain-modeling`. It is a document-ready semantic payload that a caller can capture, promote, or apply without reconstructing the modeling conversation.
+A Domain Model Delta is the public result of confirming a domain-language or architecture change through the `domain-modeling` skill. It is a document-ready semantic payload that a caller can capture, promote, or apply without reconstructing the modeling conversation.
 
 As applicable, a complete delta records:
 

@@ -8,7 +8,7 @@ disable-model-invocation: true
 
 Research one user-supplied concept, decide whether it earns a place in the local Matt skill collection, then integrate it without scattering doctrine across the workflow.
 
-Before starting, read [`../writing-great-skills/SKILL.md`](../writing-great-skills/SKILL.md) and every reference it requires. Resolve paths from this skill's directory; the Matt collection is `../..`.
+Before starting, read [`../writing-for-agents/SKILL.md`](../writing-for-agents/SKILL.md) and every reference it requires. Resolve paths from this skill's directory; the Matt collection is `../..`.
 
 Treat the current collection and its Git history as a customized local fork. Preserve existing local changes and intent. Upstream synchronization is a separate future task: this skill neither imports upstream changes nor rewrites local doctrine to resemble upstream.
 
@@ -106,7 +106,7 @@ An additional consumer pointer earns its place only when all are true:
 
 Keep phase outputs beside the phase, but keep definitions and caveats in the canonical home. A sub-rule should not become more prominent across the workflow than its parent discipline. Do not fan a concept across skills merely because each could execute without it.
 
-Choose the smallest correct form using the `writing-great-skills` information hierarchy: existing step, in-skill reference, disclosed reference, or a new skill. Create a new skill only for a distinct invocation branch or a sequence that genuinely needs a context boundary. Treat a concept integrated beneath an existing doctrine as reference, not as a new invocation branch: do not enumerate its sub-rules, examples, or caveats in the model-facing description. Change a description only when users with a genuinely distinct top-level need would not reliably reach the skill through its existing triggers. When it does change, rebalance the whole description as an invocation map rather than a content summary: keep one trigger per genuine branch, remove triggers for behavior the skill does not execute, and give the new concept no extra prominence merely because it is new. Update a router or index only when discoverability changes.
+Choose the smallest correct form using the `writing-for-agents` information hierarchy: existing step, in-skill reference, disclosed reference, or a new skill. Create a new skill only for a distinct invocation branch or a sequence that genuinely needs a context boundary. Treat a concept integrated beneath an existing doctrine as reference, not as a new invocation branch: do not enumerate its sub-rules, examples, or caveats in the model-facing description. Change a description only when users with a genuinely distinct top-level need would not reliably reach the skill through its existing triggers. When it does change, rebalance the whole description as an invocation map rather than a content summary: keep one trigger per genuine branch, remove triggers for behavior the skill does not execute, and give the new concept no extra prominence merely because it is new. Update a router or index only when discoverability changes.
 
 Present the user with:
 
@@ -133,7 +133,7 @@ Stay inside the approved file list and preserve unrelated worktree state. If imp
 
 ## 6. Review the integration
 
-Review the diff against `writing-great-skills`:
+Review the diff against `writing-for-agents`:
 
 - predictable invocation and execution
 - one single source of truth

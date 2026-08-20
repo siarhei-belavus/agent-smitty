@@ -49,7 +49,7 @@ Use sources supplied with the Repository Targets first. Otherwise find the origi
 3. a matching file under `docs/`, `specs/`, or `.scratch/`;
 4. ask the user only when the selected Spec axis has no authoritative source.
 
-Start with supplied seam records, then validate every seam against current authoritative sources. Explicit current user direction, specifications, and resolved decisions take precedence over earlier sources and existing public interfaces. Record source conflicts as Spec findings. When no authoritative source settles a seam, mark it unsettled and assess its shape under the `/codebase-design` baseline rather than choosing a design during review.
+Start with supplied seam records, then validate every seam against current authoritative sources. Explicit current user direction, specifications, and resolved decisions take precedence over earlier sources and existing public interfaces. Record source conflicts as Spec findings. When no authoritative source settles a seam, mark it unsettled and assess its shape using the `codebase-design` baseline rather than choosing a design during review.
 
 ### 3. Build repository-local Standards baselines
 
@@ -68,7 +68,7 @@ For each target, read that repository's instructions and documented standards. A
 - **Middle Man** — a module mostly delegates without adding depth.
 - **Refused Bequest** — an inheritor ignores most of its inherited contract.
 
-Determine per target whether the change introduces or reshapes a module, interface, seam, adapter, logical ownership, physical decomposition, or contract. When it does, the Standards Reviewer reads `/codebase-design` in full and applies its deletion test and proportional-design rules.
+Determine per target whether the change introduces or reshapes a module, interface, seam, adapter, logical ownership, physical decomposition, or contract. When it does, the Standards Reviewer reads the `codebase-design` skill in full and applies its deletion test and proportional-design rules.
 
 Route requirement or settled-decision violations to Spec. Route structural and change-pressure findings to Standards.
 

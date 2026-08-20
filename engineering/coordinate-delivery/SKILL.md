@@ -34,7 +34,7 @@ Create a run-specific persistent root outside existing user checkouts. Fetch eve
 
 ## 4. Execute one flat attempt
 
-Start exactly one direct-child Implementation Agent for each delivery requiring changes. Give it a Coordinator-narrowed `/implement` assignment containing its repository identity, worktree, branch, fixed base, authority, outcome, Settled Seams, Validation Obligations, instructions, and validation commands. Require one Repository Delivery result and no child agents or reviewers. Record validation-only and no-change deliveries directly.
+Start exactly one direct-child Implementation Agent for each delivery requiring changes. Give it a Coordinator-narrowed `implement` assignment containing its repository identity, worktree, branch, fixed base, authority, outcome, Settled Seams, Validation Obligations, instructions, and validation commands. Require one Repository Delivery result and no child agents or reviewers. Record validation-only and no-change deliveries directly.
 
 Verify every result against its assigned worktree and base; classify an expected change with no diff as unchanged.
 
@@ -42,7 +42,7 @@ Verify every result against its assigned worktree and base; classify an expected
 
 ## 5. Review exact heads
 
-For each changed delivery, verify its fixed-base diff and exact-head validation, then invoke `/code-review` in **Standards only** mode with its fixed Repository Target, authority, seams, and evidence. Record Advisory findings. The bundle has one correction/recheck round across this step and Step 7; route an attributable in-scope Blocking finding to the affected Implementation Agent and refresh every result made stale by a changed head.
+For each changed delivery, verify its fixed-base diff and exact-head validation, then use the `code-review` skill in **Standards only** mode with its fixed Repository Target, authority, seams, and evidence. Record Advisory findings. The bundle has one correction/recheck round across this step and Step 7; route an attributable in-scope Blocking finding to the affected Implementation Agent and refresh every result made stale by a changed head.
 
 **Complete when:** every changed exact head has current repository validation and a fresh Standards result with no Blocking finding; a persistent or authority-changing finding has entered the [human-boundary branch](HUMAN-BOUNDARY.md).
 
@@ -54,7 +54,7 @@ Using each changed repository's Code Host binding, publish its delivery branch a
 
 ## 7. Validate the bundle
 
-Run every Cross-Repository Validation Obligation against the complete Published Delivery Head set through its declared Validation Source, prerequisites, method, scenario, expected result, and evidence format. Invoke `/code-review` in **Spec only** mode once over the complete changed target set with all authority, seams, evidence, and proposals. Record Advisory findings and use the remaining correction/recheck round for attributable in-scope Blocking findings.
+Run every Cross-Repository Validation Obligation against the complete Published Delivery Head set through its declared Validation Source, prerequisites, method, scenario, expected result, and evidence format. Use the `code-review` skill in **Spec only** mode once over the complete changed target set with all authority, seams, evidence, and proposals. Record Advisory findings and use the remaining correction/recheck round for attributable in-scope Blocking findings.
 
 **Complete when:** every declared obligation and fresh Bundle Spec result passes against one current exact-head set; all evidence made stale by a changed influencing head has been refreshed while identical-head evidence remains current, or planned human verification has entered the [human-boundary branch](HUMAN-BOUNDARY.md).
 
