@@ -30,6 +30,150 @@ def _base_result() -> dict[str, Any]:
     }
 
 
+def _record_structure_error(state: dict[str, Any]) -> str | None:
+    checkpoint = state.get("checkpoint")
+    requests = state.get("requests", [])
+    responses = state.get("responses", [])
+    feedback = state.get("feedback", [])
+    proposals = state.get("review_proposals", [])
+    evidence = state.get("evidence", {})
+    runtime_evidence = (state.get("runtime") or {}).get("evidence")
+
+    ticket = state.get("ticket", {})
+    if not {"state", "routing", "assignee"}.issubset(ticket):
+        return "invalid-durable-record-structure"
+    if checkpoint and (
+        not checkpoint.get("id")
+        or not checkpoint.get("next_step")
+        or not isinstance(checkpoint.get("heads"), dict)
+    ):
+        return "invalid-durable-record-structure"
+    if any(
+        not request.get("id")
+        or not request.get("checkpoint_id")
+        or not request.get("kind")
+        or request.get("status") not in {"active", "completed", "superseded"}
+        or (request.get("status") == "completed" and not request.get("response_id"))
+        for request in requests
+    ):
+        return "invalid-durable-record-structure"
+    if any(
+        not response.get("id")
+        or not response.get("request_id")
+        or not isinstance(response.get("body"), str)
+        or not response["body"].strip()
+        for response in responses
+    ):
+        return "invalid-durable-record-structure"
+    if any(
+        not item.get("id")
+        or not item.get("status")
+        or (
+            item.get("status") == "actionable"
+            and (
+                item.get("review_round") != "completed"
+                or not isinstance(item.get("repositories"), list)
+                or not item["repositories"]
+            )
+        )
+        for item in feedback
+    ):
+        return "invalid-durable-record-structure"
+    if any(
+        not proposal.get("id")
+        or not proposal.get("repository")
+        or not proposal.get("head")
+        for proposal in proposals
+    ):
+        return "invalid-durable-record-structure"
+    if any(
+        not item.get("repository")
+        or not item.get("head")
+        or not item.get("validation_id")
+        or not item.get("standards_id")
+        for item in evidence.get("repository", [])
+    ):
+        return "invalid-durable-record-structure"
+    if any(
+        not item.get("id")
+        or not isinstance(item.get("heads"), dict)
+        or not item["heads"]
+        for item in evidence.get("cross_repository", [])
+    ):
+        return "invalid-durable-record-structure"
+    bundle = evidence.get("bundle_spec")
+    if bundle and (
+        not bundle.get("id") or not isinstance(bundle.get("heads"), dict)
+    ):
+        return "invalid-durable-record-structure"
+    if any(
+        not reconciliation.get("response_id")
+        or not reconciliation.get("disposition")
+        for reconciliation in state.get("reconciliations", [])
+    ):
+        return "invalid-durable-record-structure"
+
+    record_ids: list[str] = []
+    if checkpoint and checkpoint.get("id"):
+        record_ids.append(checkpoint["id"])
+    for records in (requests, responses, feedback, proposals):
+        record_ids.extend(item["id"] for item in records if item.get("id"))
+    for item in evidence.get("repository", []):
+        record_ids.extend((item.get("validation_id"), item.get("standards_id")))
+    record_ids.extend(
+        item["id"] for item in evidence.get("cross_repository", []) if item.get("id")
+    )
+    if bundle and bundle.get("id"):
+        record_ids.append(bundle["id"])
+    if runtime_evidence and runtime_evidence.get("id"):
+        record_ids.append(runtime_evidence["id"])
+    record_ids = [record_id for record_id in record_ids if record_id]
+    if len(record_ids) != len(set(record_ids)):
+        return "duplicate-durable-record-id"
+
+    response_ids = {response["id"] for response in responses}
+    reconciliations = state.get("reconciliations", [])
+    reconciliation_ids = [item.get("response_id") for item in reconciliations]
+    if len(reconciliation_ids) != len(set(reconciliation_ids)):
+        return "invalid-response-request-chain"
+    requests_by_id = {request["id"]: request for request in requests}
+    responses_by_id = {response["id"]: response for response in responses}
+
+    for response in responses:
+        request = requests_by_id.get(response.get("request_id"))
+        if not request or request.get("response_id") != response.get("id"):
+            return "invalid-response-request-chain"
+    for request in requests:
+        response_id = request.get("response_id")
+        if response_id:
+            response = responses_by_id.get(response_id)
+            if not response or response.get("request_id") != request.get("id"):
+                return "invalid-response-request-chain"
+        if checkpoint and request.get("checkpoint_id") != checkpoint.get("id"):
+            return "invalid-response-request-chain"
+    if response_ids - set(reconciliation_ids):
+        return "invalid-response-request-chain"
+    if set(reconciliation_ids) - response_ids:
+        return "invalid-response-request-chain"
+    return None
+
+
+def _runtime_termination_proven(
+    runtime: dict[str, Any] | None, checkpoint: dict[str, Any] | None
+) -> bool:
+    if not runtime or runtime.get("status") != "terminated" or not checkpoint:
+        return False
+    evidence = runtime.get("evidence")
+    return bool(
+        isinstance(evidence, dict)
+        and evidence.get("id")
+        and evidence.get("provider_ref")
+        and evidence.get("outcome") == "terminated"
+        and evidence.get("activation_id") == runtime.get("activation_id")
+        and evidence.get("checkpoint_id") == checkpoint.get("id")
+    )
+
+
 def _evidence_disposition(state: dict[str, Any]) -> dict[str, list[str]]:
     checkpoint_heads = (state.get("checkpoint") or {}).get("heads", {})
     current_heads = state.get("heads", {})
@@ -46,14 +190,25 @@ def _evidence_disposition(state: dict[str, Any]) -> dict[str, list[str]]:
     preserved: set[str] = set()
     evidence = state.get("evidence", {})
     for item in evidence.get("repository", []):
-        target = invalidated if item["repository"] in affected else preserved
+        stale = (
+            item["repository"] in affected
+            or current_heads.get(item["repository"]) != item.get("head")
+        )
+        target = invalidated if stale else preserved
         target.update((item["validation_id"], item["standards_id"]))
     for item in evidence.get("cross_repository", []):
-        target = invalidated if affected.intersection(item.get("heads", {})) else preserved
+        bound_heads = item.get("heads", {})
+        stale = affected.intersection(bound_heads) or any(
+            current_heads.get(repository) != head
+            for repository, head in bound_heads.items()
+        )
+        target = invalidated if stale else preserved
         target.add(item["id"])
     bundle = evidence.get("bundle_spec")
     if bundle:
-        target = invalidated if affected.intersection(bundle.get("heads", {})) else preserved
+        bound_heads = bundle.get("heads", {})
+        stale = bool(affected.intersection(bound_heads)) or bound_heads != current_heads
+        target = invalidated if stale else preserved
         target.add(bundle["id"])
     return {"invalidate": sorted(invalidated), "preserve": sorted(preserved)}
 
@@ -110,6 +265,10 @@ def replay(state: dict[str, Any]) -> dict[str, Any]:
     checkpoint = state.get("checkpoint")
     if checkpoint:
         result["checkpoint_id"] = checkpoint["id"]
+    structure_error = _record_structure_error(state)
+    if structure_error:
+        result["boundary_reason"] = structure_error
+        return result
     requests = state.get("requests", [])
     responses = {item["id"]: item for item in state.get("responses", [])}
     reconciliations = {
@@ -180,6 +339,14 @@ def replay(state: dict[str, Any]) -> dict[str, Any]:
             }
         )
         return result
+    if (
+        checkpoint
+        and runtime
+        and runtime.get("status") == "terminated"
+        and not _runtime_termination_proven(runtime, checkpoint)
+    ):
+        result["boundary_reason"] = "runtime-termination-evidence-invalid"
+        return result
 
     completed = [
         request
@@ -197,7 +364,7 @@ def replay(state: dict[str, Any]) -> dict[str, Any]:
         if item.get("status") == "actionable"
         and item.get("review_round") == "completed"
     ]
-    runtime_terminated = bool(runtime and runtime.get("status") == "terminated")
+    runtime_terminated = _runtime_termination_proven(runtime, checkpoint)
     sources = []
     if completed:
         sources.append("checkpoint-response")

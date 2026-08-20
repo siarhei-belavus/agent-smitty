@@ -4,7 +4,7 @@
     "ticket": {"state": "open", "routing": "ready-for-agent", "assignee": null},
     "checkpoint": {"id": "checkpoint:runtime", "next_step": "implementation", "heads": {"agent": "aaa111"}},
     "requests": [],
-    "runtime": {"activation_id": "activation:terminated", "status": "terminated", "evidence_id": "runtime:terminated"},
+    "runtime": {"activation_id": "activation:terminated", "status": "terminated", "evidence": {"id": "runtime:terminated", "activation_id": "activation:terminated", "checkpoint_id": "checkpoint:runtime", "outcome": "terminated", "provider_ref": "runtime://terminated"}},
     "local_work": [{"repository": "agent", "path": "/preserved/agent", "status": "dirty", "provenance": "unreconciled"}]
   },
   "expected": {

@@ -68,9 +68,22 @@ class LifecycleReplayTests(unittest.TestCase):
     def test_recovery_invalidates_only_dependent_evidence(self) -> None:
         fixture_names = (
             "exact-head-drift.json",
+            "stale-evidence-bindings.json",
             "local-only-dirty-work.json",
             "handoff-only-recovery.json",
             "indeterminate-runtime-liveness.json",
+        )
+        for fixture_name in fixture_names:
+            with self.subTest(fixture=fixture_name):
+                self.assert_fixture(FIXTURES / fixture_name)
+
+    def test_malformed_durable_records_cannot_authorize_an_attempt(self) -> None:
+        fixture_names = (
+            "duplicate-durable-record-id.json",
+            "incomplete-durable-record.json",
+            "misbound-runtime-termination.json",
+            "mismatched-response-request.json",
+            "unbound-runtime-termination.json",
         )
         for fixture_name in fixture_names:
             with self.subTest(fixture=fixture_name):

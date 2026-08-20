@@ -1,0 +1,10 @@
+{
+  "id": "unbound-runtime-termination",
+  "state": {
+    "ticket": {"state": "open", "routing": "ready-for-agent", "assignee": null},
+    "checkpoint": {"id": "checkpoint:runtime-unbound", "next_step": "validation", "heads": {}},
+    "requests": [],
+    "runtime": {"activation_id": "activation:unbound", "status": "terminated", "evidence_id": "runtime:bare-status"}
+  },
+  "expected": {"result": "human-boundary", "boundary_reason": "runtime-termination-evidence-invalid", "attempt_id": null}
+}

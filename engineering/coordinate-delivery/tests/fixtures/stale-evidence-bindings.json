@@ -1,0 +1,29 @@
+{
+  "id": "stale-evidence-bindings",
+  "state": {
+    "ticket": {"state": "open", "routing": "ready-for-agent", "assignee": null},
+    "checkpoint": {"id": "checkpoint:evidence", "next_step": "handoff", "heads": {"agent": "aaa222", "pnl-workspace": "ppp111"}},
+    "requests": [],
+    "runtime": {"activation_id": "activation:evidence", "status": "terminated", "evidence": {"id": "runtime:evidence", "activation_id": "activation:evidence", "checkpoint_id": "checkpoint:evidence", "outcome": "terminated", "provider_ref": "runtime://evidence"}},
+    "heads": {"agent": "aaa222", "pnl-workspace": "ppp111"},
+    "required_changes": [],
+    "evidence": {
+      "repository": [
+        {"repository": "agent", "head": "aaa111", "validation_id": "validation:agent:stale", "standards_id": "standards:agent:stale"},
+        {"repository": "pnl-workspace", "head": "ppp111", "validation_id": "validation:pnl:current", "standards_id": "standards:pnl:current"}
+      ],
+      "cross_repository": [
+        {"id": "cross:stale", "heads": {"agent": "aaa111", "pnl-workspace": "ppp111"}},
+        {"id": "cross:current", "heads": {"pnl-workspace": "ppp111"}}
+      ],
+      "bundle_spec": {"id": "bundle:stale", "heads": {"agent": "aaa111", "pnl-workspace": "ppp111"}}
+    }
+  },
+  "expected": {
+    "result": "resume",
+    "evidence": {
+      "invalidate": ["bundle:stale", "cross:stale", "standards:agent:stale", "validation:agent:stale"],
+      "preserve": ["cross:current", "standards:pnl:current", "validation:pnl:current"]
+    }
+  }
+}

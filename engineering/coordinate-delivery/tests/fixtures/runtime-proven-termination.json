@@ -4,7 +4,7 @@
     "ticket": {"state": "open", "routing": "ready-for-agent", "assignee": null},
     "checkpoint": {"id": "checkpoint:runtime", "next_step": "validation", "heads": {"agent": "aaa111"}},
     "requests": [],
-    "runtime": {"activation_id": "activation:lost-worker", "status": "terminated", "evidence_id": "runtime:exit-137"},
+    "runtime": {"activation_id": "activation:lost-worker", "status": "terminated", "evidence": {"id": "runtime:exit-137", "activation_id": "activation:lost-worker", "checkpoint_id": "checkpoint:runtime", "outcome": "terminated", "provider_ref": "runtime://exit-137"}},
     "heads": {"agent": "aaa111"},
     "required_changes": []
   },

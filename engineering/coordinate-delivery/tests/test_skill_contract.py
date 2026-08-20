@@ -75,6 +75,11 @@ class SkillContractTests(unittest.TestCase):
         ):
             self.assertIn(phrase, text)
 
+    def test_planned_verification_contract_has_one_complete_owner(self) -> None:
+        texts = (SKILL.read_text(), LIFECYCLE.read_text(), ARTIFACTS.read_text())
+        for field in ("reproducible steps", "pass/fail criteria", "expected evidence"):
+            self.assertEqual(1, sum(text.count(field) for text in texts), field)
+
     def test_changed_skill_links_resolve_and_vocabulary_is_current(self) -> None:
         deprecated = (
             "Continuation Checkpoint",
@@ -107,6 +112,12 @@ class SkillContractTests(unittest.TestCase):
             "local-only-dirty-work",
             "handoff-only-recovery",
             "indeterminate-runtime-liveness",
+            "duplicate-durable-record-id",
+            "incomplete-durable-record",
+            "misbound-runtime-termination",
+            "mismatched-response-request",
+            "stale-evidence-bindings",
+            "unbound-runtime-termination",
         }
         fixtures = [json.loads(path.read_text()) for path in FIXTURES.glob("*.json")]
         fixture_ids = [fixture["id"] for fixture in fixtures]
@@ -123,7 +134,16 @@ class SkillContractTests(unittest.TestCase):
             )
             self.assertEqual(0, result.returncode, result.stderr)
             observed = json.loads(result.stdout)
-            self.assertLessEqual(1 if observed["active_request_id"] else 0, 1)
+            create_actions = [
+                action
+                for action in observed["request_actions"]
+                if action.startswith("create:")
+            ]
+            self.assertLessEqual(len(create_actions), 1)
+            if create_actions:
+                self.assertEqual(
+                    f"create:{observed['active_request_id']}", create_actions[0]
+                )
             if observed["result"] == "human-boundary":
                 self.assertIsNone(observed["attempt_id"])
             if observed["source"] == "runtime-termination":

@@ -4,7 +4,7 @@
     "ticket": {"state": "open", "routing": "ready-for-agent", "assignee": null},
     "checkpoint": {"id": "checkpoint:handoff", "next_step": "complete-handoff", "heads": {"agent": "aaa111"}},
     "requests": [],
-    "runtime": {"activation_id": "activation:handoff", "status": "terminated", "evidence_id": "runtime:terminated"},
+    "runtime": {"activation_id": "activation:handoff", "status": "terminated", "evidence": {"id": "runtime:terminated", "activation_id": "activation:handoff", "checkpoint_id": "checkpoint:handoff", "outcome": "terminated", "provider_ref": "runtime://handoff"}},
     "heads": {"agent": "aaa111"},
     "required_changes": [],
     "review_proposals": [{"id": "proposal:agent", "repository": "agent", "head": "aaa111"}],

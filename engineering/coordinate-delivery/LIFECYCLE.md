@@ -17,7 +17,7 @@ Preserve safe work and publish a recoverable changed head when authorized and sa
 3. When planned verification becomes Validation Indeterminacy, supersede it with one linked escalation request that reuses the checkpoint.
 4. Verify exactly one active request, transition the open ticket to unassigned `ready-for-human`, and stop.
 
-An Environment Preparation Blocker follows bounded recovery and preserves every prepared worktree. A Specification Contradiction or Material Design Opportunity records authoritative evidence and pauses affected and dependent work. Planned verification records reproducible steps, pass/fail criteria, prerequisites, expected evidence, and an accountable owner. Indeterminate liveness requests human reconciliation because elapsed time is not termination evidence. Unreconciled local-only work requests provenance while remaining outside automatic recovery.
+An Environment Preparation Blocker follows bounded recovery and preserves every prepared worktree. A Specification Contradiction or Material Design Opportunity records authoritative evidence and pauses affected and dependent work. Planned verification follows the complete [Human Action Request contract](ARTIFACTS.md#human-action-request). Indeterminate liveness requests human reconciliation because elapsed time is not termination evidence. Unreconciled local-only work requests provenance while remaining outside automatic recovery.
 
 Report contradictory state as observed. Human authority supplies reconciliation; preserve history instead of repairing it destructively.
 

@@ -58,7 +58,7 @@ Using each changed repository's Code Host binding, publish its delivery branch a
 
 ## 7. Validate the bundle
 
-Run every Cross-Repository Validation Obligation against the complete exact-head set through its declared source, prerequisites, method, scenario, result, and evidence format. For planned human verification, establish a checkpoint and request with reproducible steps, pass/fail criteria, and an accountable owner; stop at that boundary.
+Run every Cross-Repository Validation Obligation against the complete exact-head set through its declared source, prerequisites, method, scenario, result, and evidence format. For planned human verification, establish a checkpoint and request using the complete [Human Action Request contract](ARTIFACTS.md#human-action-request), then stop at that boundary.
 
 Invoke `/code-review` in **Spec only** mode once over the complete changed target set with all authority, seams, evidence, and proposals. Record Advisory findings. Route an attributable in-scope Blocking finding through the one correction/recheck round. After any changed influencing head, refresh repository validation, Standards, publication verification, dependent cross-repository evidence, and Bundle Spec. Escalate when the round is spent or settled authority must change.
 

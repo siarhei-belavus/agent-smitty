@@ -1,0 +1,10 @@
+{
+  "id": "misbound-runtime-termination",
+  "state": {
+    "ticket": {"state": "open", "routing": "ready-for-agent", "assignee": null},
+    "checkpoint": {"id": "checkpoint:runtime-boundary", "next_step": "validation", "heads": {}},
+    "requests": [],
+    "runtime": {"activation_id": "activation:interrupted", "status": "terminated", "evidence": {"id": "runtime:wrong-activation", "activation_id": "activation:other", "checkpoint_id": "checkpoint:runtime-boundary", "outcome": "terminated", "provider_ref": "runtime://wrong-activation"}}
+  },
+  "expected": {"result": "human-boundary", "boundary_reason": "runtime-termination-evidence-invalid", "attempt_id": null}
+}

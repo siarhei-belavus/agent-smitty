@@ -1,0 +1,11 @@
+{
+  "id": "incomplete-durable-record",
+  "state": {
+    "ticket": {"state": "open", "routing": "ready-for-agent", "assignee": null},
+    "checkpoint": {"id": "checkpoint:incomplete", "next_step": "implementation", "heads": {}},
+    "requests": [{"checkpoint_id": "checkpoint:incomplete", "kind": "escalation", "status": "completed"}],
+    "responses": [],
+    "reconciliations": []
+  },
+  "expected": {"result": "human-boundary", "boundary_reason": "invalid-durable-record-structure", "attempt_id": null}
+}

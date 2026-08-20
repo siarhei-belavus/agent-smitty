@@ -13,7 +13,7 @@ Record:
 - affected and preserved Repository Deliveries plus invalidated, preserved, and pending evidence;
 - active Human Action Request ID or explicit absence;
 - next permissible step and prerequisites;
-- local-only exclusions, runtime evidence pointers, and limitations.
+- local-only exclusions, limitations, and provider/runtime evidence whose activation ID, checkpoint ID, and termination outcome bind it to the interrupted activation.
 
 Retain append-only history and identify the current checkpoint.
 
