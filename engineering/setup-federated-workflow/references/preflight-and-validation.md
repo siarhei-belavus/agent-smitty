@@ -14,20 +14,37 @@ Resolve every target checkout and record, without writing:
 8. application-agent scopes, proving they do not overlap;
 9. the complete final diff and validation commands.
 
-Judge every provider binding against the loaded provider contract. The deterministic validator checks required section markers only and does not replace this semantic judgment.
+Judge every provider binding against the loaded provider contract. For one repository without federation, record exact marker, Git-identity, and provider-read commands. For Establish or Join, the federation validator adds deterministic marker and topology checks. Neither path replaces semantic judgment.
 
 Fail closed on wrong identity/Base Branch, unresolved context ownership, conflicting instructions, unapproved overlap, missing provider access, a Home-Transfer request, incomplete, ambiguous, or contradictory provider-binding knowledge, or any target whose final content cannot be drafted. Preflight is one gate across the complete operation; do not partially apply a target that passed while another remains unresolved.
 
 ## Result validation
 
-Validate members before the Home, then validate the whole federation:
+For every operation:
 
 - every provider binding satisfies the loaded provider contract and its locators and required metadata are readable non-destructively;
-- every member points to the exact Home identity and the Home map records each exact member identity and responsibility;
-- canonical pointers resolve to substantive owner documents;
-- context ownership is unique; participants and External Systems are correctly classified; relationship endpoints exist;
 - no credential, account binding, machine-local path, registry, probe artifact, commit, branch, or Review Proposal was created;
 - a second preview produces an empty diff.
+
+### One repository without federation
+
+Validate only the current repository:
+
+- its Repository ID, origin remote, and Base Branch agree with Git and the repository-owned Code Host binding;
+- the Work Tracker locator and its required metadata are readable through its configured non-destructive validation operations;
+- every Routing Label maps to a readable provider label;
+- `AGENTS.md` or `CLAUDE.md` points directly to the repository-owned Code Host, Work Tracker, Routing Label, and Domain Orientation bindings;
+- Domain Orientation routes the repository's local canonical contexts and ADRs without a `## Domain Federation` binding or Repository-qualified federated map.
+
+Execute the exact marker, Git-identity, and provider-read commands recorded by preflight. Do not run `validate_federation.py` or supply a synthetic `--home`: that validator accepts only materialized Home/member topology.
+
+### Establish or Join
+
+Validate members before the Home, then validate the whole federation:
+
+- every member points to the exact Home identity and the Home map records each exact member identity and responsibility;
+- canonical pointers resolve to substantive owner documents;
+- context ownership is unique; participants and External Systems are correctly classified; relationship endpoints exist.
 
 Run:
 
@@ -40,6 +57,6 @@ python3 scripts/validate_federation.py \
 
 Add one `--member` per member and one `--ticket-origin` per human-confirmed Ticket Origin. Paths are runtime inputs and never enter durable configuration.
 
-Report exact changed files, preserved user changes, validation evidence, and any capability that remained non-destructively unverified.
+Report the selected branch, exact changed files, preserved user changes, validation evidence, and any capability that remained non-destructively unverified.
 
 **Complete when:** configuration is prepared and locally validated. It becomes authoritative only after every participating change is accepted in its configured Base Branch.

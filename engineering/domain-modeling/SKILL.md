@@ -25,10 +25,9 @@ If the canonical owner or its configured artifact is unavailable, report the una
 Every human-confirmed change produces a complete [Domain Model Delta](DOMAIN-MODEL-DELTA.md) immediately. Do not batch confirmed results or reduce them to reminders.
 
 - An explicit standalone invocation grants canonical capture by default: apply each confirmed delta immediately to its routed `CONTEXT.md`, `CONTEXT-MAP.md`, or ADR owner unless the user asks for discussion only.
-- A composed or model-invoked use returns each delta to the invoking workflow without writing canonical artifacts. It may apply a delta only when that invocation explicitly grants canonical capture.
+- A composed or model-invoked use returns each delta to the invoking workflow without writing canonical artifacts or selecting a planning persistence destination. It may apply a delta only when that invocation explicitly grants canonical capture.
 
-Capture authority changes only the destination, never the modeling depth or delta contents. If the routed owner is unavailable, return the complete delta and report the unavailable owner instead of writing a substitute.
-Return composed deltas to the invoking workflow without selecting a planning persistence destination.
+Capture authority changes only the destination, never the modeling depth or delta contents.
 
 ## File structure
 
@@ -80,9 +79,9 @@ When domain relationships are being discussed, stress-test them with specific sc
 
 When the user states how something works, check whether the code agrees. If you find a contradiction, surface it: "Your code cancels entire Orders, but you just said partial cancellation is possible — which is right?"
 
-### Capture resolved language immediately
+### Capture resolved language
 
-When a term is resolved, emit its complete Domain Model Delta right there. Under canonical capture, also update the routed `CONTEXT.md` using [CONTEXT-FORMAT.md](./CONTEXT-FORMAT.md). Otherwise return the delta to the invoking workflow.
+Apply [Output and capture authority](#output-and-capture-authority) to each resolved term. Format a routed glossary update with [CONTEXT-FORMAT.md](./CONTEXT-FORMAT.md).
 
 ### Offer ADRs sparingly
 

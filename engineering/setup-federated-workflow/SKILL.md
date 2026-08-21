@@ -21,15 +21,19 @@ If an existing binding points to another Home, or the requested change would mov
 
 ### 2. Research current truth
 
-For Establish, discover broadly but grant no membership from discovery. Spawn repository research subagents for candidate repositories, then context research subagents across every repository that may own or participate in each candidate context. For Join, research the joining repository and Home only.
+For a single repository without federation, research only that repository. For Establish, discover broadly but grant no membership from discovery. Spawn repository research subagents for candidate repositories, then context research subagents across every repository that may own or participate in each candidate context. For Join, research the joining repository and Home only.
 
-Read [`../federated-workflow/PROVIDER-BINDINGS.md`](../federated-workflow/PROVIDER-BINDINGS.md). Inspect repository identity, remote, Base Branch, instructions, existing bindings, maps, canonical contexts, ADRs, CI/deployment evidence, provider capabilities, and user changes. Read [`../federated-workflow/DOMAIN-FEDERATION.md`](../federated-workflow/DOMAIN-FEDERATION.md) whenever federation topology or context ownership is in scope. Research is complete when every proposed member, context owner, participant, relationship, External System, Ticket Origin role, and required artifact has evidence or is explicitly unsettled.
+Read [`../federated-workflow/PROVIDER-BINDINGS.md`](../federated-workflow/PROVIDER-BINDINGS.md). Inspect repository identity, remote, Base Branch, instructions, existing bindings, maps, canonical contexts, ADRs, CI/deployment evidence, provider capabilities, and user changes. Read [`../federated-workflow/DOMAIN-FEDERATION.md`](../federated-workflow/DOMAIN-FEDERATION.md) only for Establish or Join.
 
-### 3. Obtain topology authority
+Research is complete when the selected branch has evidence for every required artifact and decision: repository-owned provider and Domain Orientation bindings for the single-repository branch; full proposed topology, context ownership, participation, relationships, External Systems, and Ticket Origin roles for Establish or Join.
 
-Present one recommended complete topology: Home, boundary, members, External Systems, the Ticket Origin status of each repository, contexts, owners, participants, responsibilities, relationships, and required domain documents. Discuss each material ambiguity separately. Unresolved ownership stops setup.
+### 3. Obtain branch authority
 
-This confirmation is complete only when the human has accepted the entire topology and no placeholder, empty canonical document, or `TODO` ownership remains.
+For a repository without federation, present its portable repository identity, repository-owned Code Host binding, Work Tracker and Routing Label bindings, Domain Orientation, and required files. Confirm the current repository as the Ticket Origin. Do not propose a Home, member role, reciprocal binding, or federated map.
+
+For Establish or Join, present one recommended complete topology: Home, boundary, members, External Systems, the Ticket Origin status of each repository, contexts, owners, participants, responsibilities, relationships, and required domain documents. Discuss each material ambiguity separately. Unresolved ownership stops setup.
+
+Confirmation is complete when the human has accepted every item required by the selected branch and no placeholder, empty canonical document, or `TODO` ownership remains.
 
 ### 4. Draft and preflight every write
 
@@ -41,7 +45,7 @@ Run the [complete read-only preflight](references/preflight-and-validation.md#co
 
 Show one complete English plan and the file-level diff for all repositories. State which existing user changes will be preserved or overlapped. Let the human edit the draft. No write begins until this second confirmation accepts the complete change set.
 
-### 6. Apply member-first and Home-last
+### 6. Apply in branch order
 
 For Establish, assign one application subagent to each initial member, in parallel up to capacity. After every member succeeds, use a separate subagent for the Home. For Join, change only the joining member, validate it, then update the Home. Ordinary single-repository configuration changes only that repository.
 
@@ -49,4 +53,4 @@ Application writes validated checkouts in place and leaves changes uncommitted. 
 
 ### 7. Validate current truth
 
-After application, spawn a fresh validation subagent to execute [result validation](references/preflight-and-validation.md#result-validation).
+After application, spawn a fresh validation subagent to execute the selected branch under [result validation](references/preflight-and-validation.md#result-validation).
