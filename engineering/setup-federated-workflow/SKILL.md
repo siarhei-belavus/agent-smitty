@@ -1,6 +1,6 @@
 ---
 name: setup-federated-workflow
-description: Configure explicit Work Tracker, Code Host, Routing Label, Domain Orientation, and Domain Federation bindings, including human-confirmed Establish and Join operations.
+description: Configure independent Code Host bindings and human-confirmed Work Tracker, Routing Label, Domain Orientation, and Domain Federation bindings, including Establish and Join operations.
 ---
 
 # Setup Federated Workflow
@@ -35,7 +35,10 @@ context. For Join, research the joining repository and Home only.
 
 Inspect repository identity, remote, Base Branch, instructions, existing
 bindings, maps, canonical contexts, ADRs, CI/deployment evidence, provider
-capabilities, and user changes. Read
+capabilities, and user changes. Treat Ticket Origin as a human-confirmed role,
+independent of Home or Member status. Every Git repository owns its own Code
+Host binding. Only a confirmed Ticket Origin owns a Work Tracker and Routing
+Label binding. Read
 [`references/domain-federation.md`](references/domain-federation.md) whenever
 federation topology or context ownership is in scope. Research is complete when
 every proposed member, context owner, participant, relationship, External
@@ -45,10 +48,10 @@ unsettled.
 ### 3. Obtain topology authority
 
 Present one recommended complete topology: Home, boundary, members, External
-Systems, Ticket Origin repositories, contexts, owners, participants,
-responsibilities, relationships, and required domain documents. Discuss each
-material ambiguity separately. A coordination-only Home never owns product
-language for convenience; unresolved ownership stops setup.
+Systems, the Ticket Origin status of each repository, contexts, owners,
+participants, responsibilities, relationships, and required domain documents.
+Discuss each material ambiguity separately. A coordination-only Home never owns
+product language for convenience; unresolved ownership stops setup.
 
 This confirmation is complete only when the human has accepted the entire
 topology and no placeholder, empty canonical document, or `TODO` ownership
@@ -92,17 +95,19 @@ complete only when every intended file matches the confirmed draft.
 ### 7. Validate current truth
 
 Spawn a fresh validation subagent after application. Validate members first and
-Home last, provider readability, reciprocal identities, context-pointer
-resolution, sole Work Tracker/Routing Label ownership, absence of credentials
-and local paths, and idempotence. Run:
+Home last. Check provider readability, reciprocal identities, context-pointer
+resolution, confirmed Ticket Origin ownership, independent Code Host ownership,
+absence of credentials and local paths, and idempotence. Run:
 
 ```bash
 python3 scripts/validate_federation.py \
   --home '<repository-id>=<checkout>' \
-  --member '<repository-id>=<checkout>'
+  --member '<repository-id>=<checkout>' \
+  --ticket-origin '<repository-id>'
 ```
 
-Add one `--member` per member. The paths are runtime inputs and never enter
-durable configuration. Completion is `configuration prepared and locally
-validated`; it becomes authoritative only after all participating changes are
-accepted in their configured Base Branches.
+Add one `--member` per member and one `--ticket-origin` per human-confirmed
+Ticket Origin. The paths are runtime inputs and never enter durable
+configuration. Completion is `configuration prepared and locally validated`;
+it becomes authoritative only after all participating changes are accepted in
+their configured Base Branches.

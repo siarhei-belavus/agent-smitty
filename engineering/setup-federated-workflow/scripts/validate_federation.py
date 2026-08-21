@@ -26,7 +26,7 @@ WORK_TRACKER_HEADINGS = (
     "## Routing",
     "## Dependencies",
     "## Claims",
-    "## Delivery dispatch",
+    "## Delivery frontier",
     "## Coordination log",
     "## Triage request surfaces",
     "## Wayfinding operations",
@@ -154,6 +154,36 @@ def load_repository(
     )
 
 
+def validate_ticket_origin(
+    repository: Repository,
+    errors: list[str],
+) -> None:
+    tracker_path = repository.path / "docs" / "agents" / "issue-tracker.md"
+    labels_path = repository.path / "docs" / "agents" / "triage-labels.md"
+    tracker = read(tracker_path, errors)
+    for heading in WORK_TRACKER_HEADINGS:
+        if heading not in tracker:
+            errors.append(f"{tracker_path} is missing {heading}")
+    if not labels_path.is_file():
+        errors.append(f"{repository.repository_id} has no Routing Label mapping")
+
+    agents = read(repository.path / "AGENTS.md", errors)
+    for pointer in (
+        "docs/agents/issue-tracker.md",
+        "docs/agents/triage-labels.md",
+    ):
+        if pointer not in agents:
+            errors.append(
+                f"{repository.repository_id} AGENTS.md does not index {pointer}"
+            )
+    persisted = "\n".join((agents, tracker, read(labels_path, errors)))
+    if LOCAL_PATH.search(persisted):
+        errors.append(
+            f"{repository.repository_id} Ticket Origin configuration "
+            "contains a machine-local path"
+        )
+
+
 def validate(arguments: argparse.Namespace) -> list[str]:
     errors: list[str] = []
     home_id, home_path = arguments.home
@@ -172,6 +202,16 @@ def validate(arguments: argparse.Namespace) -> list[str]:
             for repository_id, path in member_locations.items()
         },
     }
+    ticket_origins: set[str] = set()
+    for repository_id in arguments.ticket_origin:
+        if repository_id in ticket_origins:
+            errors.append(
+                f"{repository_id} is supplied as Ticket Origin more than once"
+            )
+        elif repository_id not in repositories:
+            errors.append(f"Ticket Origin uses unknown Repository ID {repository_id}")
+        else:
+            ticket_origins.add(repository_id)
     home = repositories[home_id]
     if home.role != "Home":
         errors.append(f"{home_id} Domain Federation Role is not Home")
@@ -180,13 +220,16 @@ def validate(arguments: argparse.Namespace) -> list[str]:
     if actual_home != expected_home:
         errors.append(f"{home_id} Home binding is not self-reciprocal")
 
-    tracker_path = home.path / "docs" / "agents" / "issue-tracker.md"
-    tracker = read(tracker_path, errors)
-    for heading in WORK_TRACKER_HEADINGS:
-        if heading not in tracker:
-            errors.append(f"{tracker_path} is missing {heading}")
-    if not (home.path / "docs" / "agents" / "triage-labels.md").is_file():
-        errors.append(f"{home_id} has no Routing Label mapping")
+    for repository_id, repository in repositories.items():
+        if repository_id in ticket_origins:
+            validate_ticket_origin(repository, errors)
+            continue
+        for forbidden in ("issue-tracker.md", "triage-labels.md"):
+            if (repository.path / "docs" / "agents" / forbidden).exists():
+                errors.append(
+                    f"{repository_id} is not a confirmed Ticket Origin and "
+                    f"must not own {forbidden}"
+                )
 
     for repository_id in member_locations:
         member = repositories[repository_id]
@@ -199,9 +242,6 @@ def validate(arguments: argparse.Namespace) -> list[str]:
             home.base_branch,
         ):
             errors.append(f"{repository_id} Home identity is not portable and exact")
-        for forbidden in ("issue-tracker.md", "triage-labels.md"):
-            if (member.path / "docs" / "agents" / forbidden).exists():
-                errors.append(f"{repository_id} must not own {forbidden}")
 
     map_path = home.path / "CONTEXT-MAP.md"
     context_map = read(map_path, errors)
@@ -250,6 +290,13 @@ def main() -> int:
         default=[],
         type=parse_location,
         metavar="REPOSITORY_ID=PATH",
+    )
+    parser.add_argument(
+        "--ticket-origin",
+        action="append",
+        default=[],
+        metavar="REPOSITORY_ID",
+        help="human-confirmed Ticket Origin Repository ID; repeat as needed",
     )
     arguments = parser.parse_args()
     errors = validate(arguments)

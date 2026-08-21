@@ -18,7 +18,7 @@ Reachable only when you invoke them explicitly.
 - **[setup-matt-pocock-skills](./setup-matt-pocock-skills/SKILL.md)** — Configure this repo for the engineering skills (issue tracker, triage labels, domain doc layout). Run once per repo.
 - **[to-spec](./to-spec/SKILL.md)** — Synthesize a solution-level specification with Repository References, Context Scope, and complete Testing Decisions, then publish it to the configured Work Tracker.
 - **[to-tickets](./to-tickets/SKILL.md)** — Transform settled source authority into self-contained tracer-bullet delivery tickets, one file per ticket locally or provider-native items on the configured Work Tracker.
-- **[coordinate-delivery](./coordinate-delivery/SKILL.md)** — Coordinate one agent-ready ticket through its complete federated delivery and human handoff.
+- **[coordinate-delivery](./coordinate-delivery/SKILL.md).** Accept a named ticket or claim one from the configured Delivery frontier, then coordinate its complete federated delivery and human handoff.
 - **[wayfinder](./wayfinder/SKILL.md)** — Plan a huge, foggy effort as a configured Work Tracker map of decision tickets while preserving its planning-only frontier.
 
 ## Model-invoked

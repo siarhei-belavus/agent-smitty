@@ -54,7 +54,7 @@ Use this semantic structure:
 ## Routing
 ## Dependencies
 ## Claims
-## Delivery dispatch
+## Delivery frontier
 ## Coordination log
 ## Triage request surfaces
 ## Wayfinding operations
@@ -67,10 +67,13 @@ canonical ticket-reference form. Git remotes may inform setup but never select
 the configured Work Tracker at runtime.
 
 Document provider-native create/read/list/comment/label/assign/transition/close;
-native blocking relationships; claim acquire/re-read/release; targeted event
-lookup and deterministic frontier reconciliation; append-only coordination
-comments and permanent references; and Wayfinding separately from delivery
-dispatch. Events are hints and all targets are re-read before claim.
+native blocking relationships; claim acquire/re-read/release; append-only
+coordination comments and permanent references; and Wayfinding separately from
+the Delivery frontier. Write `## Delivery frontier` as ordinary instructions an
+agent can read. Define candidate queries, eligibility, ordering, provider
+re-reads, and race recovery without an executable Markdown schema or a
+project-specific adapter. Events may narrow a query, but they are hints. Re-read
+every candidate before claiming it.
 
 `docs/agents/triage-labels.md` is the sole mapping for `needs-triage`,
 `needs-info`, `ready-for-agent`, `ready-for-human`, and `wontfix`. Validate every
@@ -80,5 +83,7 @@ existing labels are not renamed or deleted.
 The least-privilege envelope permits ticket/dependency reads, coordination
 comments, Routing Label transitions, and acquisition/release of the Workflow
 Identity's own claim. It excludes administration and contains no credentials.
-Validation reads locator, fields, comments, labels, assignees, dependencies,
-and capabilities without probe tickets or comments.
+Validation reads the locator, tickets, comments, labels, assignees,
+dependencies, Workflow Identity when the provider exposes it, and provider
+capability metadata. It creates no probe ticket, comment, label, assignment, or
+other mutation.

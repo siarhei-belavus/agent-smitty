@@ -34,6 +34,7 @@ def write_repository(
     role: str,
     home: tuple[str, str, str],
     ticket_origin: bool = False,
+    frontier_heading: str = "## Delivery frontier",
 ) -> None:
     root.mkdir()
     run(["git", "init", "-b", base_branch], root)
@@ -77,7 +78,7 @@ def write_repository(
         (root / "docs" / "agents" / "issue-tracker.md").write_text(
             "# Work Tracker: GitLab\n\n"
             "## Binding\n## Ticket operations\n## Routing\n## Dependencies\n"
-            "## Claims\n## Delivery dispatch\n## Coordination log\n"
+            f"## Claims\n{frontier_heading}\n## Coordination log\n"
             "## Triage request surfaces\n## Wayfinding operations\n"
             "## Workflow Identity permissions\n## Binding validation\n"
         )
@@ -86,11 +87,92 @@ def write_repository(
         )
     run(["git", "config", "user.name", "Test User"], root)
     run(["git", "config", "user.email", "test@example.test"], root)
-    run(["git", "add", "."], root)
-    run(["git", "commit", "-m", "test fixture"], root)
+    run(["git", "config", "maintenance.auto", "false"], root)
+    run(["git", "config", "core.hooksPath", "/dev/null"], root)
+    tree = run(["git", "hash-object", "-t", "tree", "--stdin"], root)
+    commit = run(
+        ["git", "commit-tree", tree.stdout.strip(), "-m", "test fixture"],
+        root,
+    )
+    run(
+        ["git", "update-ref", f"refs/heads/{base_branch}", commit.stdout.strip()],
+        root,
+    )
 
 
 class ValidateFederationCliTests(unittest.TestCase):
+    def test_rejects_tracker_bindings_without_confirmed_ticket_origin(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            home = root / "home"
+            home_identity = (
+                "home",
+                "git@example.test:group/home.git",
+                "main",
+            )
+            write_repository(
+                home,
+                *home_identity,
+                role="Home",
+                home=home_identity,
+                ticket_origin=True,
+            )
+            (home / "CONTEXT-MAP.md").write_text(
+                "# Map\n\n## Contexts\n\n- None.\n\n"
+                "## External Systems\n\n- None.\n\n"
+                "## Relationships\n\n- None.\n"
+            )
+
+            result = run(
+                [sys.executable, str(SCRIPT), "--home", f"home={home}"],
+                root,
+            )
+
+            self.assertNotEqual(0, result.returncode)
+            self.assertIn(
+                "home is not a confirmed Ticket Origin and must not own "
+                "issue-tracker.md",
+                result.stderr,
+            )
+
+    def test_rejects_the_retired_delivery_dispatch_binding(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            home = root / "home"
+            home_identity = (
+                "home",
+                "git@example.test:group/home.git",
+                "main",
+            )
+            write_repository(
+                home,
+                *home_identity,
+                role="Home",
+                home=home_identity,
+                ticket_origin=True,
+                frontier_heading="## Delivery dispatch",
+            )
+            (home / "CONTEXT-MAP.md").write_text(
+                "# Map\n\n## Contexts\n\n- None.\n\n"
+                "## External Systems\n\n- None.\n\n"
+                "## Relationships\n\n- None.\n"
+            )
+
+            result = run(
+                [
+                    sys.executable,
+                    str(SCRIPT),
+                    "--home",
+                    f"home={home}",
+                    "--ticket-origin",
+                    "home",
+                ],
+                root,
+            )
+
+            self.assertNotEqual(0, result.returncode)
+            self.assertIn("is missing ## Delivery frontier", result.stderr)
+
     def test_rejects_a_configured_base_branch_that_does_not_exist(self) -> None:
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
@@ -140,6 +222,8 @@ class ValidateFederationCliTests(unittest.TestCase):
                     str(SCRIPT),
                     "--home",
                     f"home={home}",
+                    "--ticket-origin",
+                    "home",
                     "--member",
                     f"member={member}",
                 ],
@@ -197,6 +281,8 @@ class ValidateFederationCliTests(unittest.TestCase):
                     str(SCRIPT),
                     "--home",
                     f"home={home}",
+                    "--ticket-origin",
+                    "home",
                     "--member",
                     f"member={member}",
                 ],
@@ -251,6 +337,8 @@ class ValidateFederationCliTests(unittest.TestCase):
                     str(SCRIPT),
                     "--home",
                     f"home={home}",
+                    "--ticket-origin",
+                    "home",
                     "--member",
                     f"member={member}",
                     "--member",
@@ -306,6 +394,8 @@ class ValidateFederationCliTests(unittest.TestCase):
                     str(SCRIPT),
                     "--home",
                     f"home={home}",
+                    "--ticket-origin",
+                    "home",
                     "--member",
                     f"member={member}",
                 ],
@@ -356,6 +446,8 @@ class ValidateFederationCliTests(unittest.TestCase):
                     str(SCRIPT),
                     "--home",
                     f"home={home}",
+                    "--ticket-origin",
+                    "home",
                     "--member",
                     f"member={member}",
                 ],
@@ -406,6 +498,8 @@ class ValidateFederationCliTests(unittest.TestCase):
                     str(SCRIPT),
                     "--home",
                     f"home={home}",
+                    "--ticket-origin",
+                    "home",
                     "--member",
                     f"member={member}",
                 ],
@@ -415,6 +509,57 @@ class ValidateFederationCliTests(unittest.TestCase):
             self.assertNotEqual(0, result.returncode)
             self.assertIn("member Home Repository ID is not home", result.stderr)
             self.assertIn("machine-local path", result.stderr)
+
+    def test_validates_a_member_as_the_independent_ticket_origin(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            home = root / "home"
+            member = root / "member"
+            home_identity = (
+                "home",
+                "git@example.test:group/home.git",
+                "main",
+            )
+            write_repository(
+                home,
+                *home_identity,
+                role="Home",
+                home=home_identity,
+            )
+            write_repository(
+                member,
+                "member",
+                "git@example.test:group/member.git",
+                "master",
+                role="Member",
+                home=home_identity,
+                ticket_origin=True,
+            )
+            (member / "CONTEXT.md").write_text("# Member Context\n")
+            (home / "CONTEXT-MAP.md").write_text(
+                "# Map\n\n## Contexts\n\n"
+                "- [Member](member:CONTEXT.md) — member context.\n"
+                "  - Owner: `member`; Remote: "
+                "`git@example.test:group/member.git`; Base Branch: `master`.\n\n"
+                "## External Systems\n\n- None.\n\n"
+                "## Relationships\n\n- None.\n"
+            )
+
+            result = run(
+                [
+                    sys.executable,
+                    str(SCRIPT),
+                    "--home",
+                    f"home={home}",
+                    "--member",
+                    f"member={member}",
+                    "--ticket-origin",
+                    "member",
+                ],
+                root,
+            )
+
+            self.assertEqual(0, result.returncode, result.stderr)
 
 
 if __name__ == "__main__":
