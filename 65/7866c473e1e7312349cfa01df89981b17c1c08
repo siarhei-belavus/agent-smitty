@@ -1,0 +1,24 @@
+dispatcher/index.ts
+  s_3271e2b932ab64::t_b8f0fdacbe6cbd 209-211
+  s_3271e2b932ab64::t_395f400e69e75e 23-24,34-56,60,74-79,81-90,130-200,212-223,232-235,241-243,247,250-252,256,274-299
+  s_3271e2b932ab64::t_8bb0e3c1d39815 201
+dispatcher/index.test.ts
+  s_3271e2b932ab64::t_fd9f71b03f0b1f 6,32,72-78,84,86-89,95-99,104,108-110,183-300,302
+  s_3271e2b932ab64::t_1a1e4bfbcfd0a9 301
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "657866c473e1e7312349cfa01df89981b17c1c08",
+  "prompts": {},
+  "sessions": {
+    "s_3271e2b932ab64": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0234d-41c3-7ec2-83a0-b094859ba4ca",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
