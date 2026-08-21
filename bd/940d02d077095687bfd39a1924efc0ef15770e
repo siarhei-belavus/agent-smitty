@@ -1,0 +1,55 @@
+skills/matt/engineering/implement/STANDALONE.md
+  s_4279ed1f1cac82::t_04ec2437faa9e8 3
+skills/matt/engineering/tdd/mocking.md
+  s_4279ed1f1cac82::t_b572b07b83e587 30
+skills/matt/engineering/to-spec/SKILL.md
+  s_4279ed1f1cac82::t_b969c996858c82 51,63
+skills/matt/engineering/prototype/UI.md
+  s_4279ed1f1cac82::t_b572b07b83e587 9
+skills/matt/engineering/tdd/SKILL.md
+  s_4279ed1f1cac82::t_b572b07b83e587 16,18
+skills/matt/engineering/domain-modeling/SKILL.md
+  s_4279ed1f1cac82::t_b572b07b83e587 21
+skills/matt/engineering/wayfinder/SKILL.md
+  s_4279ed1f1cac82::t_b969c996858c82 92,115,121,132
+skills/matt/engineering/change-walkthrough/SKILL.md
+  s_4279ed1f1cac82::t_b572b07b83e587 9
+skills/matt/engineering/improve-codebase-architecture/HTML-REPORT.md
+  s_4279ed1f1cac82::t_b572b07b83e587 100
+skills/matt/engineering/triage/SKILL.md
+  s_4279ed1f1cac82::t_b572b07b83e587 49
+  s_4279ed1f1cac82::t_04ec2437faa9e8 47
+skills/matt/engineering/implement/COORDINATOR-NARROWED.md
+  s_4279ed1f1cac82::t_b572b07b83e587 3,5,7,9
+skills/matt/engineering/coordinate-delivery/RUNTIME-TERMINATION.md
+  s_4279ed1f1cac82::t_b572b07b83e587 3
+skills/matt/engineering/setup-federated-workflow/SKILL.md
+  s_4279ed1f1cac82::t_b572b07b83e587 8
+skills/matt/engineering/diagnosing-bugs/SKILL.md
+  s_4279ed1f1cac82::t_b572b07b83e587 62
+skills/matt/engineering/improve-codebase-architecture/SKILL.md
+  s_4279ed1f1cac82::t_b572b07b83e587 44
+skills/matt/engineering/coordinate-delivery/SKILL.md
+  s_4279ed1f1cac82::t_b572b07b83e587 49
+skills/matt/engineering/ask-matt/SKILL.md
+  s_4279ed1f1cac82::t_b969c996858c82 36
+  s_4279ed1f1cac82::t_04ec2437faa9e8 54
+skills/matt/engineering/code-review/SKILL.md
+  s_4279ed1f1cac82::t_04ec2437faa9e8 10,37
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "bd940d02d077095687bfd39a1924efc0ef15770e",
+  "prompts": {},
+  "sessions": {
+    "s_4279ed1f1cac82": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a02578-001b-75c2-b40f-bd48c20f5f55",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
