@@ -64,6 +64,16 @@ Draft the final content using
 domain reference. Preserve compatible files and patch the smallest coherent
 sections; never regenerate an existing file merely because its layout differs.
 
+For every confirmed Ticket Origin, read and judge the Work Tracker binding and
+its ordinary `## Delivery frontier` prose. Together they must supply an
+authoritative locator; the frontier query, eligibility, ordering, and blocker
+treatment; an authoritative exact-candidate re-read; Workflow Identity claim
+acquisition and authoritative post-claim verification; race recovery; and
+successful empty-frontier behavior. Missing, ambiguous, or contradictory
+knowledge stops setup with the specific gap reported. The deterministic
+validator checks the section's structure and non-empty content; it does not
+replace this model-driven semantic assessment.
+
 Run the single complete read-only preflight in
 [`references/preflight-and-validation.md`](references/preflight-and-validation.md)
 against every target before the first write. A failed check starts no

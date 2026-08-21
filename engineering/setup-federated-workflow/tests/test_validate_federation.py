@@ -329,7 +329,7 @@ class ValidateFederationCliTests(unittest.TestCase):
             self.assertNotEqual(0, result.returncode)
             self.assertIn("Delivery frontier is empty", result.stderr)
 
-    def test_rejects_an_incomplete_delivery_frontier(self) -> None:
+    def test_accepts_complete_provider_custom_frontier_prose(self) -> None:
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
             home = root / "home"
@@ -344,7 +344,19 @@ class ValidateFederationCliTests(unittest.TestCase):
                 role="Home",
                 home=home_identity,
                 ticket_origin=True,
-                frontier_content="List candidate tickets from the provider.",
+                frontier_content=(
+                    "Ask GitLab for active work marked ready-for-agent and "
+                    "discard entries held by a person or waiting on unfinished "
+                    "prerequisites. Choose by ascending creation timestamp. "
+                    "Immediately ahead of taking ownership, consult GitLab's "
+                    "latest record for the chosen work, including marker, "
+                    "dependency, and ownership facts. Place the automation "
+                    "principal named by Workflow Identity into ownership, then "
+                    "consult that authoritative record to ensure ownership took "
+                    "effect. If contention or new facts invalidate the choice, "
+                    "begin selection anew. Having nothing qualified to take is "
+                    "a normal successful end."
+                ),
             )
             (home / "CONTEXT-MAP.md").write_text(
                 "# Map\n\n## Contexts\n\n- None.\n\n"
@@ -364,10 +376,12 @@ class ValidateFederationCliTests(unittest.TestCase):
                 root,
             )
 
-            self.assertNotEqual(0, result.returncode)
-            self.assertIn("Delivery frontier is incomplete", result.stderr)
-            self.assertIn("verified claim", result.stderr)
-            self.assertIn("empty-frontier behavior", result.stderr)
+            self.assertEqual(
+                "Federation valid: 1 home, 0 members\n",
+                result.stdout,
+            )
+            self.assertEqual("", result.stderr)
+            self.assertEqual(0, result.returncode)
 
     def test_rejects_a_configured_base_branch_that_does_not_exist(self) -> None:
         with tempfile.TemporaryDirectory() as temp:

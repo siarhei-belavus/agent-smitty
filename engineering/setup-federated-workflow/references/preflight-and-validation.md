@@ -10,17 +10,23 @@ Resolve every target checkout and record, without writing:
 4. each repository's independent Code Host binding; every human-confirmed
    Ticket Origin and its independent Work Tracker and Routing Label bindings;
    Domain Orientation and Home bindings; and conflicting or partial prior setup;
-5. provider-readable locators, tickets, comments, labels, assignees,
+5. each Ticket Origin's ordinary Delivery frontier prose, judged for an
+   authoritative locator; query, eligibility, ordering, and blocker treatment;
+   authoritative exact-candidate re-read; Workflow Identity claim and
+   authoritative verification; race recovery; and successful empty-frontier
+   behavior;
+6. provider-readable locators, tickets, comments, labels, assignees,
    dependencies, Workflow Identity when exposed, and capability metadata, with
    write scope marked verified or unverified rather than tested by mutation;
-6. every intended file, whether create/patch/preserve, and exact overlap with
+7. every intended file, whether create/patch/preserve, and exact overlap with
    user changes;
-7. application-agent scopes, proving they do not overlap;
-8. the complete final diff and validation commands.
+8. application-agent scopes, proving they do not overlap;
+9. the complete final diff and validation commands.
 
 Fail closed on wrong identity/Base Branch, unresolved context ownership,
 conflicting instructions, unapproved overlap, missing provider access, a
-Home-Transfer request, or any target whose final content cannot be drafted.
+Home-Transfer request, incomplete/ambiguous/contradictory Delivery frontier
+knowledge, or any target whose final content cannot be drafted.
 Preflight is one gate across the complete operation; do not partially apply a
 target that passed while another remains unresolved.
 
