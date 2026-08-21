@@ -13,10 +13,6 @@ The request may sit in `ready-for-agent` for days or weeks. Write the brief so i
 
 Describe what the system should do, not a sequence of edits. Current behavior, desired behavior, error cases, and durable interface guidance belong inside `What to build`; they are not duplicate top-level contract sections.
 
-### Complete
-
-Every criterion must be independently verifiable. State scope boundaries and dependencies. Run the shared Source authority and Composition invariants as the readiness preflight.
-
 ## Complete contract
 
 ```markdown
@@ -82,4 +78,4 @@ Validate the posted public comment and resulting Work Tracker state:
 - blockers and Routing Labels agree with authoritative Work Tracker state;
 - every field is verifiable from the public comment and Work Tracker state.
 
-Return any failed check to triage. A direct maintainer override may skip grilling, but it cannot bypass this contract.
+Return any failed check to triage.
