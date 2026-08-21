@@ -1,0 +1,42 @@
+skills/matt/engineering/codebase-design/SKILL.md
+  s_4279ed1f1cac82::t_c56bf08ab8f4ac 10
+  s_4279ed1f1cac82::t_62d3f69e8029cc 120
+  s_4279ed1f1cac82::t_89eb24e85ddd5c 150-151
+  s_4279ed1f1cac82::t_472c44e87f4af4 3,8,100,132,136
+  s_4279ed1f1cac82::t_8e1f63789d307b 9
+skills/matt/engineering/improve-codebase-architecture/SKILL.md
+  s_4279ed1f1cac82::t_5ca5136e7a18d5 25-28,30
+skills/matt/engineering/ask-matt/SKILL.md
+  s_4279ed1f1cac82::t_62d3f69e8029cc 11
+skills/matt/engineering/improve-codebase-architecture/HTML-REPORT.md
+  s_4279ed1f1cac82::t_89eb24e85ddd5c 42,52,82,86
+  s_4279ed1f1cac82::t_5ca5136e7a18d5 84,88,116-119,121
+skills/matt/engineering/codebase-design/TEST-SURFACE.md
+  s_4279ed1f1cac82::t_62d3f69e8029cc 1-7
+skills/matt/engineering/codebase-design/DEEPENING.md
+  s_4279ed1f1cac82::t_472c44e87f4af4 13,17
+skills/matt/engineering/tdd/SKILL.md
+  s_4279ed1f1cac82::t_62d3f69e8029cc 8
+  s_4279ed1f1cac82::t_5ca5136e7a18d5 12,20
+skills/matt/engineering/codebase-design/DESIGN-IT-TWICE.md
+  s_4279ed1f1cac82::t_5ca5136e7a18d5 36
+skills/matt/engineering/tdd/mocking.md
+  s_4279ed1f1cac82::t_bff5d4310824ba 31
+  s_4279ed1f1cac82::t_89eb24e85ddd5c 10,12,30
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "38bc7a5c7cf57e9198b8cd8e61eae5647d4cecf6",
+  "prompts": {},
+  "sessions": {
+    "s_4279ed1f1cac82": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a02578-001b-75c2-b40f-bd48c20f5f55",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
