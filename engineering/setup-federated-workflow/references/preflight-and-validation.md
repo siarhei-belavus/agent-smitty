@@ -14,6 +14,8 @@ Resolve every target checkout and record, without writing:
 8. application-agent scopes, proving they do not overlap;
 9. the complete final diff and validation commands.
 
+Judge every provider binding against the loaded provider contract. The deterministic validator checks required section markers only and does not replace this semantic judgment.
+
 Fail closed on wrong identity/Base Branch, unresolved context ownership, conflicting instructions, unapproved overlap, missing provider access, a Home-Transfer request, incomplete, ambiguous, or contradictory provider-binding knowledge, or any target whose final content cannot be drafted. Preflight is one gate across the complete operation; do not partially apply a target that passed while another remains unresolved.
 
 ## Result validation
@@ -27,4 +29,17 @@ Validate members before the Home, then validate the whole federation:
 - no credential, account binding, machine-local path, registry, probe artifact, commit, branch, or Review Proposal was created;
 - a second preview produces an empty diff.
 
+Run:
+
+```bash
+python3 scripts/validate_federation.py \
+  --home '<repository-id>=<checkout>' \
+  --member '<repository-id>=<checkout>' \
+  --ticket-origin '<repository-id>'
+```
+
+Add one `--member` per member and one `--ticket-origin` per human-confirmed Ticket Origin. Paths are runtime inputs and never enter durable configuration.
+
 Report exact changed files, preserved user changes, validation evidence, and any capability that remained non-destructively unverified.
+
+**Complete when:** configuration is prepared and locally validated. It becomes authoritative only after every participating change is accepted in its configured Base Branch.

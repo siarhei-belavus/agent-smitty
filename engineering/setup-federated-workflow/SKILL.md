@@ -35,7 +35,7 @@ This confirmation is complete only when the human has accepted the entire topolo
 
 Draft final content against the loaded provider and domain contracts. Preserve compatible files and patch the smallest coherent sections; never regenerate an existing file merely because its layout differs.
 
-Run the single complete read-only preflight in [`references/preflight-and-validation.md`](references/preflight-and-validation.md) against every target before the first write. Its model-driven semantic judgment checks each provider binding against the provider-binding contract. The deterministic validator checks required section markers only and does not replace that judgment. A failed check starts no application subagent and changes no file. Preflight is complete when every repository, identity, Base Branch, instruction set, binding, intended artifact, provider-readable capability, conflicting user change, and non-overlapping application scope is accounted for.
+Run the [complete read-only preflight](references/preflight-and-validation.md#complete-read-only-preflight) against every target. Begin confirmation only after the gate passes.
 
 ### 5. Confirm the exact change
 
@@ -49,13 +49,4 @@ Application writes validated checkouts in place and leaves changes uncommitted. 
 
 ### 7. Validate current truth
 
-Spawn a fresh validation subagent after application. Validate members first and Home last. Check provider readability, reciprocal identities, context-pointer resolution, confirmed Ticket Origin ownership, independent Code Host ownership, absence of credentials and local paths, and idempotence. Run:
-
-```bash
-python3 scripts/validate_federation.py \
-  --home '<repository-id>=<checkout>' \
-  --member '<repository-id>=<checkout>' \
-  --ticket-origin '<repository-id>'
-```
-
-Add one `--member` per member and one `--ticket-origin` per human-confirmed Ticket Origin. The paths are runtime inputs and never enter durable configuration. Completion is `configuration prepared and locally validated`; it becomes authoritative only after all participating changes are accepted in their configured Base Branches.
+After application, spawn a fresh validation subagent to execute [result validation](references/preflight-and-validation.md#result-validation).

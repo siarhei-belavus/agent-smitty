@@ -89,7 +89,7 @@ Requests with unresolved design or decomposition return to discovery or planning
 
 ## Quick state override
 
-If the maintainer says "move #42 to ready-for-agent", trust the requested destination and skip grilling, but do not apply the role until a complete executable Agent Brief exists. Confirm the brief comment and role change, synthesize the brief only from settled source authority, post it, re-read it, and then apply the mapped Routing Label. If material fields are missing, report exactly what prevents the brief and keep the request out of `ready-for-agent`; the direct override does not make the brief optional.
+A maintainer's direct `ready-for-agent` request selects that outcome and skips step 4. Resume at step 5's existing `ready-for-agent` branch.
 
 ## Needs-info template
 
