@@ -89,7 +89,7 @@ Every ticket is either **HITL** — human in the loop, worked *with* a human who
 - **Research** (AFK): Reading documentation, third-party APIs, or local resources like knowledge bases to surface a fact a decision waits on. A frontier research ticket may be claimed and resolved by a `research` subagent. Use when knowledge outside the current working directory is required.
 - **Prototype** (HITL): Raise the fidelity of the discussion by making a cheap, rough, concrete artifact to react to — an outline, a rough take, a stub, or UI/logic code via the /prototype skill. Links the prototype as an asset. Use when "how should it look" or "how should it behave" is the key question.
 - **Grilling** (HITL): Conversation via `grill-with-docs`. The default case.
-- **Task** (HITL or AFK): Manual work that must happen before a *decision* can be made — nothing to decide, prototype, or research, but the discussion is blocked until it's done. Signing up for a service so its API can be judged, provisioning access, moving data so its shape can be seen. This is the one type that *does* rather than decides — and it earns its place by unblocking a decision, not by delivering the destination. The agent drives it alone where it can (AFK); otherwise it hands the human a precise checklist (HITL). Resolved when the work is done; the answer records what was done and any resulting facts (credentials location, new URLs, row counts) later tickets depend on.
+- **Task** (HITL or AFK): Manual work that must happen before a *decision* can be made — nothing to decide, prototype, or research, but the discussion is blocked until it's done. Signing up for a service so its API can be judged, provisioning access, moving data so its shape can be seen. A Task *does* rather than decides and earns its place by unblocking a decision, not by delivering the destination. The agent drives it alone where it can (AFK); otherwise it hands the human a precise checklist (HITL). Resolved when the work is done; the answer records what was done and any resulting facts (credentials location, new URLs, row counts) later tickets depend on.
 
 ## Fog of war
 
@@ -112,13 +112,13 @@ Out-of-scope work never graduates — the frontier stops at the destination — 
 
 Ruling something out of scope is a scoping act, not a step on the route. When a ticket that already exists turns out to sit past the destination — mis-scoped in while charting, or exposed by a resolution — **close it** (a closed ticket is unambiguously off the frontier) and leave one line in the **Out of scope** section: the gist plus why it's out of scope, linking the closed ticket. It stays out of **Decisions so far**, which records the route actually walked — a scope boundary isn't a step on it.
 
-## Invocation
+## Modes
 
 Two modes. Either way, **never hand-resolve more than one ticket per session** — research tickets may be delegated in parallel.
 
 ### Chart the map
 
-User invokes with a loose idea.
+Input: a loose idea.
 
 1. **Name the destination.** Use `grilling` to pin down what this map is finding its way to — the spec, decision, or change. The destination fixes the scope, so it's settled first. Charting may define the destination, fog, and decision questions, but it does not confirm domain-model changes: turn any material domain-language or architecture question into a decision ticket rather than resolving or storing a Domain Model Delta in the map.
 2. **Map the frontier.** Continue with `grilling`, **breadth-first** this time: fan out across the whole space rather than deep on any one thread, surfacing the open decisions and the first steps takeable now. **If this surfaces no fog** — the way to the destination is already clear, the whole journey small enough for one session — you don't need a map. Stop and ask the user how they'd like to proceed.
@@ -129,7 +129,7 @@ User invokes with a loose idea.
 
 ### Work through the map
 
-User invokes with a map (URL or number). A ticket is **optional** — without one, you pick the next decision, not the user.
+Input: a map (URL or number). A ticket is **optional** — without one, pick the next decision.
 
 1. Load the **map** — the low-res view, not every ticket body.
 2. Choose the ticket. If the user named one, use it. Otherwise take the first frontier ticket in order. **Claim it**: assign it to yourself before any work.

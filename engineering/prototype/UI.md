@@ -6,7 +6,7 @@ A UI prototype is much easier to judge when it's **butting up against the rest o
 
 ### Sub-shape A — adjustment to an existing page (preferred)
 
-The route already exists. Variants are rendered **on the same route**, gated by a `?variant=` URL search param. The existing data fetching, params, and auth all stay — only the rendering swaps. This is the default; pick it unless there's a specific reason not to.
+The route already exists. Render variants **on the same route**, gated by a `?variant=` URL search param. Keep the existing data fetching, params, and auth; swap only the rendering. Default to this sub-shape unless a specific constraint rules it out.
 
 If the prototype is for something that doesn't yet have a page but *would naturally live inside one* (a new section of the dashboard, a new card on the settings screen, a new step in an existing flow) — that's still sub-shape A. Mount the variants inside the host page.
 
@@ -29,8 +29,6 @@ Default to **3 variants**. More than 5 stops being radically different and start
 Write down the plan in one line, in the prototype's location or a top-of-file comment:
 
 > "Three variants of the settings page, switchable via `?variant=`, on the existing `/settings` route."
-
-This works whether the user is here to push back or not.
 
 ### 2. Generate radically different variants
 

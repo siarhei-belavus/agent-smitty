@@ -97,7 +97,7 @@ Before: a tree of function calls rendered as nested boxes. After: the same tree 
 - Colour sparingly: one accent (emerald or indigo) plus red for leakage and amber for warnings.
 - Keep diagrams ~320px tall so before/after sits comfortably side by side without scrolling.
 - Use `text-xs uppercase tracking-wider` for module labels inside diagrams — they should read as schematic, not as UI.
-- The only scripts are the Tailwind CDN and the Mermaid ESM import. The report is otherwise static — no app code, no interactivity beyond Mermaid's own rendering.
+- Use only the Tailwind CDN and Mermaid ESM scripts. Keep the report static, with no app code or interactivity beyond Mermaid rendering.
 
 ## Top recommendation section
 

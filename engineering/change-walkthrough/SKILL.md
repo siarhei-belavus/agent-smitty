@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # Change Walkthrough
 
-Guide the human through a change set as a **semantic zoom** over a map. Reconstruct the whole change before presenting it, then reveal one end-to-end scenario and one logical step at a time. This is a walkthrough for understanding, not a review or approval gate.
+Guide the human through a change set as a **semantic zoom** over a map. Reconstruct the whole change before presenting it, then reveal one end-to-end scenario and one logical step at a time. Do not perform review or gate approval.
 
 Operate read-only: inspect and explain the repository, history, supplied sources, tests, and existing review findings while leaving code, repository state, merge requests, and external systems unchanged.
 

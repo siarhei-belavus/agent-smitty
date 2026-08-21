@@ -41,5 +41,5 @@ Once the user picks a candidate, use `grill-with-docs` as an output-only plannin
 
 - **Naming a proposed deepened module after a concept not in `CONTEXT.md`?** Return the complete proposed glossary delta without presenting the future module as current truth.
 - **Sharpening a fuzzy term during the conversation?** Preserve the complete clarified-language delta for the subsequent planning flow.
-- **User rejects the candidate with a load-bearing reason?** Offer an ADR, framed as: _"Want me to record this as an ADR so future architecture reviews don't re-suggest it?"_ Only that explicit approval invokes `domain-modeling` with canonical capture limited to the routed ADR. Skip ephemeral reasons ("not worth it right now") and self-evident ones.
+- **User rejects the candidate with a load-bearing reason?** Offer an ADR, framed as: _"Want me to record this as an ADR so future architecture reviews don't re-suggest it?"_ Only that explicit approval grants `domain-modeling` canonical capture limited to the routed ADR. Skip ephemeral reasons ("not worth it right now") and self-evident ones.
 - **Want to explore alternative interfaces for the deepened module?** Use the `codebase-design` skill and its design-it-twice parallel sub-agent pattern.

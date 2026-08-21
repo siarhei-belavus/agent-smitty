@@ -48,7 +48,7 @@ A LONG, numbered list of user stories. Each user story should be in the format o
 1. As a mobile bank customer, I want to see balance on my accounts, so that I can make better informed decisions about my spending
 </user-story-example>
 
-This list of user stories should be extremely extensive and cover all aspects of the feature.
+Cover every aspect of the feature with an extensive numbered list.
 
 ## Repository References
 
@@ -60,7 +60,7 @@ The complete relevant Context Scope record. If no canonical context applies, wri
 
 ## Implementation Decisions
 
-A list of implementation decisions that were made. This can include:
+Record the accepted implementation decisions, including:
 
 - The modules that will be built/modified
 - The interfaces of those modules that will be built/modified

@@ -5,7 +5,7 @@ description: Configure independent Code Host bindings and human-confirmed Work T
 
 # Setup Federated Workflow
 
-Prepare final-state repository-owned workflow configuration. This is a prompt-driven setup skill: research and confirmation establish authority; repository Markdown remains the durable interface.
+Prepare final-state repository-owned workflow configuration. Research and human confirmation establish authority; repository Markdown is the durable interface.
 
 ## Process
 

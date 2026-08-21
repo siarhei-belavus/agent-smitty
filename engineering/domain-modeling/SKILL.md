@@ -18,7 +18,7 @@ Follow Repository-qualified Context Pointers through the configured portable rep
 Every human-confirmed change produces a complete [Domain Model Delta](DOMAIN-MODEL-DELTA.md) immediately. Do not batch confirmed results or reduce them to reminders.
 
 - An explicit standalone invocation grants canonical capture by default: apply each confirmed delta immediately to its routed `CONTEXT.md`, `CONTEXT-MAP.md`, or ADR owner unless the user asks for discussion only.
-- A composed or model-invoked use returns each delta to the invoking workflow without writing canonical artifacts or selecting a planning persistence destination. It may apply a delta only when that invocation explicitly grants canonical capture.
+- A composed or automatic use includes each delta in its result without writing canonical artifacts or selecting a planning persistence destination. It may apply a delta only when explicitly granted canonical capture.
 
 Capture authority changes only the destination, never the modeling depth or delta contents.
 

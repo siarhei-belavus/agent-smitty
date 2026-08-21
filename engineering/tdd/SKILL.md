@@ -13,9 +13,9 @@ Use [tests.md](tests.md) as examples. Load [mocking.md](mocking.md) only when ch
 
 ## Seams — where tests go
 
-Use the settled seams recorded in the supplied specification, ticket, resolved design decision, or by the invoking skill. Do not ask the user to reconfirm them.
+Use the settled seams recorded in the supplied specification, ticket, resolved design decision, or composed authority. Do not ask the user to reconfirm them.
 
-When invoked standalone without a settled seam set, identify the complete set of existing, changed, and new seams the requested behavior spans. If materially different caller-facing seams remain possible, use the `codebase-design` skill before proposing the set. For each seam, also propose its test approach using the repository's test architecture. Ask the user to confirm the complete set and proposed approaches once; the confirmed seams are settled.
+For standalone TDD without a settled seam set, identify the complete set of existing, changed, and new seams the requested behavior spans. If materially different caller-facing seams remain possible, use `codebase-design` before proposing the set. For each seam, also propose its test approach using the repository's test architecture. Ask the user to confirm the complete set and proposed approaches once; the confirmed seams are settled.
 
 Treat the repository's existing test suites, commands, harnesses, fixtures, and naming as its **test architecture**. For each settled seam, use its recorded test approach; if none is recorded, find the nearest prior art and choose the smallest repository-native approach. Extend the existing approach; a new one earns its place only when the test architecture cannot exercise the behavior, with the gap stated explicitly.
 

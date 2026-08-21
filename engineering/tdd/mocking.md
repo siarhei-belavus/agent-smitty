@@ -27,7 +27,7 @@ const api = {
 };
 ```
 
-This keeps each test double specific:
+Require each test double to remain specific:
 
 - Each mock returns one specific shape
 - No conditional logic in test setup

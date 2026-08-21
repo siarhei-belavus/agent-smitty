@@ -33,7 +33,7 @@ Implementation starts from complete ticket authority, whether the ticket contain
 
 A starting situation that generates work, then merges onto the main flow.
 
-- **Bugs and requests piling up** → **`triage`**. It moves issues through triage roles and produces agent-ready issues for a separately invoked `coordinate-delivery` run.
+- **Bugs and requests piling up** → **`triage`**. It moves issues through triage roles and produces agent-ready issues for a later `coordinate-delivery` run.
 
   Triage is only for issues **you didn't create** — bug reports, incoming feature requests, anything that arrives raw. Tickets that `to-tickets` produced are already agent-ready, so **don't triage them**.
 
@@ -51,7 +51,7 @@ Not feature work — upkeep.
 
 A phase is a coherent stretch of work such as grilling, specification, implementation, or review. At the boundary between phases, choose by ownership and destination:
 
-1. **Continue in the current task** when the next phase advances the same objective in the same working context and benefits from the reasoning already here. This is the normal path through grilling, `to-spec`, and `to-tickets`.
+1. **Continue in the current task** when the next phase advances the same objective in the same working context and benefits from the reasoning already here. Use this path normally through grilling, `to-spec`, and `to-tickets`.
 2. **Let automatic compaction continue the task** when earlier turns are summarized automatically. Compaction does not create a new task or transfer ownership. Continue from the summary, checking durable artifacts when exact decisions matter.
 3. **Use `handoff` for another task or repository** when the work needs a new owner, a separate task history, or a different repository context. The handoff file carries the relevant decisions and evidence across that boundary. A prototype in its own task or repository is the standard case.
 4. **Delegate a concrete, bounded subtask to a subagent** when it can run independently and report back without taking ownership of the parent task. Give it an explicit deliverable and exclusive scope. Keep integration and phase decisions in the parent task.

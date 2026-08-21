@@ -25,8 +25,6 @@ The right shape depends on the question:
 
 Pick whichever shape best fits the question being asked, *not* whichever is easiest to wire to the interaction shell. Keep it pure: no I/O, DOM access, terminal code, or `console.log` for control flow. The shell calls into it; nothing flows the other direction.
 
-This is what makes the prototype useful past its own lifetime: when the question's been answered, the validated reducer / machine / function set can be lifted into the real module on its own.
-
 ### 4. Choose the interaction shell
 
 Use a **terminal app** when the logic must run inside the host project's runtime, depends on its language or libraries, or will be driven live by a developer.

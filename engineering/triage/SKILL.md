@@ -44,9 +44,9 @@ These are canonical role names — the actual Routing Label strings used in the 
 
 State transitions: an unlabeled request normally goes to `needs-triage` first; from there it moves to `needs-info`, `ready-for-agent`, `ready-for-human`, or `wontfix`. `needs-info` returns to `needs-triage` once the reporter replies. The maintainer can override at any time — flag transitions that look unusual and ask before proceeding.
 
-## Invocation
+## Requests
 
-The maintainer invokes the `triage` skill and describes what they want in natural language. Interpret the request and act. Examples:
+Interpret the maintainer's natural-language request and act. Examples:
 
 - "Show me anything that needs my attention"
 - "Let's look at #42" (request or Review Proposal)

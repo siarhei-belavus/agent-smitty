@@ -1,6 +1,6 @@
 # Standalone assignments
 
-A Standalone assignment accepts one or more writable Repository Scope entries. The existing single-repository invocation is the one-entry case. When the user supplies only the current repository and no federated ticket contract, treat that repository as the single Repository Delivery and the supplied spec, ticket, or conversation as authority.
+A Standalone assignment accepts one or more writable Repository Scope entries. A supplied single repository is the one-entry case. When the user supplies only the current repository and no federated ticket contract, treat that repository as the single Repository Delivery and the supplied spec, ticket, or conversation as authority.
 
 Resolve the Fixed Review Base from the unchanged current `HEAD` before editing when the assignment does not supply one. Use the supplied isolated worktree or another isolated writable checkout authorized by the assignment.
 

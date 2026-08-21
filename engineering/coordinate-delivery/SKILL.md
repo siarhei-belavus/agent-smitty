@@ -46,7 +46,7 @@ Create a run-specific persistent root outside existing user checkouts. Fetch eve
 
 ## 5. Execute one flat attempt
 
-Start exactly one direct-child Implementation Agent for each delivery requiring changes. Give it one complete textual narrowing assignment for its Repository Scope entry and invoke the model-invoked `implement` skill. Include the Repository ID and Reference, Execution Worktree, branch, fixed base, authoritative sources, repository-specific outcome, Settled Seams and test approaches, Validation Obligations, repository instructions, and validation commands. Require its one Repository Delivery result. Record validation-only and no-change deliveries directly.
+Start exactly one direct-child Implementation Agent for each delivery requiring changes. Give it one complete textual narrowing assignment for its Repository Scope entry and run `implement`. Include the Repository ID and Reference, Execution Worktree, branch, fixed base, authoritative sources, repository-specific outcome, Settled Seams and test approaches, Validation Obligations, repository instructions, and validation commands. Require its one Repository Delivery result. Record validation-only and no-change deliveries directly.
 
 Verify every result against its assigned worktree and base; classify an expected change with no diff as unchanged.
 
