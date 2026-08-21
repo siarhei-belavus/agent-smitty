@@ -1,6 +1,6 @@
 ---
 name: coordinate-delivery
-description: "Select or accept one agent-ready ticket, then coordinate its complete federated delivery and human handoff."
+description: "Coordinate one agent-ready ticket through its complete federated delivery and human handoff."
 disable-model-invocation: true
 ---
 
@@ -10,17 +10,17 @@ Use repository-owned bindings for every provider operation. Persist no provider 
 
 ## 1. Establish activation authority
 
-Resolve tickets only through the configured Ticket Origin Repository. Read its `AGENTS.md`, Work Tracker, Routing Label, Domain Orientation, and Code Host bindings before selection.
+Resolve tickets only through the configured Ticket Origin Repository. Read its `AGENTS.md`, Work Tracker, Routing Label, Domain Orientation, and Code Host bindings before selecting a ticket.
 
-When a ticket reference is supplied, resolve exactly that ticket. Never replace a named ticket with another frontier candidate. Read its complete body, comments, dependencies, coordination notes, Review Feedback, and Code Host state.
+Choose one activation ticket. With a supplied reference, resolve exactly that ticket and never substitute another. Without a reference, read the Work Tracker's ordinary Markdown `## Delivery frontier` instructions and query the configured tracker. Authoritatively re-read every candidate's ticket, Routing Labels, assignees, and dependencies before deciding eligibility. Keep open, unblocked, unassigned tickets carrying exactly `ready-for-agent`, then order them as the binding says. If no eligible ticket remains, finish successfully without creating a bundle or changing provider state.
 
-When no ticket reference is supplied, read the Work Tracker's ordinary Markdown `## Delivery frontier` instructions and resolve the Workflow Identity. Query the configured tracker, then re-read candidate tickets, Routing Labels, assignees, and dependencies from the provider. The authoritative frontier contains open, unblocked, unassigned tickets carrying exactly `ready-for-agent`. Order eligible tickets as the binding says.
+Read the selected ticket's complete body, comments, dependencies, coordination notes, Review Feedback, and Code Host state. A ticketless candidate that becomes ineligible before mutation returns to selection against current provider state. A named ticket that is ineligible or assigned elsewhere stops at the applicable runtime-termination or human boundary and never falls back to frontier selection.
 
-Select the first candidate, assign only the Workflow Identity, and re-read its ticket, label, dependency, and assignee state. If a race or provider change prevents a verified claim, recompute the frontier from current provider state and try again. Stop after the first verified claim. If no eligible ticket remains, finish successfully without creating a bundle or changing provider state.
+Classify the claim before recovery. Only a claim acquired and provider-verified during this activation is current. Any assignment already present on a named ticket is foreign or interrupted, including an assignment to the Workflow Identity, so read [runtime termination](RUNTIME-TERMINATION.md) before mutation.
 
-Classify the claim before recovery. A claim acquired and provider-verified during this activation is current. Any assignment that predates this activation is foreign or interrupted, including a pre-existing assignment to the Workflow Identity, so read [runtime termination](RUNTIME-TERMINATION.md) before mutation. This preserves stale-claim handling without relying on launch provenance.
+When any prior checkpoint, request, response, Resumption Record, existing Review Proposal, or handoff exists, read [recovery](RECOVERY.md) before mutation. Otherwise resolve the Workflow Identity and re-read the selected ticket's Routing Labels, assignees, and dependencies immediately before claiming it. Require it to remain open, unblocked, unassigned, and exactly `ready-for-agent`. Assign only the Workflow Identity, then authoritatively re-read the same state and proceed only when that identity is the sole assignee and every eligibility condition still holds.
 
-When any prior checkpoint, request, response, Resumption Record, existing Review Proposal, or handoff exists, read [recovery](RECOVERY.md) before mutation. Otherwise require an open, unblocked ticket carrying exactly `ready-for-agent`. If the named ticket is unassigned, resolve the Workflow Identity, assign only it, and re-read the claim. A named ticket that is ineligible or assigned elsewhere stops at the applicable runtime-termination or human boundary; it never falls back to frontier selection.
+For a ticketless activation, any pre-claim change or failed post-claim verification recomputes the ordered frontier from current provider state. Repeat the selection and recovery checks, then attempt another claim. Stop after the first verified claim, so the activation claims at most one ticket. For a named ticket, the same race enters the applicable human boundary instead of selecting another ticket.
 
 **Complete when:** the ticketless frontier is empty; recovery has produced and verified its terminal or resumable durable result; or one open, unblocked, exactly `ready-for-agent` ticket is solely assigned to the Workflow Identity through a claim verified in this Coordinator Activation.
 

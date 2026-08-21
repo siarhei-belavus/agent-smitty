@@ -13,25 +13,6 @@ SCRIPT = (
     / "scripts"
     / "validate_federation.py"
 )
-COMPLETE_FRONTIER = (
-    "List open tickets carrying the ready-for-agent label, then keep only "
-    "unblocked and unassigned candidates. Process the oldest eligible ticket "
-    "first. Re-read the exact candidate and its labels, dependencies, and "
-    "assignees from the provider before claiming it. Assign only the Workflow "
-    "Identity, then re-read the ticket to verify the claim. If another actor "
-    "wins the claim or candidate state changes, recompute the frontier and try "
-    "again. When no eligible candidate remains, stop successfully without "
-    "changing provider state."
-)
-CUSTOM_FRONTIER = (
-    "Search the provider for open issues carrying ready-for-agent. An issue is "
-    "eligible when it has no open blockers and no assignee. Sort eligible "
-    "issues by provider priority. Before assigning, refresh the chosen issue's "
-    "labels, blockers, and assignees from the provider. After claiming, confirm "
-    "that the Workflow Identity is the sole assignee. On a conflict or changed "
-    "state, retry from a refreshed frontier. Return success when the query "
-    "yields zero eligible items."
-)
 
 
 def run(command: list[str], cwd: Path) -> subprocess.CompletedProcess[str]:
@@ -72,7 +53,7 @@ def write_repository(
     home: tuple[str, str, str],
     ticket_origin: bool = False,
     frontier_heading: str = "## Delivery frontier",
-    frontier_content: str = COMPLETE_FRONTIER,
+    frontier_content: str = "Provider-specific ordinary instructions.",
 ) -> None:
     root.mkdir()
     run_setup(["git", "init", "-b", base_branch], root)
@@ -291,7 +272,7 @@ class ValidateFederationCliTests(unittest.TestCase):
             self.assertNotEqual(0, result.returncode)
             self.assertIn("is missing ## Delivery frontier", result.stderr)
 
-    def test_accepts_complete_provider_custom_frontier_prose(self) -> None:
+    def test_does_not_interpret_delivery_frontier_prose(self) -> None:
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
             home = root / "home"
@@ -306,19 +287,7 @@ class ValidateFederationCliTests(unittest.TestCase):
                 role="Home",
                 home=home_identity,
                 ticket_origin=True,
-                frontier_content=(
-                    "Ask GitLab for active work marked ready-for-agent and "
-                    "discard entries held by a person or waiting on unfinished "
-                    "prerequisites. Choose by ascending creation timestamp. "
-                    "Immediately ahead of taking ownership, consult GitLab's "
-                    "latest record for the chosen work, including marker, "
-                    "dependency, and ownership facts. Place the automation "
-                    "principal named by Workflow Identity into ownership, then "
-                    "consult that authoritative record to ensure ownership took "
-                    "effect. If contention or new facts invalidate the choice, "
-                    "begin selection anew. Having nothing qualified to take is "
-                    "a normal successful end."
-                ),
+                frontier_content="Provider-specific ordinary instructions.",
             )
             (home / "CONTEXT-MAP.md").write_text(
                 "# Map\n\n## Contexts\n\n- None.\n\n"
@@ -706,7 +675,7 @@ class ValidateFederationCliTests(unittest.TestCase):
                 role="Member",
                 home=home_identity,
                 ticket_origin=True,
-                frontier_content=CUSTOM_FRONTIER,
+                frontier_content="Provider-specific ordinary instructions.",
             )
             (member / "CONTEXT.md").write_text("# Member Context\n")
             (home / "CONTEXT-MAP.md").write_text(

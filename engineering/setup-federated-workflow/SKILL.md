@@ -64,23 +64,16 @@ Draft the final content using
 domain reference. Preserve compatible files and patch the smallest coherent
 sections; never regenerate an existing file merely because its layout differs.
 
-For every confirmed Ticket Origin, read and judge the Work Tracker binding and
-its ordinary `## Delivery frontier` prose. Together they must supply an
-authoritative locator; the frontier query, eligibility, ordering, and blocker
-treatment; an authoritative exact-candidate re-read; Workflow Identity claim
-acquisition and authoritative post-claim verification; race recovery; and
-successful empty-frontier behavior. Missing, ambiguous, or contradictory
-knowledge stops setup with the specific gap reported. The deterministic
-validator checks only the required section marker; it does not replace this
-model-driven semantic assessment.
-
 Run the single complete read-only preflight in
 [`references/preflight-and-validation.md`](references/preflight-and-validation.md)
-against every target before the first write. A failed check starts no
-application subagent and changes no file. Preflight is complete when every
-repository, identity, Base Branch, instruction set, binding, intended artifact,
-provider-readable capability, conflicting user change, and non-overlapping
-application scope is accounted for.
+against every target before the first write. Its model-driven semantic judgment
+checks each provider binding against the provider-binding contract. The
+deterministic validator checks required section markers only and does not
+replace that judgment. A failed check starts no application subagent and
+changes no file. Preflight is complete when every repository, identity, Base
+Branch, instruction set, binding, intended artifact, provider-readable
+capability, conflicting user change, and non-overlapping application scope is
+accounted for.
 
 ### 5. Confirm the exact change
 
