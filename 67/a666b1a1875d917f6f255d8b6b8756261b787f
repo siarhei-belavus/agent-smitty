@@ -1,0 +1,30 @@
+skills/matt/engineering/triage/SKILL.md
+  s_4279ed1f1cac82::t_d4679176d2e1f9 76
+  s_4279ed1f1cac82::t_55469fd51aac75 79
+skills/matt/engineering/setup-federated-workflow/SKILL.md
+  s_4279ed1f1cac82::t_55469fd51aac75 30
+skills/matt/engineering/to-spec/SKILL.md
+  s_4279ed1f1cac82::t_55469fd51aac75 21,27,55,81
+  s_4279ed1f1cac82::t_d4679176d2e1f9 19,73
+skills/matt/engineering/to-tickets/SKILL.md
+  s_4279ed1f1cac82::t_55469fd51aac75 21,36,59
+  s_4279ed1f1cac82::t_d4679176d2e1f9 17,74
+skills/matt/engineering/triage/AGENT-BRIEF.md
+  s_4279ed1f1cac82::t_55469fd51aac75 78,85
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "67a666b1a1875d917f6f255d8b6b8756261b787f",
+  "prompts": {},
+  "sessions": {
+    "s_4279ed1f1cac82": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a02578-001b-75c2-b40f-bd48c20f5f55",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
