@@ -75,24 +75,30 @@ def read(path: Path, errors: list[str]) -> str:
         return ""
 
 
-def without_html_comments(line: str, in_comment: bool) -> tuple[str, bool]:
+def without_html_comments(
+    line: str,
+    in_comment: bool,
+) -> tuple[str, bool, bool]:
+    comment_block_line = in_comment or bool(
+        re.match(r"^ {0,3}<!--", line)
+    )
     visible = ""
     remainder = line
     while remainder:
         if in_comment:
             end = remainder.find("-->")
             if end < 0:
-                return visible, True
+                return visible, True, comment_block_line
             remainder = remainder[end + 3 :]
             in_comment = False
             continue
         start = remainder.find("<!--")
         if start < 0:
-            return visible + remainder, False
+            return visible + remainder, False, comment_block_line
         visible += remainder[:start]
         remainder = remainder[start + 4 :]
         in_comment = True
-    return visible, in_comment
+    return visible, in_comment, comment_block_line
 
 
 def delivery_frontier_content(markdown: str) -> str | None:
@@ -114,7 +120,12 @@ def delivery_frontier_content(markdown: str) -> str | None:
                 fence_length = 0
             continue
 
-        visible, in_comment = without_html_comments(line, in_comment)
+        visible, in_comment, comment_block_line = without_html_comments(
+            line,
+            in_comment,
+        )
+        if comment_block_line:
+            continue
         fence = FENCE.match(visible)
         if fence:
             marker = fence.group(1)
