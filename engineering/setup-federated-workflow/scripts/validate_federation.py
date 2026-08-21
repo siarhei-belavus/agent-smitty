@@ -41,9 +41,11 @@ MAP_REPOSITORY = re.compile(
     r"Remote:\s+`([^`]+)`;\s+Base Branch:\s+`([^`]+)`\."
 )
 CONTEXT_POINTER = re.compile(r"\[[^\]]+\]\(([^():\s]+):([^)\s]+)\)")
-DELIVERY_FRONTIER_SECTION = re.compile(
-    r"(?ms)^## Delivery frontier[ \t]*\n(.*?)(?=^## |\Z)"
+H2 = re.compile(r"^ {0,3}##(?!#)(?:[ \t]+|$)")
+DELIVERY_FRONTIER_H2 = re.compile(
+    r"^ {0,3}##[ \t]+Delivery frontier(?:[ \t]+#+)?[ \t]*$"
 )
+FENCE = re.compile(r"^ {0,3}(`{3,}|~{3,})")
 
 
 @dataclass(frozen=True)
@@ -71,6 +73,65 @@ def read(path: Path, errors: list[str]) -> str:
     except OSError as error:
         errors.append(f"cannot read {path}: {error}")
         return ""
+
+
+def without_html_comments(line: str, in_comment: bool) -> tuple[str, bool]:
+    visible = ""
+    remainder = line
+    while remainder:
+        if in_comment:
+            end = remainder.find("-->")
+            if end < 0:
+                return visible, True
+            remainder = remainder[end + 3 :]
+            in_comment = False
+            continue
+        start = remainder.find("<!--")
+        if start < 0:
+            return visible + remainder, False
+        visible += remainder[:start]
+        remainder = remainder[start + 4 :]
+        in_comment = True
+    return visible, in_comment
+
+
+def delivery_frontier_content(markdown: str) -> str | None:
+    """Return visible content under a real Delivery frontier H2."""
+    in_comment = False
+    fence_character = ""
+    fence_length = 0
+    found = False
+    content: list[str] = []
+
+    for line in markdown.splitlines():
+        if fence_character:
+            closing_fence = re.compile(
+                rf"^ {{0,3}}{re.escape(fence_character)}"
+                rf"{{{fence_length},}}[ \t]*$"
+            )
+            if closing_fence.fullmatch(line):
+                fence_character = ""
+                fence_length = 0
+            continue
+
+        visible, in_comment = without_html_comments(line, in_comment)
+        fence = FENCE.match(visible)
+        if fence:
+            marker = fence.group(1)
+            fence_character = marker[0]
+            fence_length = len(marker)
+            continue
+
+        if H2.match(visible):
+            if found:
+                return "\n".join(content)
+            if DELIVERY_FRONTIER_H2.fullmatch(visible):
+                found = True
+            continue
+        if found:
+            content.append(visible)
+
+    return "\n".join(content) if found else None
 
 
 def field(text: str, label: str, source: Path, errors: list[str]) -> str:
@@ -169,10 +230,10 @@ def validate_ticket_origin(
             continue
         if heading not in tracker:
             errors.append(f"{tracker_path} is missing {heading}")
-    frontier_match = DELIVERY_FRONTIER_SECTION.search(tracker)
-    if not frontier_match:
+    frontier = delivery_frontier_content(tracker)
+    if frontier is None:
         errors.append(f"{tracker_path} is missing ## Delivery frontier")
-    elif not frontier_match.group(1).strip():
+    elif not frontier.strip():
         errors.append(f"{tracker_path} Delivery frontier is empty")
     if not labels_path.is_file():
         errors.append(f"{repository.repository_id} has no Routing Label mapping")
