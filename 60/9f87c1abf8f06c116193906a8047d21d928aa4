@@ -1,0 +1,26 @@
+skills/matt/engineering/setup-federated-workflow/SKILL.md
+  s_4279ed1f1cac82::t_92b5dafceaad46 24,26,28,30,32-36,48,56
+skills/matt/engineering/domain-modeling/SKILL.md
+  s_4279ed1f1cac82::t_92b5dafceaad46 28,30,84
+  s_4279ed1f1cac82::t_3a750aa92d2ea0 82
+skills/matt/engineering/setup-federated-workflow/references/preflight-and-validation.md
+  s_4279ed1f1cac82::t_f805fcb9383679 37
+  s_4279ed1f1cac82::t_2dab6e9c02ab97 17
+  s_4279ed1f1cac82::t_92b5dafceaad46 23,29-36,38-48,60
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "609f87c1abf8f06c116193906a8047d21d928aa4",
+  "prompts": {},
+  "sessions": {
+    "s_4279ed1f1cac82": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a02578-001b-75c2-b40f-bd48c20f5f55",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
