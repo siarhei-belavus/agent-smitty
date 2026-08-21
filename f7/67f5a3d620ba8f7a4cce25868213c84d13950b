@@ -1,0 +1,14 @@
+skills/matt/engineering/triage/AGENT-BRIEF.md
+  h_bc87c8dce3742c 81
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "f767f5a3d620ba8f7a4cce25868213c84d13950b",
+  "prompts": {},
+  "humans": {
+    "h_bc87c8dce3742c": {
+      "author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
