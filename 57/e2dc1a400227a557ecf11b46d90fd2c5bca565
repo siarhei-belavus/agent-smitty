@@ -1,0 +1,23 @@
+skills/matt/engineering/codebase-design/DEEPENING.md
+  s_4279ed1f1cac82::t_1877a5ba9bfb15 33,39
+skills/matt/engineering/change-walkthrough/FORMAT.md
+  s_4279ed1f1cac82::t_1877a5ba9bfb15 116
+skills/matt/engineering/domain-modeling/ADR-FORMAT.md
+  s_4279ed1f1cac82::t_1877a5ba9bfb15 13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "57e2dc1a400227a557ecf11b46d90fd2c5bca565",
+  "prompts": {},
+  "sessions": {
+    "s_4279ed1f1cac82": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a02578-001b-75c2-b40f-bd48c20f5f55",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
