@@ -1,7 +1,5 @@
 # Writing Agent Briefs
 
-Before drafting or validating a brief, read [planning artifact contracts](../federated-workflow/PLANNING-ARTIFACTS.md). Post the complete brief as a structured Work Tracker comment before moving the request to `ready-for-agent`. The original body and discussion remain context; the brief must be executable without private invocation history.
-
 ## Principles
 
 ### Durability over precision
@@ -77,11 +75,11 @@ For a single-repository request, keep the same contract with one Repository Refe
 
 ## Readiness check
 
-Before applying `ready-for-agent`, re-read the posted public comment and resulting Work Tracker state. Verify that:
+Validate the posted public comment and resulting Work Tracker state:
 
 - all eight Agent Brief sections are present and substantive;
 - every shared semantic record and composition invariant is satisfied;
 - blockers and Routing Labels agree with authoritative Work Tracker state;
 - every field is verifiable from the public comment and Work Tracker state.
 
-If any check fails, the request is not ready. A direct maintainer override may skip grilling, but it cannot bypass this contract.
+Return any failed check to triage. A direct maintainer override may skip grilling, but it cannot bypass this contract.

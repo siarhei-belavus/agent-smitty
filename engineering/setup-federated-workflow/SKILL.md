@@ -27,7 +27,7 @@ Read [`../federated-workflow/PROVIDER-BINDINGS.md`](../federated-workflow/PROVID
 
 ### 3. Obtain topology authority
 
-Present one recommended complete topology: Home, boundary, members, External Systems, the Ticket Origin status of each repository, contexts, owners, participants, responsibilities, relationships, and required domain documents. Discuss each material ambiguity separately. A coordination-only Home never owns product language for convenience; unresolved ownership stops setup.
+Present one recommended complete topology: Home, boundary, members, External Systems, the Ticket Origin status of each repository, contexts, owners, participants, responsibilities, relationships, and required domain documents. Discuss each material ambiguity separately. Unresolved ownership stops setup.
 
 This confirmation is complete only when the human has accepted the entire topology and no placeholder, empty canonical document, or `TODO` ownership remains.
 

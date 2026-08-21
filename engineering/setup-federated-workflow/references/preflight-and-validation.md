@@ -24,7 +24,6 @@ Validate members before the Home, then validate the whole federation:
 - every member points to the exact Home identity and the Home map records each exact member identity and responsibility;
 - canonical pointers resolve to substantive owner documents;
 - context ownership is unique; participants and External Systems are correctly classified; relationship endpoints exist;
-- the Home owns the map/federation decisions and no product language merely because it is Home;
 - no credential, account binding, machine-local path, registry, probe artifact, commit, branch, or Review Proposal was created;
 - a second preview produces an empty diff.
 

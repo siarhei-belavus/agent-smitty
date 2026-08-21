@@ -73,10 +73,10 @@ Show counts and a one-line summary per item. Let the maintainer pick.
 
 3. **Verify the claim.** Before any grilling, check that the claim holds up. For a bug, reproduce it from the reporter's steps. For a Review Proposal, confirm the diff does what it claims — check it out, run the relevant tests or commands. Report what happened: confirmed (with code path), failed, or insufficient detail (a strong `needs-info` signal). A confirmed verification makes a much stronger agent brief.
 
-4. **Grill (if needed).** If the request needs fleshing out, use the `grill-with-docs` skill without granting canonical capture. Keep returned Domain Model Deltas in the current triage context. Before a cross-session `needs-info` pause, preserve confirmed deltas in the established-so-far triage notes; before `ready-for-agent`, promote every relevant delta without reduction into the Agent Brief.
+4. **Grill (if needed).** If the request needs fleshing out, use the `grill-with-docs` skill without granting canonical capture. Keep returned Domain Model Deltas in the current triage context. Before a cross-session `needs-info` pause, move confirmed deltas into the established-so-far triage notes; before `ready-for-agent`, move relevant deltas into the Agent Brief.
 
 5. **Apply the outcome:**
-   - `ready-for-agent` — first post a complete executable Agent Brief comment ([AGENT-BRIEF.md](AGENT-BRIEF.md)), then re-read the public comment and resulting Work Tracker state. Apply the mapped Routing Label only after its readiness preflight passes. A settled cross-repository request may go directly here; cross-repository scope alone does not require a specification or Wayfinder map.
+   - `ready-for-agent` — post and validate an Agent Brief through [AGENT-BRIEF.md](AGENT-BRIEF.md), enforce the planning readiness invariant, then apply the mapped Routing Label. A settled cross-repository request may go directly here; cross-repository scope alone does not require a specification or Wayfinder map.
    - `ready-for-human` — same structure as an agent brief, but note why it can't be delegated (judgment calls, external access, design decisions, manual testing).
    - `needs-info` — post triage notes (template below).
    - `wontfix` — close, with the comment depending on *why*:
