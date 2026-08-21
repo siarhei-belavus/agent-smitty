@@ -1,0 +1,36 @@
+skills/matt/engineering/setup-federated-workflow/tests/test_validate_federation.py
+  s_2c930643d84b6f::t_d6df4268e4abc0 56
+  s_2c930643d84b6f::t_7e469ee6419cc0 275,290,678
+skills/matt/engineering/README.md
+  s_2c930643d84b6f::t_7e469ee6419cc0 21
+skills/matt/engineering/setup-federated-workflow/SKILL.md
+  s_2c930643d84b6f::t_204b30b55979e0 69-76
+skills/matt/engineering/coordinate-delivery/agents/openai.yaml
+  s_2c930643d84b6f::t_7e469ee6419cc0 3
+skills/matt/engineering/setup-federated-workflow/references/preflight-and-validation.md
+  s_2c930643d84b6f::t_7e469ee6419cc0 13-14,25
+skills/matt/engineering/setup-federated-workflow/references/provider-bindings.md
+  s_2c930643d84b6f::t_204b30b55979e0 71-97,99-102
+  s_2c930643d84b6f::t_7e469ee6419cc0 70,98
+  s_2c930643d84b6f::t_233f4f10887bbe 69
+skills/matt/engineering/coordinate-delivery/SKILL.md
+  s_2c930643d84b6f::t_7e469ee6419cc0 3,13,15,17,19,21,23
+skills/matt/engineering/ask-matt/SKILL.md
+  s_2c930643d84b6f::t_7e469ee6419cc0 26
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "451d9b4625737bcceb7761b135c3100f1acde958",
+  "prompts": {},
+  "sessions": {
+    "s_2c930643d84b6f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0248c-d470-7f61-b187-3f1450a702e9",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
