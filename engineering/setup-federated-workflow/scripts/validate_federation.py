@@ -224,6 +224,16 @@ def validate(arguments: argparse.Namespace) -> list[str]:
         if repository_id in ticket_origins:
             validate_ticket_origin(repository, errors)
             continue
+        agents = read(repository.path / "AGENTS.md", errors)
+        for pointer in (
+            "docs/agents/issue-tracker.md",
+            "docs/agents/triage-labels.md",
+        ):
+            if pointer in agents:
+                errors.append(
+                    f"{repository_id} is not a confirmed Ticket Origin but "
+                    f"AGENTS.md indexes {pointer}"
+                )
         for forbidden in ("issue-tracker.md", "triage-labels.md"):
             if (repository.path / "docs" / "agents" / forbidden).exists():
                 errors.append(

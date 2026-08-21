@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 import subprocess
 import sys
 import tempfile
@@ -25,6 +26,23 @@ def run(command: list[str], cwd: Path) -> subprocess.CompletedProcess[str]:
     )
 
 
+def run_setup(
+    command: list[str],
+    cwd: Path,
+    *,
+    input_text: str | None = None,
+) -> subprocess.CompletedProcess[str]:
+    return subprocess.run(
+        command,
+        cwd=cwd,
+        text=True,
+        input=input_text,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=True,
+    )
+
+
 def write_repository(
     root: Path,
     repository_id: str,
@@ -37,8 +55,8 @@ def write_repository(
     frontier_heading: str = "## Delivery frontier",
 ) -> None:
     root.mkdir()
-    run(["git", "init", "-b", base_branch], root)
-    run(["git", "remote", "add", "origin", remote], root)
+    run_setup(["git", "init", "-b", base_branch], root)
+    run_setup(["git", "remote", "add", "origin", remote], root)
     (root / "docs" / "agents").mkdir(parents=True)
     (root / "AGENTS.md").write_text(
         "# Agent instructions\n\n"
@@ -85,22 +103,101 @@ def write_repository(
         (root / "docs" / "agents" / "triage-labels.md").write_text(
             "# Routing Labels\n"
         )
-    run(["git", "config", "user.name", "Test User"], root)
-    run(["git", "config", "user.email", "test@example.test"], root)
-    run(["git", "config", "maintenance.auto", "false"], root)
-    run(["git", "config", "core.hooksPath", "/dev/null"], root)
-    tree = run(["git", "hash-object", "-t", "tree", "--stdin"], root)
-    commit = run(
+    run_setup(["git", "config", "user.name", "Test User"], root)
+    run_setup(["git", "config", "user.email", "test@example.test"], root)
+    run_setup(["git", "config", "maintenance.auto", "false"], root)
+    run_setup(["git", "config", "core.hooksPath", "/dev/null"], root)
+    tree = run_setup(
+        ["git", "hash-object", "-t", "tree", "--stdin"],
+        root,
+        input_text="",
+    )
+    commit = run_setup(
         ["git", "commit-tree", tree.stdout.strip(), "-m", "test fixture"],
         root,
     )
-    run(
+    run_setup(
         ["git", "update-ref", f"refs/heads/{base_branch}", commit.stdout.strip()],
         root,
     )
 
 
 class ValidateFederationCliTests(unittest.TestCase):
+    def test_fixture_setup_ignores_piped_stdin(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp) / "repository"
+            identity = (
+                "repository",
+                "git@example.test:group/repository.git",
+                "main",
+            )
+            read_fd, write_fd = os.pipe()
+            os.write(write_fd, b"ambient input must not become a Git object")
+            os.close(write_fd)
+            original_stdin = os.dup(0)
+            try:
+                os.dup2(read_fd, 0)
+                os.close(read_fd)
+                write_repository(
+                    root,
+                    *identity,
+                    role="Home",
+                    home=identity,
+                )
+            finally:
+                os.dup2(original_stdin, 0)
+                os.close(original_stdin)
+
+            result = run(["git", "rev-parse", "refs/heads/main"], root)
+
+            self.assertEqual(0, result.returncode, result.stderr)
+
+    def test_rejects_tracker_pointers_without_confirmed_ticket_origin(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            home = root / "home"
+            home_identity = (
+                "home",
+                "git@example.test:group/home.git",
+                "main",
+            )
+            write_repository(
+                home,
+                *home_identity,
+                role="Home",
+                home=home_identity,
+            )
+            agents_path = home / "AGENTS.md"
+            agents_path.write_text(
+                agents_path.read_text()
+                + "\n### Issue tracker\n\n"
+                + "See `docs/agents/issue-tracker.md`.\n"
+                + "\n### Triage labels\n\n"
+                + "See `docs/agents/triage-labels.md`.\n"
+            )
+            (home / "CONTEXT-MAP.md").write_text(
+                "# Map\n\n## Contexts\n\n- None.\n\n"
+                "## External Systems\n\n- None.\n\n"
+                "## Relationships\n\n- None.\n"
+            )
+
+            result = run(
+                [sys.executable, str(SCRIPT), "--home", f"home={home}"],
+                root,
+            )
+
+            self.assertNotEqual(0, result.returncode)
+            self.assertIn(
+                "home is not a confirmed Ticket Origin but AGENTS.md indexes "
+                "docs/agents/issue-tracker.md",
+                result.stderr,
+            )
+            self.assertIn(
+                "home is not a confirmed Ticket Origin but AGENTS.md indexes "
+                "docs/agents/triage-labels.md",
+                result.stderr,
+            )
+
     def test_rejects_tracker_bindings_without_confirmed_ticket_origin(self) -> None:
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
