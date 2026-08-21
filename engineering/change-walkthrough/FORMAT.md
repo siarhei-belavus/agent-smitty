@@ -113,7 +113,7 @@ When a question or discussion exposes a concrete actionable problem, insert this
 > I can add this comment to <MR link> if you want.
 ```
 
-Write the suggested comment in English by default, even when the surrounding walkthrough uses another language. Use another language only when the user explicitly requests it. Do not use this block for an ordinary explanation or design preference. Do not post the comment during the read-only walkthrough; wait for a separate explicit instruction.
+Use this block only for an actionable problem, not an ordinary explanation or design preference.
 
 ## Deeper view
 

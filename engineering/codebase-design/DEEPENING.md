@@ -30,14 +30,11 @@ Third-party services (Stripe, Twilio, etc.) you don't control. The deepened modu
 
 ## Seam discipline
 
-- **One adapter means a hypothetical seam. Two adapters means a real one.** Don't introduce a port unless at least two adapters are justified (typically production + test). A single-adapter seam is just indirection.
-- **Internal seams vs external seams.** A deep module can have internal seams where its private implementation genuinely varies, but they are not test surfaces. Tests cross only the module's external seam and exercise behavior through its interface. Do not expose an internal seam merely to test it.
+Apply the [adapter-count and internal-seam principles](SKILL.md#principles) when placing the port.
 
 ## Replace, don't layer
 
 - Before replacing old tests, map every current acceptance criterion, established invariant, and credible failure they protect to observable behavior exercised through the deepened module's interface at its seam.
 - Once that replacement coverage exists, delete every test that invokes a superseded shallow interface or tests through an internal seam. Do not preserve old tests as a historical layer.
-- Write and retain tests only at the deepened module's interface. The **interface is the test surface**. If necessary behavior cannot be exercised and observed there, reconsider the module's interface or logical ownership instead of adding an internal test surface.
+- Write and retain replacement tests through the deepened module's interface. If necessary behavior cannot be exercised and observed there, reconsider the module's interface or logical ownership.
 - For an effectful module, invoke only that interface, then observe the resulting state or message through a stand-in for the declared external system. The external effect is observable behavior; the internal port, adapter calls, and collaboration sequence are not test surfaces.
-- Tests assert only behavior observable to a caller through the interface; they do not inspect internal state, private collaborators, call sequences, or implementation structure.
-- Tests should survive changes to private decomposition — they describe behaviour, not implementation. If a test has to change solely because internal organization changed, it's testing past the interface.
