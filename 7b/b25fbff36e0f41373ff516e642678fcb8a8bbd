@@ -1,0 +1,69 @@
+skills/matt/engineering/setup-federated-workflow/SKILL.md
+  s_4279ed1f1cac82::t_9ac2ae2f401080 26,36
+skills/matt/engineering/to-spec/SKILL.md
+  s_4279ed1f1cac82::t_0e798f554d2cb0 3
+  s_4279ed1f1cac82::t_2260cbf975d43a 7
+  s_4279ed1f1cac82::t_8bbe847428e0f7 9
+skills/matt/engineering/coordinate-delivery/RECOVERY.md
+  s_4279ed1f1cac82::t_83c1731d19238d 3,19
+skills/matt/engineering/tdd/SKILL.md
+  s_4279ed1f1cac82::t_2260cbf975d43a 8
+skills/matt/engineering/domain-modeling/SKILL.md
+  s_4279ed1f1cac82::t_2260cbf975d43a 8,31
+skills/matt/engineering/ask-matt/SKILL.md
+  s_4279ed1f1cac82::t_c40b3f96d3df73 86
+  s_4279ed1f1cac82::t_d5e5477d4053ab 56
+skills/matt/engineering/setup-federated-workflow/references/preflight-and-validation.md
+  s_4279ed1f1cac82::t_9ac2ae2f401080 10,23
+skills/matt/engineering/to-tickets/SKILL.md
+  s_4279ed1f1cac82::t_8bbe847428e0f7 11
+  s_4279ed1f1cac82::t_0e798f554d2cb0 3
+  s_4279ed1f1cac82::t_c40b3f96d3df73 69
+skills/matt/engineering/README.md
+  s_4279ed1f1cac82::t_8124c06d38a47a 7
+  s_4279ed1f1cac82::t_0e798f554d2cb0 27
+skills/matt/engineering/coordinate-delivery/VALIDATION-INDETERMINACY.md
+  s_4279ed1f1cac82::t_83c1731d19238d 3
+skills/matt/engineering/wayfinder/SKILL.md
+  s_4279ed1f1cac82::t_0e798f554d2cb0 3
+  s_4279ed1f1cac82::t_d5e5477d4053ab 7
+skills/matt/engineering/federated-workflow/DOMAIN-FEDERATION.md
+  s_4279ed1f1cac82::t_60479415c4f56d 1-39
+skills/matt/engineering/code-review/SKILL.md
+  s_4279ed1f1cac82::t_2260cbf975d43a 99
+skills/matt/engineering/federated-workflow/PLANNING-ARTIFACTS.md
+  s_4279ed1f1cac82::t_60479415c4f56d 1-75
+skills/matt/engineering/triage/SKILL.md
+  s_4279ed1f1cac82::t_8bbe847428e0f7 9
+  s_4279ed1f1cac82::t_0e798f554d2cb0 3
+skills/matt/engineering/grill-with-docs/SKILL.md
+  s_4279ed1f1cac82::t_d5e5477d4053ab 9
+skills/matt/engineering/coordinate-delivery/HUMAN-BOUNDARY.md
+  s_4279ed1f1cac82::t_83c1731d19238d 7
+skills/matt/engineering/coordinate-delivery/SKILL.md
+  s_4279ed1f1cac82::t_2ba0155b590e50 29
+skills/matt/engineering/federated-workflow/LIFECYCLE-ARTIFACTS.md
+  s_4279ed1f1cac82::t_60479415c4f56d 1-35
+skills/matt/engineering/diagnosing-bugs/SKILL.md
+  s_4279ed1f1cac82::t_2260cbf975d43a 14
+skills/matt/engineering/triage/AGENT-BRIEF.md
+  s_4279ed1f1cac82::t_8124c06d38a47a 3
+skills/matt/engineering/federated-workflow/PROVIDER-BINDINGS.md
+  s_4279ed1f1cac82::t_60479415c4f56d 1-66
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "7bb25fbff36e0f41373ff516e642678fcb8a8bbd",
+  "prompts": {},
+  "sessions": {
+    "s_4279ed1f1cac82": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a02578-001b-75c2-b40f-bd48c20f5f55",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
