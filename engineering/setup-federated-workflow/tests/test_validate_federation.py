@@ -814,6 +814,57 @@ class ValidateFederationCliTests(unittest.TestCase):
             self.assertEqual("", result.stderr)
             self.assertEqual(0, result.returncode)
 
+    def test_type_seven_html_starts_after_other_markdown_blocks(self) -> None:
+        cases = {
+            "H1": "# Example",
+            "H3": "### Example",
+            "thematic break": "---",
+        }
+        for name, preceding_block in cases.items():
+            with self.subTest(name=name), tempfile.TemporaryDirectory() as temp:
+                root = Path(temp)
+                home = root / "home"
+                home_identity = (
+                    "home",
+                    "git@example.test:group/home.git",
+                    "main",
+                )
+                write_repository(
+                    home,
+                    *home_identity,
+                    role="Home",
+                    home=home_identity,
+                    ticket_origin=True,
+                    frontier_heading=(
+                        f"{preceding_block}\n"
+                        "<x-workflow>\n"
+                        "## Delivery frontier\n"
+                        "Fake prose\n"
+                        "## Other\n"
+                        "</x-workflow>"
+                    ),
+                )
+                (home / "CONTEXT-MAP.md").write_text(
+                    "# Map\n\n## Contexts\n\n- None.\n\n"
+                    "## External Systems\n\n- None.\n\n"
+                    "## Relationships\n\n- None.\n"
+                )
+
+                result = run(
+                    [
+                        sys.executable,
+                        str(SCRIPT),
+                        "--home",
+                        f"home={home}",
+                        "--ticket-origin",
+                        "home",
+                    ],
+                    root,
+                )
+
+                self.assertNotEqual(0, result.returncode)
+                self.assertIn("is missing ## Delivery frontier", result.stderr)
+
     def test_rejects_an_empty_delivery_frontier(self) -> None:
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)

@@ -41,9 +41,28 @@ MAP_REPOSITORY = re.compile(
     r"Remote:\s+`([^`]+)`;\s+Base Branch:\s+`([^`]+)`\."
 )
 CONTEXT_POINTER = re.compile(r"\[[^\]]+\]\(([^():\s]+):([^)\s]+)\)")
+ATX_HEADING = re.compile(r"^ {0,3}#{1,6}(?:[ \t]+|$)")
 H2 = re.compile(r"^ {0,3}##(?!#)(?:[ \t]+|$)")
 DELIVERY_FRONTIER_H2 = re.compile(
     r"^ {0,3}##[ \t]+Delivery frontier(?:[ \t]+#+)?[ \t]*$"
+)
+THEMATIC_BREAK = re.compile(
+    r"^ {0,3}(?:(?:\*[ \t]*){3,}|(?:-[ \t]*){3,}|(?:_[ \t]*){3,})$"
+)
+BLOCK_QUOTE = re.compile(r"^ {0,3}>")
+LIST_ITEM = re.compile(
+    r"^ {0,3}(?:[*+-]|\d{1,9}[.)])(?:[ \t]+|$)"
+)
+INDENTED_CODE = re.compile(r"^(?: {4}|\t)")
+SETEXT_UNDERLINE = re.compile(r"^ {0,3}(?:=+|-+)[ \t]*$")
+LINK_REFERENCE = re.compile(r"^ {0,3}\[[^]\n]+\]:")
+PARAGRAPH_RESET_BLOCKS = (
+    THEMATIC_BREAK,
+    BLOCK_QUOTE,
+    LIST_ITEM,
+    INDENTED_CODE,
+    SETEXT_UNDERLINE,
+    LINK_REFERENCE,
 )
 BACKTICK_FENCE = re.compile(r"^ {0,3}(`{3,})[^`]*$")
 TILDE_FENCE = re.compile(r"^ {0,3}(~{3,}).*$")
@@ -198,12 +217,20 @@ def delivery_frontier_content(markdown: str) -> str | None:
             paragraph_open = False
             continue
 
-        if H2.match(line):
+        if ATX_HEADING.match(line):
+            paragraph_open = False
+            if H2.match(line):
+                if found:
+                    return "\n".join(content)
+                if DELIVERY_FRONTIER_H2.fullmatch(line):
+                    found = True
+            elif found:
+                content.append(line)
+            continue
+        if any(pattern.match(line) for pattern in PARAGRAPH_RESET_BLOCKS):
             paragraph_open = False
             if found:
-                return "\n".join(content)
-            if DELIVERY_FRONTIER_H2.fullmatch(line):
-                found = True
+                content.append(line)
             continue
         if found:
             content.append(line)
