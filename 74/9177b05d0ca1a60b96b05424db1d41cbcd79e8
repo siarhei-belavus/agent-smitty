@@ -1,0 +1,21 @@
+dispatcher/index.ts
+  s_3271e2b932ab64::t_a740e54b6c9caa 1-157
+dispatcher/index.test.ts
+  s_3271e2b932ab64::t_6f1170d67aea01 1-168
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "749177b05d0ca1a60b96b05424db1d41cbcd79e8",
+  "prompts": {},
+  "sessions": {
+    "s_3271e2b932ab64": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0234d-41c3-7ec2-83a0-b094859ba4ca",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
