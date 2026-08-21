@@ -71,8 +71,8 @@ treatment; an authoritative exact-candidate re-read; Workflow Identity claim
 acquisition and authoritative post-claim verification; race recovery; and
 successful empty-frontier behavior. Missing, ambiguous, or contradictory
 knowledge stops setup with the specific gap reported. The deterministic
-validator checks the section's structure and non-empty content; it does not
-replace this model-driven semantic assessment.
+validator checks only the required section marker; it does not replace this
+model-driven semantic assessment.
 
 Run the single complete read-only preflight in
 [`references/preflight-and-validation.md`](references/preflight-and-validation.md)
