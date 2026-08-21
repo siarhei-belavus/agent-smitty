@@ -472,8 +472,8 @@ class ValidateFederationCliTests(unittest.TestCase):
                 role="Member",
                 home=home_identity,
             )
-            run(["git", "switch", "-c", "ai/federation-setup"], home)
-            run(["git", "switch", "-c", "ai/federation-setup"], member)
+            run_setup(["git", "switch", "-c", "ai/federation-setup"], home)
+            run_setup(["git", "switch", "-c", "ai/federation-setup"], member)
             (member / "CONTEXT.md").write_text("# Member Context\n")
             (home / "CONTEXT-MAP.md").write_text(
                 "# PNL Federated Context Map\n\n"
