@@ -9,16 +9,9 @@ Actively sharpen the project's domain model by challenging terms, probing edge c
 
 ## Orient before modeling
 
-If `docs/agents/domain.md` exists, read it first and perform its Domain Orientation. Treat that configured routing as authoritative:
-
-- terms and definitions belong to their Canonical Context Document;
-- bounded-context topology, participants, External Systems, and relationships belong to the owning Context Map;
-- context-local and repository-wide architecture decisions belong to their repository owner;
-- federation-wide architecture decisions belong to the Domain Federation Home Repository.
+Load [DOMAIN-ORIENTATION.md](../federated-workflow/DOMAIN-ORIENTATION.md). If `docs/agents/domain.md` exists, read it and perform the configured Domain Orientation.
 
 Follow Repository-qualified Context Pointers through the configured portable repository identities. Checkout proximity may help resolve an already selected owner; it never selects an owner or grants write authority.
-
-If the canonical owner or its configured artifact is unavailable, report the unavailable owner and preserve the proposed change for routing. Do not create a local substitute, duplicate canonical content, or silently choose another repository.
 
 ## Output and capture authority
 
@@ -29,37 +22,9 @@ Every human-confirmed change produces a complete [Domain Model Delta](DOMAIN-MOD
 
 Capture authority changes only the destination, never the modeling depth or delta contents.
 
-## File structure
+## Create routed artifacts lazily
 
-Most repos have a single context:
-
-```
-/
-├── CONTEXT.md
-├── docs/
-│   └── adr/
-│       ├── 0001-event-sourced-orders.md
-│       └── 0002-postgres-for-write-model.md
-└── src/
-```
-
-If a `CONTEXT-MAP.md` exists at the root, the repo has multiple contexts. The map points to where each one lives:
-
-```
-/
-├── CONTEXT-MAP.md
-├── docs/
-│   └── adr/                          ← system-wide decisions
-├── src/
-│   ├── ordering/
-│   │   ├── CONTEXT.md
-│   │   └── docs/adr/                 ← context-specific decisions
-│   └── billing/
-│       ├── CONTEXT.md
-│       └── docs/adr/
-```
-
-Under canonical capture, create files lazily and only in the routed owner. If no `CONTEXT.md` exists, create one when the first term is resolved and the current repository is its confirmed canonical owner. If no `docs/adr/` exists, create it when the first owned ADR is needed.
+Under canonical capture, create the configured context or ADR artifact only when the first owned change requires it. Do not pre-create empty canonical documents.
 
 ## During the session
 

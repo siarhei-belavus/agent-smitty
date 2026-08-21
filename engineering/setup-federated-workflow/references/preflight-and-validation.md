@@ -34,7 +34,7 @@ Validate only the current repository:
 - the Work Tracker locator and its required metadata are readable through its configured non-destructive validation operations;
 - every Routing Label maps to a readable provider label;
 - `AGENTS.md` or `CLAUDE.md` points directly to the repository-owned Code Host, Work Tracker, Routing Label, and Domain Orientation bindings;
-- Domain Orientation routes the repository's local canonical contexts and ADRs without a `## Domain Federation` binding or Repository-qualified federated map.
+- `docs/agents/domain.md` satisfies the loaded Domain Orientation contract and contains no `## Domain Federation` binding or Repository-qualified federated map.
 
 Execute the exact marker, Git-identity, and provider-read commands recorded by preflight. Do not run `validate_federation.py` or supply a synthetic `--home`: that validator accepts only materialized Home/member topology.
 

@@ -17,13 +17,13 @@ Read the current repository instructions and `docs/agents/`, then classify the r
 - **Establish Domain Federation** with the current or explicitly selected repository as Home and one or more initial members;
 - **Join Domain Federation** for exactly one member and its existing Home.
 
-If an existing binding points to another Home, or the requested change would move the map or federation-wide decisions, route a **Domain Federation Home Transfer** as a normal Map-affecting delivery. Setup stops without changing files. Classification is complete when exactly one supported operation remains.
+If an existing binding points to another Home, or the requested change would move the map or federation-wide decisions, load [`DOMAIN-ORIENTATION.md`](../federated-workflow/DOMAIN-ORIENTATION.md) and [`DOMAIN-FEDERATION.md`](../federated-workflow/DOMAIN-FEDERATION.md), then route a **Domain Federation Home Transfer** as a normal Map-affecting delivery. Setup stops without changing files. Classification is complete when exactly one supported operation remains.
 
 ### 2. Research current truth
 
 For a single repository without federation, research only that repository. For Establish, discover broadly but grant no membership from discovery. Spawn repository research subagents for candidate repositories, then context research subagents across every repository that may own or participate in each candidate context. For Join, research the joining repository and Home only.
 
-Read [`../federated-workflow/PROVIDER-BINDINGS.md`](../federated-workflow/PROVIDER-BINDINGS.md). Inspect repository identity, remote, Base Branch, instructions, existing bindings, maps, canonical contexts, ADRs, CI/deployment evidence, provider capabilities, and user changes. Read [`../federated-workflow/DOMAIN-FEDERATION.md`](../federated-workflow/DOMAIN-FEDERATION.md) only for Establish or Join.
+Read [`../federated-workflow/PROVIDER-BINDINGS.md`](../federated-workflow/PROVIDER-BINDINGS.md) and [`../federated-workflow/DOMAIN-ORIENTATION.md`](../federated-workflow/DOMAIN-ORIENTATION.md). Inspect repository identity, remote, Base Branch, instructions, existing bindings, maps, canonical contexts, ADRs, CI/deployment evidence, provider capabilities, and user changes. Read [`../federated-workflow/DOMAIN-FEDERATION.md`](../federated-workflow/DOMAIN-FEDERATION.md) only for Establish or Join.
 
 Research is complete when the selected branch has evidence for every required artifact and decision: repository-owned provider and Domain Orientation bindings for the single-repository branch; full proposed topology, context ownership, participation, relationships, External Systems, and Ticket Origin roles for Establish or Join.
 

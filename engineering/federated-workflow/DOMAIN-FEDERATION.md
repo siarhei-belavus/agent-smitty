@@ -1,6 +1,6 @@
 # Domain federation configuration
 
-Every configured repository owns `docs/agents/domain.md`. It defines Domain Orientation, artifact ownership, and, when applicable, one reciprocal federation binding:
+A configured Home or Member adds one reciprocal binding to `docs/agents/domain.md`:
 
 ```markdown
 ## Domain Federation
@@ -11,7 +11,7 @@ Every configured repository owns `docs/agents/domain.md`. It defines Domain Orie
 - Home Base Branch: `<branch>`
 ```
 
-The Home binds to itself. A member binds to the same portable Home identity. The file routes canonical terms to the Context-owning Repository, topology to the owning Context Map, context/repository ADRs locally, and federation-wide ADRs to the Home. An unavailable owner is reported, never duplicated locally.
+The Home binds to itself. A member binds to the same portable Home identity.
 
 The Home owns the canonical `CONTEXT-MAP.md`:
 
