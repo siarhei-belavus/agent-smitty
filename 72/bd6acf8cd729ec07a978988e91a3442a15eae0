@@ -1,0 +1,30 @@
+skills/matt/engineering/README.md
+  s_4279ed1f1cac82::t_494300d33b94d7 7
+skills/matt/engineering/federated-workflow/DOMAIN-FEDERATION.md
+  s_4279ed1f1cac82::t_7b311d80cfe5d4 3,14
+skills/matt/engineering/federated-workflow/DOMAIN-ORIENTATION.md
+  s_4279ed1f1cac82::t_7b311d80cfe5d4 1-23
+skills/matt/engineering/setup-federated-workflow/SKILL.md
+  s_4279ed1f1cac82::t_7b311d80cfe5d4 26
+  s_4279ed1f1cac82::t_54fd07b78b9723 20
+skills/matt/engineering/setup-federated-workflow/references/preflight-and-validation.md
+  s_4279ed1f1cac82::t_7b311d80cfe5d4 37
+skills/matt/engineering/domain-modeling/SKILL.md
+  s_4279ed1f1cac82::t_7b311d80cfe5d4 12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "72bd6acf8cd729ec07a978988e91a3442a15eae0",
+  "prompts": {},
+  "sessions": {
+    "s_4279ed1f1cac82": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a02578-001b-75c2-b40f-bd48c20f5f55",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
