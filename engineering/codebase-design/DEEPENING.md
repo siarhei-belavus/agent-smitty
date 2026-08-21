@@ -10,11 +10,11 @@ Dependency category determines how the deepening is implemented and tested; it i
 
 ### In-process
 
-Pure computation, in-memory state, no I/O. Technically straightforward: merge the modules and test through the new interface directly. No adapter needed.
+Pure computation, in-memory state, no I/O. Merge the modules and use the selected test surface directly. No adapter needed.
 
 ### Local-substitutable
 
-Dependencies that have local test stand-ins (PGLite for Postgres, in-memory filesystem). Technically feasible when a suitable stand-in exists. Test the deepened module through its interface with the stand-in running behind it in the test suite. The dependency seam remains internal; no port appears at the module's external interface.
+Dependencies that have local test stand-ins (PGLite for Postgres, in-memory filesystem). Run the stand-in behind the selected test surface. The dependency seam remains internal; no port appears at the module's external interface.
 
 ### Remote but owned (Ports & Adapters)
 

@@ -22,12 +22,12 @@ Read the project's domain glossary (`CONTEXT.md`) and any ADRs in the area you'r
 Then delegate a bounded codebase exploration to a subagent. Don't follow rigid heuristics — explore organically and note where you experience friction:
 
 - Where does understanding one concept require bouncing between many small modules?
-- Where are modules **shallow** — interface nearly as complex as the implementation?
-- Where have pure functions been extracted just for testability, but the real bugs hide in how they're called (no **locality**)?
-- Where do tightly-coupled modules leak across their seams?
-- Which parts of the codebase are untested, or hard to test through their current interface?
+- Where are modules **shallow**?
+- Where is **locality** poor?
+- Where do **seams** leak?
+- Which current **interfaces** obstruct testing?
 
-Apply the **deletion test** to anything you suspect is shallow: would deleting it concentrate complexity, or just move it? A "yes, concentrates" is the signal you want.
+Apply the **deletion test** to each candidate.
 
 ### 2. Present candidates as an HTML report
 

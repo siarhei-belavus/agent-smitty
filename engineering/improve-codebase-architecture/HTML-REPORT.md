@@ -39,7 +39,7 @@ Repo name, date, and a compact legend: solid box = module, dashed line = seam, r
 
 ## Candidate card
 
-The diagrams carry the weight. Prose is sparse, plain, and uses the glossary terms (from the `codebase-design` skill) without ceremony.
+The diagrams carry the weight. Prose is sparse, plain, and uses the glossary terms without ceremony.
 
 Each candidate is one `<article>`:
 
@@ -49,7 +49,7 @@ Each candidate is one `<article>`:
 - **Before / After diagram** — the centrepiece. Two columns, side by side. See patterns below.
 - **Problem** — one sentence. What hurts.
 - **Solution** — one sentence. What changes.
-- **Wins** — bullets, ≤6 words each. e.g. "Tests hit one interface", "Pricing logic stops leaking", "Delete 4 shallow wrappers".
+- **Wins** — bullets, ≤6 words each, using leading words such as `locality`, `leverage`, and `interface`.
 - **ADR callout** (if applicable) — one line in an amber-tinted box.
 
 No paragraphs of explanation. If the diagram needs a paragraph to be understood, redraw the diagram.
@@ -79,13 +79,13 @@ Use a Mermaid `flowchart` or `graph` when the point is "X calls Y calls Z, and l
 
 Modules as `<div>`s with borders and labels. Arrows as inline SVG `<line>` or `<path>` elements positioned absolutely over a relative container. Reach for this when you want the "after" diagram to feel like one thick-bordered deep module with greyed-out internals — Mermaid won't render that with the right weight.
 
-### Cross-section (good for layered shallowness)
+### Cross-section
 
-Stack horizontal bands (`h-12 border-l-4`) to show layers a call passes through. Before: 6 thin layers each doing nothing. After: 1 thick band labelled with the consolidated responsibility.
+Stack horizontal bands (`h-12 border-l-4`) to render the before/after module depth.
 
-### Mass diagram (good for "interface as wide as implementation")
+### Mass diagram
 
-Two rectangles per module — one for interface surface area, one for implementation. Before: interface rectangle is nearly as tall as the implementation rectangle (shallow). After: interface rectangle is short, implementation rectangle is tall (deep).
+Use contrasting rectangles for interface and implementation to render depth.
 
 ### Call-graph collapse
 
@@ -113,11 +113,11 @@ Plain English, concise — but the architectural nouns and verbs come straight f
 
 **Phrasings that fit the style:**
 
-- "Order intake module is shallow — interface nearly matches the implementation."
-- "Pricing leaks across the seam."
-- "Deepen: one interface, one place to test."
-- "Two adapters justify the seam: HTTP in prod, in-memory in tests."
+- "Order intake: shallow."
+- "Pricing: seam leakage."
+- "Deepening candidate: Order intake."
+- "Adapters: HTTP, in-memory."
 
-**Wins bullets** name the gain in glossary terms: *"locality: bugs concentrate in one module"*, *"leverage: one interface, N call sites"*, *"interface shrinks; implementation absorbs the wrappers"*. Don't write *"easier to maintain"* or *"cleaner code"* — those terms aren't in the glossary and don't earn their place.
+**Wins bullets** use the glossary leading words: *locality*, *leverage*, *interface*, *implementation*. Don't write *"easier to maintain"* or *"cleaner code"*.
 
 No hedging, no throat-clearing, no "it's worth noting that…". If a sentence could be a bullet, make it a bullet. If a bullet could be cut, cut it. If a term isn't in the `codebase-design` glossary, reach for one that is before inventing a new one.

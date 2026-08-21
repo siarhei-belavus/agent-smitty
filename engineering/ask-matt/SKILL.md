@@ -8,7 +8,7 @@ disable-model-invocation: true
 
 You don't remember every skill, so ask.
 
-A **flow** is a path through the skills. Most paths run along one **main flow**, and two **on-ramps** merge onto it. Everything else is standalone, or a vocabulary layer that runs underneath.
+A **flow** is a path through the skills. Most paths run along one **main flow**, and two **on-ramps** merge onto it. Everything else is standalone.
 
 ## The main flow: idea → ship
 
@@ -22,8 +22,6 @@ The route most work travels. You have an idea and want it built.
 3. **Branch — is this a multi-task build?**
    - **Yes** → **`to-spec`** (turn the conversation into a spec), then **`to-tickets`** to split it into tracer-bullet tickets, each declaring its **blocking edges**. On a local tracker that's one file per ticket under `.scratch/<feature>/issues/`; on a real tracker the edges become native blocking links. Run each eligible agent-ready ticket through **`coordinate-delivery`** for its complete federated delivery and human handoff.
    - **No** → **`implement`** right here, in the same task.
-
-   **`coordinate-delivery`** coordinates one named ticket or the next eligible agent-ready ticket. It prepares isolated Repository Deliveries, then gives an **`implement`** agent one complete narrowing assignment for each changed delivery. It owns publication, bundle review, and the ready-for-human handoff. Use **`implement`** directly for an already-authorized standalone assignment; it drives **`tdd`** internally and closes with **`code-review`**. Reach for **`tdd`** on its own when you just want to build a concrete behaviour test-first, and **`code-review`** on its own whenever you want to review one branch or a complete multi-repository bundle.
 
 ### Context hygiene
 

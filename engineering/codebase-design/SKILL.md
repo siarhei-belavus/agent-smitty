@@ -1,11 +1,13 @@
 ---
 name: codebase-design
-description: Design deep modules proportionally. Use when the user wants to design or improve a module's interface, decide where a seam goes, deepen or privately decompose a module without widening its interface, make it testable through that interface, judge whether a design is overengineered, or when another skill needs the deep-module vocabulary.
+description: Design deep modules proportionally. Use when the user wants to design or improve a module's interface, decide where a seam goes, deepen or privately decompose a module without widening its interface, choose its test surface, judge whether a design is overengineered, or when another skill needs the deep-module vocabulary.
 ---
 
 # Codebase Design
 
-Design **deep modules**: a lot of behaviour behind a small interface, placed at a clean seam, testable through that interface. Use this language and these principles wherever code is being designed or restructured. The aim is leverage for callers, locality for maintainers, and testability for everyone.
+Design **deep modules**: a lot of behaviour behind a small interface, placed at a clean seam. Use this language and these principles wherever code is being designed or restructured. The aim is leverage for callers, locality for maintainers, and testability for everyone.
+
+Load [TEST-SURFACE.md](TEST-SURFACE.md) before applying the design rules.
 
 ## Glossary
 
@@ -61,7 +63,6 @@ When designing an interface, ask:
 
 - **Depth is a property of the interface, not the implementation.** A deep module can be internally composed of cohesive private parts — they just aren't part of the interface. A module can have **internal seams** where its implementation genuinely varies, but physical file boundaries do not create seams.
 - **The deletion test.** Imagine deleting the module. If complexity vanishes, it was a pass-through. If complexity reappears across N callers, it was earning its keep.
-- **The interface is the test surface.** Callers and tests cross the same seam. If you want to test *past* the interface, the module is probably the wrong shape.
 - **One adapter means a hypothetical seam. Two adapters means a real one.** Don't introduce a seam unless something actually varies across it.
 
 ## Proportional design
@@ -84,10 +85,6 @@ Treat the smallest coherent area as the full peer set within the same logical ow
 
 Artifact role decides whether chronology belongs. A current-truth artifact answers what is intended now; an intentional history artifact answers how decisions or understanding evolved. Change logs, review findings, issue history, commits, Git history, and explicitly superseded ADRs or learning records may preserve chronology. A file does not become a history artifact merely because notes were appended to it.
 
-Tests are current truth: exercise the module's interface at its seam and assert only behavior observable to a caller. Acceptance criteria, domain invariants, and credible failures determine which observable behavior needs protection; they do not justify inspecting internal state or testing private implementation. A past bug can motivate a regression test, but the test presents the behavior that must hold, not the accidental implementation mistake that exposed it.
-
-For an effectful module, an effect at a declared external boundary is observable behavior. Invoke the module only through its interface at its seam, then observe the resulting external state or message through a stand-in for that external system. Do not invoke internal ports directly or assert private collaborator calls, call sequences, or implementation structure.
-
 ### Clean breaks
 
 Backward compatibility is a rare, exceptional, deliberately approved mechanism, not a default design requirement or a precaution to add just in case. Only explicit human approval makes it an acceptance criterion.
@@ -100,7 +97,7 @@ When uninterrupted operation requires explicitly approved temporary coexistence,
 
 ## Logical ownership and physical decomposition
 
-A module is a logical owner, not a file. Its implementation may span cohesive private files hidden behind one public interface at one seam. **Physical decomposition** splits independently changing internal responsibilities while preserving that interface, the module's invariants and vocabulary, and every boundary translation. Treat each new file as a private implementation detail, not a test surface. If it needs its own caller-facing interface or direct tests, first establish through proportional design that it is a separate logical owner rather than an internal part of the existing module.
+A module is a logical owner, not a file. Its implementation may span cohesive private files hidden behind one public interface at one seam. **Physical decomposition** splits independently changing internal responsibilities while preserving that interface, the module's invariants and vocabulary, and every boundary translation. Treat each new file as a private implementation detail. If it needs its own caller-facing interface, first establish through proportional design that it is a separate logical owner rather than an internal part of the existing module.
 
 Before adding behavior to a module whose implementation contains independently changing responsibilities, either decompose those responsibilities privately behind the existing seam or state the concrete locality reason they are clearer and safer together. A behavior-preserving private split is tidy-first refactoring within the current implementation authority. Every split should improve locality by concentrating understanding and change.
 
@@ -120,7 +117,7 @@ Good interfaces make testing natural:
    }
    ```
 
-2. **Make observable behavior explicit.** Return results when the module's purpose is computation. When its domain purpose is an effect, make that effect explicit in the interface contract and observable at its declared external boundary.
+2. **Expose the selected test surface.** Return results for computation and declare domain effects in the interface contract.
 
    ```typescript
    // Testable
@@ -132,11 +129,11 @@ Good interfaces make testing natural:
    }
    ```
 
-3. **Small surface area.** Fewer interface elements reduce the number of surface combinations and simplify test setup. The necessary tests are still determined by observable behaviors, established invariants, and credible failures.
+3. **Small surface area.** Fewer interface elements reduce the number of surface combinations and simplify test setup.
 
 ## Relationships
 
-- A **Module** has exactly one **Interface** (the surface it presents to callers and tests).
+- A **Module** has exactly one **Interface** (the surface it presents to callers).
 - **Depth** is a property of a **Module**, measured against its **Interface**.
 - A **Seam** is where a **Module**'s **Interface** lives.
 - An **Adapter** sits at a **Seam** and satisfies the **Interface**.
@@ -150,5 +147,5 @@ Good interfaces make testing natural:
 
 ## Going deeper
 
-- **Deepening a cluster given its dependencies** — see [DEEPENING.md](DEEPENING.md): when deepening pays, dependency strategies, seam discipline, and replace-don't-layer testing.
-- **Exploring alternative interfaces** — see [DESIGN-IT-TWICE.md](DESIGN-IT-TWICE.md): spin up parallel sub-agents to design the interface several radically different ways, then compare on depth, locality, and seam placement.
+- **Deepening a cluster given its dependencies** — execute [DEEPENING.md](DEEPENING.md).
+- **Exploring alternative interfaces** — execute [DESIGN-IT-TWICE.md](DESIGN-IT-TWICE.md).
