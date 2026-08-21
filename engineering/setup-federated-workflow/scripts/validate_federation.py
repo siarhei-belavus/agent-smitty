@@ -45,7 +45,8 @@ H2 = re.compile(r"^ {0,3}##(?!#)(?:[ \t]+|$)")
 DELIVERY_FRONTIER_H2 = re.compile(
     r"^ {0,3}##[ \t]+Delivery frontier(?:[ \t]+#+)?[ \t]*$"
 )
-FENCE = re.compile(r"^ {0,3}(`{3,}|~{3,})")
+BACKTICK_FENCE = re.compile(r"^ {0,3}(`{3,})[^`]*$")
+TILDE_FENCE = re.compile(r"^ {0,3}(~{3,}).*$")
 
 
 @dataclass(frozen=True)
@@ -126,17 +127,17 @@ def delivery_frontier_content(markdown: str) -> str | None:
         )
         if comment_block_line:
             continue
-        fence = FENCE.match(visible)
+        fence = BACKTICK_FENCE.match(line) or TILDE_FENCE.match(line)
         if fence:
             marker = fence.group(1)
             fence_character = marker[0]
             fence_length = len(marker)
             continue
 
-        if H2.match(visible):
+        if H2.match(line):
             if found:
                 return "\n".join(content)
-            if DELIVERY_FRONTIER_H2.fullmatch(visible):
+            if DELIVERY_FRONTIER_H2.fullmatch(line):
                 found = True
             continue
         if found:
