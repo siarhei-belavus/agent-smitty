@@ -1,8 +1,6 @@
 # Writing Agent Briefs
 
-An Agent Brief is a structured comment posted on the configured Work Tracker before a request moves to `ready-for-agent`. It is the authoritative specification that an AFK agent will execute. The original body and discussion remain context; the Agent Brief is the self-contained executable contract.
-
-Read the shared [planning artifact contracts](../PLANNING-ARTIFACT-CONTRACTS.md) before drafting or validating a brief. This file owns the Agent Brief section order and template; the shared contract owns the semantic records and cross-artifact invariants.
+Before drafting or validating a brief, read [planning artifact contracts](../federated-workflow/PLANNING-ARTIFACTS.md). Post the complete brief as a structured Work Tracker comment before moving the request to `ready-for-agent`. The original body and discussion remain context; the brief must be executable without private invocation history.
 
 ## Principles
 

@@ -4,7 +4,7 @@ Skills I use daily for code work.
 
 ## Shared contracts
 
-- **[Planning Artifact Contracts](./PLANNING-ARTIFACT-CONTRACTS.md)** — Normalized repository, context, decision, seam, validation, scope, and dependency records shared by specification, ticket, and triage artifacts.
+- **[Federated workflow contracts](./federated-workflow/)** — Planning records, provider bindings, domain-federation configuration, and durable lifecycle records loaded directly by the skills that need them.
 
 ## User-invoked
 
@@ -15,7 +15,6 @@ Reachable only when you invoke them explicitly.
 - **[grill-with-docs](./grill-with-docs/SKILL.md)** — One-session grilling with output-only domain modeling that returns a sharpened plan or design with complete Domain Model Deltas.
 - **[triage](./triage/SKILL.md)** — Move configured Work Tracker requests through triage and require a complete executable Agent Brief before `ready-for-agent`.
 - **[improve-codebase-architecture](./improve-codebase-architecture/SKILL.md)** — Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through whichever one you pick.
-- **[setup-matt-pocock-skills](./setup-matt-pocock-skills/SKILL.md)** — Configure this repo for the engineering skills (issue tracker, triage labels, domain doc layout). Run once per repo.
 - **[to-spec](./to-spec/SKILL.md)** — Synthesize a solution-level specification with Repository References, Context Scope, and complete Testing Decisions, then publish it to the configured Work Tracker.
 - **[to-tickets](./to-tickets/SKILL.md)** — Transform settled source authority into self-contained tracer-bullet delivery tickets, one file per ticket locally or provider-native items on the configured Work Tracker.
 - **[coordinate-delivery](./coordinate-delivery/SKILL.md)** — Coordinate one named or next agent-ready ticket through its complete federated delivery and human handoff.
@@ -25,6 +24,7 @@ Reachable only when you invoke them explicitly.
 
 Model- or user-reachable (rich trigger phrasing so the model can reach for them).
 
+- **[setup-federated-workflow](./setup-federated-workflow/SKILL.md)** — Configure one repository or establish or join a Domain Federation through repository-owned bindings.
 - **[prototype](./prototype/SKILL.md)** — Build a throwaway prototype to answer a design question: a terminal app or shareable HTML file for state/logic, or several toggleable UI variations.
 
 - **[diagnosing-bugs](./diagnosing-bugs/SKILL.md)** — Disciplined diagnosis loop for hard bugs and performance regressions: reproduce → minimise → hypothesise → instrument → fix → regression-test.

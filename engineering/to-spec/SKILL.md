@@ -1,12 +1,12 @@
 ---
 name: to-spec
-description: Turn the current conversation or a durable Wayfinder map into a spec and publish it to the configured Work Tracker — no interview, just synthesis of accepted planning authority.
+description: Synthesize accepted planning authority into a Work Tracker specification.
 disable-model-invocation: true
 ---
 
-This skill takes accepted planning authority and codebase understanding and produces a spec (you may know this document as a PRD). Planning authority may be the current conversation, a supplied Wayfinder map reference, or both. Do NOT interview the user — synthesize what the selected sources already establish.
+Synthesize a specification from accepted planning authority and codebase understanding. Planning authority may be the current conversation, a supplied Wayfinder map reference, or both. Do not interview the user; use only what the selected sources establish.
 
-Read the shared [planning artifact contracts](../PLANNING-ARTIFACT-CONTRACTS.md) before producing the specification. This skill owns the specification section order and template; the shared contract owns the semantic records and cross-artifact invariants. Use the configured Work Tracker and Domain Orientation when their bindings exist; preserve standalone behavior when they do not.
+Read [planning artifact contracts](../federated-workflow/PLANNING-ARTIFACTS.md) before producing the specification.
 
 ## Process
 

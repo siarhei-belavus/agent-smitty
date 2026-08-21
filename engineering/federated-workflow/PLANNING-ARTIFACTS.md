@@ -1,8 +1,6 @@
-# Planning Artifact Contracts
+# Planning artifact contracts
 
-This document is the logical owner of the planning-specific records and composition invariants shared by planning artifacts. The `domain-modeling` skill owns the Domain Model Delta output contract, `to-spec` owns the specification shape, `to-tickets` owns the delivery-ticket shape, and `triage/AGENT-BRIEF.md` owns the Agent Brief shape. Work Tracker bindings own provider-specific publication and state changes.
-
-Consumers must be able to validate every record through the published artifact and resulting Work Tracker state. Prior chat, hidden invocation history, checkout layout, and private prompt structure are not authority.
+Every record must be verifiable through the published artifact and resulting Work Tracker state. Prior chat, hidden invocation history, checkout layout, and private prompt structure are not authority.
 
 ## Source authority
 
@@ -25,7 +23,7 @@ A Repository Reference makes one repository resolvable without granting write au
 Context Scope contains the complete artifact-relevant set of:
 
 - Repository-qualified Context Pointers in the form `<Repository ID>:<repo-relative path>`; and
-- accepted [Domain Model Deltas](./domain-modeling/DOMAIN-MODEL-DELTA.md) that govern the artifact.
+- accepted [Domain Model Deltas](../domain-modeling/DOMAIN-MODEL-DELTA.md) that govern the artifact.
 
 Every pointer and delta owner resolves through a Repository Reference. Use `None — <reason>` only when no canonical context applies; never use it to bypass unresolved product language.
 

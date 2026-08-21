@@ -1,4 +1,4 @@
-# Provider Bindings
+# Provider bindings
 
 Every configured Git repository owns `docs/agents/code-host.md`. Only a human-confirmed Ticket Origin Repository owns `docs/agents/issue-tracker.md` and `docs/agents/triage-labels.md`. `AGENTS.md` or `CLAUDE.md` indexes only the bindings that repository owns.
 

@@ -1,4 +1,4 @@
-# Domain Federation Configuration
+# Domain federation configuration
 
 Every configured repository owns `docs/agents/domain.md`. It defines Domain Orientation, artifact ownership, and, when applicable, one reciprocal federation binding:
 
@@ -37,5 +37,3 @@ The Home owns the canonical `CONTEXT-MAP.md`:
 Each context has exactly one owner and an existing, substantive canonical `CONTEXT.md`. Participants do not co-own its language. A member that owns no context appears under every context in which it has a confirmed responsibility. External repositories appear only under their External System.
 
 Repository-qualified pointers never mix with relative links. Identities contain Repository ID, remote, and Base Branch; configuration contains no local path, registry, or copied glossary. UI/deployment absence of a confirmed canonical context is preserved rather than filled with invented language.
-
-Establish may configure one Home and multiple confirmed initial members. Join adds exactly one member and changes only that member and the Home. A request that moves the map/federation decisions, changes an existing owner, or rewrites unrelated members is a Home Transfer or Map-affecting delivery and is routed outside setup.

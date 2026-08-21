@@ -96,7 +96,7 @@ When Spec is selected, report the whole-bundle result once:
 
 Omit the unselected axis entirely. When both are selected, do not merge, reclassify, or rerank the axes. End with Blocking and Advisory counts and the highest-severity finding within each selected result when present.
 
-This skill does not publish branches, does not create or update Review Proposals, and does not change Work Tracker state. A review reports findings and evidence only.
+Report findings and evidence only. Leave branches, Review Proposals, and Work Tracker state unchanged.
 
 ## Evidence freshness
 

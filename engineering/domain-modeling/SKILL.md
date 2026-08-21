@@ -5,7 +5,7 @@ description: Build and sharpen a project's domain model, returning complete Doma
 
 # Domain Modeling
 
-Actively build and sharpen the project's domain model as you design. This is the *active* discipline — challenging terms, inventing edge-case scenarios, and writing the glossary and decisions down the moment they crystallise. (Merely *reading* `CONTEXT.md` for vocabulary is not this skill — that's a one-line habit any skill can do. This skill is for when you're changing the model, not just consuming it.)
+Actively sharpen the project's domain model by challenging terms, probing edge cases, and recording confirmed glossary and architecture changes. Merely reading `CONTEXT.md` for vocabulary does not invoke domain modeling.
 
 ## Orient before modeling
 
@@ -28,7 +28,7 @@ Every human-confirmed change produces a complete [Domain Model Delta](DOMAIN-MOD
 - A composed or model-invoked use returns each delta to the invoking workflow without writing canonical artifacts. It may apply a delta only when that invocation explicitly grants canonical capture.
 
 Capture authority changes only the destination, never the modeling depth or delta contents. If the routed owner is unavailable, return the complete delta and report the unavailable owner instead of writing a substitute.
-The skill does not select a planning persistence destination or depend on caller identity.
+Return composed deltas to the invoking workflow without selecting a planning persistence destination.
 
 ## File structure
 

@@ -53,7 +53,7 @@ Not feature work — upkeep.
 
 ## Vocabulary underneath
 
-Two model-invoked references that run _beneath_ the other skills — each the single source of truth for its vocabulary. Reach for them directly when the **words**, not the process, are the problem; or let the skills above pull them in.
+Use these model-invoked skills directly when the **words**, not the process, are the problem:
 
 - **`domain-modeling`** — sharpen the project's _domain_ language: challenge a fuzzy term, resolve an overloaded word ("account" doing three jobs), and test whether a hard-to-reverse decision merits an ADR. It returns complete Domain Model Deltas to invoking workflows. An explicit standalone invocation captures them in the routed canonical `CONTEXT.md`, `CONTEXT-MAP.md`, or ADR owner by default.
 - **`codebase-design`** — the deep-module vocabulary (module, interface, depth, seam, adapter, leverage, locality) for designing a module's *shape*: a lot of behaviour behind a small interface at a clean seam. `to-spec`, `implement`, and standalone `tdd` invoke it when design decisions are unsettled; `improve-codebase-architecture` invokes it directly.
@@ -83,4 +83,4 @@ Off the main flow entirely.
 
 ## Precondition
 
-**`setup-matt-pocock-skills`** — run before your first engineering flow to configure the issue tracker, triage labels, and doc layout the other skills assume. Custom issue trackers also work.
+**`setup-federated-workflow`** — configure repository-owned Code Host, Work Tracker, Routing Label, and Domain Orientation bindings before the first engineering flow. The same skill configures one repository without federation, establishes a federation, or joins one repository to an existing federation.

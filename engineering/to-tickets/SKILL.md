@@ -1,6 +1,6 @@
 ---
 name: to-tickets
-description: Break a plan, spec, or the current conversation into a set of tracer-bullet tickets, each declaring its blocking edges, published to the configured tracker — edges as text in one file per ticket locally, or native blocking links on a real tracker.
+description: Split settled planning authority into tracer-bullet delivery tickets.
 disable-model-invocation: true
 ---
 
@@ -8,7 +8,7 @@ disable-model-invocation: true
 
 Break a plan, spec, or conversation into a set of **tickets** — tracer-bullet vertical slices, each declaring the tickets that **block** it.
 
-Read the shared [planning artifact contracts](../PLANNING-ARTIFACT-CONTRACTS.md) first. This skill owns the delivery-ticket section order and template; the shared contract owns the semantic records and cross-artifact invariants. Use the configured Work Tracker, Routing Label mapping, and Domain Orientation when their bindings exist; preserve standalone Local Markdown behavior when they do not.
+Read [planning artifact contracts](../federated-workflow/PLANNING-ARTIFACTS.md) first.
 
 ## Process
 
@@ -66,7 +66,7 @@ Iterate until the user approves the breakdown.
 
 ### 5. Publish the tickets to the configured tracker
 
-Publish the approved tickets. **How** depends on the tracker the `setup-matt-pocock-skills` skill configured — the ticket body below is the same either way, only its provider envelope and the shape of the blocking edges change:
+Publish the approved tickets through the configured Work Tracker. The ticket body stays the same; only its provider envelope and blocking relationship change:
 
 - **Local Markdown** → write one file per ticket under `.scratch/<feature-slug>/issues/<NN>-<slug>.md`, numbered from `01` in dependency order (blockers first). Prepend `# <NN> — <Ticket title>` and `**Status:** ready-for-agent` to the body. Its Blocked by section names the numbers/titles it depends on.
 - **Configured Work Tracker** → publish one item per ticket in dependency order (blockers first) so each ticket's blocking edges can reference durable identifiers. Use the configured native blocking/sub-item relationship where available and its documented fallback otherwise. Apply the mapped `ready-for-agent` Routing Label only after re-reading the resulting item and verifying its complete executable contract and state.

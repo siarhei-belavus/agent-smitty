@@ -23,7 +23,7 @@ If an existing binding points to another Home, or the requested change would mov
 
 For Establish, discover broadly but grant no membership from discovery. Spawn repository research subagents for candidate repositories, then context research subagents across every repository that may own or participate in each candidate context. For Join, research the joining repository and Home only.
 
-Inspect repository identity, remote, Base Branch, instructions, existing bindings, maps, canonical contexts, ADRs, CI/deployment evidence, provider capabilities, and user changes. Treat Ticket Origin as a human-confirmed role, independent of Home or Member status. Every Git repository owns its own Code Host binding. Only a confirmed Ticket Origin owns a Work Tracker and Routing Label binding. Read [`references/domain-federation.md`](references/domain-federation.md) whenever federation topology or context ownership is in scope. Research is complete when every proposed member, context owner, participant, relationship, External System, Ticket Origin role, and required artifact has evidence or is explicitly unsettled.
+Read [`../federated-workflow/PROVIDER-BINDINGS.md`](../federated-workflow/PROVIDER-BINDINGS.md). Inspect repository identity, remote, Base Branch, instructions, existing bindings, maps, canonical contexts, ADRs, CI/deployment evidence, provider capabilities, and user changes. Read [`../federated-workflow/DOMAIN-FEDERATION.md`](../federated-workflow/DOMAIN-FEDERATION.md) whenever federation topology or context ownership is in scope. Research is complete when every proposed member, context owner, participant, relationship, External System, Ticket Origin role, and required artifact has evidence or is explicitly unsettled.
 
 ### 3. Obtain topology authority
 
@@ -33,7 +33,7 @@ This confirmation is complete only when the human has accepted the entire topolo
 
 ### 4. Draft and preflight every write
 
-Draft the final content using [`references/provider-bindings.md`](references/provider-bindings.md) and the domain reference. Preserve compatible files and patch the smallest coherent sections; never regenerate an existing file merely because its layout differs.
+Draft final content against the loaded provider and domain contracts. Preserve compatible files and patch the smallest coherent sections; never regenerate an existing file merely because its layout differs.
 
 Run the single complete read-only preflight in [`references/preflight-and-validation.md`](references/preflight-and-validation.md) against every target before the first write. Its model-driven semantic judgment checks each provider binding against the provider-binding contract. The deterministic validator checks required section markers only and does not replace that judgment. A failed check starts no application subagent and changes no file. Preflight is complete when every repository, identity, Base Branch, instruction set, binding, intended artifact, provider-readable capability, conflicting user change, and non-overlapping application scope is accounted for.
 

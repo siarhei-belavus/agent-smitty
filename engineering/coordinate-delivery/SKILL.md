@@ -26,7 +26,7 @@ For a ticketless activation, any pre-claim change or failed post-claim verificat
 
 ## 2. Validate the delivery contract
 
-Read [`../PLANNING-ARTIFACT-CONTRACTS.md`](../PLANNING-ARTIFACT-CONTRACTS.md) completely. Require complete Repository References, resolvable Context Scope, non-empty Repository Scope with repository-owned outcomes, every applicable Settled Seam and Validation Obligation, and consistent ticket, dependency, user, canonical-context, ADR, and accepted-decision authority.
+Read [`../federated-workflow/PLANNING-ARTIFACTS.md`](../federated-workflow/PLANNING-ARTIFACTS.md) completely. Require complete Repository References, resolvable Context Scope, non-empty Repository Scope with repository-owned outcomes, every applicable Settled Seam and Validation Obligation, and consistent ticket, dependency, user, canonical-context, ADR, and accepted-decision authority.
 
 **Complete when:** every required contract field and context pointer is present and internally consistent; any material omission or conflict has entered the [human-boundary branch](HUMAN-BOUNDARY.md) before repository mutation.
 

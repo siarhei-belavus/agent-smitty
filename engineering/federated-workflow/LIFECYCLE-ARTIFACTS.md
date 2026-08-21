@@ -1,6 +1,6 @@
-# Durable Lifecycle Artifact Contracts
+# Durable lifecycle artifact contracts
 
-This file is the single source of truth for Coordinator lifecycle records. Publish them through the configured Work Tracker coordination log using permanent provider identifiers, canonical ticket references, exact revisions, and stable record IDs.
+Publish Coordinator lifecycle records through the configured Work Tracker coordination log using permanent provider identifiers, canonical ticket references, exact revisions, and stable record IDs.
 
 ## Record invariants
 
