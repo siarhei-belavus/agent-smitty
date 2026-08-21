@@ -13,6 +13,25 @@ SCRIPT = (
     / "scripts"
     / "validate_federation.py"
 )
+COMPLETE_FRONTIER = (
+    "List open tickets carrying the ready-for-agent label, then keep only "
+    "unblocked and unassigned candidates. Process the oldest eligible ticket "
+    "first. Re-read the exact candidate and its labels, dependencies, and "
+    "assignees from the provider before claiming it. Assign only the Workflow "
+    "Identity, then re-read the ticket to verify the claim. If another actor "
+    "wins the claim or candidate state changes, recompute the frontier and try "
+    "again. When no eligible candidate remains, stop successfully without "
+    "changing provider state."
+)
+CUSTOM_FRONTIER = (
+    "Search the provider for open issues carrying ready-for-agent. An issue is "
+    "eligible when it has no open blockers and no assignee. Sort eligible "
+    "issues by provider priority. Before assigning, refresh the chosen issue's "
+    "labels, blockers, and assignees from the provider. After claiming, confirm "
+    "that the Workflow Identity is the sole assignee. On a conflict or changed "
+    "state, retry from a refreshed frontier. Return success when the query "
+    "yields zero eligible items."
+)
 
 
 def run(command: list[str], cwd: Path) -> subprocess.CompletedProcess[str]:
@@ -53,6 +72,7 @@ def write_repository(
     home: tuple[str, str, str],
     ticket_origin: bool = False,
     frontier_heading: str = "## Delivery frontier",
+    frontier_content: str = COMPLETE_FRONTIER,
 ) -> None:
     root.mkdir()
     run_setup(["git", "init", "-b", base_branch], root)
@@ -96,7 +116,8 @@ def write_repository(
         (root / "docs" / "agents" / "issue-tracker.md").write_text(
             "# Work Tracker: GitLab\n\n"
             "## Binding\n## Ticket operations\n## Routing\n## Dependencies\n"
-            f"## Claims\n{frontier_heading}\n## Coordination log\n"
+            f"## Claims\n{frontier_heading}\n\n{frontier_content}\n\n"
+            "## Coordination log\n"
             "## Triage request surfaces\n## Wayfinding operations\n"
             "## Workflow Identity permissions\n## Binding validation\n"
         )
@@ -269,6 +290,84 @@ class ValidateFederationCliTests(unittest.TestCase):
 
             self.assertNotEqual(0, result.returncode)
             self.assertIn("is missing ## Delivery frontier", result.stderr)
+
+    def test_rejects_an_empty_delivery_frontier(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            home = root / "home"
+            home_identity = (
+                "home",
+                "git@example.test:group/home.git",
+                "main",
+            )
+            write_repository(
+                home,
+                *home_identity,
+                role="Home",
+                home=home_identity,
+                ticket_origin=True,
+                frontier_content="",
+            )
+            (home / "CONTEXT-MAP.md").write_text(
+                "# Map\n\n## Contexts\n\n- None.\n\n"
+                "## External Systems\n\n- None.\n\n"
+                "## Relationships\n\n- None.\n"
+            )
+
+            result = run(
+                [
+                    sys.executable,
+                    str(SCRIPT),
+                    "--home",
+                    f"home={home}",
+                    "--ticket-origin",
+                    "home",
+                ],
+                root,
+            )
+
+            self.assertNotEqual(0, result.returncode)
+            self.assertIn("Delivery frontier is empty", result.stderr)
+
+    def test_rejects_an_incomplete_delivery_frontier(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            home = root / "home"
+            home_identity = (
+                "home",
+                "git@example.test:group/home.git",
+                "main",
+            )
+            write_repository(
+                home,
+                *home_identity,
+                role="Home",
+                home=home_identity,
+                ticket_origin=True,
+                frontier_content="List candidate tickets from the provider.",
+            )
+            (home / "CONTEXT-MAP.md").write_text(
+                "# Map\n\n## Contexts\n\n- None.\n\n"
+                "## External Systems\n\n- None.\n\n"
+                "## Relationships\n\n- None.\n"
+            )
+
+            result = run(
+                [
+                    sys.executable,
+                    str(SCRIPT),
+                    "--home",
+                    f"home={home}",
+                    "--ticket-origin",
+                    "home",
+                ],
+                root,
+            )
+
+            self.assertNotEqual(0, result.returncode)
+            self.assertIn("Delivery frontier is incomplete", result.stderr)
+            self.assertIn("verified claim", result.stderr)
+            self.assertIn("empty-frontier behavior", result.stderr)
 
     def test_rejects_a_configured_base_branch_that_does_not_exist(self) -> None:
         with tempfile.TemporaryDirectory() as temp:
@@ -631,6 +730,7 @@ class ValidateFederationCliTests(unittest.TestCase):
                 role="Member",
                 home=home_identity,
                 ticket_origin=True,
+                frontier_content=CUSTOM_FRONTIER,
             )
             (member / "CONTEXT.md").write_text("# Member Context\n")
             (home / "CONTEXT-MAP.md").write_text(

@@ -70,10 +70,11 @@ Document provider-native create/read/list/comment/label/assign/transition/close;
 native blocking relationships; claim acquire/re-read/release; append-only
 coordination comments and permanent references; and Wayfinding separately from
 the Delivery frontier. Write `## Delivery frontier` as ordinary instructions an
-agent can read. Define candidate queries, eligibility, ordering, provider
-re-reads, and race recovery without an executable Markdown schema or a
-project-specific adapter. Events may narrow a query, but they are hints. Re-read
-every candidate before claiming it.
+agent can read. Define candidate queries, eligibility, ordering, authoritative
+exact-candidate re-reads, claim acquisition and post-claim verification, race
+recovery, and empty-frontier success without an executable Markdown schema or
+a project-specific adapter. Events may narrow a query, but they are hints.
+Re-read every candidate before claiming it.
 
 `docs/agents/triage-labels.md` is the sole mapping for `needs-triage`,
 `needs-info`, `ready-for-agent`, `ready-for-human`, and `wontfix`. Validate every

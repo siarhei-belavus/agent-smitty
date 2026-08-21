@@ -41,6 +41,71 @@ MAP_REPOSITORY = re.compile(
     r"Remote:\s+`([^`]+)`;\s+Base Branch:\s+`([^`]+)`\."
 )
 CONTEXT_POINTER = re.compile(r"\[[^\]]+\]\(([^():\s]+):([^)\s]+)\)")
+DELIVERY_FRONTIER_SECTION = re.compile(
+    r"(?ms)^## Delivery frontier[ \t]*\n(.*?)(?=^## |\Z)"
+)
+DELIVERY_FRONTIER_REQUIREMENTS = (
+    (
+        "candidate query",
+        (
+            r"\b(?:list|query|search|discover|enumerat\w*|fetch)\b",
+            r"\b(?:candidate|ticket|issue|item)s?\b",
+        ),
+    ),
+    (
+        "eligibility",
+        (
+            r"\bopen\b",
+            r"\bready-for-agent\b",
+            r"\b(?:unblocked|no open blocker\w*|"
+            r"dependencies? (?:are )?(?:closed|complete))\b",
+            r"\b(?:unassigned|no assignee|without an assignee|"
+            r"zero assignees?|assignees? (?:are |is )?empty)\b",
+        ),
+    ),
+    (
+        "ordering",
+        (
+            r"\b(?:order\w*|oldest|priority|priorit\w*|sort\w*|first|"
+            r"sequenc\w*|creation date)\b",
+        ),
+    ),
+    (
+        "authoritative candidate re-read",
+        (
+            r"\b(?:re-?read|reload|refresh|fetch current)\b",
+            r"\b(?:candidate|ticket|issue|item)\b",
+            r"\b(?:before|prior to)\b",
+            r"\b(?:claim|assign)\w*\b",
+            r"\b(?:provider|current|authoritative|live)\b",
+        ),
+    ),
+    (
+        "verified claim",
+        (
+            r"\b(?:claim|assign)\w*\b",
+            r"\b(?:then|after|post-?claim)\b",
+            r"\b(?:verify|confirm|re-?read)\w*\b",
+            r"\bworkflow identity\b",
+        ),
+    ),
+    (
+        "race recovery",
+        (
+            r"\b(?:race|conflict|another actor|state change\w*|claim fail\w*)\b",
+            r"\b(?:recompute|retry|try again|refresh the frontier|restart)\w*\b",
+        ),
+    ),
+    (
+        "empty-frontier behavior",
+        (
+            r"(?:\b(?:no|none|empty|without|zero)\b.*"
+            r"\b(?:eligible|candidate|frontier|item)\b|"
+            r"\b(?:candidate|frontier)\b.*\bempty\b)",
+            r"\b(?:success\w*|no-op|stop|finish|return)\b",
+        ),
+    ),
+)
 
 
 @dataclass(frozen=True)
@@ -162,8 +227,28 @@ def validate_ticket_origin(
     labels_path = repository.path / "docs" / "agents" / "triage-labels.md"
     tracker = read(tracker_path, errors)
     for heading in WORK_TRACKER_HEADINGS:
+        if heading == "## Delivery frontier":
+            continue
         if heading not in tracker:
             errors.append(f"{tracker_path} is missing {heading}")
+    frontier_match = DELIVERY_FRONTIER_SECTION.search(tracker)
+    if not frontier_match:
+        errors.append(f"{tracker_path} is missing ## Delivery frontier")
+    else:
+        frontier = " ".join(frontier_match.group(1).split()).lower()
+        if not frontier:
+            errors.append(f"{tracker_path} Delivery frontier is empty")
+        else:
+            missing = [
+                name
+                for name, patterns in DELIVERY_FRONTIER_REQUIREMENTS
+                if not all(re.search(pattern, frontier) for pattern in patterns)
+            ]
+            if missing:
+                errors.append(
+                    f"{tracker_path} Delivery frontier is incomplete: missing "
+                    + ", ".join(missing)
+                )
     if not labels_path.is_file():
         errors.append(f"{repository.repository_id} has no Routing Label mapping")
 
