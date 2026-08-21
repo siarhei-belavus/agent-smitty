@@ -1,7 +1,5 @@
 # Deepening
 
-How to deepen a cluster of shallow modules safely, given its dependencies. Assumes the vocabulary in [SKILL.md](SKILL.md) — **module**, **interface**, **seam**, **adapter**.
-
 ## When deepening pays
 
 Deepen a cluster when shallow modules split one logical responsibility, expose shared invariant knowledge, or force callers to coordinate behavior that belongs behind one interface. Proportional design favors deepening when it reduces total interface complexity and improves locality.
@@ -28,13 +26,8 @@ Recommendation shape: *"Define a port at the seam, implement an HTTP adapter for
 
 Third-party services (Stripe, Twilio, etc.) you don't control. The deepened module takes the external dependency as an injected port; tests provide a mock adapter.
 
-## Seam discipline
-
-Apply the [adapter-count and internal-seam principles](SKILL.md#principles) when placing the port.
-
 ## Replace, don't layer
 
-- Before replacing old tests, map every current acceptance criterion, established invariant, and credible failure they protect to observable behavior exercised through the deepened module's interface at its seam.
-- Once that replacement coverage exists, delete every test that invokes a superseded shallow interface or tests through an internal seam. Do not preserve old tests as a historical layer.
-- Write and retain replacement tests through the deepened module's interface. If necessary behavior cannot be exercised and observed there, reconsider the module's interface or logical ownership.
-- For an effectful module, invoke only that interface, then observe the resulting state or message through a stand-in for the declared external system. The external effect is observable behavior; the internal port, adapter calls, and collaboration sequence are not test surfaces.
+- Inventory every acceptance criterion, established invariant, and credible failure protected by the old tests, and map each one to a replacement case.
+- Once the replacement cases cover that inventory, delete tests tied to the superseded shallow modules. Do not preserve them as a historical layer.
+- If any protected behavior has no replacement case, stop and reconsider the proposed interface or logical ownership.

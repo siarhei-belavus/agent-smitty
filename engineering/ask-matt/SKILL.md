@@ -15,9 +15,9 @@ A **flow** is a path through the skills. Most paths run along one **main flow**,
 The route most work travels. You have an idea and want it built.
 
 1. **`grill-with-docs`** — sharpen the idea by interview. Start here when you **have a codebase**: it applies the project's domain language and returns complete Domain Model Deltas with the sharpened result. In this flow, the current conversation retains that result as planning authority for `to-spec`. (No codebase? Use `grill-me` — see Standalone. Both run the same `grilling` primitive; `grill-with-docs` adds domain modeling.)
-2. **Branch — can you settle every question in conversation?** If a question needs a runnable answer (state, business logic, a UI you have to see), detour through a prototype, bridged by **`handoff`** in both directions (see Phase boundaries):
+2. **Branch — can you settle every question in conversation?** If a question needs runnable evidence, detour through `prototype`, bridged by **`handoff`** in both directions (see Phase boundaries):
    - **`handoff`** out, then open a separate task against that file,
-   - **`prototype`** to answer the question with throwaway code,
+   - run **`prototype`**,
    - **`handoff`** back what you learned, and reference it from the original planning task.
 3. **Branch — is this a multi-task build?**
    - **Yes** → **`to-spec`** (turn the conversation into a spec), then **`to-tickets`** to split it into tracer-bullet tickets, each declaring its **blocking edges**. On a local tracker that's one file per ticket under `.scratch/<feature>/issues/`; on a real tracker the edges become native blocking links. Run each eligible agent-ready ticket through **`coordinate-delivery`** for its complete federated delivery and human handoff.
@@ -39,8 +39,6 @@ A starting situation that generates work, then merges onto the main flow.
 
   Triage is only for issues **you didn't create** — bug reports, incoming feature requests, anything that arrives raw. Tickets that `to-tickets` produced are already agent-ready, so **don't triage them**.
 
-- **Something's broken** → **`diagnosing-bugs`**. For the hard ones: the bug that resists a first glance, the intermittent flake, the regression that crept in between two known-good states. It refuses to theorise until it has a **tight feedback loop** — one command that already goes red on _this_ bug — then fixes with a regression test. Its post-mortem hands off to **`improve-codebase-architecture`** when the real finding is that there's no good seam to lock the bug down.
-
 - **A huge, foggy effort — a greenfield project or a huge feature build, too big for one session** → **`wayfinder`**, the most cognitively demanding flow here. When the way from here to the destination isn't visible yet, it charts a **shared map** of **decision tickets** on the issue tracker. Each ticket has one claimant; independent ready research may proceed in parallel, while dependent decisions wait for their blockers — producing **decisions, not deliverables** — until the fog is pushed back and the way is clear. Where **`grill-with-docs`** sharpens an idea you can hold in one session, wayfinder is for the idea you can't — and it's slower and denser, so save it for exactly that, never a well-scoped feature.
 
   When the map clears, **it hands off, it doesn't build**: merge onto the main flow at **`to-spec`**, which collapses the map's linked decisions into a buildable plan, then `to-tickets`. Each resulting ticket can use `implement` across its complete Repository Scope. Looping the map straight into `implement` skips the collapse and throws linked detail away — do that only when the effort turned out genuinely small and receives explicit execution authority.
@@ -49,14 +47,7 @@ A starting situation that generates work, then merges onto the main flow.
 
 Not feature work — upkeep.
 
-- **`improve-codebase-architecture`** — run whenever you have a spare moment to keep the codebase good for agents to operate in. It surfaces **deepening opportunities**; picking one _generates an idea_ you can take into the main flow at `grill-with-docs`. It's the survey that finds the candidates; **`codebase-design`** (below) is the bench you design the chosen one on.
-
-## Vocabulary underneath
-
-Use these model-invoked skills directly when the **words**, not the process, are the problem:
-
-- **`domain-modeling`** — sharpen the project's _domain_ language: challenge a fuzzy term, resolve an overloaded word ("account" doing three jobs), and test whether a hard-to-reverse decision merits an ADR. It returns complete Domain Model Deltas to invoking workflows. An explicit standalone invocation captures them in the routed canonical `CONTEXT.md`, `CONTEXT-MAP.md`, or ADR owner by default.
-- **`codebase-design`** — the deep-module vocabulary (module, interface, depth, seam, adapter, leverage, locality) for designing a module's *shape*: a lot of behaviour behind a small interface at a clean seam. `to-spec`, `implement`, and standalone `tdd` invoke it when design decisions are unsettled; `improve-codebase-architecture` invokes it directly.
+- **`improve-codebase-architecture`** — survey the codebase for a candidate to take into the main flow at `grill-with-docs`.
 
 ## Phase boundaries
 
@@ -75,12 +66,6 @@ Off the main flow entirely.
 
 - **`grill-me`** — the same relentless interview as `grill-with-docs`, but for when you have **no codebase**. Stateless: it saves nothing locally, builds no `CONTEXT.md`. Reach for it to sharpen any plan or design that doesn't live in a repo.
 - **`integrate-matt-concept`** — research a proposed doctrine's overlap and behavioral value, then reject, merge, rewrite, or introduce it through one canonical home.
-- **`prototype`** — a small, throwaway program that answers one design question: does this state model feel right, or what should this UI look like. Throwaway from day one — keep the answer, delete the code. It's the detour in step 2 of the main flow, but reach for it any time a design question is hard to settle on paper.
-- **`research`** — delegate reading legwork to a **background agent**: it investigates a question against **primary sources**, then leaves a cited Markdown file in the repo. Keep working while it reads. The file it produces is something to take _into_ the main flow at `grill-with-docs` — research feeds the thinking, it doesn't replace it.
 - **`wait-what`** — re-pitch the last answer when it did not land: add the missing context, use Simplified Technical English, and preserve the applicable canonical domain vocabulary.
 - **`teach`** — learn a concept over multiple sessions, using the current directory as a stateful workspace.
 - **`writing-for-agents`** — reference for writing documents agents consume, including skills and agent instructions.
-
-## Precondition
-
-**`setup-federated-workflow`** — configure repository-owned Code Host, Work Tracker, Routing Label, and Domain Orientation bindings before the first engineering flow. The same skill configures one repository without federation, establishes a federation, or joins one repository to an existing federation.

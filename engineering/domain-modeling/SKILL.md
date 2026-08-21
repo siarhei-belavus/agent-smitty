@@ -84,8 +84,6 @@ When the user states how something works, check whether the code agrees. If you 
 
 When a term is resolved, emit its complete Domain Model Delta right there. Under canonical capture, also update the routed `CONTEXT.md` using [CONTEXT-FORMAT.md](./CONTEXT-FORMAT.md). Otherwise return the delta to the invoking workflow.
 
-`CONTEXT.md` should be totally devoid of implementation details. Do not treat `CONTEXT.md` as a spec, a scratch pad, or a repository for implementation decisions. It is a glossary and nothing else.
-
 ### Offer ADRs sparingly
 
 Only offer to record an ADR decision when all three are true:

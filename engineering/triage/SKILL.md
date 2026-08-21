@@ -18,8 +18,8 @@ Every comment or request posted to the Work Tracker during triage **must** start
 
 ## Reference docs
 
-- [AGENT-BRIEF.md](AGENT-BRIEF.md) — how to write durable agent briefs
-- [OUT-OF-SCOPE.md](OUT-OF-SCOPE.md) — how the `.out-of-scope/` knowledge base works
+- Read [AGENT-BRIEF.md](AGENT-BRIEF.md) when drafting or validating a brief.
+- Read [OUT-OF-SCOPE.md](OUT-OF-SCOPE.md) when matching or recording a rejected concept.
 
 ## Roles
 
@@ -67,7 +67,7 @@ Show counts and a one-line summary per item. Let the maintainer pick.
 
 ## Triage a specific request or Review Proposal
 
-1. **Gather context.** Read the full request or Review Proposal (body, comments, Routing Labels, author, dates; for a proposal, the diff too). Parse prior triage notes so you don't re-ask resolved questions. Perform configured Domain Orientation before exploring canonical contexts, accepted Domain Model Deltas, ADRs, and code in the referenced repositories. Run two checks against the codebase: (a) **redundancy** — search for an existing implementation of the requested behavior by domain concept (not just the request's wording), and report where you looked. If found, it's an already-implemented `wontfix` (step 5). (b) **prior rejection** — read `.out-of-scope/*.md` and surface any that resembles this request.
+1. **Gather context.** Read the full request or Review Proposal (body, comments, Routing Labels, author, dates; for a proposal, the diff too). Parse prior triage notes so you don't re-ask resolved questions. Perform configured Domain Orientation before exploring canonical contexts, accepted Domain Model Deltas, ADRs, and code in the referenced repositories. Run two checks: (a) **redundancy** — search for an existing implementation by domain concept and report where you looked; if found, classify it as already-implemented `wontfix` in step 5. (b) **prior rejection** — run [out-of-scope matching](OUT-OF-SCOPE.md#match-a-record).
 
 2. **Recommend.** Tell the maintainer your category and state recommendation with reasoning, plus a brief codebase summary relevant to the request — including whether it's already implemented. Wait for direction.
 

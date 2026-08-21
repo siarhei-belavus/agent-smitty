@@ -53,6 +53,7 @@ Keep headings short, paragraphs brief, and supporting links in a final `Related`
 ```
 
 Omit status rows that do not yet exist. Preserve the shape when there are multiple goals by associating each atlas route with its goal.
+Keep the first atlas view to at most seven nodes.
 
 ## Scenario view
 
@@ -99,6 +100,8 @@ Show the full route as one compact Markdown blockquote, as in the template above
 
 Localize that sentence into the human's language. Omit `Related` when empty. When no direct test exists, render `**Evidence:** No direct test found.` When existing review findings apply, insert this before navigation:
 
+Use the host's clickable file-and-line syntax and repository-relative link labels. Add a `Before → After` view only when the current code cannot explain the change. Replace the linear route with a small Mermaid diagram only when branching or convergence is materially clearer.
+
 ```markdown
 > **△ Attention:** <finding summary and link to its evidence>
 ```
@@ -113,7 +116,7 @@ When a question or discussion exposes a concrete actionable problem, insert this
 > I can add this comment to <MR link> if you want.
 ```
 
-Use this block only for an actionable problem, not an ordinary explanation or design preference.
+Use this block only for an evidence-backed actionable mismatch, unnecessary mechanism, missing proof, or maintainability problem, not an ordinary explanation or reasonable design preference. It is a Follow-up candidate, not a review finding.
 
 ## Deeper view
 

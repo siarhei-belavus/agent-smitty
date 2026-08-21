@@ -12,7 +12,7 @@ The destination varies per effort, and naming it is the first act of charting �
 
 Wayfinder is **planning** by default: each ticket resolves a decision, and the map is done when the way is clear — nothing left to decide before someone goes and does the thing. The pull to just do the work is usually the signal you've reached the edge of the map and it's time to hand off. An effort can override this in its **Notes** — carrying execution into the map itself — but absent that, produce decisions, not deliverables.
 
-Ordinary planning does not write future-state terms, map changes, or architecture decisions into canonical repository documents. Wayfinder is the outer workflow and owns durable capture: while resolving an active ticket, maintain every returned [Domain Model Delta](../domain-modeling/DOMAIN-MODEL-DELTA.md) at full fidelity in that ticket's single `## Resolution draft`. A Wayfinder map remains an index: its Decisions-so-far entry only gists and links the final Resolution.
+Ordinary planning does not write future-state terms, map changes, or architecture decisions into canonical repository documents. While resolving an active ticket, maintain every returned [Domain Model Delta](../domain-modeling/DOMAIN-MODEL-DELTA.md) at full fidelity in that ticket's single `## Resolution draft`.
 
 ## Configured authority
 
@@ -51,7 +51,7 @@ The whole map at low resolution, loaded once per session. Open tickets are **not
 
 ## Decisions so far
 
-<!-- the index — one line per closed ticket: enough to judge relevance, then zoom the link for the detail the ticket holds -->
+<!-- map index -->
 
 - [<closed ticket title>](link) — <one-line gist of the answer>
 
@@ -88,7 +88,7 @@ Every ticket is either **HITL** — human in the loop, worked *with* a human who
 
 - **Research** (AFK): Reading documentation, third-party APIs, or local resources like knowledge bases to surface a fact a decision waits on. A frontier research ticket may be claimed and resolved by a `research` subagent. Use when knowledge outside the current working directory is required.
 - **Prototype** (HITL): Raise the fidelity of the discussion by making a cheap, rough, concrete artifact to react to — an outline, a rough take, a stub, or UI/logic code via the /prototype skill. Links the prototype as an asset. Use when "how should it look" or "how should it behave" is the key question.
-- **Grilling** (HITL): Conversation via `grill-with-docs`. The default case. Wayfinder captures every confirmed Domain Model Delta in the active ticket's Resolution draft.
+- **Grilling** (HITL): Conversation via `grill-with-docs`. The default case.
 - **Task** (HITL or AFK): Manual work that must happen before a *decision* can be made — nothing to decide, prototype, or research, but the discussion is blocked until it's done. Signing up for a service so its API can be judged, provisioning access, moving data so its shape can be seen. This is the one type that *does* rather than decides — and it earns its place by unblocking a decision, not by delivering the destination. The agent drives it alone where it can (AFK); otherwise it hands the human a precise checklist (HITL). Resolved when the work is done; the answer records what was done and any resulting facts (credentials location, new URLs, row counts) later tickets depend on.
 
 ## Fog of war
@@ -133,8 +133,8 @@ User invokes with a map (URL or number). A ticket is **optional** — without on
 
 1. Load the **map** — the low-res view, not every ticket body.
 2. Choose the ticket. If the user named one, use it. Otherwise take the first frontier ticket in order. **Claim it**: assign it to yourself before any work.
-3. Resolve it — **zoom as needed**: fetch the full body of any related or closed ticket on demand; invoke the skills the `## Notes` block names. If in doubt, use `grill-with-docs`. Maintain the ticket's single complete `## Resolution draft` as decisions are confirmed, incorporating every returned Domain Model Delta without reduction.
-4. Record the resolution: re-read the active ticket and finalize that same Workflow-Identity-owned draft as `## Resolution`. When the configured Work Tracker cannot update the draft, publish one complete final Resolution that uses its append-only supersession contract. Then **close** the ticket and **append a context pointer** to the map's Decisions-so-far; do not publish a competing summary Resolution.
+3. Resolve it — **zoom as needed**: fetch the full body of any related or closed ticket on demand; invoke the skills the `## Notes` block names. If in doubt, use `grill-with-docs`. Update the `## Resolution draft` as decisions are confirmed.
+4. Record the resolution: re-read the active ticket and finalize its draft as `## Resolution`. When the configured Work Tracker cannot update the draft, use its append-only supersession contract. Then close the ticket and update the map index.
 5. Add newly-surfaced tickets (create-then-wire); graduate any fog the answer has made specifiable, clearing each graduated patch from **Not yet specified** so it lives only as its new ticket. If the answer reveals a ticket — this one or another — sits beyond the destination, **rule it out of scope** rather than resolving it on the route. If the decision invalidates other parts of the map, update or delete those tickets.
 
 The user may run unblocked tickets in parallel, so expect other sessions to be editing the tracker concurrently.

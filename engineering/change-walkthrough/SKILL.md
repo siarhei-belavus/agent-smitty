@@ -55,57 +55,28 @@ This step is complete when every hunk has exactly one home and every changed nod
 
 ## 3. Present the atlas
 
-Orient the human with the `What this change set is about` view from [FORMAT.md](FORMAT.md), then show the compact atlas.
+Render the opening view and atlas through [FORMAT.md](FORMAT.md).
 
 Synthesize the shared purpose of the whole atlas in domain language. When the change set has several independent goals, show them separately instead of inventing one umbrella goal, and associate every top-level scenario with one of them. Include a material non-goal only when an authoritative source states it or it is needed to prevent a likely scope misunderstanding.
 
-Name scenarios by behaviour. Show their entry, observable result, changed regions, and any attention flags. Keep the first view at no more than seven nodes, recommend the first route, and let the human reroute. Use a top-to-bottom Markdown flow by default: place the route in one compact blockquote, with one node per quoted line and explicit visual markers for unchanged context, changed behaviour, the current position, and the observable result. Do not prefix the nodes with bullets or numbers. Bold the complete current-node line. The line order communicates flow; do not add connector arrows between items or compress a multi-step route into a single parenthesized arrow expression. Do not render a linear route as a code block or add decorative box-drawing frames. Use a small Mermaid diagram only when branching or convergence is materially clearer as a diagram.
+Name scenarios by behaviour and supply their entry, observable result, changed regions, and attention flags to the atlas rendering. Recommend the first route and let the human reroute.
 
 This step is complete when every top-level scenario is accounted for by the summary and the human can see the whole atlas, the current position, and the available routes without opening code.
 
 ## 4. Walk one scenario
 
-Before its first step, show the whole scenario map with minimal unchanged context. Then show exactly one logical step per response. Keep the full route only in the first response for that scenario; on later responses use a compact position breadcrumb and restore the full route only when the human asks to return to the map.
-
-Make navigation language friendly:
-
-- localize structural labels such as `Scenario`, `Step`, `Outcome`, `Where we are`, and `Navigate` into the language used by the human;
-- render progress as natural language, for example `Step 3 of 4` or its localized equivalent, never the terse `Hop 3/4`;
-- name each step in plain domain language that describes what happens; put an unavoidable technical term second, not as the whole title;
-- do not repeat the legend after the first scenario-map response unless the human asks for it.
-
-For the current step, provide:
-
-- its role in the scenario;
-- where control or data arrives from and where it goes next;
-- one clickable reference to the exact file and line;
-- the smallest self-contained code excerpt that explains the step, normally 5–20 lines;
-- links without excerpts for supporting locations;
-- a link to the test that demonstrates the observable behaviour, or an explicit note that no direct test was found.
-
-Use the host's clickable file-and-line syntax and label links with repository-relative paths. Show `before → after` only when the current code alone cannot explain the change. Render the scenario, step, deeper, and detour views exactly as [FORMAT.md](FORMAT.md) specifies.
-
-End each step with one navigation choice: **deeper**, **next**, or **back to the map**. Treat ordinary-language equivalents as the same commands.
-
-- **Deeper** zooms into the current step through its callers, implementation, tests, history, or supporting diff.
-- **Next** moves to the next step while retaining the breadcrumb.
-- **Back to the map** restores the scenario or atlas view.
+Render the scenario map, then exactly one logical step per response through [FORMAT.md](FORMAT.md). Supply the step's role, control or data flow, exact source location, supporting locations, and test evidence. Interpret the rendered `deeper`, `next`, and `back to the map` choices as navigation state transitions.
 
 The walkthrough is a guide, not an examination: navigation never requires the human to approve the design or prove understanding.
 
-Questions and discussion may expose a concrete problem that was not visible from the diff alone. When that happens:
+When discussion meets the Follow-up candidate conditions in [FORMAT.md](FORMAT.md), trace the concern to exact code, authority, or observable behaviour, then:
 
-- distinguish an actionable mismatch, unnecessary mechanism, missing proof, or maintainability problem from a request for explanation or a reasonable design preference;
-- trace the concern back to exact code, an authoritative source, or observable behaviour before presenting it;
-- label it a **Follow-up candidate**, not a review finding, because the walkthrough does not perform a new code review;
-- draft a concise MR comment that states the problem, its impact, and the desired final state without prescribing incidental implementation details;
+- draft a concise MR comment stating the problem, impact, and desired final state without prescribing incidental implementation details;
 - draft and post MR comments in English by default, regardless of the walkthrough language; use another language only when the user explicitly requests it;
 - explicitly offer to add that comment to the merge request;
 - do not post it during the read-only walkthrough. Posting requires a separate explicit user instruction and is performed as a follow-up action outside the walkthrough.
 
-Use the follow-up rendering from [FORMAT.md](FORMAT.md). Keep navigation available so the human can continue the walkthrough without resolving the candidate immediately.
-
-When a detour is reached, pause and show its exact hunk, why it does not fit the current map, and any plausible connection labelled as inference. Offer to inspect it now or leave it marked for the end.
+A candidate does not block the walkthrough. When a detour is reached, render it through [FORMAT.md](FORMAT.md) and apply the human's selected route.
 
 A scenario is complete when every step has been visited or the human explicitly skips the remainder.
 
