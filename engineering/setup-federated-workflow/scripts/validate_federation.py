@@ -48,9 +48,29 @@ DELIVERY_FRONTIER_H2 = re.compile(
 BACKTICK_FENCE = re.compile(r"^ {0,3}(`{3,})[^`]*$")
 TILDE_FENCE = re.compile(r"^ {0,3}(~{3,}).*$")
 COMMENT_BLOCK = re.compile(r"^ {0,3}<!--")
+PROCESSING_INSTRUCTION_BLOCK = re.compile(r"^ {0,3}<\?")
+DECLARATION_BLOCK = re.compile(r"^ {0,3}<![A-Z]")
+CDATA_BLOCK = re.compile(r"^ {0,3}<!\[CDATA\[")
+CDATA_TERMINATOR = "]]>"
+LITERAL_HTML_BLOCKS = (
+    (PROCESSING_INSTRUCTION_BLOCK, "?>"),
+    (DECLARATION_BLOCK, ">"),
+    (CDATA_BLOCK, CDATA_TERMINATOR),
+)
 RAW_HTML_UNTIL_CLOSE = re.compile(
     r"^ {0,3}<(script|pre|style|textarea)(?:[ \t>]|$)",
     re.IGNORECASE,
+)
+TAG_NAME = r"[A-Za-z][A-Za-z0-9-]*"
+ATTRIBUTE_NAME = r"[A-Za-z_:][A-Za-z0-9_.:-]*"
+ATTRIBUTE_VALUE = r'''(?:[^ \t\n"'=<>`]+|'[^']*'|"[^"]*")'''
+ATTRIBUTE = (
+    rf"(?:[ \t]+{ATTRIBUTE_NAME}"
+    rf"(?:[ \t]*=[ \t]*{ATTRIBUTE_VALUE})?)*"
+)
+RAW_HTML_COMPLETE_TAG = re.compile(
+    rf"^ {{0,3}}(?:<{TAG_NAME}{ATTRIBUTE}[ \t]*/?>|"
+    rf"</{TAG_NAME}[ \t]*>)[ \t]*$"
 )
 RAW_HTML_UNTIL_BLANK = re.compile(
     r"^ {0,3}</?(?:address|article|aside|base|basefont|blockquote|body|"
@@ -93,8 +113,10 @@ def read(path: Path, errors: list[str]) -> str:
 def delivery_frontier_content(markdown: str) -> str | None:
     """Return visible content under a real Delivery frontier H2."""
     in_comment = False
+    html_terminator = ""
     html_closing_tag = ""
     html_until_blank = False
+    paragraph_open = False
     fence_character = ""
     fence_length = 0
     found = False
@@ -115,6 +137,10 @@ def delivery_frontier_content(markdown: str) -> str | None:
             if "-->" in line:
                 in_comment = False
             continue
+        if html_terminator:
+            if html_terminator in line:
+                html_terminator = ""
+            continue
         if html_closing_tag:
             if re.search(
                 rf"</{re.escape(html_closing_tag)}[ \t]*>",
@@ -129,14 +155,39 @@ def delivery_frontier_content(markdown: str) -> str | None:
             continue
         if COMMENT_BLOCK.match(line):
             in_comment = "-->" not in line
+            paragraph_open = False
+            continue
+        literal_html = next(
+            (
+                (match, terminator)
+                for opener, terminator in LITERAL_HTML_BLOCKS
+                if (match := opener.match(line))
+            ),
+            None,
+        )
+        if literal_html:
+            match, terminator = literal_html
+            if terminator not in line[match.end() :]:
+                html_terminator = terminator
+            paragraph_open = False
             continue
         close_delimited_html = RAW_HTML_UNTIL_CLOSE.match(line)
         if close_delimited_html:
             tag = close_delimited_html.group(1)
             if not re.search(rf"</{tag}[ \t]*>", line, re.IGNORECASE):
                 html_closing_tag = tag
+            paragraph_open = False
             continue
         if RAW_HTML_UNTIL_BLANK.match(line):
+            html_until_blank = True
+            paragraph_open = False
+            continue
+        if not line.strip():
+            paragraph_open = False
+            if found:
+                content.append(line)
+            continue
+        if not paragraph_open and RAW_HTML_COMPLETE_TAG.fullmatch(line):
             html_until_blank = True
             continue
         fence = BACKTICK_FENCE.match(line) or TILDE_FENCE.match(line)
@@ -144,9 +195,11 @@ def delivery_frontier_content(markdown: str) -> str | None:
             marker = fence.group(1)
             fence_character = marker[0]
             fence_length = len(marker)
+            paragraph_open = False
             continue
 
         if H2.match(line):
+            paragraph_open = False
             if found:
                 return "\n".join(content)
             if DELIVERY_FRONTIER_H2.fullmatch(line):
@@ -154,6 +207,7 @@ def delivery_frontier_content(markdown: str) -> str | None:
             continue
         if found:
             content.append(line)
+        paragraph_open = True
 
     return "\n".join(content) if found else None
 

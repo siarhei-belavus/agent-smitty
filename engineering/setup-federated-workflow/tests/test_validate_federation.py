@@ -707,6 +707,113 @@ class ValidateFederationCliTests(unittest.TestCase):
             self.assertNotEqual(0, result.returncode)
             self.assertIn("is missing ## Delivery frontier", result.stderr)
 
+    def test_rejects_frontiers_inside_other_raw_html_block_types(self) -> None:
+        cases = {
+            "processing instruction": (
+                "<? workflow\n"
+                "## Delivery frontier\n"
+                "Fake prose\n"
+                "## Other\n"
+                "?>"
+            ),
+            "declaration": (
+                "<!DOCTYPE workflow\n"
+                "## Delivery frontier\n"
+                "Fake prose\n"
+                "## Other\n"
+                ">"
+            ),
+            "CDATA": "<![CDATA[\n## Delivery frontier\nFake prose\n## Other\n]]>",
+            "custom element": (
+                "<x-workflow>\n"
+                "## Delivery frontier\n"
+                "Fake prose\n"
+                "## Other\n"
+                "</x-workflow>"
+            ),
+        }
+        for name, fake_frontier in cases.items():
+            with self.subTest(name=name), tempfile.TemporaryDirectory() as temp:
+                root = Path(temp)
+                home = root / "home"
+                home_identity = (
+                    "home",
+                    "git@example.test:group/home.git",
+                    "main",
+                )
+                write_repository(
+                    home,
+                    *home_identity,
+                    role="Home",
+                    home=home_identity,
+                    ticket_origin=True,
+                    frontier_heading=fake_frontier,
+                )
+                (home / "CONTEXT-MAP.md").write_text(
+                    "# Map\n\n## Contexts\n\n- None.\n\n"
+                    "## External Systems\n\n- None.\n\n"
+                    "## Relationships\n\n- None.\n"
+                )
+
+                result = run(
+                    [
+                        sys.executable,
+                        str(SCRIPT),
+                        "--home",
+                        f"home={home}",
+                        "--ticket-origin",
+                        "home",
+                    ],
+                    root,
+                )
+
+                self.assertNotEqual(0, result.returncode)
+                self.assertIn("is missing ## Delivery frontier", result.stderr)
+
+    def test_recognizes_a_frontier_after_a_type_seven_html_boundary(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            home = root / "home"
+            home_identity = (
+                "home",
+                "git@example.test:group/home.git",
+                "main",
+            )
+            write_repository(
+                home,
+                *home_identity,
+                role="Home",
+                home=home_identity,
+                ticket_origin=True,
+                frontier_heading=(
+                    "<x-workflow>\n"
+                    "Example HTML content\n"
+                    "</x-workflow>\n\n"
+                    "## Delivery frontier"
+                ),
+            )
+            (home / "CONTEXT-MAP.md").write_text(
+                "# Map\n\n## Contexts\n\n- None.\n\n"
+                "## External Systems\n\n- None.\n\n"
+                "## Relationships\n\n- None.\n"
+            )
+
+            result = run(
+                [
+                    sys.executable,
+                    str(SCRIPT),
+                    "--home",
+                    f"home={home}",
+                    "--ticket-origin",
+                    "home",
+                ],
+                root,
+            )
+
+            self.assertEqual("Federation valid: 1 home, 0 members\n", result.stdout)
+            self.assertEqual("", result.stderr)
+            self.assertEqual(0, result.returncode)
+
     def test_rejects_an_empty_delivery_frontier(self) -> None:
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
