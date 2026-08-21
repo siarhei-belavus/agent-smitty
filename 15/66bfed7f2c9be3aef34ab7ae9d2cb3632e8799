@@ -1,0 +1,57 @@
+skills/matt/engineering/prototype/LOGIC.md
+  s_4279ed1f1cac82::t_d177640fc702ae 65
+  s_4279ed1f1cac82::t_8ededd8e1e80d7 34,69
+  s_4279ed1f1cac82::t_73392fe612ab16 1,67
+skills/matt/engineering/improve-codebase-architecture/SKILL.md
+  s_4279ed1f1cac82::t_f2f8054226286c 9,34,40
+skills/matt/engineering/prototype/UI.md
+  s_4279ed1f1cac82::t_8ededd8e1e80d7 17
+  s_4279ed1f1cac82::t_73392fe612ab16 1,87,89,91-92
+skills/matt/engineering/codebase-design/DESIGN-IT-TWICE.md
+  s_4279ed1f1cac82::t_87440d2e28c2b7 7,13,19
+skills/matt/engineering/prototype/SKILL.md
+  s_4279ed1f1cac82::t_8ededd8e1e80d7 14-15,21-22
+  s_4279ed1f1cac82::t_d177640fc702ae 25
+skills/matt/engineering/tdd/mocking.md
+  s_4279ed1f1cac82::t_ff3b8f14fe2d5c 3
+skills/matt/engineering/wayfinder/SKILL.md
+  s_4279ed1f1cac82::t_415bc706de2999 15,54,91,136-137
+skills/matt/engineering/codebase-design/DEEPENING.md
+  s_4279ed1f1cac82::t_8ededd8e1e80d7 31-33
+skills/matt/engineering/triage/OUT-OF-SCOPE.md
+  s_4279ed1f1cac82::t_c91f2c3e3b56dc 1,3,5,69,71,75
+skills/matt/engineering/domain-modeling/DOMAIN-MODEL-DELTA.md
+  s_4279ed1f1cac82::t_87440d2e28c2b7 3,15
+skills/matt/engineering/change-walkthrough/SKILL.md
+  s_4279ed1f1cac82::t_8ededd8e1e80d7 79
+  s_4279ed1f1cac82::t_0abfc6b1932ab1 58,62,68,72,74
+skills/matt/engineering/triage/SKILL.md
+  s_4279ed1f1cac82::t_bf792f52a98479 21-22,70
+skills/matt/engineering/change-walkthrough/FORMAT.md
+  s_4279ed1f1cac82::t_6381036a15e150 56,103-104,119
+skills/matt/engineering/ask-matt/SKILL.md
+  s_4279ed1f1cac82::t_6381036a15e150 20
+  s_4279ed1f1cac82::t_87440d2e28c2b7 50
+  s_4279ed1f1cac82::t_b7e2b84681cf2c 18
+skills/matt/engineering/tdd/tests.md
+  s_4279ed1f1cac82::t_ff3b8f14fe2d5c 1,3,15,42
+skills/matt/engineering/diagnosing-bugs/SKILL.md
+  s_4279ed1f1cac82::t_2f85531777f3d5 20,43
+  s_4279ed1f1cac82::t_8ededd8e1e80d7 37,70,90,92,100
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "1566bfed7f2c9be3aef34ab7ae9d2cb3632e8799",
+  "prompts": {},
+  "sessions": {
+    "s_4279ed1f1cac82": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a02578-001b-75c2-b40f-bd48c20f5f55",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
