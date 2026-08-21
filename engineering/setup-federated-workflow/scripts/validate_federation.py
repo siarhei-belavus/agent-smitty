@@ -41,65 +41,6 @@ MAP_REPOSITORY = re.compile(
     r"Remote:\s+`([^`]+)`;\s+Base Branch:\s+`([^`]+)`\."
 )
 CONTEXT_POINTER = re.compile(r"\[[^\]]+\]\(([^():\s]+):([^)\s]+)\)")
-ATX_HEADING = re.compile(r"^ {0,3}#{1,6}(?:[ \t]+|$)")
-H2 = re.compile(r"^ {0,3}##(?!#)(?:[ \t]+|$)")
-DELIVERY_FRONTIER_H2 = re.compile(
-    r"^ {0,3}##[ \t]+Delivery frontier(?:[ \t]+#+)?[ \t]*$"
-)
-THEMATIC_BREAK = re.compile(
-    r"^ {0,3}(?:(?:\*[ \t]*){3,}|(?:-[ \t]*){3,}|(?:_[ \t]*){3,})$"
-)
-BLOCK_QUOTE = re.compile(r"^ {0,3}>")
-LIST_ITEM = re.compile(
-    r"^ {0,3}(?:[*+-]|\d{1,9}[.)])(?:[ \t]+|$)"
-)
-INDENTED_CODE = re.compile(r"^(?: {4}|\t)")
-SETEXT_UNDERLINE = re.compile(r"^ {0,3}(?:=+|-+)[ \t]*$")
-LINK_REFERENCE = re.compile(r"^ {0,3}\[[^]\n]+\]:")
-PARAGRAPH_RESET_BLOCKS = (
-    THEMATIC_BREAK,
-    BLOCK_QUOTE,
-    LIST_ITEM,
-    INDENTED_CODE,
-    SETEXT_UNDERLINE,
-    LINK_REFERENCE,
-)
-BACKTICK_FENCE = re.compile(r"^ {0,3}(`{3,})[^`]*$")
-TILDE_FENCE = re.compile(r"^ {0,3}(~{3,}).*$")
-COMMENT_BLOCK = re.compile(r"^ {0,3}<!--")
-PROCESSING_INSTRUCTION_BLOCK = re.compile(r"^ {0,3}<\?")
-DECLARATION_BLOCK = re.compile(r"^ {0,3}<![A-Z]")
-CDATA_BLOCK = re.compile(r"^ {0,3}<!\[CDATA\[")
-CDATA_TERMINATOR = "]]>"
-LITERAL_HTML_BLOCKS = (
-    (PROCESSING_INSTRUCTION_BLOCK, "?>"),
-    (DECLARATION_BLOCK, ">"),
-    (CDATA_BLOCK, CDATA_TERMINATOR),
-)
-RAW_HTML_UNTIL_CLOSE = re.compile(
-    r"^ {0,3}<(script|pre|style|textarea)(?:[ \t>]|$)",
-    re.IGNORECASE,
-)
-TAG_NAME = r"[A-Za-z][A-Za-z0-9-]*"
-ATTRIBUTE_NAME = r"[A-Za-z_:][A-Za-z0-9_.:-]*"
-ATTRIBUTE_VALUE = r'''(?:[^ \t\n"'=<>`]+|'[^']*'|"[^"]*")'''
-ATTRIBUTE = (
-    rf"(?:[ \t]+{ATTRIBUTE_NAME}"
-    rf"(?:[ \t]*=[ \t]*{ATTRIBUTE_VALUE})?)*"
-)
-RAW_HTML_COMPLETE_TAG = re.compile(
-    rf"^ {{0,3}}(?:<{TAG_NAME}{ATTRIBUTE}[ \t]*/?>|"
-    rf"</{TAG_NAME}[ \t]*>)[ \t]*$"
-)
-RAW_HTML_UNTIL_BLANK = re.compile(
-    r"^ {0,3}</?(?:address|article|aside|base|basefont|blockquote|body|"
-    r"caption|center|col|colgroup|dd|details|dialog|dir|div|dl|dt|"
-    r"fieldset|figcaption|figure|footer|form|frame|frameset|h[1-6]|head|"
-    r"header|hr|html|iframe|legend|li|link|main|menu|menuitem|nav|noframes|"
-    r"ol|optgroup|option|p|param|search|section|summary|table|tbody|td|tfoot|"
-    r"th|thead|title|tr|track|ul)(?:[ \t]+|/?>|$)",
-    re.IGNORECASE,
-)
 
 
 @dataclass(frozen=True)
@@ -127,116 +68,6 @@ def read(path: Path, errors: list[str]) -> str:
     except OSError as error:
         errors.append(f"cannot read {path}: {error}")
         return ""
-
-
-def delivery_frontier_content(markdown: str) -> str | None:
-    """Return visible content under a real Delivery frontier H2."""
-    in_comment = False
-    html_terminator = ""
-    html_closing_tag = ""
-    html_until_blank = False
-    paragraph_open = False
-    fence_character = ""
-    fence_length = 0
-    found = False
-    content: list[str] = []
-
-    for line in markdown.splitlines():
-        if fence_character:
-            closing_fence = re.compile(
-                rf"^ {{0,3}}{re.escape(fence_character)}"
-                rf"{{{fence_length},}}[ \t]*$"
-            )
-            if closing_fence.fullmatch(line):
-                fence_character = ""
-                fence_length = 0
-            continue
-
-        if in_comment:
-            if "-->" in line:
-                in_comment = False
-            continue
-        if html_terminator:
-            if html_terminator in line:
-                html_terminator = ""
-            continue
-        if html_closing_tag:
-            if re.search(
-                rf"</{re.escape(html_closing_tag)}[ \t]*>",
-                line,
-                re.IGNORECASE,
-            ):
-                html_closing_tag = ""
-            continue
-        if html_until_blank:
-            if not line.strip():
-                html_until_blank = False
-            continue
-        if COMMENT_BLOCK.match(line):
-            in_comment = "-->" not in line
-            paragraph_open = False
-            continue
-        literal_html = next(
-            (
-                (match, terminator)
-                for opener, terminator in LITERAL_HTML_BLOCKS
-                if (match := opener.match(line))
-            ),
-            None,
-        )
-        if literal_html:
-            match, terminator = literal_html
-            if terminator not in line[match.end() :]:
-                html_terminator = terminator
-            paragraph_open = False
-            continue
-        close_delimited_html = RAW_HTML_UNTIL_CLOSE.match(line)
-        if close_delimited_html:
-            tag = close_delimited_html.group(1)
-            if not re.search(rf"</{tag}[ \t]*>", line, re.IGNORECASE):
-                html_closing_tag = tag
-            paragraph_open = False
-            continue
-        if RAW_HTML_UNTIL_BLANK.match(line):
-            html_until_blank = True
-            paragraph_open = False
-            continue
-        if not line.strip():
-            paragraph_open = False
-            if found:
-                content.append(line)
-            continue
-        if not paragraph_open and RAW_HTML_COMPLETE_TAG.fullmatch(line):
-            html_until_blank = True
-            continue
-        fence = BACKTICK_FENCE.match(line) or TILDE_FENCE.match(line)
-        if fence:
-            marker = fence.group(1)
-            fence_character = marker[0]
-            fence_length = len(marker)
-            paragraph_open = False
-            continue
-
-        if ATX_HEADING.match(line):
-            paragraph_open = False
-            if H2.match(line):
-                if found:
-                    return "\n".join(content)
-                if DELIVERY_FRONTIER_H2.fullmatch(line):
-                    found = True
-            elif found:
-                content.append(line)
-            continue
-        if any(pattern.match(line) for pattern in PARAGRAPH_RESET_BLOCKS):
-            paragraph_open = False
-            if found:
-                content.append(line)
-            continue
-        if found:
-            content.append(line)
-        paragraph_open = True
-
-    return "\n".join(content) if found else None
 
 
 def field(text: str, label: str, source: Path, errors: list[str]) -> str:
@@ -331,15 +162,8 @@ def validate_ticket_origin(
     labels_path = repository.path / "docs" / "agents" / "triage-labels.md"
     tracker = read(tracker_path, errors)
     for heading in WORK_TRACKER_HEADINGS:
-        if heading == "## Delivery frontier":
-            continue
         if heading not in tracker:
             errors.append(f"{tracker_path} is missing {heading}")
-    frontier = delivery_frontier_content(tracker)
-    if frontier is None:
-        errors.append(f"{tracker_path} is missing ## Delivery frontier")
-    elif not frontier.strip():
-        errors.append(f"{tracker_path} Delivery frontier is empty")
     if not labels_path.is_file():
         errors.append(f"{repository.repository_id} has no Routing Label mapping")
 
