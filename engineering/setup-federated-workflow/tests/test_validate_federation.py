@@ -577,6 +577,136 @@ class ValidateFederationCliTests(unittest.TestCase):
             self.assertEqual("", result.stderr)
             self.assertEqual(0, result.returncode)
 
+    def test_recognizes_a_frontier_after_inline_code_containing_comment_syntax(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            home = root / "home"
+            home_identity = (
+                "home",
+                "git@example.test:group/home.git",
+                "main",
+            )
+            write_repository(
+                home,
+                *home_identity,
+                role="Home",
+                home=home_identity,
+                ticket_origin=True,
+                frontier_heading=(
+                    "Use `<!--` when documenting the literal delimiter.\n"
+                    "## Delivery frontier"
+                ),
+            )
+            (home / "CONTEXT-MAP.md").write_text(
+                "# Map\n\n## Contexts\n\n- None.\n\n"
+                "## External Systems\n\n- None.\n\n"
+                "## Relationships\n\n- None.\n"
+            )
+
+            result = run(
+                [
+                    sys.executable,
+                    str(SCRIPT),
+                    "--home",
+                    f"home={home}",
+                    "--ticket-origin",
+                    "home",
+                ],
+                root,
+            )
+
+            self.assertEqual("Federation valid: 1 home, 0 members\n", result.stdout)
+            self.assertEqual("", result.stderr)
+            self.assertEqual(0, result.returncode)
+
+    def test_recognizes_a_frontier_after_an_escaped_comment_opener(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            home = root / "home"
+            home_identity = (
+                "home",
+                "git@example.test:group/home.git",
+                "main",
+            )
+            write_repository(
+                home,
+                *home_identity,
+                role="Home",
+                home=home_identity,
+                ticket_origin=True,
+                frontier_heading=(
+                    "\\<!-- is escaped literal text.\n"
+                    "## Delivery frontier"
+                ),
+            )
+            (home / "CONTEXT-MAP.md").write_text(
+                "# Map\n\n## Contexts\n\n- None.\n\n"
+                "## External Systems\n\n- None.\n\n"
+                "## Relationships\n\n- None.\n"
+            )
+
+            result = run(
+                [
+                    sys.executable,
+                    str(SCRIPT),
+                    "--home",
+                    f"home={home}",
+                    "--ticket-origin",
+                    "home",
+                ],
+                root,
+            )
+
+            self.assertEqual("Federation valid: 1 home, 0 members\n", result.stdout)
+            self.assertEqual("", result.stderr)
+            self.assertEqual(0, result.returncode)
+
+    def test_rejects_a_delivery_frontier_heading_inside_raw_html(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            home = root / "home"
+            home_identity = (
+                "home",
+                "git@example.test:group/home.git",
+                "main",
+            )
+            write_repository(
+                home,
+                *home_identity,
+                role="Home",
+                home=home_identity,
+                ticket_origin=True,
+                frontier_heading=(
+                    "<div>\n"
+                    "## Delivery frontier\n"
+                    "Fake prose\n"
+                    "## Other\n"
+                    "</div>"
+                ),
+            )
+            (home / "CONTEXT-MAP.md").write_text(
+                "# Map\n\n## Contexts\n\n- None.\n\n"
+                "## External Systems\n\n- None.\n\n"
+                "## Relationships\n\n- None.\n"
+            )
+
+            result = run(
+                [
+                    sys.executable,
+                    str(SCRIPT),
+                    "--home",
+                    f"home={home}",
+                    "--ticket-origin",
+                    "home",
+                ],
+                root,
+            )
+
+            self.assertNotEqual(0, result.returncode)
+            self.assertIn("is missing ## Delivery frontier", result.stderr)
+
     def test_rejects_an_empty_delivery_frontier(self) -> None:
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)

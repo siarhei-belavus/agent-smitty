@@ -47,6 +47,20 @@ DELIVERY_FRONTIER_H2 = re.compile(
 )
 BACKTICK_FENCE = re.compile(r"^ {0,3}(`{3,})[^`]*$")
 TILDE_FENCE = re.compile(r"^ {0,3}(~{3,}).*$")
+COMMENT_BLOCK = re.compile(r"^ {0,3}<!--")
+RAW_HTML_UNTIL_CLOSE = re.compile(
+    r"^ {0,3}<(script|pre|style|textarea)(?:[ \t>]|$)",
+    re.IGNORECASE,
+)
+RAW_HTML_UNTIL_BLANK = re.compile(
+    r"^ {0,3}</?(?:address|article|aside|base|basefont|blockquote|body|"
+    r"caption|center|col|colgroup|dd|details|dialog|dir|div|dl|dt|"
+    r"fieldset|figcaption|figure|footer|form|frame|frameset|h[1-6]|head|"
+    r"header|hr|html|iframe|legend|li|link|main|menu|menuitem|nav|noframes|"
+    r"ol|optgroup|option|p|param|search|section|summary|table|tbody|td|tfoot|"
+    r"th|thead|title|tr|track|ul)(?:[ \t]+|/?>|$)",
+    re.IGNORECASE,
+)
 
 
 @dataclass(frozen=True)
@@ -76,35 +90,11 @@ def read(path: Path, errors: list[str]) -> str:
         return ""
 
 
-def without_html_comments(
-    line: str,
-    in_comment: bool,
-) -> tuple[str, bool, bool]:
-    comment_block_line = in_comment or bool(
-        re.match(r"^ {0,3}<!--", line)
-    )
-    visible = ""
-    remainder = line
-    while remainder:
-        if in_comment:
-            end = remainder.find("-->")
-            if end < 0:
-                return visible, True, comment_block_line
-            remainder = remainder[end + 3 :]
-            in_comment = False
-            continue
-        start = remainder.find("<!--")
-        if start < 0:
-            return visible + remainder, False, comment_block_line
-        visible += remainder[:start]
-        remainder = remainder[start + 4 :]
-        in_comment = True
-    return visible, in_comment, comment_block_line
-
-
 def delivery_frontier_content(markdown: str) -> str | None:
     """Return visible content under a real Delivery frontier H2."""
     in_comment = False
+    html_closing_tag = ""
+    html_until_blank = False
     fence_character = ""
     fence_length = 0
     found = False
@@ -121,11 +111,33 @@ def delivery_frontier_content(markdown: str) -> str | None:
                 fence_length = 0
             continue
 
-        visible, in_comment, comment_block_line = without_html_comments(
-            line,
-            in_comment,
-        )
-        if comment_block_line:
+        if in_comment:
+            if "-->" in line:
+                in_comment = False
+            continue
+        if html_closing_tag:
+            if re.search(
+                rf"</{re.escape(html_closing_tag)}[ \t]*>",
+                line,
+                re.IGNORECASE,
+            ):
+                html_closing_tag = ""
+            continue
+        if html_until_blank:
+            if not line.strip():
+                html_until_blank = False
+            continue
+        if COMMENT_BLOCK.match(line):
+            in_comment = "-->" not in line
+            continue
+        close_delimited_html = RAW_HTML_UNTIL_CLOSE.match(line)
+        if close_delimited_html:
+            tag = close_delimited_html.group(1)
+            if not re.search(rf"</{tag}[ \t]*>", line, re.IGNORECASE):
+                html_closing_tag = tag
+            continue
+        if RAW_HTML_UNTIL_BLANK.match(line):
+            html_until_blank = True
             continue
         fence = BACKTICK_FENCE.match(line) or TILDE_FENCE.match(line)
         if fence:
@@ -141,7 +153,7 @@ def delivery_frontier_content(markdown: str) -> str | None:
                 found = True
             continue
         if found:
-            content.append(visible)
+            content.append(line)
 
     return "\n".join(content) if found else None
 
