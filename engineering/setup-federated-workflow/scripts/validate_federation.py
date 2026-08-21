@@ -70,6 +70,18 @@ def read(path: Path, errors: list[str]) -> str:
         return ""
 
 
+def require_markers(
+    text: str,
+    markers: tuple[str, ...],
+    source: Path,
+    errors: list[str],
+) -> None:
+    lines = set(text.splitlines())
+    for marker in markers:
+        if marker not in lines:
+            errors.append(f"{source} is missing {marker}")
+
+
 def field(text: str, label: str, source: Path, errors: list[str]) -> str:
     match = re.search(FIELD.format(label=re.escape(label)), text)
     if not match:
@@ -99,9 +111,7 @@ def load_repository(
     code_host = read(code_host_path, errors)
     domain = read(domain_path, errors)
 
-    for heading in CODE_HOST_HEADINGS:
-        if heading not in code_host:
-            errors.append(f"{code_host_path} is missing {heading}")
+    require_markers(code_host, CODE_HOST_HEADINGS, code_host_path, errors)
 
     repository_id = field(code_host, "Repository ID", code_host_path, errors)
     remote = field(code_host, "Remote", code_host_path, errors)
@@ -161,9 +171,7 @@ def validate_ticket_origin(
     tracker_path = repository.path / "docs" / "agents" / "issue-tracker.md"
     labels_path = repository.path / "docs" / "agents" / "triage-labels.md"
     tracker = read(tracker_path, errors)
-    for heading in WORK_TRACKER_HEADINGS:
-        if heading not in tracker:
-            errors.append(f"{tracker_path} is missing {heading}")
+    require_markers(tracker, WORK_TRACKER_HEADINGS, tracker_path, errors)
     if not labels_path.is_file():
         errors.append(f"{repository.repository_id} has no Routing Label mapping")
 
@@ -255,9 +263,7 @@ def validate(arguments: argparse.Namespace) -> list[str]:
 
     map_path = home.path / "CONTEXT-MAP.md"
     context_map = read(map_path, errors)
-    for heading in MAP_HEADINGS:
-        if heading not in context_map:
-            errors.append(f"{map_path} is missing {heading}")
+    require_markers(context_map, MAP_HEADINGS, map_path, errors)
     if LOCAL_PATH.search(context_map):
         errors.append(f"{map_path} contains a machine-local path")
 

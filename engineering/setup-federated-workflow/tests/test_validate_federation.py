@@ -13,6 +13,19 @@ SCRIPT = (
     / "scripts"
     / "validate_federation.py"
 )
+REQUIRED_WORK_TRACKER_HEADINGS = (
+    "## Binding",
+    "## Ticket operations",
+    "## Routing",
+    "## Dependencies",
+    "## Claims",
+    "## Delivery frontier",
+    "## Coordination log",
+    "## Triage request surfaces",
+    "## Wayfinding operations",
+    "## Workflow Identity permissions",
+    "## Binding validation",
+)
 
 
 def run(command: list[str], cwd: Path) -> subprocess.CompletedProcess[str]:
@@ -52,8 +65,8 @@ def write_repository(
     role: str,
     home: tuple[str, str, str],
     ticket_origin: bool = False,
-    frontier_heading: str = "## Delivery frontier",
-    frontier_content: str = "Provider-specific ordinary instructions.",
+    work_tracker_headings: tuple[str, ...] = REQUIRED_WORK_TRACKER_HEADINGS,
+    work_tracker_section_content: str = "Provider-specific instructions.",
 ) -> None:
     root.mkdir()
     run_setup(["git", "init", "-b", base_branch], root)
@@ -94,13 +107,12 @@ def write_repository(
         f"- Home Base Branch: `{home_branch}`\n"
     )
     if ticket_origin:
+        work_tracker_sections = "\n\n".join(
+            f"{heading}\n\n{work_tracker_section_content}"
+            for heading in work_tracker_headings
+        )
         (root / "docs" / "agents" / "issue-tracker.md").write_text(
-            "# Work Tracker: GitLab\n\n"
-            "## Binding\n## Ticket operations\n## Routing\n## Dependencies\n"
-            f"## Claims\n{frontier_heading}\n\n{frontier_content}\n\n"
-            "## Coordination log\n"
-            "## Triage request surfaces\n## Wayfinding operations\n"
-            "## Workflow Identity permissions\n## Binding validation\n"
+            f"# Work Tracker: GitLab\n\n{work_tracker_sections}\n"
         )
         (root / "docs" / "agents" / "triage-labels.md").write_text(
             "# Routing Labels\n"
@@ -234,7 +246,55 @@ class ValidateFederationCliTests(unittest.TestCase):
                 result.stderr,
             )
 
-    def test_rejects_the_retired_delivery_dispatch_binding(self) -> None:
+    def test_requires_every_work_tracker_section(self) -> None:
+        for missing_heading in REQUIRED_WORK_TRACKER_HEADINGS:
+            with self.subTest(missing_heading=missing_heading):
+                with tempfile.TemporaryDirectory() as temp:
+                    root = Path(temp)
+                    home = root / "home"
+                    home_identity = (
+                        "home",
+                        "git@example.test:group/home.git",
+                        "main",
+                    )
+                    headings = tuple(
+                        heading
+                        for heading in REQUIRED_WORK_TRACKER_HEADINGS
+                        if heading != missing_heading
+                    )
+                    write_repository(
+                        home,
+                        *home_identity,
+                        role="Home",
+                        home=home_identity,
+                        ticket_origin=True,
+                        work_tracker_headings=headings,
+                    )
+                    (home / "CONTEXT-MAP.md").write_text(
+                        "# Map\n\n## Contexts\n\n- None.\n\n"
+                        "## External Systems\n\n- None.\n\n"
+                        "## Relationships\n\n- None.\n"
+                    )
+
+                    result = run(
+                        [
+                            sys.executable,
+                            str(SCRIPT),
+                            "--home",
+                            f"home={home}",
+                            "--ticket-origin",
+                            "home",
+                        ],
+                        root,
+                    )
+
+                    self.assertNotEqual(0, result.returncode)
+                    self.assertIn(
+                        f"is missing {missing_heading}",
+                        result.stderr,
+                    )
+
+    def test_does_not_interpret_work_tracker_prose(self) -> None:
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
             home = root / "home"
@@ -249,45 +309,9 @@ class ValidateFederationCliTests(unittest.TestCase):
                 role="Home",
                 home=home_identity,
                 ticket_origin=True,
-                frontier_heading="## Delivery dispatch",
-            )
-            (home / "CONTEXT-MAP.md").write_text(
-                "# Map\n\n## Contexts\n\n- None.\n\n"
-                "## External Systems\n\n- None.\n\n"
-                "## Relationships\n\n- None.\n"
-            )
-
-            result = run(
-                [
-                    sys.executable,
-                    str(SCRIPT),
-                    "--home",
-                    f"home={home}",
-                    "--ticket-origin",
-                    "home",
-                ],
-                root,
-            )
-
-            self.assertNotEqual(0, result.returncode)
-            self.assertIn("is missing ## Delivery frontier", result.stderr)
-
-    def test_does_not_interpret_delivery_frontier_prose(self) -> None:
-        with tempfile.TemporaryDirectory() as temp:
-            root = Path(temp)
-            home = root / "home"
-            home_identity = (
-                "home",
-                "git@example.test:group/home.git",
-                "main",
-            )
-            write_repository(
-                home,
-                *home_identity,
-                role="Home",
-                home=home_identity,
-                ticket_origin=True,
-                frontier_content="Provider-specific ordinary instructions.",
+                work_tracker_section_content=(
+                    "Provider-specific ordinary instructions."
+                ),
             )
             (home / "CONTEXT-MAP.md").write_text(
                 "# Map\n\n## Contexts\n\n- None.\n\n"
@@ -675,7 +699,6 @@ class ValidateFederationCliTests(unittest.TestCase):
                 role="Member",
                 home=home_identity,
                 ticket_origin=True,
-                frontier_content="Provider-specific ordinary instructions.",
             )
             (member / "CONTEXT.md").write_text("# Member Context\n")
             (home / "CONTEXT-MAP.md").write_text(
