@@ -29,6 +29,8 @@ For a single repository without federation, research only that repository. For E
 
 Read [provider binding contracts](../federated-workflow/PROVIDER-BINDINGS.md). Inspect repository identity, remote, Base Branch, instructions, existing bindings, maps, canonical contexts, ADRs, CI/deployment evidence, provider capabilities, and user changes.
 
+Establish **target-format awareness** for every human-facing provider field the workflow may write. Determine the field's actual storage and rendering format from provider documentation, API metadata, and representative existing artifacts. Distinguish formats such as Markdown dialects, provider-native wiki markup, structured document JSON, HTML, and plain text instead of inferring Markdown from a string-valued API field or from a workflow template. Record the native syntax, escaping rules, field-specific differences, and a non-destructive rendering-validation method in the repository-owned provider binding.
+
 Research is complete when the selected branch has evidence for every required artifact and decision: repository-owned provider and Domain Orientation bindings for the single-repository branch; full proposed topology, context ownership, participation, relationships, External Systems, and Ticket Origin roles for Establish or Join.
 
 ### 3. Obtain branch authority
@@ -41,7 +43,7 @@ Confirmation is complete when the human has accepted every item required by the 
 
 ### 4. Draft and preflight every write
 
-Draft final content against the loaded provider and domain contracts. Preserve compatible files and patch the smallest coherent sections; never regenerate an existing file merely because its layout differs.
+Draft final content against the loaded provider and domain contracts. Preserve compatible files and patch the smallest coherent sections; never regenerate an existing file merely because its layout differs. Treat workflow templates as semantic shapes and render each provider-bound field in its configured native format. Translate headings, lists, links, code, tables, and placeholders before constructing the API payload. The draft is incomplete while it contains unsupported source markup or lacks a way to verify the target rendering.
 
 Run the [complete read-only preflight](references/preflight-and-validation.md#complete-read-only-preflight) against every target. Begin confirmation only after the gate passes.
 
@@ -57,4 +59,4 @@ Application writes validated checkouts in place and leaves changes uncommitted. 
 
 ### 7. Validate current truth
 
-After application, spawn a fresh validation subagent to execute the selected branch under [result validation](references/preflight-and-validation.md#result-validation).
+After application, spawn a fresh validation subagent to execute the selected branch under [result validation](references/preflight-and-validation.md#result-validation). Confirm that every provider binding records the native formats of fields the workflow writes and that representative structured content renders as intended without a mutating probe.
