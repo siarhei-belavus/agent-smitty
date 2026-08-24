@@ -6,7 +6,7 @@ A UI prototype is much easier to judge when it's **butting up against the rest o
 
 ### Sub-shape A — adjustment to an existing page (preferred)
 
-The route already exists. Render variants **on the same route**, gated by a `?variant=` URL search param. Keep the existing data fetching, params, and auth; swap only the rendering. Default to this sub-shape unless a specific constraint rules it out.
+The route already exists. Variants are rendered **on the same route**, gated by a `?variant=` URL search param. The existing data fetching, params, and auth all stay — only the rendering swaps. This is the default; pick it unless there's a specific reason not to.
 
 If the prototype is for something that doesn't yet have a page but *would naturally live inside one* (a new section of the dashboard, a new card on the settings screen, a new step in an existing flow) — that's still sub-shape A. Mount the variants inside the host page.
 
@@ -14,7 +14,7 @@ If the prototype is for something that doesn't yet have a page but *would natura
 
 Only use this when the thing being prototyped genuinely has no existing page to live inside — e.g. an entirely new top-level surface, or a flow that can't be embedded anywhere sensible.
 
-Mount the variants on a dedicated route with the same `?variant=` pattern.
+Create a **throwaway route** that follows the project's routing convention rather than inventing a new top-level structure. Include `prototype` in its path or filename so its status is obvious. Use the same `?variant=` pattern.
 
 Before committing to sub-shape B, sanity-check: is there really no existing page this could be embedded in? An empty route hides design problems that a populated one would expose.
 
@@ -84,13 +84,14 @@ Surface the URL (and the `?variant=` keys). The user will flip through whenever 
 
 ### 6. Fold in the winner
 
-Once a variant has won, fold it into the real code:
+Once a variant has won, record which variant won and why. Fold it into the real code, then remove the prototype-only code from main:
 
-- **Sub-shape A** — replace the existing page rendering with the winner.
-- **Sub-shape B** — promote the winner to a real route.
+- **Sub-shape A** — replace the existing page rendering with the winner; drop the losing variants and switcher.
+- **Sub-shape B** — promote the winner to a real route; drop the throwaway route and switcher.
 
 ## Anti-patterns
 
 - **Variants that differ only in colour or copy.** That's a tweak, not a prototype. Real variants disagree about structure.
 - **Sharing too much code between variants.** A shared `<Header>` is fine; a shared `<Layout>` defeats the point. Each variant should be free to throw out the layout.
 - **Wiring variants to real mutations.** Read-only prototypes are fine. If a variant needs to mutate, point it at a stub — the question is "what should this look like", not "does the backend work".
+- **Promoting the prototype directly to production.** The variant code was written under prototype constraints (no tests, minimal error handling). Rewrite it properly when you fold it in.

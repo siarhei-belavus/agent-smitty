@@ -17,7 +17,7 @@ Use the test seams and approaches recorded in the supplied specification, ticket
 
 For standalone TDD without a confirmed test-seam set, identify the complete set of existing, changed, and new seams the requested behavior spans. If materially different caller-facing seams remain possible, use `codebase-design` before proposing the set. For each seam, also propose its test approach using the repository's test architecture. Ask the user to confirm the complete set and proposed approaches once; that confirmation governs the TDD run.
 
-Treat the repository's existing test suites, commands, harnesses, fixtures, and naming as its **test architecture**. For each test seam, use its recorded approach; if none is recorded, find the nearest prior art and choose the smallest repository-native approach. Extend the existing approach; a new one earns its place only when the test architecture cannot exercise the behavior, with the gap stated explicitly.
+Treat the repository's existing test suites, commands, harnesses, fixtures, and naming as its **test architecture**. For each test seam, use its recorded approach; if none is recorded, find the nearest prior art and choose the smallest repository-native approach that **faithfully** exercises the behavior through that seam. Extend the existing approach; a new one earns its place only when the test architecture cannot exercise the behavior, with the gap stated explicitly.
 
 Before writing tests, record which seams and test approaches are under test. Test only through those seams.
 

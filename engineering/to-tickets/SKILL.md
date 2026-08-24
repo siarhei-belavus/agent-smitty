@@ -9,16 +9,17 @@ disable-model-invocation: true
 Break a plan, spec, or conversation into a set of **tickets** — tracer-bullet vertical slices, each declaring the tickets that **block** it.
 
 Read [planning artifact contracts](../federated-workflow/PLANNING-ARTIFACTS.md) first.
+Use the configured Work Tracker, Routing Label mapping, and Domain Orientation when their bindings exist; preserve standalone Local Markdown behavior when they do not.
 
 ## Process
 
 ### 1. Gather context
 
-Work from whatever is already in the conversation context. If the user passes a reference (a spec path, Work Tracker item, or URL) as an argument, fetch it and read its full body and comments.
+Work from whatever is already in the conversation context. If the user passes a reference (a spec path, Work Tracker item, or URL) as an argument, fetch it and read its full body and comments. Accepted planning Resolutions, Domain Model Deltas, and architecture decisions are authoritative source payloads, not background summaries.
 
 ### 2. Explore the codebase (optional)
 
-If needed, inspect the current code to resolve source pointers and apply the project's domain glossary and ADRs.
+If needed, inspect the current code only to understand and faithfully narrow the accepted source authority. Ticket titles and descriptions should use the project's domain glossary vocabulary and respect ADRs in the area you're touching. This transformation must not discover or introduce a new implementation decision, seam, repository, validation method, or refactor; return an insufficient source to clarification or planning.
 
 ### 3. Draft vertical slices
 
@@ -29,11 +30,20 @@ Break the work into **tracer bullet** tickets.
 - Each slice cuts a narrow but COMPLETE path through every layer (schema, API, UI, tests) — vertical, NOT a horizontal slice of one layer
 - A completed slice is demoable or verifiable on its own
 - Each slice is sized to fit in a single fresh context window
+- Carry every source Implementation Decision and architecture decision relevant to the slice inside What to build
+- Carry every source Testing Decision relevant to the slice, including its settled seams, selected test approaches, and nearest prior art
 </vertical-slice-rules>
 
 Give each ticket its **blocking edges** — the other tickets that must complete before it can start. A ticket with no blockers can start immediately.
 
-For each proposed slice, instantiate the loaded planning records, then run Source authority and Composition invariants as its preflight. If either fails, return to clarification or planning instead of publishing the ticket.
+For each proposed slice, derive the complete executable contract from its source:
+
+- narrow Repository References to the minimal complete set;
+- give Repository Scope a non-empty writable subset of Repository References;
+- narrow Context Scope without reducing any relevant Domain Model Delta; and
+- copy every created, changed, or materially relied-on cross-repository Settled Seam from Testing Decisions.
+
+Run the loaded Source authority and Composition invariants as a preflight. If either fails, return to clarification or planning instead of publishing the ticket.
 
 **Wide refactors are the exception to vertical slicing.** A **wide refactor** is one mechanical change — rename a column, retype a shared symbol — whose **blast radius** fans across the whole codebase, so no independently green vertical slice can contain it. Sequence the migration as a coordinated cutover: divide mechanical work into batches sized by blast radius (per package, per directory) on an integration branch, then block one final integrate-and-verify ticket on every batch. Individual batches may be temporarily red; the final ticket establishes the single new form and restores green CI. Carry an old and new form together only when the source specification explicitly records approved external compatibility and its removal condition.
 
@@ -71,7 +81,7 @@ Do NOT close or modify any parent issue.
 
 ## What to build
 
-<end-to-end behaviour and relevant implementation and architecture decisions, not a layer-by-layer edit list>
+<the end-to-end behaviour this ticket makes work, plus complete relevant source-authorized implementation and architecture decisions, not a layer-by-layer edit list>
 
 ## Acceptance criteria
 

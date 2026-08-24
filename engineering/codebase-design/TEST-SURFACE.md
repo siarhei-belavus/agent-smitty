@@ -2,7 +2,7 @@
 
 Read [module vocabulary](MODULE-VOCABULARY.md) before applying this contract.
 
-Exercise a module only through its interface at its seam. Assert behavior observable to a caller, not private state, internal ports, collaborator calls, call sequences, or implementation structure. Tests must survive changes to private decomposition.
+Exercise a module only through its interface at its seam. Assert behavior observable to a caller, not private state, internal ports, collaborator calls, call sequences, or implementation structure. A good test reads like a specification and survives changes to private decomposition.
 
 Acceptance criteria, domain invariants, and credible failures determine the required cases. A past bug may motivate a regression test, but the test names and asserts the behavior that must hold rather than the historical implementation mistake.
 

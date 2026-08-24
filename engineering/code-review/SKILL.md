@@ -1,6 +1,6 @@
 ---
 name: code-review
-description: Review a branch, PR, commit, or worktree against repository standards, supplied requirements, or both, including multi-repository reviews.
+description: Review fixed Repository Targets. Use when the user asks to review a branch, PR, committed delivery, or worktree; asks for a multi-repository Delivery Bundle review; or asks for Standards-only or Spec-only review.
 ---
 
 Review committed or worktree changes since fixed points without modifying the reviewed repositories or external collaboration state.
@@ -72,7 +72,7 @@ For each target, read that repository's instructions and documented standards. A
 - **Middle Man** — a module mostly delegates without adding depth.
 - **Refused Bequest** — an inheritor ignores most of its inherited contract.
 
-Determine per target whether the change introduces or reshapes a module, interface, seam, adapter, logical ownership, physical decomposition, or contract. When it does, require the Standards review to read the `codebase-design` skill in full and apply its deletion test and proportional-design rules.
+Determine per target whether the change introduces or reshapes a module, interface, seam, adapter, logical ownership, physical decomposition, or contract. When it does, require the Standards Reviewer to read the `codebase-design` skill in full and apply its deletion test and proportional-design rules.
 
 Route requirement or settled-decision violations to Spec. Route structural and change-pressure findings to Standards.
 
@@ -100,7 +100,7 @@ When Spec is selected, report the whole-bundle result once:
 
 Omit the unselected axis entirely. When both are selected, do not merge, reclassify, or rerank the axes. End with Blocking and Advisory counts and the highest-severity finding within each selected result when present.
 
-Report findings and evidence only.
+Publish no branch, create or update no Review Proposal, and change no Work Tracker state. Report findings and evidence only.
 
 ## Evidence freshness
 

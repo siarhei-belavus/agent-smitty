@@ -60,11 +60,11 @@ Keep the state model and actions in plain JavaScript inside one HTML file. The p
 3. **Free-play controls**, one button per action, always available.
 4. **Guided scenarios**, one tab per awkward case. Starting a scenario resets to a known initial state, then presents its real action buttons in order so the same case can be replayed.
 
-Choose scenarios that expose the happy path, a hard edge case, and an action that should be illegal. Keep the page restrained so the state and controls carry the prototype.
+Choose scenarios that expose the happy path, a hard edge case, and an action that should be illegal. Keep the page restrained so the state and controls carry the prototype. Do not add a framework, server, build step, or animation.
 
 ### 6. Hand it over
 
-Expose a terminal prototype through the project's task runner. Give a clear filename and direct-open path for HTML. Add actions or scenarios as feedback sharpens the question.
+Expose a terminal prototype through the project's task runner. If the project has no task runner, put the run command at the top of the prototype's README. For HTML, give the file a clear name and direct-open path. Give the user the run command or HTML file. Add actions or scenarios as feedback sharpens the question.
 
 ## Anti-patterns
 

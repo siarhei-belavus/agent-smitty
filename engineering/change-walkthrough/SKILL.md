@@ -67,6 +67,10 @@ This step is complete when every top-level scenario is accounted for by the summ
 
 Render the scenario map, then exactly one logical step per response through [FORMAT.md](FORMAT.md). Supply the step's role, control or data flow, exact source location, supporting locations, and test evidence. Interpret the rendered `deeper`, `next`, and `back to the map` choices as navigation state transitions.
 
+- **Deeper** zooms into the current step through its callers, implementation, tests, history, or supporting diff.
+- **Next** moves to the next step while retaining the breadcrumb.
+- **Back to the map** restores the scenario or atlas view.
+
 The walkthrough is a guide, not an examination: navigation never requires the human to approve the design or prove understanding.
 
 When discussion meets the Follow-up candidate conditions in [FORMAT.md](FORMAT.md), trace the concern to exact code, authority, or observable behaviour, then:

@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # Triage
 
-Move requests through a small state machine of triage roles. Read [planning artifact contracts](../federated-workflow/PLANNING-ARTIFACTS.md) before acting.
+Move requests through a small state machine of triage roles. Read [planning artifact contracts](../federated-workflow/PLANNING-ARTIFACTS.md) before acting. Preserve standalone behavior when the configured Work Tracker or Domain Orientation bindings do not exist.
 
 If this repository treats external Review Proposals as a request surface (see the Work Tracker binding), triage applies the same roles and states to those proposals, with the differences marked below. Resolve a bare `#42` through the configured binding rather than Git-remote inference.
 
@@ -67,7 +67,7 @@ Show counts and a one-line summary per item. Let the maintainer pick.
 
 ## Triage a specific request or Review Proposal
 
-1. **Gather context.** Read the full request or Review Proposal (body, comments, Routing Labels, author, dates; for a proposal, the diff too). Parse prior triage notes so you don't re-ask resolved questions. Perform configured Domain Orientation before exploring canonical contexts, accepted Domain Model Deltas, ADRs, and code in the referenced repositories. Run two checks: (a) **redundancy** — search for an existing implementation by domain concept and report where you looked; if found, classify it as already-implemented `wontfix` in step 5. (b) **prior rejection** — run [out-of-scope matching](OUT-OF-SCOPE.md#match-a-record).
+1. **Gather context.** Read the full request or Review Proposal (body, comments, Routing Labels, author, dates; for a proposal, the diff too). Parse prior triage notes so you don't re-ask resolved questions. Perform configured Domain Orientation before exploring canonical contexts, accepted Domain Model Deltas, ADRs, and code in the referenced repositories. Run two checks: (a) **redundancy** — search the codebase for an existing implementation of the requested behavior by domain concept, not just the request's wording, and report where you looked; if found, classify it as already-implemented `wontfix` in step 5. (b) **prior rejection** — run [out-of-scope matching](OUT-OF-SCOPE.md#match-a-record).
 
 2. **Recommend.** Tell the maintainer your category and state recommendation with reasoning, plus a brief codebase summary relevant to the request — including whether it's already implemented. Wait for direction.
 

@@ -2,7 +2,7 @@
 
 ## Match a record
 
-Match requests by concept, not keyword. For example, "night theme" matches `dark-mode.md`. Return the matching record and its prior reasoning to triage.
+During triage, read every file in `.out-of-scope/`. Match requests by concept, not keyword. For example, "night theme" matches `dark-mode.md`. Surface the matching record and its prior reasoning, then ask the maintainer whether the recorded decision still holds.
 
 ## Directory structure
 
@@ -72,4 +72,4 @@ When triage selects rejected-enhancement recording, append the request under `Pr
 
 ## Updating or removing out-of-scope files
 
-When the recorded decision changes, update or delete its concept file. Historical request transitions remain outside the record.
+When the recorded decision changes, update or delete its concept file. Do not reopen old issues; they are historical records. The request that triggered reconsideration proceeds through normal triage.

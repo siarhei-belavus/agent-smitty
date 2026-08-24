@@ -5,7 +5,7 @@ description: Design deep modules proportionally. Use when the user wants to desi
 
 # Codebase Design
 
-Design **deep modules**: a lot of behaviour behind a small interface, placed at a clean seam. Use this language and these principles wherever code is being designed or restructured. The aim is leverage for callers, locality for maintainers, and testability for everyone.
+Design **deep modules**: a lot of behaviour behind a small interface, placed at a clean seam, testable through that interface. Use this language and these principles wherever code is being designed or restructured. The aim is leverage for callers, locality for maintainers, and testability for everyone.
 
 Load [module vocabulary](MODULE-VOCABULARY.md) and [TEST-SURFACE.md](TEST-SURFACE.md) before applying the design rules.
 
@@ -109,7 +109,7 @@ Good interfaces make testing natural:
    }
    ```
 
-2. **Make observable behavior explicit.** Return results for computation and declare domain effects in the interface contract.
+2. **Make observable behavior explicit.** Return results when the module's purpose is computation. When its domain purpose is an effect, make that effect explicit in the interface contract and observable at its declared external boundary.
 
    ```typescript
    // Testable
@@ -125,7 +125,7 @@ Good interfaces make testing natural:
 
 ## Relationships
 
-- A **Module** has exactly one **Interface** (the surface it presents to callers).
+- A **Module** has exactly one **Interface** (the surface it presents to callers and tests).
 - **Depth** is a property of a **Module**, measured against its **Interface**.
 - An **Adapter** sits at a **Seam** and satisfies the **Interface**.
 - **Depth** produces **Leverage** for callers and **Locality** for maintainers.

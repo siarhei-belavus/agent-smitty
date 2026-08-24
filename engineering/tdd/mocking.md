@@ -9,7 +9,26 @@ Choose a mock only for these external dependencies:
 
 ## Test-double shape
 
-Prefer SDK-style interfaces over generic fetchers.
+At external boundaries, design interfaces that are easy to mock.
+
+### Use dependency injection
+
+Pass external dependencies in rather than creating them internally:
+
+```typescript
+// Easy to mock
+function processPayment(order, paymentClient) {
+  return paymentClient.charge(order.total);
+}
+
+// Hard to mock
+function processPayment(order) {
+  const client = new StripeClient(process.env.STRIPE_KEY);
+  return client.charge(order.total);
+}
+```
+
+### Prefer SDK-style interfaces over generic fetchers
 
 Create specific functions for each external operation instead of one generic function with conditional logic:
 
@@ -27,7 +46,7 @@ const api = {
 };
 ```
 
-Require each test double to remain specific:
+The SDK approach means:
 
 - Each mock returns one specific shape
 - No conditional logic in test setup

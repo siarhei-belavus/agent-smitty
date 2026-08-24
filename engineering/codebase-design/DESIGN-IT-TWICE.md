@@ -4,13 +4,13 @@
 
 ### 1. Frame the problem space
 
-Frame the chosen candidate before dispatch:
+Before spawning sub-agents, write a user-facing explanation of the problem space for the chosen candidate:
 
 - The constraints any new interface would need to satisfy
 - The dependencies it would rely on, and which category they fall into (see [DEEPENING.md](DEEPENING.md))
 - A rough illustrative code sketch to ground the constraints — not a proposal, just a way to make the constraints concrete
 
-Show the frame, then proceed immediately to dispatch.
+Show this to the user, then immediately proceed to Step 2.
 
 ### 2. Spawn sub-agents
 

@@ -2,6 +2,8 @@
 
 The architectural review is rendered as a single self-contained HTML file in the OS temp directory. Tailwind and Mermaid both come from CDNs. Mermaid handles graph-shaped diagrams reliably; hand-built divs and inline SVG handle the more editorial visuals (mass diagrams, cross-sections). Mix the two — don't lean on Mermaid for everything, it'll start to look generic.
 
+Resolve the temp dir from `$TMPDIR`, falling back to `/tmp` or `%TEMP%` on Windows, and write to `<tmpdir>/architecture-review-<timestamp>.html` so each run gets a fresh file. Open it for the user with `xdg-open <path>` on Linux, `open <path>` on macOS, or `start <path>` on Windows, then tell them the absolute path.
+
 ## Scaffold
 
 ```html
@@ -49,7 +51,7 @@ Each candidate is one `<article>`:
 - **Before / After diagram** — the centrepiece. Two columns, side by side. See patterns below.
 - **Problem** — one sentence. What hurts.
 - **Solution** — one sentence. What changes.
-- **Wins** — bullets, ≤6 words each, using leading words such as `locality`, `leverage`, and `interface`.
+- **Wins** — bullets, ≤6 words each, using the concrete glossary-shaped examples under [Tone](#tone).
 - **ADR callout** (if applicable) — one line in an amber-tinted box.
 
 No paragraphs of explanation. If the diagram needs a paragraph to be understood, redraw the diagram.
@@ -81,11 +83,11 @@ Modules as `<div>`s with borders and labels. Arrows as inline SVG `<line>` or `<
 
 ### Cross-section
 
-Stack horizontal bands (`h-12 border-l-4`) to render the before/after module depth.
+Stack horizontal bands (`h-12 border-l-4`) to show layers a call passes through. Before: 6 thin layers each doing nothing. After: 1 thick band labelled with the consolidated responsibility.
 
 ### Mass diagram
 
-Use contrasting rectangles for interface and implementation to render depth.
+Two rectangles per module — one for interface surface area, one for implementation. Before: interface rectangle is nearly as tall as the implementation rectangle (shallow). After: interface rectangle is short, implementation rectangle is tall (deep).
 
 ### Call-graph collapse
 
@@ -97,7 +99,7 @@ Before: a tree of function calls rendered as nested boxes. After: the same tree 
 - Colour sparingly: one accent (emerald or indigo) plus red for leakage and amber for warnings.
 - Keep diagrams ~320px tall so before/after sits comfortably side by side without scrolling.
 - Use `text-xs uppercase tracking-wider` for module labels inside diagrams — they should read as schematic, not as UI.
-- Use only the Tailwind CDN and Mermaid ESM scripts. Keep the report static, with no app code or interactivity beyond Mermaid rendering.
+- The only scripts are the Tailwind CDN and the Mermaid ESM import. The report is otherwise static — no app code, no interactivity beyond Mermaid's own rendering.
 
 ## Top recommendation section
 
@@ -105,17 +107,21 @@ One larger card. Candidate name, one sentence on why, anchor link to its card. T
 
 ## Tone
 
+Plain English, concise — but the architecture and domain vocabulary do not drift. Use the project's domain glossary for concept names. If it defines "Order", write "the Order intake module", not "the FooBarHandler" or "the Order service".
+
 **Use exactly:** module, interface, implementation, depth, deep, shallow, seam, adapter, leverage, locality.
 
 **Never substitute:** component, service, unit (for module) · API, signature (for interface) · boundary (for seam) · layer, wrapper (for module, when you mean module).
 
 **Phrasings that fit the style:**
 
-- "Order intake: shallow."
-- "Pricing: seam leakage."
-- "Deepening candidate: Order intake."
-- "Adapters: HTTP, in-memory."
+- "Order intake module is shallow — interface nearly matches the implementation."
+- "Pricing leaks across the seam."
+- "Deepen: one interface, one place to test."
+- "Two adapters justify the seam: HTTP in prod, in-memory in tests."
 
-**Wins bullets** use the glossary leading words: *locality*, *leverage*, *interface*, *implementation*. Don't write *"easier to maintain"* or *"cleaner code"*.
+**Wins bullets** name the gain in glossary terms: *"locality: bugs concentrate in one module"*, *"leverage: one interface, N call sites"*, *"interface shrinks; implementation absorbs the wrappers"*. Don't write *"easier to maintain"* or *"cleaner code"*.
+
+If a candidate contradicts an existing ADR, surface it only when the friction is real enough to warrant revisiting the ADR. Mark it clearly in the card and say why it is worth reopening.
 
 No hedging, no throat-clearing, no "it's worth noting that…". If a sentence could be a bullet, make it a bullet. If a bullet could be cut, cut it. If a term isn't in the `codebase-design` glossary, reach for one that is before inventing a new one.

@@ -5,7 +5,7 @@ description: Build and sharpen a project's domain model, returning complete Doma
 
 # Domain Modeling
 
-Actively sharpen the project's domain model by challenging terms, probing edge cases, and recording confirmed glossary and architecture changes. Merely reading `CONTEXT.md` for vocabulary does not invoke domain modeling.
+Actively build and sharpen the project's domain model as you design. This is the *active* discipline: challenge terms, invent edge-case scenarios, and write the glossary and decisions down the moment they crystallise. Merely reading `CONTEXT.md` for vocabulary does not invoke domain modeling.
 
 ## Orient before modeling
 
@@ -18,7 +18,7 @@ Follow Repository-qualified Context Pointers through the configured portable rep
 Every human-confirmed change produces a complete [Domain Model Delta](DOMAIN-MODEL-DELTA.md) immediately. Do not batch confirmed results or reduce them to reminders.
 
 - An explicit standalone invocation grants canonical capture by default: apply each confirmed delta immediately to its routed `CONTEXT.md`, `CONTEXT-MAP.md`, or ADR owner unless the user asks for discussion only.
-- A composed or automatic use includes each delta in its result without writing canonical artifacts or selecting a planning persistence destination. It may apply a delta only when explicitly granted canonical capture.
+- A composed or model-invoked use returns each delta as output without writing canonical artifacts or selecting a planning persistence destination. It may apply a delta only when explicitly granted canonical capture.
 
 Capture authority changes only the destination, never the modeling depth or delta contents.
 
@@ -46,9 +46,9 @@ When domain relationships are being discussed, stress-test them with specific sc
 
 When the user states how something works, check whether the code agrees. If you find a contradiction, surface it: "Your code cancels entire Orders, but you just said partial cancellation is possible — which is right?"
 
-### Capture resolved language
+### Capture resolved language immediately
 
-Apply [Output and capture authority](#output-and-capture-authority) to each resolved term. Format a routed glossary update with [CONTEXT-FORMAT.md](./CONTEXT-FORMAT.md).
+Emit each resolved term's complete Domain Model Delta immediately. Apply [Output and capture authority](#output-and-capture-authority), and format a routed glossary update with [CONTEXT-FORMAT.md](./CONTEXT-FORMAT.md).
 
 ### Offer ADRs sparingly
 

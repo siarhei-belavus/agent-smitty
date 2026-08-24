@@ -33,7 +33,7 @@ Implementation starts from complete ticket authority, whether the ticket changes
 
 A starting situation that generates work, then merges onto the main flow.
 
-- **Bugs and requests piling up** → **`triage`**. It moves issues through triage roles and produces agent-ready issues for a later `coordinate-delivery` run.
+- **Bugs and requests piling up** → **`triage`**. It moves issues through triage roles and produces agent-ready issues for a separately invoked `coordinate-delivery` run.
 
   Triage is only for issues **you didn't create** — bug reports, incoming feature requests, anything that arrives raw. Tickets that `to-tickets` produced are already agent-ready, so **don't triage them**.
 
@@ -45,7 +45,7 @@ A starting situation that generates work, then merges onto the main flow.
 
 Not feature work — upkeep.
 
-- **`improve-codebase-architecture`** — survey the codebase for a candidate to take into the main flow at `grill-with-docs`.
+- **`improve-codebase-architecture`** — run whenever you have a spare moment to keep the codebase good for agents to operate in. It surfaces **deepening opportunities**; picking one _generates an idea_ you can take into the main flow at `grill-with-docs`. The survey finds the candidates; **`codebase-design`** designs the selected one.
 
 ## Phase boundaries
 

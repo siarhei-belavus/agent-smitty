@@ -1,6 +1,6 @@
 ---
 name: implement
-description: "Implement changes from authoritative specs or tickets, either standalone or as one repository assignment in a coordinated delivery."
+description: "Implement repository deliveries from authoritative specs or tickets. Use for standalone implementation and for one repository delivery narrowed by coordinate-delivery."
 ---
 
 Implement the work described by the user in the authoritative spec or tickets.

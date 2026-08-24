@@ -14,7 +14,7 @@ Use repository-owned bindings for every provider operation. Persist no provider 
 
 ## 1. Establish activation authority
 
-Resolve tickets only through the configured Ticket Origin Repository. Read its `AGENTS.md`, Work Tracker, Routing Label, and Code Host bindings before selecting a ticket.
+Resolve tickets only through the configured Ticket Origin Repository. Read its `AGENTS.md`, Work Tracker, Routing Label, Domain Orientation, and Code Host bindings before selecting a ticket.
 
 Choose one activation ticket. With a supplied reference, resolve exactly that ticket and never substitute another. Without a reference, read the Work Tracker's ordinary Markdown `## Delivery frontier` instructions and query the configured tracker. Authoritatively re-read every candidate's ticket, Routing Labels, assignees, and dependencies before deciding eligibility. Keep open, unblocked, unassigned tickets carrying exactly `ready-for-agent`, then order them as the binding says. If no eligible ticket remains, finish successfully without creating a bundle or changing provider state.
 
