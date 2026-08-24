@@ -1,6 +1,6 @@
 # Execution preparation
 
-An authorized preserved worktree may remain in a legacy location. Reuse it after identity and provenance validation rather than moving or duplicating it.
+A provenance-verified existing Execution Worktree remains assigned to its Repository Delivery regardless of its location. Apply root resolution only when creating a new worktree.
 
 For each new Execution Worktree, use an absolute destination explicitly supplied by the execution host. Otherwise resolve one persistent root in this order:
 
