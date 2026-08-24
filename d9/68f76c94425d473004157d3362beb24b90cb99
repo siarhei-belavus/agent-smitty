@@ -1,0 +1,29 @@
+skills/matt/engineering/codebase-design/SKILL.md
+  s_4279ed1f1cac82::t_77ac65211aab4c 10
+skills/matt/engineering/codebase-design/MODULE-VOCABULARY.md
+  s_4279ed1f1cac82::t_77ac65211aab4c 1-9
+skills/matt/engineering/federated-workflow/DELIVERY-RECORDS.md
+  s_4279ed1f1cac82::t_77ac65211aab4c 3,23
+skills/matt/engineering/wayfinder/SKILL.md
+  s_4279ed1f1cac82::t_77ac65211aab4c 27
+skills/matt/engineering/tdd/SKILL.md
+  s_4279ed1f1cac82::t_77ac65211aab4c 8
+skills/matt/engineering/codebase-design/TEST-SURFACE.md
+  s_4279ed1f1cac82::t_77ac65211aab4c 3-4
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "d968f76c94425d473004157d3362beb24b90cb99",
+  "prompts": {},
+  "sessions": {
+    "s_4279ed1f1cac82": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a02578-001b-75c2-b40f-bd48c20f5f55",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
