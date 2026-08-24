@@ -1,0 +1,79 @@
+skills/matt/engineering/domain-modeling/SKILL.md
+  s_4279ed1f1cac82::t_f9d20a6d2106f1 8,21,49,51
+skills/matt/engineering/codebase-design/SKILL.md
+  s_4279ed1f1cac82::t_a286b095b9bfa3 8,112,128
+skills/matt/engineering/codebase-design/MODULE-VOCABULARY.md
+  s_4279ed1f1cac82::t_9d8bdb37f2a814 7
+skills/matt/engineering/code-review/SKILL.md
+  s_4279ed1f1cac82::t_f604bf7f9bcf29 3,75,103
+skills/matt/engineering/improve-codebase-architecture/SKILL.md
+  s_4279ed1f1cac82::t_a286b095b9bfa3 9,25-28
+skills/matt/engineering/tdd/mocking.md
+  s_4279ed1f1cac82::t_9d8bdb37f2a814 12,14-17,31,49
+  s_4279ed1f1cac82::t_a286b095b9bfa3 13,18-30
+skills/matt/engineering/coordinate-delivery/HUMAN-BOUNDARY.md
+  s_4279ed1f1cac82::t_f604bf7f9bcf29 5
+skills/matt/engineering/triage/OUT-OF-SCOPE.md
+  s_4279ed1f1cac82::t_f604bf7f9bcf29 5,75
+skills/matt/engineering/change-walkthrough/SKILL.md
+  s_4279ed1f1cac82::t_c9d704b80df1c8 70-73
+skills/matt/engineering/codebase-design/DESIGN-IT-TWICE.md
+  s_4279ed1f1cac82::t_a286b095b9bfa3 7,13
+skills/matt/engineering/improve-codebase-architecture/HTML-REPORT.md
+  s_4279ed1f1cac82::t_9d8bdb37f2a814 5,90,102,110,125
+  s_4279ed1f1cac82::t_a286b095b9bfa3 6,54,86,111,118-123
+skills/matt/engineering/to-tickets/SKILL.md
+  s_4279ed1f1cac82::t_f9d20a6d2106f1 12,18,22,33-34,39-46,84
+skills/matt/engineering/prototype/LOGIC.md
+  s_4279ed1f1cac82::t_f1ea289bf70251 67
+  s_4279ed1f1cac82::t_c9d704b80df1c8 63
+skills/matt/engineering/setup-federated-workflow/references/preflight-and-validation.md
+  s_4279ed1f1cac82::t_f604bf7f9bcf29 10
+skills/matt/engineering/to-spec/SKILL.md
+  s_4279ed1f1cac82::t_637942f9d86c68 22,52,64
+  s_4279ed1f1cac82::t_f9d20a6d2106f1 10,28,56,75,83-88
+skills/matt/engineering/ask-matt/SKILL.md
+  s_4279ed1f1cac82::t_c9d704b80df1c8 36,48
+skills/matt/engineering/triage/SKILL.md
+  s_4279ed1f1cac82::t_f604bf7f9bcf29 9,70
+skills/matt/engineering/prototype/UI.md
+  s_4279ed1f1cac82::t_c9d704b80df1c8 17,87,89-90
+  s_4279ed1f1cac82::t_637942f9d86c68 97
+  s_4279ed1f1cac82::t_f1ea289bf70251 9
+skills/matt/engineering/domain-modeling/DOMAIN-MODEL-DELTA.md
+  s_4279ed1f1cac82::t_f9d20a6d2106f1 3
+skills/matt/engineering/tdd/SKILL.md
+  s_4279ed1f1cac82::t_a286b095b9bfa3 20
+skills/matt/engineering/diagnosing-bugs/SKILL.md
+  s_4279ed1f1cac82::t_2e9417beaea24e 81
+  s_4279ed1f1cac82::t_a286b095b9bfa3 22-23,39,45,94,96,104
+  s_4279ed1f1cac82::t_637942f9d86c68 80
+skills/matt/engineering/implement/SKILL.md
+  s_4279ed1f1cac82::t_f604bf7f9bcf29 3
+skills/matt/engineering/codebase-design/TEST-SURFACE.md
+  s_4279ed1f1cac82::t_a286b095b9bfa3 5
+skills/matt/engineering/coordinate-delivery/SKILL.md
+  s_4279ed1f1cac82::t_f604bf7f9bcf29 17
+skills/matt/engineering/wayfinder/SKILL.md
+  s_4279ed1f1cac82::t_f9d20a6d2106f1 9,94,134,138-139
+skills/matt/engineering/triage/AGENT-BRIEF.md
+  s_4279ed1f1cac82::t_f604bf7f9bcf29 3
+skills/matt/engineering/prototype/SKILL.md
+  s_4279ed1f1cac82::t_f1ea289bf70251 21
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "55577f5d38a3125253cd786dcdffe2533a58d324",
+  "prompts": {},
+  "sessions": {
+    "s_4279ed1f1cac82": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a02578-001b-75c2-b40f-bd48c20f5f55",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": null
+    }
+  }
+}
