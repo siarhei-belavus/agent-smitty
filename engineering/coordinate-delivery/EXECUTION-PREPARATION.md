@@ -1,8 +1,14 @@
 # Execution preparation
 
-The execution host supplies each exact worktree destination or one persistent worktree root plus a deterministic path mapping. The workflow defines no execution-root setting. When the host supplies a root, use `<root>/<ticket-origin-key>/<ticket-key>/<repository-key>`, with host-derived filesystem-safe keys for the Ticket Origin Repository ID, canonical ticket reference, and Repository ID. Reuse that mapping across Execution Attempts; an Execution Attempt ID never enters the path.
+An authorized preserved worktree may remain in a legacy location. Reuse it after identity and provenance validation rather than moving or duplicating it.
 
-An authorized preserved worktree may remain in a legacy location. Reuse it after identity and provenance validation rather than moving or duplicating it. When neither exact destinations nor a root and mapping are available, bounded host inspection ends in an [Environment Preparation Blocker](HUMAN-BOUNDARY.md) before local mutation.
+For each new Execution Worktree, use an absolute destination explicitly supplied by the execution host. Otherwise resolve one persistent root in this order:
+
+1. Use absolute `AGENT_WORKTREES_ROOT` when non-empty. A relative value is an [Environment Preparation Blocker](HUMAN-BOUNDARY.md).
+2. When `AGENT_WORKTREES_ROOT` is unset or empty, use `$XDG_STATE_HOME/agent-worktrees` if `XDG_STATE_HOME` is non-empty and absolute. A non-empty relative `XDG_STATE_HOME` is an Environment Preparation Blocker.
+3. When both variables are unset or empty, use `$HOME/.local/state/agent-worktrees`. A missing, empty, or non-absolute `HOME` is an Environment Preparation Blocker.
+
+Create new destinations as `<root>/<ticket-origin-key>/<ticket-key>/<repository-key>`. Derive each key from its portable identity or canonical reference as `<slug>-<digest>`: lowercase the source, replace each run outside `a-z0-9` with `-`, trim leading and trailing `-`, cap the slug at 48 characters, use `item` when empty, and append the first 12 hexadecimal characters of the source's SHA-256 digest. Reuse this path across Execution Attempts; an Execution Attempt ID never enters it.
 
 Before mutation, inspect the complete scope together:
 
