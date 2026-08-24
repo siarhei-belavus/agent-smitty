@@ -1,9 +1,11 @@
 ---
 name: implement
-description: "Implement repository deliveries from authoritative specs or tickets. Use for standalone implementation and for one repository delivery narrowed by coordinate-delivery."
+description: "Implement changes from authoritative specs or tickets, either standalone or as one repository assignment in a coordinated delivery."
 ---
 
 Implement the work described by the user in the authoritative spec or tickets.
+
+Read [delivery records](../federated-workflow/DELIVERY-RECORDS.md) before resolving the assignment.
 
 ## Resolve the assignment
 
@@ -21,6 +23,8 @@ Every writable Repository Delivery must supply or resolve:
 - authoritative sources and repository instructions;
 - complete Settled Seam records and their test approaches;
 - repository-owned Validation Obligations and validation commands.
+
+A Fixed Review Base is the exact starting commit against which a Repository Delivery is implemented and reviewed.
 
 Read-only context and validation repositories remain outside writable scope. Missing authority, a worktree that disagrees with the assignment, or a required change to approved scope, acceptance behavior, or a Settled Seam is a **Material contradiction**. Preserve safe work and return the conflicting sources. Authority comes from the assignment, not inference.
 

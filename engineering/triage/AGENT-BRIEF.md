@@ -1,5 +1,7 @@
 # Writing Agent Briefs
 
+An Agent Brief is the self-contained public executable contract attached to one triaged request before it becomes `ready-for-agent`.
+
 ## Principles
 
 ### Durability over precision

@@ -1,6 +1,10 @@
 # Durable lifecycle artifact contracts
 
-Publish Coordinator lifecycle records through the configured Work Tracker coordination log using permanent provider identifiers, canonical ticket references, exact revisions, and stable record IDs.
+Read [delivery records](DELIVERY-RECORDS.md) and [provider concepts](PROVIDER-CONCEPTS.md) before applying these records.
+
+Publish delivery lifecycle records through the configured Work Tracker coordination log using permanent provider identifiers, canonical ticket references, exact revisions, and stable record IDs.
+
+An Execution Attempt is one interval of delivery work between activation or resumption and the next durable completion or human boundary.
 
 ## Record invariants
 
@@ -12,24 +16,24 @@ Publish Coordinator lifecycle records through the configured Work Tracker coordi
 
 ## Execution Checkpoint
 
-Record the checkpoint, ticket, Execution Attempt ID, trigger, provider timestamp, ticket/routing/claim snapshot, resolved dependencies and authority, and the next permissible step with prerequisites. For every Repository Delivery record its base, branch, exact Published Delivery Head, Review Proposal, preserved worktree state, and outcome. Record exact repository-backed Validation Source commits; exact-head repository, Standards, cross-repository, and Bundle Spec evidence; affected and preserved deliveries; invalidated, preserved, and pending evidence; the active request ID or explicit absence; local-only exclusions; an execution URL or equivalent runtime reference when the runtime provides one; and limitations.
+An Execution Checkpoint is the current durable snapshot of a Delivery Bundle. Record the checkpoint, ticket, Execution Attempt ID, trigger, provider timestamp, ticket/routing/claim snapshot, resolved dependencies and authority, and the next permissible step with prerequisites. For every Repository Delivery record its base, branch, exact Published Delivery Head, Review Proposal, preserved worktree state, and outcome. Record exact repository-backed Validation Source commits; exact-head repository, Standards, cross-repository, and Bundle Spec evidence; affected and preserved deliveries; invalidated, preserved, and pending evidence; the active request ID or explicit absence; local-only exclusions; an execution URL or equivalent runtime reference when the runtime provides one; and limitations.
 
 ## Human Action Request
 
-Record the request ID, status (`active`, `completed`, or `superseded`), reason, checkpoint, ticket, accountable owner, required action, response location, completion criteria, and next routing transition. Planned verification also records prerequisites, reproducible steps, pass/fail criteria, and expected evidence. Escalation also records its trigger, observed evidence, affected decisions and deliveries, authoritative pointers, and required reconciliation. A Validation Indeterminacy successor records predecessor and successor IDs.
+A Human Action Request is a durable request for one accountable human action. Record the request ID, status (`active`, `completed`, or `superseded`), reason, checkpoint, ticket, accountable owner, required action, response location, completion criteria, and next routing transition. Planned verification also records prerequisites, reproducible steps, pass/fail criteria, and expected evidence. Escalation also records its trigger, observed evidence, affected decisions and deliveries, authoritative pointers, and required reconciliation. A Validation Indeterminacy successor records predecessor and successor IDs.
 
 Complete or supersede the current request before activating its successor.
 
 ## Human Response
 
-The accountable human supplies one free-form durable response through the request's Work Tracker surface. Its prose has no provider-specific schema. Record its permanent provider ID and exact request relationship, then reconcile it against the requested action and completion criteria. Record whether it completes, supersedes, or leaves the request indeterminate and identify accepted authority and evidence.
+A Human Response is one durable reply from the accountable human through the request's Work Tracker surface. Its prose has no provider-specific schema. Record its permanent provider ID and exact request relationship, then reconcile it against the requested action and completion criteria. Record whether it completes, supersedes, or leaves the request indeterminate and identify accepted authority and evidence.
 
 ## Resumption Plan
 
-For `replan`, record a human-produced or explicitly delegated execution-ready plan with its ID, authority, source response, accepted intent, affected and preserved deliveries, treatment of checkpoint worktrees/heads/proposals/evidence, next executable work, settled boundaries, and completion criteria.
+A Resumption Plan is a human-produced or explicitly delegated execution-ready plan for `replan`. Record its ID, authority, source response, accepted intent, affected and preserved deliveries, treatment of checkpoint worktrees/heads/proposals/evidence, next executable work, settled boundaries, and completion criteria.
 
 ## Resumption Record
 
-Record the ID, ticket, next Execution Attempt ID, exactly one response/feedback/runtime source, `continue` or `replan`, checkpoint, plan when applicable, affected and preserved deliveries, previous and launch exact delivery heads and repository-backed Validation Source commits, reused proposals, invalidated evidence, preserved unchanged-dependency evidence, required refresh, re-read routing/claim state, next step, and limitations.
+A Resumption Record is the durable gate result written before a resumed Execution Attempt. Record its ID, ticket, next Execution Attempt ID, exactly one response/feedback/runtime source, `continue` or `replan`, checkpoint, plan when applicable, affected and preserved deliveries, previous and launch exact delivery heads and repository-backed Validation Source commits, reused proposals, invalidated evidence, preserved unchanged-dependency evidence, required refresh, re-read routing/claim state, next step, and limitations.
 
 Publish and re-read this record after a successful Resume Gate and before the named Execution Attempt. Verify its launch heads against provider truth.

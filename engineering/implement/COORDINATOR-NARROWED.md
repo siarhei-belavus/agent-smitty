@@ -1,5 +1,7 @@
 # Coordinator narrowing
 
+Read [provider concepts](../federated-workflow/PROVIDER-CONCEPTS.md) before enforcing external publication and tracker constraints.
+
 Use the complete narrowing assignment for exactly one named Repository Scope entry and one supplied Execution Worktree.
 
 Change only that Execution Worktree. Start no child agent or reviewer. Do not perform another scope entry, a validation-only delivery, publication, Review Proposal work, Work Tracker changes, or bundle review.

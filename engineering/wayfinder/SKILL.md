@@ -4,6 +4,8 @@ description: Plan work too large for one agent session as durable Work Tracker d
 disable-model-invocation: true
 ---
 
+Read [provider concepts](../federated-workflow/PROVIDER-CONCEPTS.md) before selecting tracker authority.
+
 A loose idea has arrived — too big for one agent session, and wrapped in fog: the way from here to the **destination** isn't visible yet. Chart that way as a **shared map** on the configured Work Tracker, then resolve its **decision tickets** one at a time until the route is clear. Each ticket resolves a decision rather than a build slice.
 
 The destination varies per effort, and naming it is the first act of charting — it shapes every ticket. It might be a spec to hand off and iterate on, a decision to lock before planning starts, or a change made in place like a data-structure migration. The map is domain-agnostic — engineering work, course content, whatever fits the shape.
@@ -19,10 +21,10 @@ Ordinary planning does not write future-state terms, map changes, or architectur
 Before charting or resolving a map:
 
 1. Read `docs/agents/issue-tracker.md` when present and use its configured Work Tracker locator, terminology, claim, dependency, comment, and Wayfinding operations. Do not infer the tracker from a Git remote.
-2. Read `docs/agents/domain.md` when present and perform its Domain Orientation before selecting domain sources or composing `grill-with-docs`.
+2. When `docs/agents/domain.md` is present, read [domain orientation](../federated-workflow/DOMAIN-ORIENTATION.md), then the configured file, before selecting domain sources or composing `grill-with-docs`.
 3. If a Domain Federation is relevant, put its portable Home identity and the relevant Repository-qualified Context Pointers in the map's Notes so later sessions can orient without checkout-local paths.
 
-The configured Work Tracker hosts the map and planning tickets; it does not turn the Wayfinder frontier into the delivery frontier. Wayfinder artifacts do not gain Repository References, Repository Scope, Cross-Repository Seams, Routing Labels, or other executable delivery-ticket sections.
+The Wayfinder frontier is the open, unblocked, unclaimed children of one map. The configured Work Tracker hosts the map and planning tickets; it does not turn this frontier into the Delivery frontier. Wayfinder artifacts do not gain Repository References, Repository Scope, Cross-Repository Seams, Routing Labels, or other executable delivery-ticket sections.
 
 ## Refer by name
 
@@ -78,7 +80,7 @@ Each ticket carries a `wayfinder:<type>` label — one of `research`, `prototype
 
 A session **claims** a ticket by assigning it to the dev driving the map, **first**, before any work, so concurrent sessions skip it. That assignee _is_ the claim: an open, unassigned ticket is unclaimed.
 
-Blocking uses the Work Tracker's **native** dependency relationship — essential because it renders the frontier _visually_ in the tracker UI, so the human sees what's takeable without opening the map. Only a tracker that lacks native blocking falls back to its configured body convention. A ticket is **unblocked** when every ticket blocking it is closed; the **Wayfinder frontier** is the open, unblocked, unclaimed children — the edge of the known.
+Blocking uses the Work Tracker's **native** dependency relationship — essential because it renders the frontier _visually_ in the tracker UI, so the human sees what's takeable without opening the map. Only a tracker that lacks native blocking falls back to its configured body convention. A ticket is **unblocked** when every ticket blocking it is closed; eligible children enter the Wayfinder frontier.
 
 The answer isn't part of the body — it's recorded on resolution (see [Work through the map](#work-through-the-map)). Assets created while resolving a ticket are linked from its Work Tracker item, not pasted in.
 

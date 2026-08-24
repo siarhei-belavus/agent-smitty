@@ -1,5 +1,9 @@
 # Recovery
 
+Read [planning artifact contracts](../federated-workflow/PLANNING-ARTIFACTS.md) and [lifecycle artifact contracts](../federated-workflow/LIFECYCLE-ARTIFACTS.md) before classifying recovery.
+
+The Resume Gate proves that exactly one durable source authorizes the next Execution Attempt and determines whether work continues under existing intent or follows a Resumption Plan.
+
 Re-read the ticket, dependencies, routing, assignees, coordination notes, Review Proposals and feedback, Published Delivery Heads, and evidence bindings. Validate every lifecycle record against [the artifact invariants](../federated-workflow/LIFECYCLE-ARTIFACTS.md#record-invariants). Durable provider state must suffice in a fresh context; live memory supplies no missing fact. Preserve local-only dirty work but exclude it from authority until a human establishes provenance.
 
 Classify a matching handoff before the Resume Gate. When its ticket, deterministic bundle key, exact heads, proposals, and evidence match current provider truth, the Delivery Bundle handoff is complete, and no unresolved lifecycle record remains, treat the delivery as terminal: report the existing handoff and return without a new request, claim, Resume Gate, or mutation. When delivery results are complete but the handoff note or final effects are incomplete, continue through the Resume Gate and then read [handoff-only recovery](HANDOFF-ONLY.md). A contradictory handoff enters the [human-boundary branch](HUMAN-BOUNDARY.md).

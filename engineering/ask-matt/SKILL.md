@@ -14,7 +14,7 @@ A **flow** is a path through the skills. Most paths run along one **main flow**,
 
 The route most work travels. You have an idea and want it built.
 
-1. **`grill-with-docs`** — sharpen the idea by interview. Start here when you **have a codebase**: it applies the project's domain language and returns complete Domain Model Deltas with the sharpened result. In this flow, the current conversation retains that result as planning authority for `to-spec`. (No codebase? Use `grill-me` — see Standalone. Both run the same `grilling` primitive; `grill-with-docs` adds domain modeling.)
+1. **`grill-with-docs`** — sharpen the idea by interview. Start here when you **have a codebase**: it applies the project's domain language and returns every confirmed language or architecture change with the sharpened result. In this flow, the current conversation retains that result as planning authority for `to-spec`. (No codebase? Use `grill-me` — see Standalone. Both run the same `grilling` primitive; `grill-with-docs` adds domain modeling.)
 2. **Branch — can you settle every question in conversation?** If a question needs runnable evidence, detour through `prototype`, bridged by **`handoff`** in both directions (see Phase boundaries):
    - **`handoff`** out, then open a separate task against that file,
    - run **`prototype`**,
@@ -27,7 +27,7 @@ The route most work travels. You have an idea and want it built.
 
 Keep steps 1–3 in **one task** so the grilling, spec, and tickets build on the same reasoning. Automatic compaction may summarize earlier turns as the task grows. That is continuation within the same task, not a handoff. Before leaving a phase, capture decisions that the next phase cannot safely reconstruct in the flow's durable artifacts.
 
-Implementation starts from complete ticket authority, whether the ticket contains one or multiple Repository Deliveries. It does not need the planning task's full conversation.
+Implementation starts from complete ticket authority, whether the ticket changes one repository or several. It does not need the planning task's full conversation.
 
 ## On-ramps
 
@@ -39,7 +39,7 @@ A starting situation that generates work, then merges onto the main flow.
 
 - **A huge, foggy effort — a greenfield project or a huge feature build, too big for one session** → **`wayfinder`**, the most cognitively demanding flow here. When the way from here to the destination isn't visible yet, it charts a **shared map** of **decision tickets** on the issue tracker. Each ticket has one claimant; independent ready research may proceed in parallel, while dependent decisions wait for their blockers — producing **decisions, not deliverables** — until the fog is pushed back and the way is clear. Where **`grill-with-docs`** sharpens an idea you can hold in one session, wayfinder is for the idea you can't — and it's slower and denser, so save it for exactly that, never a well-scoped feature.
 
-  When the map clears, **it hands off, it doesn't build**: merge onto the main flow at **`to-spec`**, which collapses the map's linked decisions into a buildable plan, then `to-tickets`. Each resulting ticket can use `implement` across its complete Repository Scope. Looping the map straight into `implement` skips the collapse and throws linked detail away — do that only when the effort turned out genuinely small and receives explicit execution authority.
+  When the map clears, **it hands off, it doesn't build**: merge onto the main flow at **`to-spec`**, which collapses the map's linked decisions into a buildable plan, then `to-tickets`. Each resulting ticket can use `implement` across all repositories it authorizes for change. Looping the map straight into `implement` skips the collapse and throws linked detail away — do that only when the effort turned out genuinely small and receives explicit execution authority.
 
 ## Codebase health
 

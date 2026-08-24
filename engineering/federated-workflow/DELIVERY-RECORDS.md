@@ -1,0 +1,53 @@
+# Delivery records
+
+Read [repository identity](REPOSITORY-IDENTITY.md) before applying these records.
+
+## Repository Delivery
+
+A Repository Delivery is one repository's authorized unit of work from fixed base to attributable exact-head result, including its repository-owned validation evidence.
+
+## Execution Worktree
+
+An Execution Worktree is an isolated writable Git worktree assigned to one Repository Delivery. The Repository Scope entry, not the worktree, grants write authority.
+
+## Repository Reference
+
+A Repository Reference makes one repository resolvable without granting write authority or creating a Repository Delivery. It contains:
+
+- Repository ID;
+- remote;
+- Base Branch.
+
+## Settled Seam
+
+A Settled Seam is an accepted caller-visible boundary contract. Execution preserves it unless authoritative input explicitly changes it. It records:
+
+- owning module and Repository ID;
+- providers and consumers by Repository ID;
+- caller/test-visible interface;
+- location;
+- status: `new`, `changed`, or `unchanged`;
+- observable behavior;
+- selected repository-native test approach;
+- nearest prior art; and
+- each applicable Validation Obligation.
+
+A cross-repository seam uses the same record with providers or consumers in different repositories. Its Validation Obligations stay with the seam rather than moving to a separate validation section.
+
+## Validation Obligation
+
+A Validation Obligation is an authority-backed behavior claim that one named owner must prove with reproducible evidence. It records the behavior to prove, its owner, affected Repository Deliveries, Validation Source, prerequisites, method, scenario, expected result, and required evidence.
+
+A Validation Source is the exact repository revision or identified external harness or environment used to produce that evidence. An unchanged repository may be a read-only Validation Source. Creating or changing its validation entrypoint, assertions, or setup requires a Repository Scope entry for that repository.
+
+A cross-repository Validation Obligation uses the same record when its affected Repository Deliveries or Validation Source span repositories.
+
+## Repository Scope entry
+
+A Repository Scope entry authorizes writes to exactly one referenced Repository ID and produces one Repository Delivery. It records:
+
+- required repository-owned outcome;
+- applicable repository-local Settled Seams; and
+- repository-owned Validation Obligations.
+
+Repository Scope is a non-empty writable subset of Repository References in every executable delivery artifact. Read-only context, validation, and decision sources remain references outside the scope. A required canonical documentation change places its owning repository in scope, including a documentation-only Repository Delivery when no code change belongs there.

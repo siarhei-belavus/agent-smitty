@@ -4,13 +4,17 @@ description: "Coordinate one agent-ready ticket through its complete federated d
 disable-model-invocation: true
 ---
 
-Coordinate `/coordinate-delivery [<ticket reference>]` as one fail-closed Delivery Bundle. A supplied reference selects that ticket only. Without a reference, select and claim at most one ticket from the configured Delivery frontier. An empty frontier is a successful no-op.
+Read [provider concepts](../federated-workflow/PROVIDER-CONCEPTS.md) before selecting or mutating provider state.
+
+A Coordinator Activation is one invocation that selects or resumes at most one ticket and owns only a claim it acquires and verifies.
+
+Coordinate `/coordinate-delivery [<ticket reference>]` fail closed. A supplied reference selects that ticket only. Without a reference, select and claim at most one ticket from the configured Delivery frontier. An empty frontier is a successful no-op.
 
 Use repository-owned bindings for every provider operation. Persist no provider commands, credentials, or account identity. Preserve recoverable work. Never merge a Review Proposal, push a protected Base Branch, or close the ticket.
 
 ## 1. Establish activation authority
 
-Resolve tickets only through the configured Ticket Origin Repository. Read its `AGENTS.md`, Work Tracker, Routing Label, Domain Orientation, and Code Host bindings before selecting a ticket.
+Resolve tickets only through the configured Ticket Origin Repository. Read its `AGENTS.md`, Work Tracker, Routing Label, and Code Host bindings before selecting a ticket.
 
 Choose one activation ticket. With a supplied reference, resolve exactly that ticket and never substitute another. Without a reference, read the Work Tracker's ordinary Markdown `## Delivery frontier` instructions and query the configured tracker. Authoritatively re-read every candidate's ticket, Routing Labels, assignees, and dependencies before deciding eligibility. Keep open, unblocked, unassigned tickets carrying exactly `ready-for-agent`, then order them as the binding says. If no eligible ticket remains, finish successfully without creating a bundle or changing provider state.
 
@@ -28,9 +32,13 @@ For a ticketless activation, any pre-claim change or failed post-claim verificat
 
 Read [`../federated-workflow/PLANNING-ARTIFACTS.md`](../federated-workflow/PLANNING-ARTIFACTS.md) completely. Require complete Repository References, resolvable Context Scope, non-empty Repository Scope with repository-owned outcomes, every applicable Settled Seam and Validation Obligation, and consistent ticket, dependency, user, canonical-context, ADR, and accepted-decision authority.
 
+A Delivery Bundle is one ticket's complete delivery state: its Repository Deliveries; any Published Delivery Heads, Review Proposals, and lifecycle records; current validation and review evidence; and handoff state.
+
 **Complete when:** every required contract field and context pointer is present and internally consistent; any material omission or conflict has entered the [human-boundary branch](HUMAN-BOUNDARY.md) before repository mutation.
 
 ## 3. Resolve repository references
+
+Repository Resolution binds each Repository Reference to one validated Repository Store. A Repository Store is a validated checkout used read-only as Git storage and a source for worktree creation.
 
 Resolve every Repository Reference before fetching a Base Branch or creating an Execution Worktree. Validate and reuse a matching current checkout, explicitly supplied checkout, known worktree, execution-host checkout, or bounded nearby Repository Store. Otherwise prepare a checkout from the reference's declared remote at an execution-host location. Folder proximity neither grants relevance nor proves repository identity. Use no repository registry or broad filesystem scan.
 
@@ -66,7 +74,7 @@ Using each changed repository's Code Host binding, publish its delivery branch a
 
 ## 8. Validate the bundle
 
-Resolve every repository-backed Validation Source to one exact commit and record it before dispatch. Prepare or reuse isolated working state at that commit for each unchanged repository-backed Validation Source outside Repository Scope. Run validation there so mutable outputs cannot pollute the configured Repository Store. Launch fresh direct-child Validation Agents against the stable exact Published Delivery Head set and declared Validation Sources. Each assignment and its resulting cross-repository evidence bind every repository-backed Validation Source it uses to that recorded exact commit. Assign every mandatory Cross-Repository Validation Obligation to exactly one agent. Compatible obligations may share one Validation Agent only when they execute through the same compatible Validation Source, with one recorded exact source commit and coherent setup and evidence ownership. Each agent follows the declared prerequisites, method, scenario, expected result, and evidence format. It produces evidence, changes no product code, and makes no whole-ticket Spec judgment.
+Resolve every repository-backed Validation Source to one exact commit and record it before dispatch. Prepare or reuse isolated working state at that commit for each unchanged repository-backed Validation Source outside Repository Scope. Run validation there so mutable outputs cannot pollute the configured Repository Store. Launch fresh direct-child Validation Agents against the stable exact Published Delivery Head set and declared Validation Sources. Each assignment and its resulting cross-repository evidence bind every repository-backed Validation Source it uses to that recorded exact commit. Assign every mandatory cross-repository Validation Obligation to exactly one agent. Compatible obligations may share one Validation Agent only when they execute through the same compatible Validation Source, with one recorded exact source commit and coherent setup and evidence ownership. Each agent follows the declared prerequisites, method, scenario, expected result, and evidence format. It produces evidence, changes no product code, and makes no whole-ticket Spec judgment.
 
 After every mandatory obligation has current passing evidence, use the `code-review` skill in **Spec only** mode over the complete changed target set with all authority, seams, evidence, and proposals. Record Advisory findings. Route attributable in-scope Blocking findings to the affected Implementation Agents. After a changed influencing delivery head, refresh its repository validation and fresh Standards review. A changed influencing delivery head or exact Validation Source commit invalidates only dependent cross-repository evidence and the Bundle Spec result. Rerun every invalidated obligation with fresh Validation Agents before another fresh full-bundle Spec review. Repeat until the result has no Blocking finding or a Specification Contradiction, Material Design Opportunity, or another genuine authority boundary applies.
 

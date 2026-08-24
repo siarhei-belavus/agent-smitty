@@ -4,7 +4,7 @@ Skills I use daily for code work.
 
 ## Shared contracts
 
-- **[Federated workflow contracts](./federated-workflow/)** — Planning records, provider bindings, domain orientation and federation configuration, and durable lifecycle records loaded directly by the skills that need them.
+- **[Federated workflow contracts](./federated-workflow/)** — Delivery and planning records, provider concepts and bindings, domain orientation and federation configuration, and durable lifecycle records loaded directly by the skills that need them.
 
 ## User-invoked
 

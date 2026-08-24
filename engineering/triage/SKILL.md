@@ -8,7 +8,7 @@ disable-model-invocation: true
 
 Move requests through a small state machine of triage roles. Read [planning artifact contracts](../federated-workflow/PLANNING-ARTIFACTS.md) before acting.
 
-If this repository treats external Review Proposals as a request surface (see the Work Tracker binding), triage covers them too: **a Review Proposal is a request with attached code** — same roles, same states, same machine, with a few deltas marked "for a Review Proposal" below. Resolve a bare `#42` through the configured binding rather than Git-remote inference.
+If this repository treats external Review Proposals as a request surface (see the Work Tracker binding), triage applies the same roles and states to those proposals, with the differences marked below. Resolve a bare `#42` through the configured binding rather than Git-remote inference.
 
 Every comment or request posted to the Work Tracker during triage **must** start with this disclaimer:
 

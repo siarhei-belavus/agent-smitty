@@ -1,5 +1,11 @@
 # Domain federation configuration
 
+A Domain Federation is a group of repositories that share one canonical cross-repository Context Map and one portable Home identity.
+
+**Home** is the repository role that owns that map and federation-wide ADRs. **Member** is a repository role that binds to the same Home identity.
+
+The Home-owned cross-repository map is the **Federated Context Map**. A **Participant** has a confirmed responsibility in a context but does not own that context's language. A reciprocal federation binding records the same portable Home identity in Home and each Member.
+
 A configured Home or Member adds one reciprocal binding to `docs/agents/domain.md`:
 
 ```markdown
@@ -10,8 +16,6 @@ A configured Home or Member adds one reciprocal binding to `docs/agents/domain.m
 - Home Remote: `<remote>`
 - Home Base Branch: `<branch>`
 ```
-
-The Home binds to itself. A member binds to the same portable Home identity.
 
 The Home owns the canonical `CONTEXT-MAP.md`:
 
@@ -34,6 +38,6 @@ The Home owns the canonical `CONTEXT-MAP.md`:
 - **<Context> → <Context or External System>**: <domain handoff>.
 ```
 
-Each context has exactly one owner and an existing, substantive canonical `CONTEXT.md`. Participants do not co-own its language. A member that owns no context appears under every context in which it has a confirmed responsibility. External repositories appear only under their External System.
+Each context has exactly one owner and an existing, substantive canonical `CONTEXT.md`. A member that owns no context appears under every context in which it has a confirmed responsibility. External repositories appear only under their External System.
 
 Repository-qualified pointers never mix with relative links. Identities contain Repository ID, remote, and Base Branch; configuration contains no local path, registry, or copied glossary. UI/deployment absence of a confirmed canonical context is preserved rather than filled with invented language.

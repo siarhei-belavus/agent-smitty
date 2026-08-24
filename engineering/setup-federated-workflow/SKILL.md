@@ -11,19 +11,23 @@ Prepare final-state repository-owned workflow configuration. Research and human 
 
 ### 1. Classify the operation
 
-Read the current repository instructions and `docs/agents/`, then classify the request as:
+Read the current repository instructions and `docs/agents/`, then read [provider concepts](../federated-workflow/PROVIDER-CONCEPTS.md) and [domain orientation](../federated-workflow/DOMAIN-ORIENTATION.md). When the request or current configuration establishes, joins, or changes a federation, read [domain federation configuration](../federated-workflow/DOMAIN-FEDERATION.md) before classifying the request as:
 
 - configure one repository without federation membership;
 - **Establish Domain Federation** with the current or explicitly selected repository as Home and one or more initial members;
 - **Join Domain Federation** for exactly one member and its existing Home.
 
-If an existing binding points to another Home, or the requested change would move the map or federation-wide decisions, load [`DOMAIN-ORIENTATION.md`](../federated-workflow/DOMAIN-ORIENTATION.md) and [`DOMAIN-FEDERATION.md`](../federated-workflow/DOMAIN-FEDERATION.md), then route a **Domain Federation Home Transfer** as a normal Map-affecting delivery. Setup stops without changing files. Classification is complete when exactly one supported operation remains.
+Establish Domain Federation creates the accepted Home, initial reciprocal member bindings, and Federated Context Map. Join Domain Federation adds one Member binding and updates its existing Home map without moving Home authority.
+
+A Map-affecting delivery changes mapped contexts, context ownership or participation, External Systems, relationships, or Home authority. A Domain Federation Home Transfer is a Map-affecting delivery that moves Home authority and the artifacts it owns.
+
+If an existing binding points to another Home, or the requested change would move the map or federation-wide decisions, route a Domain Federation Home Transfer as a normal Map-affecting delivery. Setup stops without changing files. Classification is complete when exactly one supported operation remains.
 
 ### 2. Research current truth
 
 For a single repository without federation, research only that repository. For Establish, discover broadly but grant no membership from discovery. Spawn repository research subagents for candidate repositories, then context research subagents across every repository that may own or participate in each candidate context. For Join, research the joining repository and Home only.
 
-Read [`../federated-workflow/PROVIDER-BINDINGS.md`](../federated-workflow/PROVIDER-BINDINGS.md) and [`../federated-workflow/DOMAIN-ORIENTATION.md`](../federated-workflow/DOMAIN-ORIENTATION.md). Inspect repository identity, remote, Base Branch, instructions, existing bindings, maps, canonical contexts, ADRs, CI/deployment evidence, provider capabilities, and user changes. Read [`../federated-workflow/DOMAIN-FEDERATION.md`](../federated-workflow/DOMAIN-FEDERATION.md) only for Establish or Join.
+Read [provider binding contracts](../federated-workflow/PROVIDER-BINDINGS.md). Inspect repository identity, remote, Base Branch, instructions, existing bindings, maps, canonical contexts, ADRs, CI/deployment evidence, provider capabilities, and user changes.
 
 Research is complete when the selected branch has evidence for every required artifact and decision: repository-owned provider and Domain Orientation bindings for the single-repository branch; full proposed topology, context ownership, participation, relationships, External Systems, and Ticket Origin roles for Establish or Join.
 

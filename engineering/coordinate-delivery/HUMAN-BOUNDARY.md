@@ -2,7 +2,7 @@
 
 Preserve safe work and publish a recoverable changed head when authorized and safe. Record local-only work without treating it as a Published Delivery Head. Pause affected and dependent deliveries while preserving unrelated valid work.
 
-An Environment Preparation Blocker follows bounded recovery without destructive repair. A Specification Contradiction records the conflicting or missing authority. A Material Design Opportunity records the settled decision, evidence-backed alternative, and required human choice.
+An Environment Preparation Blocker is a preparation failure that still needs human action after bounded recovery. A Specification Contradiction is conflicting or missing authority that execution cannot resolve. A Material Design Opportunity is an evidence-backed alternative that would reopen a settled decision.
 
 Create or refresh one [Execution Checkpoint](../federated-workflow/LIFECYCLE-ARTIFACTS.md#execution-checkpoint). Reuse the active [Human Action Request](../federated-workflow/LIFECYCLE-ARTIFACTS.md#human-action-request) when it already asks for the required action; otherwise create one only when none is active. State the exact obstacle, evidence, affected authority and deliveries, required human action, and next permissible step through those contracts.
 

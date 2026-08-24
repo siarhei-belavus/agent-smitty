@@ -1,11 +1,15 @@
 ---
 name: code-review
-description: Review fixed Repository Targets. Use when the user asks to review a branch, PR, committed delivery, or worktree; asks for a multi-repository Delivery Bundle review; or asks for Standards-only or Spec-only review.
+description: Review a branch, PR, commit, or worktree against repository standards, supplied requirements, or both, including multi-repository reviews.
 ---
 
 Review committed or worktree changes since fixed points without modifying the reviewed repositories or external collaboration state.
 
+Read [delivery records](../federated-workflow/DELIVERY-RECORDS.md) before resolving targets or review authority.
+
 ## Public input
+
+A Fixed point is the caller-selected revision used to anchor review bounds. A Repository Target is one repository's immutable review input, pinned to a Fixed point and exact Review head or WIP snapshot.
 
 Accept one or more fixed Repository Targets. A single repository is the one-element case. Each target records:
 
@@ -68,7 +72,7 @@ For each target, read that repository's instructions and documented standards. A
 - **Middle Man** — a module mostly delegates without adding depth.
 - **Refused Bequest** — an inheritor ignores most of its inherited contract.
 
-Determine per target whether the change introduces or reshapes a module, interface, seam, adapter, logical ownership, physical decomposition, or contract. When it does, the Standards Reviewer reads the `codebase-design` skill in full and applies its deletion test and proportional-design rules.
+Determine per target whether the change introduces or reshapes a module, interface, seam, adapter, logical ownership, physical decomposition, or contract. When it does, require the Standards review to read the `codebase-design` skill in full and apply its deletion test and proportional-design rules.
 
 Route requirement or settled-decision violations to Spec. Route structural and change-pressure findings to Standards.
 
@@ -92,11 +96,11 @@ For each selected axis only, emit its result and counts. When Standards is selec
 
 When Spec is selected, report the whole-bundle result once:
 
-`## Spec — Delivery Bundle`
+`## Spec — selected targets`
 
 Omit the unselected axis entirely. When both are selected, do not merge, reclassify, or rerank the axes. End with Blocking and Advisory counts and the highest-severity finding within each selected result when present.
 
-Report findings and evidence only. Leave branches, Review Proposals, and Work Tracker state unchanged.
+Report findings and evidence only.
 
 ## Evidence freshness
 

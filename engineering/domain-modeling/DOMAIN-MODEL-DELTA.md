@@ -1,8 +1,8 @@
 # Domain Model Delta
 
-A complete Domain Model Delta records, as applicable:
+A Domain Model Delta is one complete confirmed domain-language or architecture change. It records, as applicable:
 
-- owning Repository ID and Canonical Context Pointer;
+- owning Repository ID and Repository-qualified Context Pointer;
 - add, change, or supersede operation;
 - exact terms and definitions;
 - relationships, invariants, boundaries, scenarios, and counterexamples;
