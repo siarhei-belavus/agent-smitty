@@ -5,7 +5,7 @@ description: Test-driven development. Use when the user wants to build features 
 
 # Test-Driven Development
 
-Load the shared [test-surface contract](../codebase-design/TEST-SURFACE.md) and [delivery records](../federated-workflow/DELIVERY-RECORDS.md), then run the red → green loop below.
+Load the shared [test-surface contract](../codebase-design/TEST-SURFACE.md), then run the red → green loop below.
 
 When exploring the codebase, read `CONTEXT.md` (if it exists) so test names and interface vocabulary match the project's domain language, and respect ADRs in the area you're touching.
 
@@ -13,13 +13,13 @@ Use [tests.md](tests.md) as examples. Load [mocking.md](mocking.md) only when ch
 
 ## Seams — where tests go
 
-Use the settled seams recorded in the supplied specification, ticket, resolved design decision, or composed authority. Do not ask the user to reconfirm them.
+Use the test seams and approaches recorded in the supplied specification, ticket, resolved design decision, or composed authority. Do not ask the user to reconfirm them.
 
-For standalone TDD without a settled seam set, identify the complete set of existing, changed, and new seams the requested behavior spans. If materially different caller-facing seams remain possible, use `codebase-design` before proposing the set. For each seam, also propose its test approach using the repository's test architecture. Ask the user to confirm the complete set and proposed approaches once; the confirmed seams are settled.
+For standalone TDD without a confirmed test-seam set, identify the complete set of existing, changed, and new seams the requested behavior spans. If materially different caller-facing seams remain possible, use `codebase-design` before proposing the set. For each seam, also propose its test approach using the repository's test architecture. Ask the user to confirm the complete set and proposed approaches once; that confirmation governs the TDD run.
 
-Treat the repository's existing test suites, commands, harnesses, fixtures, and naming as its **test architecture**. For each settled seam, use its recorded test approach; if none is recorded, find the nearest prior art and choose the smallest repository-native approach. Extend the existing approach; a new one earns its place only when the test architecture cannot exercise the behavior, with the gap stated explicitly.
+Treat the repository's existing test suites, commands, harnesses, fixtures, and naming as its **test architecture**. For each test seam, use its recorded approach; if none is recorded, find the nearest prior art and choose the smallest repository-native approach. Extend the existing approach; a new one earns its place only when the test architecture cannot exercise the behavior, with the gap stated explicitly.
 
-Before writing tests, record which settled seams and test approaches are under test. Test only through those seams.
+Before writing tests, record which seams and test approaches are under test. Test only through those seams.
 
 ## Anti-patterns
 
