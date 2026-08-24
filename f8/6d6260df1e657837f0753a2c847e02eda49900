@@ -1,0 +1,35 @@
+skills/matt/engineering/coordinate-delivery/HUMAN-BOUNDARY.md
+  s_85343ea36ce106::t_48a6655706601b 11
+  s_85343ea36ce106::t_63402d7837ed03 3
+skills/matt/engineering/coordinate-delivery/EXECUTION-PREPARATION.md
+  s_85343ea36ce106::t_63402d7837ed03 1-2,4-12,14-16,18-19
+  s_85343ea36ce106::t_714e15df101d8e 17
+  s_85343ea36ce106::t_faf1acf87a48f0 3,13
+skills/matt/engineering/federated-workflow/LIFECYCLE-ARTIFACTS.md
+  s_85343ea36ce106::t_63402d7837ed03 15
+skills/matt/engineering/federated-workflow/DELIVERY-RECORDS.md
+  s_85343ea36ce106::t_63402d7837ed03 9-12,15
+skills/matt/engineering/coordinate-delivery/SKILL.md
+  s_85343ea36ce106::t_714e15df101d8e 55
+  s_85343ea36ce106::t_e12b5012c7c42a 49
+  s_85343ea36ce106::t_63402d7837ed03 35-36,43-45,51,57,95
+  s_85343ea36ce106::t_48a6655706601b 89,91
+skills/matt/engineering/coordinate-delivery/RECOVERY.md
+  s_85343ea36ce106::t_63402d7837ed03 9-10,25
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "f86d6260df1e657837f0753a2c847e02eda49900",
+  "prompts": {},
+  "sessions": {
+    "s_85343ea36ce106": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0345d-3521-78d1-aa3c-aa02b068aeb5",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
