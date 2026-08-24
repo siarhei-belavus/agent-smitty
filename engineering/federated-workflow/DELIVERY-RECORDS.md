@@ -1,6 +1,6 @@
 # Delivery records
 
-Read [repository identity](REPOSITORY-IDENTITY.md) before applying these records.
+Read [repository identity](REPOSITORY-IDENTITY.md) and [module vocabulary](../codebase-design/MODULE-VOCABULARY.md) before applying these records.
 
 ## Repository Delivery
 
@@ -20,7 +20,7 @@ A Repository Reference makes one repository resolvable without granting write au
 
 ## Settled Seam
 
-A Settled Seam is an accepted caller-visible boundary contract. Execution preserves it unless authoritative input explicitly changes it. It records:
+A Settled Seam is an accepted caller-visible Interface contract at a Seam. Execution preserves it unless authoritative input explicitly changes it. It records:
 
 - owning module and Repository ID;
 - providers and consumers by Repository ID;

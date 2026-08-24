@@ -7,21 +7,13 @@ description: Design deep modules proportionally. Use when the user wants to desi
 
 Design **deep modules**: a lot of behaviour behind a small interface, placed at a clean seam. Use this language and these principles wherever code is being designed or restructured. The aim is leverage for callers, locality for maintainers, and testability for everyone.
 
-Load [TEST-SURFACE.md](TEST-SURFACE.md) before applying the design rules.
+Load [module vocabulary](MODULE-VOCABULARY.md) and [TEST-SURFACE.md](TEST-SURFACE.md) before applying the design rules.
 
 ## Glossary
-
-Use these terms exactly — don't substitute "component," "service," or "API." Reserve **boundary** for a trust, deployment, or change-authority boundary; use **seam** for the location of a module's interface. Consistent language is the whole point.
-
-**Module** — anything with an interface and an implementation. Deliberately scale-agnostic: a function, class, package, or tier-spanning slice. _Avoid_: unit, component, service.
-
-**Interface** — everything a caller must know to use the module correctly: the type signature, but also invariants, ordering constraints, error modes, required configuration, and performance characteristics. _Avoid_: API, signature (too narrow — they refer only to the type-level surface).
 
 **Implementation** — what's inside a module, its body of code. Distinct from **Adapter**: a thing can be a small adapter with a large implementation (a Postgres repo) or a large adapter with a small implementation (an in-memory fake). Reach for "adapter" when the seam is the topic; "implementation" otherwise.
 
 **Depth** — leverage at the interface: the amount of behaviour a caller (or test) can exercise per unit of interface they have to learn. A module is **deep** when a large amount of behaviour sits behind a small interface, **shallow** when the interface is nearly as complex as the implementation.
-
-**Seam** _(Michael Feathers)_ — a place where you can alter behaviour without editing in that place; the *location* at which a module's interface lives. Where to put the seam is its own design decision, distinct from what goes behind it. _Avoid_: boundary when referring to interface location.
 
 **Adapter** — a concrete thing that satisfies an interface at a seam. Describes *role* (what slot it fills), not substance (what's inside).
 
@@ -135,15 +127,12 @@ Good interfaces make testing natural:
 
 - A **Module** has exactly one **Interface** (the surface it presents to callers).
 - **Depth** is a property of a **Module**, measured against its **Interface**.
-- A **Seam** is where a **Module**'s **Interface** lives.
 - An **Adapter** sits at a **Seam** and satisfies the **Interface**.
 - **Depth** produces **Leverage** for callers and **Locality** for maintainers.
 
 ## Rejected framings
 
 - **Depth as ratio of implementation-lines to interface-lines** (Ousterhout): rewards padding the implementation. We use depth-as-leverage instead.
-- **"Interface" as the TypeScript `interface` keyword or a class's public methods**: too narrow — interface here includes every fact a caller must know.
-- **"Boundary" as the location of an interface**: overloaded with DDD's bounded context. Say **seam** or **interface**. Keep **boundary** for trust, deployment, or change-authority boundaries.
 
 ## Going deeper
 

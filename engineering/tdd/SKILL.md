@@ -5,7 +5,7 @@ description: Test-driven development. Use when the user wants to build features 
 
 # Test-Driven Development
 
-Load the shared [test-surface contract](../codebase-design/TEST-SURFACE.md), then run the red → green loop below.
+Load the shared [test-surface contract](../codebase-design/TEST-SURFACE.md) and [delivery records](../federated-workflow/DELIVERY-RECORDS.md), then run the red → green loop below.
 
 When exploring the codebase, read `CONTEXT.md` (if it exists) so test names and interface vocabulary match the project's domain language, and respect ADRs in the area you're touching.
 

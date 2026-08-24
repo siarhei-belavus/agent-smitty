@@ -24,7 +24,7 @@ Before charting or resolving a map:
 2. When `docs/agents/domain.md` is present, read [domain orientation](../federated-workflow/DOMAIN-ORIENTATION.md), then the configured file, before selecting domain sources or composing `grill-with-docs`.
 3. If a Domain Federation is relevant, put its portable Home identity and the relevant Repository-qualified Context Pointers in the map's Notes so later sessions can orient without checkout-local paths.
 
-The Wayfinder frontier is the open, unblocked, unclaimed children of one map. The configured Work Tracker hosts the map and planning tickets; it does not turn this frontier into the Delivery frontier. Wayfinder artifacts do not gain Repository References, Repository Scope, Cross-Repository Seams, Routing Labels, or other executable delivery-ticket sections.
+The Wayfinder frontier is the open, unblocked, unclaimed children of one map. The configured Work Tracker hosts the map and planning tickets; it does not turn this frontier into the Delivery frontier. Wayfinder artifacts do not gain executable delivery scope, delivery seam records, execution Routing Labels, or other delivery-ticket sections.
 
 ## Refer by name
 
