@@ -1,0 +1,101 @@
+skills/matt/engineering/coordinate-delivery/HUMAN-BOUNDARY.md
+  s_4279ed1f1cac82::t_4387f8b13c3d9d 5
+skills/matt/engineering/code-review/SKILL.md
+  s_4279ed1f1cac82::t_c59b5c091de772 8
+  s_4279ed1f1cac82::t_bfda31e889d40f 3
+  s_4279ed1f1cac82::t_d8f61a5fc05fa8 12-13
+  s_4279ed1f1cac82::t_d3deb0f1ff86dc 99
+  s_4279ed1f1cac82::t_a57619b8128e79 75
+  s_4279ed1f1cac82::t_5f1194429df22c 103
+  s_4279ed1f1cac82::t_15a10dbc8b8fcb 9
+skills/matt/engineering/wayfinder/SKILL.md
+  s_4279ed1f1cac82::t_747d1c497141e8 7,24,27,83
+  s_4279ed1f1cac82::t_5e3ecc7aeb3a97 8
+skills/matt/engineering/coordinate-delivery/REVIEW-FEEDBACK.md
+  s_4279ed1f1cac82::t_94cca6437a3abd 5
+skills/matt/engineering/implement/SKILL.md
+  s_4279ed1f1cac82::t_15a10dbc8b8fcb 9
+  s_4279ed1f1cac82::t_c59b5c091de772 8
+  s_4279ed1f1cac82::t_94cca6437a3abd 27
+  s_4279ed1f1cac82::t_bfda31e889d40f 3
+  s_4279ed1f1cac82::t_ce61de858165c3 28
+skills/matt/engineering/federated-workflow/PLANNING-ARTIFACTS.md
+  s_4279ed1f1cac82::t_5f2aeacef31f62 4
+  s_4279ed1f1cac82::t_553a4b44d9ea58 3
+  s_4279ed1f1cac82::t_fd39e2333b4a07 19
+  s_4279ed1f1cac82::t_c59b5c091de772 13
+skills/matt/engineering/triage/SKILL.md
+  s_4279ed1f1cac82::t_5e3ecc7aeb3a97 11
+skills/matt/engineering/ask-matt/SKILL.md
+  s_4279ed1f1cac82::t_5e3ecc7aeb3a97 17,30,42
+skills/matt/engineering/federated-workflow/DOMAIN-FEDERATION.md
+  s_4279ed1f1cac82::t_94cca6437a3abd 3,7
+  s_4279ed1f1cac82::t_5f2aeacef31f62 4,6,8
+  s_4279ed1f1cac82::t_a57619b8128e79 5,41
+skills/matt/engineering/federated-workflow/DOMAIN-ORIENTATION.md
+  s_4279ed1f1cac82::t_553a4b44d9ea58 3
+  s_4279ed1f1cac82::t_fd39e2333b4a07 9-10,33
+  s_4279ed1f1cac82::t_a57619b8128e79 29
+  s_4279ed1f1cac82::t_b2525ae73dfe1b 4
+  s_4279ed1f1cac82::t_5f2aeacef31f62 5-8,11-12,30-31
+skills/matt/engineering/federated-workflow/REPOSITORY-IDENTITY.md
+  s_4279ed1f1cac82::t_553a4b44d9ea58 1-3
+skills/matt/engineering/implement/STANDALONE.md
+  s_4279ed1f1cac82::t_5f1194429df22c 3-4
+skills/matt/engineering/coordinate-delivery/RECOVERY.md
+  s_4279ed1f1cac82::t_b2525ae73dfe1b 3-4
+  s_4279ed1f1cac82::t_4387f8b13c3d9d 5-6
+skills/matt/engineering/setup-federated-workflow/SKILL.md
+  s_4279ed1f1cac82::t_846014c9fd6ea3 14,22-24,30
+  s_4279ed1f1cac82::t_d8f61a5fc05fa8 20-21
+skills/matt/engineering/federated-workflow/DELIVERY-RECORDS.md
+  s_4279ed1f1cac82::t_c59b5c091de772 1-2,4-6,8-10,12-53
+  s_4279ed1f1cac82::t_553a4b44d9ea58 3
+  s_4279ed1f1cac82::t_d8f61a5fc05fa8 7
+  s_4279ed1f1cac82::t_a57619b8128e79 11
+skills/matt/engineering/implement/COORDINATOR-NARROWED.md
+  s_4279ed1f1cac82::t_5f1194429df22c 4
+  s_4279ed1f1cac82::t_2c19b5d5fabcde 3
+skills/matt/engineering/federated-workflow/LIFECYCLE-ARTIFACTS.md
+  s_4279ed1f1cac82::t_5f2aeacef31f62 5-7,37
+  s_4279ed1f1cac82::t_a57619b8128e79 19,23,29
+  s_4279ed1f1cac82::t_553a4b44d9ea58 3
+  s_4279ed1f1cac82::t_b2525ae73dfe1b 4
+  s_4279ed1f1cac82::t_fd39e2333b4a07 33
+skills/matt/engineering/federated-workflow/PROVIDER-CONCEPTS.md
+  s_4279ed1f1cac82::t_553a4b44d9ea58 3,5,7
+  s_4279ed1f1cac82::t_5f2aeacef31f62 1-2,4,6,8-17
+skills/matt/engineering/domain-modeling/DOMAIN-MODEL-DELTA.md
+  s_4279ed1f1cac82::t_5e3ecc7aeb3a97 5
+  s_4279ed1f1cac82::t_d3deb0f1ff86dc 3
+skills/matt/engineering/README.md
+  s_4279ed1f1cac82::t_c59b5c091de772 7
+skills/matt/engineering/triage/AGENT-BRIEF.md
+  s_4279ed1f1cac82::t_5e3ecc7aeb3a97 3-4
+skills/matt/engineering/coordinate-delivery/VALIDATION-INDETERMINACY.md
+  s_4279ed1f1cac82::t_4387f8b13c3d9d 3-4
+skills/matt/engineering/coordinate-delivery/SKILL.md
+  s_4279ed1f1cac82::t_d3deb0f1ff86dc 77
+  s_4279ed1f1cac82::t_ea4148ce430e55 7-11,36,42
+  s_4279ed1f1cac82::t_94cca6437a3abd 41
+  s_4279ed1f1cac82::t_a57619b8128e79 35
+  s_4279ed1f1cac82::t_bfda31e889d40f 17
+skills/matt/engineering/coordinate-delivery/RUNTIME-TERMINATION.md
+  s_4279ed1f1cac82::t_94cca6437a3abd 3-4
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "47236ee396d43344f58cc41c92190bf9d99b4d72",
+  "prompts": {},
+  "sessions": {
+    "s_4279ed1f1cac82": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a02578-001b-75c2-b40f-bd48c20f5f55",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
