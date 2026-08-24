@@ -57,7 +57,7 @@ Start with supplied seam records, then validate every seam against current autho
 
 ### 3. Build repository-local Standards baselines
 
-For each target, read that repository's instructions and documented standards. Add the following Fowler smell baseline unless an authoritative source or documented repository standard explicitly overrides it. Every smell is a judgement call, never automatically a violation:
+For each target, read that repository's instructions and documented standards. Add the following Fowler smell baseline from *Refactoring*, ch. 3, unless an authoritative source or documented repository standard explicitly overrides it. Every smell is a judgement call, never automatically a violation:
 
 - **Mysterious Name** — a name does not reveal what it does or holds.
 - **Duplicated Code** — the same logic shape appears in more than one changed place.

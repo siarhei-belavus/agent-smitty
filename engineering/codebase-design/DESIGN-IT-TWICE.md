@@ -1,5 +1,7 @@
 # Design It Twice
 
+Based on "Design It Twice" (Ousterhout): your first idea is unlikely to be the best.
+
 ## Process
 
 ### 1. Frame the problem space
