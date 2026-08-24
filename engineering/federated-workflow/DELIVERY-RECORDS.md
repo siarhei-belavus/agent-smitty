@@ -6,9 +6,13 @@ Read [repository identity](REPOSITORY-IDENTITY.md) and [module vocabulary](../co
 
 A Repository Delivery is one repository's authorized unit of work from fixed base to attributable exact-head result, including its repository-owned validation evidence.
 
+## Repository Store
+
+A Repository Store is the validated Git checkout selected by Repository Resolution to supply Git storage without becoming a delivery workspace. Delivery preparation may fetch and register its own worktree while preserving the Store's checked-out branch, index, files, remotes, hooks, and configuration.
+
 ## Execution Worktree
 
-An Execution Worktree is an isolated writable Git worktree assigned to one Repository Delivery. The Repository Scope entry, not the worktree, grants write authority.
+An Execution Worktree is an isolated writable Git worktree assigned to one Repository Delivery across its Execution Attempts. Its host-local path is neither its identity nor portable delivery state. It persists until explicit safe cleanup. The Repository Scope entry, not the worktree, grants write authority.
 
 ## Repository Reference
 

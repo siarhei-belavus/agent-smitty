@@ -12,6 +12,7 @@ An Execution Attempt is one interval of delivery work between activation or resu
 - One current Execution Checkpoint has at most one active Human Action Request and one linked free-form Human Response.
 - Repository evidence names its repository and exact head. Cross-repository evidence names its complete influencing delivery-head set and every repository-backed Validation Source with its recorded exact source commit. Bundle Spec evidence names the complete bundle head set and the cross-repository evidence with those source commits. A mismatch is stale evidence.
 - Runtime termination evidence names the provider record, its execution URL or equivalent runtime reference when available, the checkpoint, and the observed termination outcome. The runtime reference supports observability and liveness diagnosis; it establishes neither the claim nor recovery authority. Elapsed time is not evidence.
+- Durable records identify preserved Execution Worktrees by Repository Delivery, branch, base, exact Git state, and provenance disposition. Local paths remain execution-host inputs and never enter a checkpoint, request, response, Resumption Record, or handoff.
 - Append-only successors preserve history and identify the current record.
 
 ## Execution Checkpoint

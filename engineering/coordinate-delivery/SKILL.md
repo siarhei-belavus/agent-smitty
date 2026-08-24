@@ -32,25 +32,29 @@ For a ticketless activation, any pre-claim change or failed post-claim verificat
 
 Read [`../federated-workflow/PLANNING-ARTIFACTS.md`](../federated-workflow/PLANNING-ARTIFACTS.md) completely. Require complete Repository References, resolvable Context Scope, non-empty Repository Scope with repository-owned outcomes, every applicable Settled Seam and Validation Obligation, and consistent ticket, dependency, user, canonical-context, ADR, and accepted-decision authority.
 
+Require the complete executable ticket shape: Parent, What to build, observable Acceptance criteria, Repository References, Repository Scope, Context Scope, Cross-Repository Seams, and Blocked by. A section may use its contract-defined explicit `None` form but may not be silently absent.
+
 A Delivery Bundle is one ticket's complete delivery state: its Repository Deliveries; any Published Delivery Heads, Review Proposals, and lifecycle records; current validation and review evidence; and handoff state.
 
 **Complete when:** every required contract field and context pointer is present and internally consistent; any material omission or conflict has entered the [human-boundary branch](HUMAN-BOUNDARY.md) before repository mutation.
 
 ## 3. Resolve repository references
 
-Repository Resolution binds each Repository Reference to one validated Repository Store. A Repository Store is a validated checkout used read-only as Git storage and a source for worktree creation.
+Read [execution preparation](EXECUTION-PREPARATION.md) completely before binding repositories or mutating local Git state.
+
+Repository Resolution binds each Repository Reference to one validated Repository Store.
 
 Resolve every Repository Reference before fetching a Base Branch or creating an Execution Worktree. Validate and reuse a matching current checkout, explicitly supplied checkout, known worktree, execution-host checkout, or bounded nearby Repository Store. Otherwise prepare a checkout from the reference's declared remote at an execution-host location. Folder proximity neither grants relevance nor proves repository identity. Use no repository registry or broad filesystem scan.
 
-Validate each candidate against its Repository ID, remote, Base Branch, Git and worktree identity, and repository-local Code Host binding. After binding, read the repository's instructions, canonical context, ADRs, Context Scope targets, and repository-backed Validation Sources. Treat Repository Stores as read-only sources for worktree creation, never as delivery workspaces.
+Validate each candidate against its Repository ID, remote, Base Branch, Git and worktree identity, and repository-local Code Host binding. Record a material inferred or prepared binding by its portable repository identity and validation evidence, without its local path. After binding, read the repository's instructions, canonical context, ADRs, Context Scope targets, and repository-backed Validation Sources. Preserve each Repository Store's checkout state and use it only as a Git source for worktree creation, never as a delivery workspace.
 
-**Complete when:** every Repository Reference resolves to one validated Repository Store and every referenced instruction, context, ADR, binding, and Validation Source is readable; a contradiction or bounded access failure has entered the [human-boundary branch](HUMAN-BOUNDARY.md) before preparation.
+**Complete when:** every Repository Reference resolves to one validated Repository Store and every referenced instruction, context, ADR, binding, and Validation Source is readable; a missing or contradictory authority has entered the [human-boundary branch](HUMAN-BOUNDARY.md) as a Specification Contradiction, or a bounded access or host-capability failure has entered it as an Environment Preparation Blocker, before preparation.
 
 ## 4. Prepare repository deliveries
 
-Create a run-specific persistent root outside existing user checkouts. Fetch every configured Base Branch from its declared remote and pin its fresh exact commit. Prepare one clean isolated Execution Worktree per Repository Scope entry, with a unique delivery branch only when changes are required. Keep validation-only and no-change deliveries at their pins and read-only repositories outside writable scope. Record each Repository ID, Reference, path, branch, and fixed base.
+Apply the loaded execution-preparation rules. Fetch every configured Base Branch without switching its Repository Store and pin its fresh exact commit. Prepare or reuse one clean isolated Execution Worktree and unique delivery branch per Repository Scope entry. Keep deliveries later classified as no-change at their pins and read-only repositories outside writable scope. Keep the Repository ID-to-worktree mapping in execution-host state; portable records identify the delivery, branch, base, and exact head without a local path.
 
-**Complete when:** every Repository Delivery is clean at its fixed base, existing user state is unchanged, and any persistent preparation failure has entered the [human-boundary branch](HUMAN-BOUNDARY.md) with all safe work preserved.
+**Complete when:** every Repository Delivery has a provenance-verified persistent worktree at its intended branch and fixed base, its immediate mandatory bootstrap has succeeded, existing user checkout state is unchanged, and any persistent preparation failure has entered the [human-boundary branch](HUMAN-BOUNDARY.md) with all safe work preserved.
 
 ## 5. Execute one flat attempt
 
@@ -82,10 +86,10 @@ After every mandatory obligation has current passing evidence, use the `code-rev
 
 ## 9. Hand off idempotently
 
-Re-read the ticket and verify the activation-authority claim. Mark every verified proposal ready and re-read it. Build `coordinate-delivery:<canonical ticket reference>:<SHA-256 of sorted Repository ID=exact head lines>`.
+Re-read the ticket, claim, Published Delivery Heads, proposals, feedback, and current evidence. Return any drift to its earliest invalidated prerequisite. Mark every verified proposal ready and re-read it. Build `coordinate-delivery:<canonical ticket reference>:<SHA-256 of sorted Repository ID=exact head lines>`.
 
-Reuse a matching handoff; otherwise append one note recording every base, head, branch, proposal, validation and review result, Advisory finding, human action, merge/rollout order, unchanged delivery, preserved state, and limitation. Apply only missing final effects: release the Workflow Identity claim, replace `ready-for-agent` with exactly `ready-for-human`, and leave the ticket open.
+Reuse a matching handoff; otherwise append one note recording every base, head, branch, proposal, validation and review result, Advisory finding, human action, merge/rollout order, unchanged delivery, preserved state, and limitation. Include no local path, credential, or secret. The complete handoff is the final Execution Checkpoint, so create no duplicate checkpoint note. Apply only missing final effects in order: replace `ready-for-agent` with exactly `ready-for-human`, release the Workflow Identity claim, re-read both effects, and leave the ticket open.
 
 **Complete when:** exactly one matching handoff exists, every proposal is ready at its recorded head, and the ticket is open, unassigned, and carries exactly `ready-for-human` among Routing Labels.
 
-Report the ticket, persistent root, fixed bases and heads, validation, proposals, review outcomes, and final Work Tracker state.
+Report the ticket, host-local worktree disposition, fixed bases and heads, validation, proposals, review outcomes, and final Work Tracker state.
