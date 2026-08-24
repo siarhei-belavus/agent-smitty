@@ -10,11 +10,11 @@ Dependency category determines how the deepening is implemented and tested; it i
 
 ### In-process
 
-Pure computation, in-memory state, no I/O. Merge the modules and use the selected test surface directly. No adapter needed.
+Pure computation, in-memory state, no I/O. Merge the modules and test the deepened module through its interface directly. No adapter needed.
 
 ### Local-substitutable
 
-Dependencies that have local test stand-ins (PGLite for Postgres, in-memory filesystem). Run the stand-in behind the selected test surface. The dependency seam remains internal; no port appears at the module's external interface.
+Dependencies that have local test stand-ins (PGLite for Postgres, in-memory filesystem). Test the deepened module through its interface with the stand-in running behind it. The dependency seam remains internal; no port appears at the module's external interface.
 
 ### Remote but owned (Ports & Adapters)
 
@@ -29,5 +29,5 @@ Third-party services (Stripe, Twilio, etc.) you don't control. The deepened modu
 ## Replace, don't layer
 
 - Inventory every acceptance criterion, established invariant, and credible failure protected by the old tests, and map each one to a replacement case.
-- Once the replacement cases cover that inventory, delete tests tied to the superseded shallow modules. Do not preserve them as a historical layer.
+- Once the replacement cases cover that inventory, delete every test that invokes a superseded shallow interface. Do not preserve them as a historical layer.
 - If any protected behavior has no replacement case, stop and reconsider the proposed interface or logical ownership.

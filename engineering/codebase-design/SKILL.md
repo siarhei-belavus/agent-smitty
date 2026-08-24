@@ -1,6 +1,6 @@
 ---
 name: codebase-design
-description: Design deep modules proportionally. Use when the user wants to design or improve a module's interface, decide where a seam goes, deepen or privately decompose a module without widening its interface, choose its test surface, judge whether a design is overengineered, or when another skill needs the deep-module vocabulary.
+description: Design deep modules proportionally. Use when the user wants to design or improve a module's interface, decide where a seam goes, deepen or privately decompose a module without widening its interface, make it testable through that interface, or judge whether a design is overengineered.
 ---
 
 # Codebase Design
@@ -89,7 +89,7 @@ When uninterrupted operation requires explicitly approved temporary coexistence,
 
 ## Logical ownership and physical decomposition
 
-A module is a logical owner, not a file. Its implementation may span cohesive private files hidden behind one public interface at one seam. **Physical decomposition** splits independently changing internal responsibilities while preserving that interface, the module's invariants and vocabulary, and every boundary translation. Treat each new file as a private implementation detail. If it needs its own caller-facing interface, first establish through proportional design that it is a separate logical owner rather than an internal part of the existing module.
+A module is a logical owner, not a file. Its implementation may span cohesive private files hidden behind one public interface at one seam. **Physical decomposition** splits independently changing internal responsibilities while preserving that interface, the module's invariants and vocabulary, and every boundary translation. Treat each new file as a private implementation detail. If it needs its own caller-facing interface or direct tests, first establish through proportional design that it is a separate logical owner rather than an internal part of the existing module.
 
 Before adding behavior to a module whose implementation contains independently changing responsibilities, either decompose those responsibilities privately behind the existing seam or state the concrete locality reason they are clearer and safer together. A behavior-preserving private split is tidy-first refactoring within the current implementation authority. Every split should improve locality by concentrating understanding and change.
 
@@ -109,7 +109,7 @@ Good interfaces make testing natural:
    }
    ```
 
-2. **Expose the selected test surface.** Return results for computation and declare domain effects in the interface contract.
+2. **Make observable behavior explicit.** Return results for computation and declare domain effects in the interface contract.
 
    ```typescript
    // Testable
