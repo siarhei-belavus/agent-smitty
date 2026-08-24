@@ -19,7 +19,7 @@ If the redacted output is not enough to diagnose the bug, say so and ask the use
 
 Build a **tight** pass/fail signal that goes red on this bug before forming a hypothesis.
 
-Spend disproportionate effort here.
+Bisection, hypothesis testing, and instrumentation depend on this loop. Spend disproportionate effort here. **Be aggressive. Be creative. Refuse to give up.**
 
 ### Ways to construct one, in roughly this order
 

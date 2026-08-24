@@ -82,7 +82,7 @@ Exception: if a prototype produced a snippet that encodes a decision more precis
 
 A list of testing decisions that were made. Include:
 
-- A description of what makes a good test: test external behavior, not implementation details
+- A description of what makes a good test (only test external behavior, not implementation details)
 - Every repository-local and cross-repository Settled Seam record
 
 This is the sole specification section that owns settled seams. Do not add Repository Scope or a separate Cross-Repository Seams section to a specification.

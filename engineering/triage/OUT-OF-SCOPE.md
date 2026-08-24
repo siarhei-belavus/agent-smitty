@@ -4,6 +4,10 @@
 
 During triage, read every file in `.out-of-scope/`. Match requests by concept, not keyword. For example, "night theme" matches `dark-mode.md`. Surface the matching record and its prior reasoning, then ask the maintainer whether the recorded decision still holds.
 
+- If the request concerns the same concept and the decision holds, append it under `Prior requests` and return to triage's Rejected (enhancement) outcome.
+- If the request concerns the same concept and the decision is reconsidered, update or delete the record and continue normal triage.
+- If the request is related but distinct, leave the record unchanged and continue normal triage.
+
 ## Directory structure
 
 ```
