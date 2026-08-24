@@ -24,7 +24,7 @@ Capture authority changes only the destination, never the modeling depth or delt
 
 ## Create routed artifacts lazily
 
-Under canonical capture, create the configured context, Context Map, or ADR artifact only when the first owned change requires it. Do not pre-create empty canonical documents.
+Under canonical capture, create the configured Canonical Context Document, Context Map, or ADR only when the first owned change requires it. Do not pre-create empty canonical documents.
 
 Use [CONTEXT-MAP-FORMAT.md](./CONTEXT-MAP-FORMAT.md) for the configured Context Map of one repository. Preserve a compatible existing layout. A Federated Context Map follows the Domain Federation contract selected during orientation.
 

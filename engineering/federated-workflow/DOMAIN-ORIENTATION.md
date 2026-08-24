@@ -30,6 +30,6 @@ Use `Context Document` for a single-context repository. Use `Context Map` when m
 
 When `docs/agents/domain.md` contains `## Domain Federation`, read [domain federation configuration](DOMAIN-FEDERATION.md) before applying that section.
 
-Route terms and definitions to their Canonical Context Document. Route context topology, participants, External Systems, and relationships to the owning Context Map. Route context and repository architecture decisions to their configured ADR owner. When `## Domain Federation` is present, route federation-wide architecture decisions to Home.
+Route terms and definitions to their Canonical Context Document. Route context topology, External Systems, and relationships to the owning Context Map. Route context and repository architecture decisions to their configured ADR owner. When `## Domain Federation` is present, route participants to the owning Context Map and federation-wide architecture decisions to Home.
 
 Paths are repository-relative unless the configured federation contract requires a Repository-qualified Context Pointer. If a selected canonical owner or artifact is unavailable, report it and preserve the proposed change for routing; do not create a local substitute, duplicate canonical content, or infer another owner.

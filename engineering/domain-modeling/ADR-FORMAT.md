@@ -1,6 +1,6 @@
 # ADR Format
 
-ADRs live in `docs/adr/` and use sequential numbering: `0001-slug.md`, `0002-slug.md`, etc.
+ADRs use sequential numbering in their configured ADR directory: `0001-slug.md`, `0002-slug.md`, etc.
 
 ## Template
 
@@ -22,4 +22,4 @@ Only include these when they add genuine value. Most ADRs won't need them.
 
 ## Numbering
 
-Scan `docs/adr/` for the highest existing number and increment by one.
+Scan the configured ADR directory for the highest existing number and increment by one.
