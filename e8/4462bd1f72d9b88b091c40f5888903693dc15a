@@ -1,0 +1,20 @@
+skills/matt/engineering/coordinate-delivery/EXECUTION-PREPARATION.md
+  s_85343ea36ce106::t_1b9c5cbb4cf1c8 3,5-6,10
+  s_85343ea36ce106::t_e3ff36c76c935e 7-9,11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "e84462bd1f72d9b88b091c40f5888903693dc15a",
+  "prompts": {},
+  "sessions": {
+    "s_85343ea36ce106": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0345d-3521-78d1-aa3c-aa02b068aeb5",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
