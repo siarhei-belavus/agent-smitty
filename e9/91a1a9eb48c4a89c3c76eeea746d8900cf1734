@@ -1,0 +1,21 @@
+skills/matt/engineering/domain-modeling/SKILL.md
+  s_4279ed1f1cac82::t_d8410ca0bdc7b4 27-29
+skills/matt/engineering/domain-modeling/CONTEXT-MAP-FORMAT.md
+  s_4279ed1f1cac82::t_1e01643ef42398 1-29
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "e991a1a9eb48c4a89c3c76eeea746d8900cf1734",
+  "prompts": {},
+  "sessions": {
+    "s_4279ed1f1cac82": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a02578-001b-75c2-b40f-bd48c20f5f55",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
