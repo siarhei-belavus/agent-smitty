@@ -1,0 +1,19 @@
+skills/matt/engineering/code-review/SKILL.md
+  s_170f5bd003f568::t_2e984e0a59faf0 93-96,107-108,119
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "d0cbc03090ffd71b9963dd40c9517a78cb3a54ef",
+  "prompts": {},
+  "sessions": {
+    "s_170f5bd003f568": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a038bd-639c-7150-a872-ad0acb094583",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
