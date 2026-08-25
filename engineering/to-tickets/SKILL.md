@@ -17,9 +17,9 @@ Use the configured Work Tracker, Routing Label mapping, and Domain Orientation w
 
 Work from accepted authority already in the conversation, a supplied reference, or both. A settled conversation or plan needs no Wayfinder Map.
 
-For a Work Tracker Specification, including a Map that is also the Specification, assemble Decision Context. Continue only with `Complete` and never switch profiles. For a local spec path, assemble the Local Markdown Decision Context equivalent and apply the same gate. Accepted planning Resolutions, Domain Model Deltas, and architecture decisions are authoritative source payloads, not background summaries. When conversation and durable authority conflict, stop as `Ambiguous` instead of choosing one.
+For a Work Tracker Specification, including a Map that is also the Specification, assemble Decision Context. For a local spec path, use the shared Local Markdown Decision Context recipe. Use accepted planning Resolutions, Domain Model Deltas, and architecture decisions as authority rather than background summaries. Return conflicts between conversation and durable authority to clarification instead of choosing one.
 
-Context gathering is complete when every selected source has permanent provenance where applicable and every requested Work Tracker profile is `Complete`.
+Context gathering is complete when every selected source is accepted authority and every requested Context Assembly gate has passed.
 
 ### 2. Explore the codebase (optional)
 
@@ -49,7 +49,7 @@ For each proposed slice, derive the complete executable contract from its source
 
 Run the loaded Source authority and Composition invariants as a preflight. If either fails, return to clarification or planning instead of publishing the ticket.
 
-Classify each proposed artifact through the confirmed provider mapping. A ticket derived from a Specification uses the mapped Delivery Ticket role and its required parent relationship. Direct `to-tickets` may publish a parentless native Task or Bug only when the source-authority and composition preflight proves that artifact independently contains complete expected behavior, scope, acceptance criteria, and validation expectations. Do not invent a Specification, Map, or parent to make direct settled authority publishable.
+Classify each proposed artifact through the confirmed provider mapping and validate it under the shared source-authority and composition contracts. Do not invent planning authority or relationships to make direct settled authority publishable.
 
 **Wide refactors are the exception to vertical slicing.** A **wide refactor** is one mechanical change — rename a column, retype a shared symbol — whose **blast radius** fans across the whole codebase, so no independently green vertical slice can contain it. Sequence the migration as a coordinated cutover: divide mechanical work into batches sized by blast radius (per package, per directory) on an integration branch, then block one final integrate-and-verify ticket on every batch. Individual batches may be temporarily red; the final ticket establishes the single new form and restores green CI. Carry an old and new form together only when the source specification explicitly records approved external compatibility and its removal condition.
 
@@ -74,8 +74,8 @@ Iterate until the user approves the breakdown.
 
 Publish the approved tickets in dependency order:
 
-- **Local Markdown** → write one file per ticket under `.scratch/<feature-slug>/issues/<NN>-<slug>.md`, numbered from `01` in dependency order (blockers first). Prepend `# <NN> — <Ticket title>` to the body. Preserve the same derived or standalone role, Authority Sources, parent rule, and Delivery Context semantics as a real provider. Its Blocked by section names the numbers/titles it depends on. Assemble the Local Markdown Delivery Context equivalent for the exact file, then add `**Status:** ready-for-agent` only when the result is `Complete`.
-- **Configured Work Tracker** → publish one mapped Delivery Ticket, Task, or Bug per ticket in dependency order so blocking edges can reference durable identifiers. Use the configured native parent and blocking relationships with their documented fallbacks. Re-read every item and assemble Delivery Context for that exact artifact. Apply the mapped `ready-for-agent` Routing Label only after its complete executable contract and state produce `Complete`.
+- **Local Markdown** → write one file per ticket under `.scratch/<feature-slug>/issues/<NN>-<slug>.md`, numbered from `01` in dependency order (blockers first). Prepend `# <NN> — <Ticket title>` to the body. Its Blocked by section names the numbers/titles it depends on. Validate the exact file through the shared Local Markdown Delivery Context recipe, then add `**Status:** ready-for-agent` when the gate passes.
+- **Configured Work Tracker** → publish one mapped artifact per ticket in dependency order so blocking edges can reference durable identifiers. Use the configured native relationships and documented fallbacks. Re-read every item and assemble Delivery Context for that exact artifact. Apply the mapped `ready-for-agent` Routing Label when the gate passes.
 
 Do NOT close or modify any parent issue.
 

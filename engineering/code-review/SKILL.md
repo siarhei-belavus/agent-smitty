@@ -23,9 +23,7 @@ Accept one or more fixed Repository Targets. A single repository is the one-elem
 - repository validation evidence bound to the Review head for a committed target or bound to both the Review head and Worktree snapshot ID for WIP, when supplied.
 - for explicit WIP review, a **Worktree snapshot ID** that identifies the captured uncommitted content.
 
-For Work Tracker-backed authority, Authority input contains the exact selected profile, permanent root, explicit `Complete` result, and complete lossless Context Pack. Select Decision Context for a Decision Ticket or Specification, Delivery Context for delivered work rooted in a Delivery Ticket, Task, or Bug, and Map Context only when the Map itself is under review. A caller that already assembled this record supplies it unchanged. Retain it for every selected review axis and reviewer. Do not rebuild provider authority, infer another root, switch profiles, or let a reviewer rediscover the provider.
-
-When the user directly supplies a Work Tracker reference without an assembled Authority input, assemble the matching profile for that exact permanent root before accepting the target. Only `Complete` continues. `Incomplete` or `Ambiguous` stops at clarification or the applicable human boundary. A Work Tracker reference inferred only from commits is not authority and does not authorize provider lookup.
+For Work Tracker-backed authority, Authority input is the accepted Context Assembly output for the authority under review, identified by its selected profile and permanent root. Accept a caller-supplied record unchanged. When the user directly supplies an explicit Work Tracker reference without one, assemble the contract-selected profile for that exact root and follow the result at the review boundary. Retain the accepted Authority input for every selected review axis and reviewer. Reviewers do not rebuild it or query the provider for replacement authority.
 
 For authority that is not Work Tracker-backed, Authority input contains the supplied local specification, current user direction, or other non-provider authority. It has no invented Context Pack, profile, or result.
 
@@ -39,7 +37,7 @@ Select one review mode:
 
 Do not silently add an unselected axis.
 
-**Complete when:** every target has one Authority input; every Work Tracker-backed record has one exact compatible profile and permanent root, explicit `Complete`, and a lossless Context Pack; every non-Work-Tracker record retains its supplied authority without invented Context Assembly fields; and the selected axes are explicit.
+**Complete when:** every target has one Authority input accepted through its applicable authority gate and the selected axes are explicit.
 
 ## Process
 
@@ -61,11 +59,11 @@ Use the Authority input and sources supplied with the Repository Targets first. 
 2. a matching file under `docs/`, `specs/`, or `.scratch/`;
 3. ask the user only when the selected Spec axis has no authoritative source.
 
-An issue reference found in a commit message is a provenance clue only. Do not follow it into a Work Tracker or treat it as authority without an explicit root and a `Complete` Authority input. For supplied Work Tracker Authority input, use its full pack as the authoritative source set. Do not replace it with individual ticket reads, summaries, or a newly discovered provider source.
+An issue reference found in a commit message is a provenance clue only and does not trigger provider lookup. Use an accepted Work Tracker Authority input as the authoritative source set without replacing it with individual ticket reads, summaries, or newly discovered provider sources.
 
 Start with supplied seam records, then validate every seam against current authoritative sources. Explicit current user direction, specifications, and resolved decisions take precedence over earlier sources and existing public interfaces. Record source conflicts as Spec findings. When no authoritative source settles a seam, mark it unsettled and assess its shape using the `codebase-design` baseline rather than choosing a design during review.
 
-**Complete when:** every Work Tracker-backed target still uses its supplied exact profile, permanent root, `Complete` result, and lossless Context Pack; every other target has the best available non-provider authority; and every seam is settled, explicitly conflicting, or marked unsettled.
+**Complete when:** every target still uses its accepted Authority input, every non-Work-Tracker target has the best available authority, and every seam is settled, explicitly conflicting, or marked unsettled.
 
 ### 3. Build repository-local Standards baselines
 
@@ -94,11 +92,11 @@ A full pass continues after every finding and finishes the complete selected axi
 
 > Audit every member of the finite input sets applicable to the selected axis: changed files; repository rules and heuristics for Standards or authoritative requirements and decisions for Spec; Settled Seams and their named providers and consumers; and supplied validation claims. Return all material findings from the full pass together. Include a **Coverage receipt** with audited/total counts for each applicable set. State why a set is not applicable. Coverage is incomplete while any item remains unaccounted for.
 
-For the Standards axis, start one fresh Standards Reviewer per selected Repository Target. Give each reviewer only its captured target, commit list, repository-local standards, smell baseline, design trigger result, authoritative seam context, complete Authority input, and this brief. For a Work Tracker-backed target, pass the exact selected profile, permanent root, `Complete` result, and lossless Context Pack unchanged, and forbid provider lookup or profile switching. For a WIP target, the captured target includes the Worktree snapshot ID and immutable materialized diff with its recorded digest; require the reviewer to inspect that diff rather than the mutable worktree.
+For the Standards axis, start one fresh Standards Reviewer per selected Repository Target. Give each reviewer only its captured target, commit list, repository-local standards, smell baseline, design trigger result, authoritative seam context, accepted Authority input, and this brief. Pass Work Tracker Authority input unchanged and allow no provider lookup. For a WIP target, the captured target includes the Worktree snapshot ID and immutable materialized diff with its recorded digest; require the reviewer to inspect that diff rather than the mutable worktree.
 
 > Report all material Standards findings per file and hunk. Cite the violated rule or name the relevant heuristic. Label a finding **Blocking** only for a mandatory-standard violation or a structural flaw with a credible future bug or material change-pressure path; label other material findings **Advisory**. Omit mechanical issues reliably enforced by configured tooling.
 
-For the Spec axis, start one fresh Bundle Spec Reviewer over the complete selected target set. Give it all captured targets and diffs, complete Authority input records, authoritative sources, settled seams, repository validation evidence, and this brief. Pass every Work Tracker-backed profile, permanent root, `Complete` result, and lossless Context Pack unchanged, and forbid provider lookup or profile switching:
+For the Spec axis, start one fresh Bundle Spec Reviewer over the complete selected target set. Give it all captured targets and diffs, accepted Authority input records, authoritative sources, settled seams, repository validation evidence, and this brief. Pass Work Tracker Authority input unchanged and allow no provider lookup:
 
 > Report missing or partial requirements, scope creep, incorrect behavior, unauthorized seam changes, acceptance behavior outside a settled seam, and required behavior not verified through that seam. Route each finding to the affected Repository IDs. Label a finding **Blocking** when it demonstrates a requirement or settled-decision violation or a reachable correctness regression; label other material findings **Advisory**.
 
@@ -122,4 +120,4 @@ Publish no branch, create or update no Review Proposal, and change no Work Track
 
 ## Evidence freshness
 
-Every finding and pass result is bound to the captured exact Review heads, each target's Authority input, and, for WIP, the Worktree snapshot ID. Report the selected profile, permanent root, and `Complete` result with every Work Tracker-backed review result. Changed heads, snapshot IDs, or caller-supplied Authority input invalidate affected repository validation and Standards results; any Spec result influenced by a changed target or Authority input is stale. Require refreshed evidence and a new fixed target rather than carrying an earlier pass forward.
+Every finding and pass result is bound to the captured exact Review heads, each target's Authority input, and, for WIP, the Worktree snapshot ID. Report the Work Tracker Authority input binding with every affected result. Changed heads, snapshot IDs, or caller-supplied Authority input invalidate affected repository validation and Standards results; any Spec result influenced by a changed target or Authority input is stale. Require refreshed evidence and a new fixed target rather than carrying an earlier pass forward.

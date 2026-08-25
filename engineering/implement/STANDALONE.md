@@ -1,10 +1,8 @@
 # Standalone assignments
 
-Read [provider concepts](../federated-workflow/PROVIDER-CONCEPTS.md) before deciding any external publication or tracker effect.
-
 A Standalone assignment accepts one or more writable Repository Scope entries. A supplied single repository is the one-entry case. When the user supplies only the current repository and no federated ticket contract, treat that repository as the single Repository Delivery and the supplied spec, ticket, or conversation as authority.
 
-When the authority includes a Work Tracker Delivery Ticket, Task, or Bug, read [Work Tracker context assembly](../federated-workflow/WORK-TRACKER-CONTEXT-ASSEMBLY.md) and assemble Delivery Context for the exact artifact before accepting the assignment. Use the configured artifact mapping rather than provider issue type inference. Require and read a parent only for mapped derived delivery. A standalone Task or Bug may have no parent or Authority Source when its own content passes the contract's self-contained check. Continue only with a `Complete` Delivery Context; report `Incomplete` or `Ambiguous` at the applicable clarification, planning, or human boundary without switching profiles.
+When authority includes Work Tracker delivery work, read [Work Tracker context assembly](../federated-workflow/WORK-TRACKER-CONTEXT-ASSEMBLY.md) and assemble Delivery Context for the exact artifact before accepting the assignment. Accept the assignment only when that gate passes. Report a stop at the applicable clarification, planning, or human boundary.
 
 Resolve the Fixed Review Base from the unchanged current `HEAD` before editing when the assignment does not supply one. Use the supplied isolated worktree or another isolated writable checkout authorized by the assignment.
 
@@ -14,6 +12,6 @@ After the common implementation and exact-result validation in `SKILL.md`, use t
 
 A changed head needs refreshed repository validation and fresh Standards review before the next whole-bundle Spec review. Finish when every latest committed head passes full repository validation and the latest selected review has no Blocking finding.
 
-Standalone implementation changes no Code Host publication, Review Proposal, or Work Tracker state unless the user grants that authority separately.
+Standalone implementation changes no Code Host publication, Review Proposal, or Work Tracker state unless the user grants that authority separately. Before exercising separately granted provider authority outside a Work Tracker-backed assignment, read [provider concepts](../federated-workflow/PROVIDER-CONCEPTS.md).
 
-**Complete when:** every Work Tracker-backed assignment has a `Complete` Delivery Context, every current exact head has fresh repository validation, and the selected review has no Blocking finding, with any separately authorized provider effects reported.
+**Complete when:** every Work Tracker-backed assignment has passed its Context Assembly gate, every current exact head has fresh repository validation, and the selected review has no Blocking finding, with any separately authorized provider effects reported.

@@ -1,5 +1,9 @@
 # Preflight and Validation
 
+## Work Tracker binding check
+
+A Work Tracker binding passes when it satisfies every requirement in the loaded provider-binding and Context Assembly contracts against representative provider artifacts. Record each capability's contract-selected verification state.
+
 ## Complete read-only preflight
 
 Resolve every target checkout and record, without writing:
@@ -8,7 +12,7 @@ Resolve every target checkout and record, without writing:
 2. current branch/worktree state and every user change;
 3. applicable root/nested instructions, canonical contexts, maps, and ADRs;
 4. each repository's independent Code Host binding; every human-confirmed Ticket Origin and its independent Work Tracker and Routing Label bindings; Domain Orientation and Home bindings; and conflicting or partial prior setup;
-5. each Ticket Origin's complete Work Tracker binding, judged against the provider-binding and Context Assembly contracts, including artifact mapping, all three profile reads, Resolution succession, reconciliation, and ordinary Delivery frontier prose;
+5. each Ticket Origin's complete Work Tracker binding under the common check above, including its ordinary Delivery frontier prose;
 6. provider-readable locators, representative artifacts, complete bodies and comments, pagination, permanent references, relationships, labels, assignees, dependencies, accepted Resolution records, Workflow Identity when exposed, and capability metadata, with write scope marked verified or unverified rather than tested by mutation;
 7. every intended file, whether create/patch/preserve, and exact overlap with user changes;
 8. application-agent scopes, proving they do not overlap;
@@ -23,8 +27,7 @@ Fail closed on wrong identity/Base Branch, unresolved context ownership, conflic
 For every operation:
 
 - every provider binding satisfies the loaded provider contract and its locators and required metadata are readable non-destructively;
-- every Work Tracker binding has one human-confirmed mapping whose manual recipes can reconstruct Map, Decision, and Delivery Context with complete pagination and permanent provenance;
-- recognized Resolution succession, reverse references, Map history, reconciliation, and post-update rebuild operations preserve the shared contract, with untested real succession marked non-destructively unverified;
+- every Work Tracker binding passes the common check above with its human-confirmed mapping;
 - no credential, account binding, machine-local path, registry, probe artifact, commit, branch, or Review Proposal was created;
 - a second preview produces an empty diff.
 
@@ -34,7 +37,7 @@ Validate only the current repository:
 
 - its Repository ID, origin remote, and Base Branch agree with Git and the repository-owned Code Host binding;
 - the Work Tracker locator and its required metadata are readable through its configured non-destructive validation operations;
-- representative provider artifacts support the confirmed role mapping, Authority Sources, parent-conditional delivery, standalone Task and Bug delivery, and complete profile reads;
+- representative provider artifacts pass the common Work Tracker binding check;
 - every Routing Label maps to a readable provider label;
 - `AGENTS.md` or `CLAUDE.md` points directly to the repository-owned Code Host, Work Tracker, Routing Label, and Domain Orientation bindings;
 - `docs/agents/domain.md` satisfies the loaded Domain Orientation contract and contains no `## Domain Federation` binding or Repository-qualified federated map.

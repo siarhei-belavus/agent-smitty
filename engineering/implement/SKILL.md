@@ -32,7 +32,7 @@ Read-only context and validation repositories remain outside writable scope. Mis
 
 ## Prepare each delivery
 
-Validate that the writable path belongs to the Repository Reference and that its starting revision agrees with the supplied launch commit or Fixed Review Base. After complete Context Assembly stops at canonical pointers, perform configured Domain Orientation and read that repository's instructions, routed canonical context, ADRs, validation commands, and nearest relevant prior art. Do not use one repository's instructions or validation as authority for another.
+Validate that the writable path belongs to the Repository Reference and that its starting revision agrees with the supplied launch commit or Fixed Review Base. After the assignment's Context Assembly gate, perform configured Domain Orientation and read that repository's instructions, routed canonical context, ADRs, validation commands, and nearest relevant prior art. Do not use one repository's instructions or validation as authority for another.
 
 Record the Repository ID, writable path, Fixed Review Base, authoritative sources, complete Settled Seams, test approaches, Validation Obligations, and validation commands before editing.
 

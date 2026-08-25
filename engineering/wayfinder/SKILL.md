@@ -4,7 +4,7 @@ description: Plan work too large for one agent session as durable Work Tracker d
 disable-model-invocation: true
 ---
 
-Read [provider concepts](../federated-workflow/PROVIDER-CONCEPTS.md) before selecting tracker authority. Read [Work Tracker context assembly](../federated-workflow/WORK-TRACKER-CONTEXT-ASSEMBLY.md) before charting a Map, navigating one, or resolving a Decision Ticket.
+Read [Work Tracker context assembly](../federated-workflow/WORK-TRACKER-CONTEXT-ASSEMBLY.md) before charting a Map, navigating one, or resolving a Decision Ticket.
 
 A loose idea has arrived — too big for one agent session, and wrapped in fog: the way from here to the **destination** isn't visible yet. Wayfinding is about finding that way, not charging at the destination. Chart the way as a **shared map** on the configured Work Tracker, then resolve its **decision tickets** one at a time until the route is clear. Each ticket resolves a decision rather than a build slice.
 
@@ -21,9 +21,8 @@ Ordinary planning does not write future-state terms, map changes, or architectur
 Before charting or resolving a map:
 
 1. Read `docs/agents/issue-tracker.md` when present and use its configured Work Tracker locator, terminology, claim, dependency, comment, and Wayfinding operations. Do not infer the tracker from a Git remote.
-2. When navigating or resolving an existing artifact, assemble the contract-selected Map or Decision Context through that binding. Continue only with `Complete`; report and stop on `Incomplete` or `Ambiguous` without switching profiles. Charting has no existing root and validates the new Map after creation.
-3. When `docs/agents/domain.md` is present, read [domain orientation](../federated-workflow/DOMAIN-ORIENTATION.md), then the configured file, before selecting domain sources or composing `grill-with-docs`.
-4. If a Domain Federation is relevant, put its portable Home identity and the relevant Repository-qualified Context Pointers in the map's Notes so later sessions can orient without checkout-local paths.
+2. When `docs/agents/domain.md` is present, read [domain orientation](../federated-workflow/DOMAIN-ORIENTATION.md), then the configured file, before selecting domain sources or composing `grill-with-docs`.
+3. If a Domain Federation is relevant, put its portable Home identity and the relevant Repository-qualified Context Pointers in the map's Notes so later sessions can orient without checkout-local paths.
 
 The Wayfinder frontier is the open, unblocked, unclaimed children of one map. It remains separate from the Delivery frontier. Wayfinder artifacts use only the map and ticket shapes below.
 
@@ -41,7 +40,7 @@ The map is an **index**, not a store. Accepted content lives in recognized Resol
 
 ### The map body
 
-The whole map at low resolution supplies initial session orientation. Open tickets are **not** listed — they are open child items, found by the configured query. After every authoritative Map-index, child, relationship, or Resolution update, rebuild Map Context from permanent sources before using the Map again.
+The whole map at low resolution supplies initial session orientation. Open tickets are **not** listed — they are open child items, found by the configured query.
 
 ```markdown
 ## Destination
@@ -126,21 +125,21 @@ Input: a loose idea.
 1. **Name the destination.** Use `grilling` to pin down what this map is finding its way to — the spec, decision, or change. The destination fixes the scope, so it's settled first. Charting may define the destination, fog, and decision questions, but it does not confirm domain-model changes: turn any material domain-language or architecture question into a decision ticket rather than resolving or storing a Domain Model Delta in the map.
 2. **Map the frontier.** Continue with `grilling`, **breadth-first** this time: fan out across the whole space rather than deep on any one thread, surfacing the open decisions and the first steps takeable now. **If this surfaces no fog** — the way to the destination is already clear, the whole journey small enough for one session — you don't need a map. Stop and ask the user how they'd like to proceed.
 3. **Create the map** (configured `wayfinder:map` label): Destination and Notes filled in, Decisions-so-far empty, the fog sketched into **Not yet specified**. Include configured Domain Federation orientation when relevant.
-4. **Validate the Map.** Assemble Map Context from the created Map. Continue only when the exact requested profile is `Complete`.
-5. **Create the tickets you can specify now.** Before each child publication, assemble Decision Context for a creation root containing the prospective Decision Ticket role, the Map's permanent reference as its one owning Authority Source, and the complete proposed ticket payload. Continue only with `Complete`. Create each child, then re-read its permanent reference and require `Complete` Decision Context after the explicit same-profile root transition. Wire blocking edges in a **second pass** because items need ids before they can reference each other. Wiring sorts them into the frontier and the blocked; everything you can't yet specify stays in the fog under **Not yet specified**.
-6. **Rebuild the Map.** Assemble Map Context from the Map and newly wired children. Continue only when the exact requested profile is `Complete`.
-7. **Claim frontier research.** Re-read the newly wired children and select only `research` tickets on the Wayfinder frontier: open, unblocked, and unassigned. Assign each selected ticket to the dev driving the map, then re-read and verify its claim and blocker state before starting one `research` subagent. A failed or changed claim stays on the tracker and does not start. Each assignment selects Decision Context for the claimed ticket and stops unless it is `Complete`. The subagent captures its findings as the configured linked asset and finalizes that ticket's Resolution through the shared succession and reconciliation rules.
+4. **Validate the Map.** Assemble Map Context from the created Map and finish the step when its gate passes.
+5. **Create the tickets you can specify now.** Run the contract's pre-publication Decision Context procedure for each proposed Decision Ticket and create it only when authorized. Then perform the contract's post-publication transition for that ticket. Wire blocking edges in a **second pass** because items need ids before they can reference each other. Wiring sorts them into the frontier and the blocked; everything you can't yet specify stays in the fog under **Not yet specified**.
+6. **Rebuild the Map.** Assemble Map Context from the Map and newly wired children, then proceed when its gate passes.
+7. **Claim frontier research.** Re-read the newly wired children and select only `research` tickets on the Wayfinder frontier: open, unblocked, and unassigned. Assign each selected ticket to the dev driving the map, then re-read and verify its claim and blocker state before starting one `research` subagent. A failed or changed claim stays on the tracker and does not start. Start each assignment after its Decision Context gate passes. The subagent captures its findings as the configured linked asset and finalizes that ticket's Resolution through the shared succession and reconciliation rules.
 8. Stop. Charting is one session's work; it hand-resolves nothing.
 
 ### Work through the map
 
 Input: a map (URL or number). A ticket is **optional** — without one, pick the next decision yourself rather than asking the user to choose.
 
-1. Assemble **Map Context**, the complete low-resolution navigation view rather than every open ticket body. Stop unless it is `Complete`.
-2. Choose the ticket. If the user named one, use it. Otherwise take the first frontier ticket in order. **Claim it**: assign it to yourself before any work, verify the claim, then assemble Decision Context for that exact ticket. Stop unless it is `Complete`.
+1. Assemble **Map Context** before using the low-resolution navigation view.
+2. Choose the ticket. If the user named one, use it. Otherwise take the first frontier ticket in order. **Claim it**: assign it to yourself before any work, verify the claim, then pass the Decision Context gate for that exact ticket before starting work.
 3. Resolve it, zooming into additional permanent sources when needed and invoking the skills named in the Map's `## Notes`. If in doubt, use `grill-with-docs`. Maintain the ticket's single complete `## Resolution draft` as decisions are confirmed, incorporating every returned Domain Model Delta without reduction.
-4. Record the Resolution. Re-read the active ticket and finalize that same Workflow-Identity-owned draft as a recognized `## Resolution`. When the binding cannot update the draft, publish one complete final Resolution through its append-only fallback. Add the required succession references when it supersedes or supplements earlier authority. Then close the ticket and update the Map index with permanent historical and effective references. After accepting any new or changed Resolution, execute the shared reconciliation sequence in full; do not publish a competing summary Resolution.
+4. Record the Resolution. Apply the shared succession procedure through the configured binding while finalizing the active ticket's Workflow-Identity-owned draft, closing the ticket, and updating the Map index. Then start reconciliation for the accepted Resolution. Do not publish a competing summary Resolution.
 5. Add newly surfaced tickets with create-then-wire. Graduate fog the answer has made specifiable, clearing each graduated patch from **Not yet specified** so it lives only as its new ticket. If the answer reveals a ticket sits beyond the destination, **rule it out of scope** rather than resolving it on the route.
-6. Rebuild Map Context and every affected Decision or Delivery Context after authorized updates. The session completes only when each required rebuild is `Complete`.
+6. Complete the shared reconciliation procedure for every affected context before ending the session.
 
 The user may run unblocked tickets in parallel, so expect other sessions to be editing the tracker concurrently.

@@ -14,11 +14,11 @@ Use the configured Work Tracker and Domain Orientation when their bindings exist
 1. Select and load the planning source:
 
    - With no Work Tracker reference, use the accepted decisions and Domain Model Deltas in the current conversation. This path needs no Wayfinder Map.
-   - With a Wayfinder Map reference, assemble Map Context through the configured binding. Continue only with `Complete`. If the destination still has open decision tickets or material fog, return it to Wayfinder instead of guessing.
-   - When revising or reviewing an existing Specification, assemble Decision Context for that exact artifact. Continue only with `Complete` and never switch to another profile.
-   - When conversation and durable sources are both supplied, use the durable Context Pack as the baseline and add only explicitly accepted decisions from the current conversation. Return `Ambiguous` contradictions to planning instead of choosing silently.
+   - With a Wayfinder Map reference, assemble Map Context through the configured binding. If the destination still has open decision tickets or material fog, return it to Wayfinder instead of guessing.
+   - When revising or reviewing an existing Specification, assemble Decision Context for that exact artifact.
+   - When conversation and durable sources are both supplied, use the accepted Context Pack as the baseline and add only explicitly accepted decisions from the current conversation. Return contradictions to planning instead of choosing silently.
 
-   Source selection is complete when every durable source has permanent provenance, every accepted conversation decision remains explicit in the session, and every required Work Tracker profile is `Complete`.
+   Source selection is complete when every accepted conversation decision remains explicit in the session and every required Context Assembly gate has passed.
 
 2. Perform configured Domain Orientation, then explore the referenced repositories only as needed to understand current state. Use the loaded effective planning language and applicable ADRs throughout.
 
@@ -30,9 +30,9 @@ When materially different caller-facing ownership, interface, seam, or contract 
 
 5. Record every confirmed repository-local and cross-repository Settled Seam only in Testing Decisions. Preserve full-fidelity Domain Model Deltas, architecture rationale, provenance, and canonical documentation obligations in Context Scope and the applicable decisions.
 
-6. Write the spec using the template below. Before publication, assemble Decision Context for the exact prospective Specification role, selected Authority Sources, and complete settled payload. A Map-backed creation root retains every selected Map permanent reference. A source-free creation root records `Authority Sources: None` and the complete accepted session authority. Continue only with `Complete` and do not switch profiles. Then publish to the Ticket Origin Repository's configured Work Tracker. When the selected Map is also the Specification under the confirmed artifact mapping, retain that permanent root with both roles. Otherwise publish a separate Specification with explicit Map Authority Sources. A specification is planning authority, not an executable delivery ticket; do not apply an execution Routing Label solely because the specification was published.
+6. Write the spec using the template below. Before publication, run the contract's Decision Context creation-root procedure for the prospective Specification and complete settled payload. Publish only when that procedure authorizes it. Use the confirmed artifact mapping to retain a selected Map as the Specification or publish a separate Specification with its selected Authority Sources. A specification is planning authority, not an executable delivery ticket; do not apply an execution Routing Label solely because the specification was published.
 
-7. Re-read the durable artifact and assemble Decision Context for the exact published Specification. Validate the contract's explicit root transition against the pre-publication creation root, or the retained root when the Map is also the Specification. Publication completes only with `Complete`; `Incomplete` or `Ambiguous` returns to the source or publication step that caused it.
+7. Re-read the durable artifact and perform the contract's post-publication Decision Context transition. Return a failed transition to the source or publication step that caused it.
 
 <spec-template>
 
