@@ -1,0 +1,32 @@
+skills/matt/engineering/wayfinder/SKILL.md
+  s_5862358c064d8f::t_224894549f949c 38
+  s_5862358c064d8f::t_5243fd66397de4 24
+  s_5862358c064d8f::t_17ad158b154d34 7,25-26,130-132,138-143
+skills/matt/engineering/triage/SKILL.md
+  s_5862358c064d8f::t_28b5853a88b07c 9,70,79
+skills/matt/engineering/implement/SKILL.md
+  s_5862358c064d8f::t_7ee42273703ff1 8,17-18,33,37
+skills/matt/engineering/to-tickets/SKILL.md
+  s_5862358c064d8f::t_d3616524742181 11,18-22,52-53,77-78,86-90
+skills/matt/engineering/triage/AGENT-BRIEF.md
+  s_5862358c064d8f::t_28b5853a88b07c 5-6,29-36,88,90-91
+skills/matt/engineering/to-spec/SKILL.md
+  s_5862358c064d8f::t_d3616524742181 9,16-21,33-35,63-65
+  s_5862358c064d8f::t_84f2c04427cff9 66
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "7475d8581d338ec7fe29fa024532b1169b446da2",
+  "prompts": {},
+  "sessions": {
+    "s_5862358c064d8f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a03873-b13d-7b60-ba33-50a3ef77894d",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
