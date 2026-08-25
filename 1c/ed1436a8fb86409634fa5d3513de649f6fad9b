@@ -1,0 +1,24 @@
+skills/matt/engineering/federated-workflow/WORK-TRACKER-CONTEXT-ASSEMBLY.md
+  s_5862358c064d8f::t_81a51d0706c706 168-171
+skills/matt/engineering/federated-workflow/PROVIDER-BINDINGS.md
+  s_5862358c064d8f::t_81a51d0706c706 63
+skills/matt/engineering/wayfinder/SKILL.md
+  s_5862358c064d8f::t_fbe785bead779e 143
+  s_5862358c064d8f::t_bd8f36f4ec13b3 142
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "1ced1436a8fb86409634fa5d3513de649f6fad9b",
+  "prompts": {},
+  "sessions": {
+    "s_5862358c064d8f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a03873-b13d-7b60-ba33-50a3ef77894d",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
