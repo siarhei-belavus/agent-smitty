@@ -1,6 +1,6 @@
 # Planning artifact contracts
 
-Read [delivery records](DELIVERY-RECORDS.md), [provider concepts](PROVIDER-CONCEPTS.md), and [domain orientation](DOMAIN-ORIENTATION.md) before applying these contracts.
+Read [delivery records](DELIVERY-RECORDS.md), [provider concepts](PROVIDER-CONCEPTS.md), [Work Tracker context assembly](WORK-TRACKER-CONTEXT-ASSEMBLY.md), and [domain orientation](DOMAIN-ORIENTATION.md) before applying these contracts.
 
 Every record must be verifiable through the published artifact and resulting Work Tracker state. Prior chat, hidden invocation history, checkout layout, and private prompt structure are not authority.
 
@@ -31,6 +31,7 @@ A dependency is a durable Work Tracker reference represented through the configu
 
 - A specification carries the complete confirmed solution-level Repository References, grants no write authority, and has no Repository Scope. Its Testing Decisions are the sole owner of all repository-local and cross-repository Settled Seams.
 - An executable ticket or Agent Brief carries the minimal complete Repository References required by its writable scope, Context Scope, repository-backed Validation Sources, and explicit read-only authorities.
+- An executable ticket or Agent Brief records every Authority Source through a permanent reference. A standalone Task or Bug may record none only when its own contract is self-contained under Work Tracker Context Assembly.
 - Ticket creation narrows Context Scope and Settled Seams from source authority; it does not perform new discovery or design.
 - Every relevant Domain Model Delta, architecture decision, Settled Seam, Validation Obligation, and provenance record survives transformation at full fidelity.
 - Portable repository descriptors, Repository-qualified Context Pointers, canonical artifact pointers, and Settled Seam locations are durable contract data, not stale implementation-path guidance.
