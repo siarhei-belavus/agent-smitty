@@ -67,7 +67,7 @@ Show counts and a one-line summary per item. Let the maintainer pick.
 
 ## Triage a specific request or Review Proposal
 
-1. **Gather context.** For a Work Tracker request mapped to a Delivery Ticket, Task, or Bug, assemble Delivery Context. Require the configured parent only for mapped derived delivery. Assemble a standalone Task or Bug from its own content without inventing a parent or planning source. `Incomplete` returns to clarification or `needs-info`; `Ambiguous` stops for maintainer direction. Only `Complete` continues, without switching profiles.
+1. **Gather context.** For a Work Tracker request mapped to a Delivery Ticket, Task, or Bug, read the complete request and attempt Delivery Context for that exact root. Require the configured parent only for mapped derived delivery. A standalone Task or Bug may initially be too sparse to pass the self-contained check. Treat `Incomplete` as a diagnostic result at this clarification boundary: retain every named missing field or reference and continue triage only to diagnose, reject, or repair the request. It may end in `needs-info` or `wontfix`, but it cannot enter an execution-ready state until the post-brief rebuild is `Complete`. `Ambiguous` stops for maintainer direction. A `Complete` result continues without switching profiles.
 
    For a Review Proposal, read its full body, comments, review state, and diff through the configured request surface. Resolve the exact authority under review through an explicit permanent reference. Assemble Decision Context when that authority is a Decision Ticket or Specification, or Delivery Context when it is delivered work. A missing authority reference is `Incomplete`; competing authorities are `Ambiguous`. Only `Complete` continues. Retain the selected profile and root for outcome validation; never switch profiles implicitly.
 
@@ -86,7 +86,7 @@ Show counts and a one-line summary per item. Let the maintainer pick.
 
 5. **Apply the outcome:**
    - `ready-for-agent` — post and validate an Agent Brief through [AGENT-BRIEF.md](AGENT-BRIEF.md), then finish by request surface:
-     - For a Work Tracker request, rebuild Delivery Context for that exact request.
+     - For a Work Tracker request, rebuild Delivery Context for that exact request after the complete Agent Brief is public. This rebuild must repair every material gap named by an initial `Incomplete` result.
      - For a Review Proposal, re-read the proposal and rebuild the same selected profile for the same permanent authority root. Use Decision Context for a Decision Ticket or Specification and Delivery Context for delivered work.
 
      Enforce the planning readiness invariant and apply the mapped Routing Label only when the selected branch returns `Complete`. A settled cross-repository or standalone request may go directly here; cross-repository scope alone does not require a Specification or Wayfinder Map.
@@ -104,7 +104,7 @@ An execution-ready outcome is complete when the Agent Brief validates, the reque
 
 ## Quick state override
 
-A maintainer's direct `ready-for-agent` request selects that outcome and skips step 4. Resume at step 5's existing `ready-for-agent` branch.
+A maintainer's direct `ready-for-agent` request selects that outcome and skips step 4 only. It does not skip the initial diagnostic read, Agent Brief validation, or the post-brief Delivery Context rebuild. If settled information already present cannot repair an initial `Incomplete` result, use `needs-info` instead of applying `ready-for-agent`.
 
 ## Needs-info template
 
