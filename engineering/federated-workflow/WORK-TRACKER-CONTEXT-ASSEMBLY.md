@@ -77,7 +77,7 @@ Use Map Context for initiative-wide orientation, planning, and Wayfinder navigat
 
 ### Decision Context
 
-Use Decision Context to create, revise, or review a Decision Ticket or Specification. It contains:
+Use Decision Context to resolve or review an existing Decision Ticket, revise or review an existing Specification, or validate either artifact after publication. Creation cannot use Decision Context because no compatible root exists yet. Use available Map Context or source-free settled authority before publication, then use Decision Context to validate the durable artifact at its exact new root. It contains:
 
 - the complete active Decision Ticket or Specification body and human-visible comments;
 - its permanent identity, role, blocker state, and Authority Sources; and
