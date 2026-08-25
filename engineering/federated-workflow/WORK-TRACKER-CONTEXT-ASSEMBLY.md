@@ -93,6 +93,21 @@ Use Delivery Context for implementation and delivery review of a Delivery Ticket
 
 Require a parent only when the binding maps the active artifact to derived delivery. A standalone Task or Bug with no parent or Authority Source may still produce a complete Delivery Context when its own content passes the self-contained authority check.
 
+#### Resolved blocker authority
+
+Resolved blocker authority is the complete blocker closure that governs whether the active delivery can proceed. Starting at the active artifact, follow every configured `blocked by` relationship to its blocker, then repeat from each blocker. Include only edges directed into the active artifact through that closure, not artifacts that the active artifact blocks.
+
+The Work Tracker binding normalizes provider-native dependency direction to `blocker -> blocked`. Follow every relationship and comment page to completion. Record each blocker once by permanent reference with:
+
+- every normalized edge through which it participates in the closure;
+- its complete authoritative body and human-visible comments;
+- its provider-mapped open or resolved state and permanent resolution reference when the provider exposes one; and
+- every explicit Authority Source reachable from it.
+
+Assemble reachable governing Specifications, Maps, and effective decisions through the ordinary Authority Source rules. Merge them into the Delivery Context by permanent reference rather than nesting a second planning-source assembly under each blocker. An empty blocker closure is valid.
+
+The result is `Incomplete` when any blocker edge, page, permanent reference, body, comment set, or resolution state is missing or unreadable, when a declared Authority Source cannot be resolved, or when any reachable blocker remains unresolved. It is `Ambiguous` when direction cannot be normalized, the blocker graph is cyclic, records disagree for one permanent blocker reference, resolution state conflicts, or reachable governing authority conflicts.
+
 ## Results
 
 Assembly returns exactly one result. Classify recognized Resolution succession before general missing-material checks, so the variants remain disjoint:
