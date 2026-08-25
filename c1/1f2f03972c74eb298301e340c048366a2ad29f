@@ -1,0 +1,23 @@
+skills/matt/engineering/federated-workflow/PROVIDER-BINDINGS.md
+  s_5862358c064d8f::t_2a47c25682d3ff 3-4,42-44,61-63,75-78
+skills/matt/engineering/setup-federated-workflow/references/preflight-and-validation.md
+  s_5862358c064d8f::t_932c5be6c36dbb 11-12,19,26-27,37
+skills/matt/engineering/setup-federated-workflow/SKILL.md
+  s_5862358c064d8f::t_932c5be6c36dbb 14,32-33,36,40,42,44,64
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "c11f2f03972c74eb298301e340c048366a2ad29f",
+  "prompts": {},
+  "sessions": {
+    "s_5862358c064d8f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a03873-b13d-7b60-ba33-50a3ef77894d",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
