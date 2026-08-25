@@ -2,7 +2,7 @@
 
 An Agent Brief is the self-contained public executable contract attached to one triaged request before it becomes `ready-for-agent`. The original body and discussion remain context.
 
-Read [Work Tracker context assembly](../federated-workflow/WORK-TRACKER-CONTEXT-ASSEMBLY.md) before drafting or validating parent, Authority Source, and Delivery Context records.
+Read [Work Tracker context assembly](../federated-workflow/WORK-TRACKER-CONTEXT-ASSEMBLY.md) before drafting or validating parent, Authority Source, and matching Context records.
 
 ## Principles
 
@@ -88,7 +88,8 @@ Validate the posted public comment and resulting Work Tracker state:
 - all ten Agent Brief sections are present and substantive;
 - every shared semantic record and composition invariant is satisfied;
 - the provider mapping requires a parent only for derived delivery, while a parentless Task or Bug passes the self-contained authority check;
-- Delivery Context for the exact request is `Complete` without an implicit profile switch;
+- Delivery Context for the exact Work Tracker request is `Complete` without an implicit profile switch;
+- for a Review Proposal, the exact authority under review has `Complete` Decision Context for a Decision Ticket or Specification, or `Complete` Delivery Context for delivered work, at the profile selected before the outcome;
 - blockers and Routing Labels agree with authoritative Work Tracker state;
 - every field is verifiable from the public comment and Work Tracker state.
 

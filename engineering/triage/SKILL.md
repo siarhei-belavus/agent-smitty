@@ -69,7 +69,9 @@ Show counts and a one-line summary per item. Let the maintainer pick.
 
 1. **Gather context.** For a Work Tracker request mapped to a Delivery Ticket, Task, or Bug, assemble Delivery Context. Require the configured parent only for mapped derived delivery. Assemble a standalone Task or Bug from its own content without inventing a parent or planning source. `Incomplete` returns to clarification or `needs-info`; `Ambiguous` stops for maintainer direction. Only `Complete` continues, without switching profiles.
 
-   For a Review Proposal, read its full body, comments, review state, and diff through the configured request surface. Parse prior triage notes so you don't re-ask resolved questions. After Context Assembly stops at canonical pointers, perform configured Domain Orientation before exploring canonical contexts, accepted Domain Model Deltas, ADRs, and code in the referenced repositories.
+   For a Review Proposal, read its full body, comments, review state, and diff through the configured request surface. Resolve the exact authority under review through an explicit permanent reference. Assemble Decision Context when that authority is a Decision Ticket or Specification, or Delivery Context when it is delivered work. A missing authority reference is `Incomplete`; competing authorities are `Ambiguous`. Only `Complete` continues. Retain the selected profile and root for outcome validation; never switch profiles implicitly.
+
+   Parse prior triage notes so you don't re-ask resolved questions. After Context Assembly stops at canonical pointers, perform configured Domain Orientation before exploring canonical contexts, accepted Domain Model Deltas, ADRs, and code in the referenced repositories.
 
    Run both checks before completing context gathering:
 
@@ -83,8 +85,12 @@ Show counts and a one-line summary per item. Let the maintainer pick.
 4. **Grill (if needed).** If the request needs fleshing out, use the `grill-with-docs` skill without granting canonical capture. Keep returned Domain Model Deltas in the current triage context. Before a cross-session `needs-info` pause, move confirmed deltas into the established-so-far triage notes; before `ready-for-agent`, move relevant deltas into the Agent Brief.
 
 5. **Apply the outcome:**
-   - `ready-for-agent` — post and validate an Agent Brief through [AGENT-BRIEF.md](AGENT-BRIEF.md), rebuild Delivery Context for the exact request, enforce the planning readiness invariant, then apply the mapped Routing Label only when the result is `Complete`. A settled cross-repository or standalone request may go directly here; cross-repository scope alone does not require a specification or Wayfinder Map.
-   - `ready-for-human` — same structure as an agent brief, but note why it can't be delegated (judgment calls, external access, design decisions, manual testing).
+   - `ready-for-agent` — post and validate an Agent Brief through [AGENT-BRIEF.md](AGENT-BRIEF.md), then finish by request surface:
+     - For a Work Tracker request, rebuild Delivery Context for that exact request.
+     - For a Review Proposal, re-read the proposal and rebuild the same selected profile for the same permanent authority root. Use Decision Context for a Decision Ticket or Specification and Delivery Context for delivered work.
+
+     Enforce the planning readiness invariant and apply the mapped Routing Label only when the selected branch returns `Complete`. A settled cross-repository or standalone request may go directly here; cross-repository scope alone does not require a Specification or Wayfinder Map.
+   - `ready-for-human` — use the same request-surface profile validation and brief structure, then note why the work can't be delegated, such as judgment calls, external access, design decisions, or manual testing.
    - `needs-info` — post triage notes (template below).
    - `wontfix` — close, with the comment depending on *why*:
      - **Already implemented** — the change already exists in the codebase. Point to where it lives; do **not** write to `.out-of-scope/` (that KB is for *rejected* requests, not built ones).
@@ -93,6 +99,8 @@ Show counts and a one-line summary per item. Let the maintainer pick.
    - `needs-triage` — apply the role. Optional comment if there's partial progress.
 
 Requests with unresolved design or decomposition return to discovery or planning. Missing reporter facts use `needs-info`. Do not invent authority merely to make a request executable.
+
+An execution-ready outcome is complete when the Agent Brief validates, the request branch has `Complete` Delivery Context or the proposal branch has `Complete` context at its unchanged matching profile and permanent authority root, and the configured state role matches the outcome.
 
 ## Quick state override
 
