@@ -6,16 +6,19 @@ disable-model-invocation: true
 
 Synthesize a specification from accepted planning authority and codebase understanding. Planning authority may be the current conversation, a supplied Wayfinder map reference, or both. Do not interview the user; use only what the selected sources establish.
 
-Read [planning artifact contracts](../federated-workflow/PLANNING-ARTIFACTS.md) before producing the specification.
+Read [planning artifact contracts](../federated-workflow/PLANNING-ARTIFACTS.md) and [Work Tracker context assembly](../federated-workflow/WORK-TRACKER-CONTEXT-ASSEMBLY.md) before producing the specification.
 Use the configured Work Tracker and Domain Orientation when their bindings exist; preserve standalone behavior when they do not.
 
 ## Process
 
 1. Select and load the planning source:
 
-   - With no Wayfinder map reference, use the accepted decisions and Domain Model Deltas in the current conversation.
-   - With a Wayfinder map reference, load the map through the configured Work Tracker binding, then re-read every final `## Resolution` linked from its Decisions-so-far. The linked Resolutions, not their one-line map gists, carry the durable decisions and deltas. If the destination still has open decision tickets or material fog, return it to Wayfinder instead of guessing.
-   - When both sources are supplied, treat the durable map and linked Resolutions as the baseline and add only explicitly accepted decisions from the current conversation. Surface contradictions instead of silently choosing one source.
+   - With no Work Tracker reference, use the accepted decisions and Domain Model Deltas in the current conversation. This path needs no Wayfinder Map.
+   - With a Wayfinder Map reference, assemble Map Context through the configured binding. Continue only with `Complete`. If the destination still has open decision tickets or material fog, return it to Wayfinder instead of guessing.
+   - When revising or reviewing an existing Specification, assemble Decision Context for that exact artifact. Continue only with `Complete` and never switch to another profile.
+   - When conversation and durable sources are both supplied, use the durable Context Pack as the baseline and add only explicitly accepted decisions from the current conversation. Return `Ambiguous` contradictions to planning instead of choosing silently.
+
+   Source selection is complete when every selected authority has permanent provenance and every required Work Tracker profile is `Complete`.
 
 2. Perform configured Domain Orientation, then explore the referenced repositories only as needed to understand current state. Use the loaded effective planning language and applicable ADRs throughout.
 
@@ -27,7 +30,9 @@ When materially different caller-facing ownership, interface, seam, or contract 
 
 5. Record every confirmed repository-local and cross-repository Settled Seam only in Testing Decisions. Preserve full-fidelity Domain Model Deltas, architecture rationale, provenance, and canonical documentation obligations in Context Scope and the applicable decisions.
 
-6. Write the spec using the template below, then publish it to the Ticket Origin Repository's configured Work Tracker. A specification is planning authority, not an executable delivery ticket; do not apply an execution Routing Label solely because the specification was published.
+6. Write the spec using the template below, then publish it to the Ticket Origin Repository's configured Work Tracker. When the selected Map is also the Specification under the confirmed artifact mapping, retain one artifact with both roles. Otherwise publish a separate Specification with explicit Map Authority Sources. A specification is planning authority, not an executable delivery ticket; do not apply an execution Routing Label solely because the specification was published.
+
+7. Re-read the durable artifact and assemble Decision Context for the exact published Specification. Publication completes only with `Complete`; `Incomplete` or `Ambiguous` returns to the source or publication step that caused it.
 
 <spec-template>
 
@@ -54,6 +59,10 @@ This list of user stories should be extremely extensive and cover all aspects of
 ## Repository References
 
 The complete confirmed solution-level set of Repository Reference records. References grant no write authority.
+
+## Authority Sources
+
+Permanent references to every governing Map or other planning artifact, or `None — direct accepted authority is fully materialized in this Specification`.
 
 ## Context Scope
 

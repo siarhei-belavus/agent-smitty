@@ -5,7 +5,7 @@ description: "Implement repository deliveries from authoritative specs or ticket
 
 Implement the work described by the user in the authoritative spec or tickets.
 
-Read [delivery records](../federated-workflow/DELIVERY-RECORDS.md) before resolving the assignment.
+Read [delivery records](../federated-workflow/DELIVERY-RECORDS.md) before resolving the assignment. When authority includes a Work Tracker Delivery Ticket, Task, or Bug, read [Work Tracker context assembly](../federated-workflow/WORK-TRACKER-CONTEXT-ASSEMBLY.md) and assemble Delivery Context before accepting the assignment.
 
 ## Resolve the assignment
 
@@ -13,6 +13,8 @@ Classify the assignment before changing a checkout.
 
 - When the user authorizes one or more writable Repository Deliveries directly, read [Standalone assignments](STANDALONE.md).
 - When `coordinate-delivery` supplies one complete narrowing assignment for exactly one Repository Scope entry, read [Coordinator narrowing](COORDINATOR-NARROWED.md).
+
+For Work Tracker authority, use the configured artifact mapping rather than provider issue type inference. Require and read a parent only for mapped derived delivery. A standalone Task or Bug may have no parent or Authority Source when its own content passes the contract's self-contained check. Continue only with a `Complete` Delivery Context; report `Incomplete` or `Ambiguous` at the applicable clarification, planning, or human boundary without switching profiles.
 
 Every writable Repository Delivery must supply or resolve:
 
@@ -28,11 +30,11 @@ A Fixed Review Base is the exact starting commit against which a Repository Deli
 
 Read-only context and validation repositories remain outside writable scope. Missing authority, a worktree that disagrees with the assignment, or a required change to approved scope, acceptance behavior, or a Settled Seam is a **Material contradiction**. Preserve safe work and return the conflicting sources. Authority comes from the assignment, not inference.
 
-**Complete when:** the writable scope, authority, and every required delivery field are resolved, or a Material contradiction has been returned without mutation.
+**Complete when:** the writable scope, authority, every required delivery field, and any requested Delivery Context are complete, or a Material contradiction or explicit Context Assembly stop has been returned without repository mutation.
 
 ## Prepare each delivery
 
-Validate that the writable path belongs to the Repository Reference and that its starting revision agrees with the supplied launch commit or Fixed Review Base. Read that repository's instructions, canonical context, ADRs, validation commands, and nearest relevant prior art. Do not use one repository's instructions or validation as authority for another.
+Validate that the writable path belongs to the Repository Reference and that its starting revision agrees with the supplied launch commit or Fixed Review Base. After complete Context Assembly stops at canonical pointers, perform configured Domain Orientation and read that repository's instructions, routed canonical context, ADRs, validation commands, and nearest relevant prior art. Do not use one repository's instructions or validation as authority for another.
 
 Record the Repository ID, writable path, Fixed Review Base, authoritative sources, complete Settled Seams, test approaches, Validation Obligations, and validation commands before editing.
 

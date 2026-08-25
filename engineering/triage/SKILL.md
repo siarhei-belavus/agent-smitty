@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # Triage
 
-Move requests through a small state machine of triage roles. Read [planning artifact contracts](../federated-workflow/PLANNING-ARTIFACTS.md) before acting. Preserve standalone behavior when the configured Work Tracker or Domain Orientation bindings do not exist.
+Move requests through a small state machine of triage roles. Read [planning artifact contracts](../federated-workflow/PLANNING-ARTIFACTS.md) and [Work Tracker context assembly](../federated-workflow/WORK-TRACKER-CONTEXT-ASSEMBLY.md) before acting. Preserve standalone behavior when the configured Work Tracker or Domain Orientation bindings do not exist.
 
 If this repository treats external Review Proposals as a request surface (see the Work Tracker binding), triage applies the same roles and states to those proposals, with the differences marked below. Resolve a bare `#42` through the configured binding rather than Git-remote inference.
 
@@ -67,7 +67,7 @@ Show counts and a one-line summary per item. Let the maintainer pick.
 
 ## Triage a specific request or Review Proposal
 
-1. **Gather context.** Read the full request or Review Proposal (body, comments, Routing Labels, author, dates; for a proposal, the diff too). Parse prior triage notes so you don't re-ask resolved questions. Perform configured Domain Orientation before exploring canonical contexts, accepted Domain Model Deltas, ADRs, and code in the referenced repositories. Run two checks: (a) **redundancy** — search the codebase for an existing implementation of the requested behavior by domain concept, not just the request's wording, and report where you looked; if found, classify it as already-implemented `wontfix` in step 5. (b) **prior rejection** — run [out-of-scope matching](OUT-OF-SCOPE.md#match-a-record).
+1. **Gather context.** For a Work Tracker request mapped to a Delivery Ticket, Task, or Bug, assemble Delivery Context. Require the configured parent only for mapped derived delivery; assemble a standalone Task or Bug from its own content without inventing a parent or planning source. `Incomplete` returns to clarification or `needs-info`; `Ambiguous` stops for maintainer direction. Only `Complete` continues, without switching profiles. For a Review Proposal, read its full body, comments, review state, and diff through the configured request surface. Parse prior triage notes so you don't re-ask resolved questions. After Context Assembly stops at canonical pointers, perform configured Domain Orientation before exploring canonical contexts, accepted Domain Model Deltas, ADRs, and code in the referenced repositories. Run two checks: (a) **redundancy** — search the codebase for an existing implementation of the requested behavior by domain concept, not just the request's wording, and report where you looked; if found, classify it as already-implemented `wontfix` in step 5. (b) **prior rejection** — run [out-of-scope matching](OUT-OF-SCOPE.md#match-a-record).
 
 2. **Recommend.** Tell the maintainer your category and state recommendation with reasoning, plus a brief codebase summary relevant to the request — including whether it's already implemented. Wait for direction.
 
@@ -76,7 +76,7 @@ Show counts and a one-line summary per item. Let the maintainer pick.
 4. **Grill (if needed).** If the request needs fleshing out, use the `grill-with-docs` skill without granting canonical capture. Keep returned Domain Model Deltas in the current triage context. Before a cross-session `needs-info` pause, move confirmed deltas into the established-so-far triage notes; before `ready-for-agent`, move relevant deltas into the Agent Brief.
 
 5. **Apply the outcome:**
-   - `ready-for-agent` — post and validate an Agent Brief through [AGENT-BRIEF.md](AGENT-BRIEF.md), enforce the planning readiness invariant, then apply the mapped Routing Label. A settled cross-repository request may go directly here; cross-repository scope alone does not require a specification or Wayfinder map.
+   - `ready-for-agent` — post and validate an Agent Brief through [AGENT-BRIEF.md](AGENT-BRIEF.md), rebuild Delivery Context for the exact request, enforce the planning readiness invariant, then apply the mapped Routing Label only when the result is `Complete`. A settled cross-repository or standalone request may go directly here; cross-repository scope alone does not require a specification or Wayfinder Map.
    - `ready-for-human` — same structure as an agent brief, but note why it can't be delegated (judgment calls, external access, design decisions, manual testing).
    - `needs-info` — post triage notes (template below).
    - `wontfix` — close, with the comment depending on *why*:
