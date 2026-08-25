@@ -41,7 +41,7 @@ The map is an **index**, not a store. Accepted content lives in recognized Resol
 
 ### The map body
 
-The whole map at low resolution, loaded once per session. Open tickets are **not** listed — they are open child items, found by the configured query.
+The whole map at low resolution supplies initial session orientation. Open tickets are **not** listed — they are open child items, found by the configured query. After every authoritative Map-index, child, relationship, or Resolution update, rebuild Map Context from permanent sources before using the Map again.
 
 ```markdown
 ## Destination
