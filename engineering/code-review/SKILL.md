@@ -90,6 +90,10 @@ Route requirement or settled-decision violations to Spec. Route structural and c
 
 ### 4. Run the selected fresh reviews
 
+A full pass continues after every finding and finishes the complete selected axis before the reviewer returns. Give every reviewer this shared completion brief:
+
+> Audit every member of the finite input sets applicable to the selected axis: changed files; repository rules and heuristics for Standards or authoritative requirements and decisions for Spec; Settled Seams and their named providers and consumers; and supplied validation claims. Return all material findings from the full pass together. Include a **Coverage receipt** with audited/total counts for each applicable set. State why a set is not applicable. Coverage is incomplete while any item remains unaccounted for.
+
 For the Standards axis, start one fresh Standards Reviewer per selected Repository Target. Give each reviewer only its captured target, commit list, repository-local standards, smell baseline, design trigger result, authoritative seam context, complete Authority input, and this brief. For a Work Tracker-backed target, pass the exact selected profile, permanent root, `Complete` result, and lossless Context Pack unchanged, and forbid provider lookup or profile switching. For a WIP target, the captured target includes the Worktree snapshot ID and immutable materialized diff with its recorded digest; require the reviewer to inspect that diff rather than the mutable worktree.
 
 > Report all material Standards findings per file and hunk. Cite the violated rule or name the relevant heuristic. Label a finding **Blocking** only for a mandatory-standard violation or a structural flaw with a credible future bug or material change-pressure path; label other material findings **Advisory**. Omit mechanical issues reliably enforced by configured tooling.
@@ -99,6 +103,8 @@ For the Spec axis, start one fresh Bundle Spec Reviewer over the complete select
 > Report missing or partial requirements, scope creep, incorrect behavior, unauthorized seam changes, acceptance behavior outside a settled seam, and required behavior not verified through that seam. Route each finding to the affected Repository IDs. Label a finding **Blocking** when it demonstrates a requirement or settled-decision violation or a reachable correctness regression; label other material findings **Advisory**.
 
 Run fresh reviewers concurrently where harness capacity permits; freshness and complete inputs matter, not a particular internal agent topology. If the selected Spec axis has no source after the user confirms none exists, skip that reviewer and report `no spec available`.
+
+**Complete when:** every reviewer has returned one full-pass result whose Coverage receipt accounts for every changed file, applicable axis input, Settled Seam, named provider and consumer, and supplied validation claim.
 
 ### 5. Aggregate without merging axes
 
@@ -110,7 +116,7 @@ When Spec is selected, report the whole-bundle result once:
 
 `## Spec — selected targets`
 
-Omit the unselected axis entirely. When both are selected, do not merge, reclassify, or rerank the axes. End with Blocking and Advisory counts and the highest-severity finding within each selected result when present.
+Omit the unselected axis entirely. When both are selected, do not merge, reclassify, or rerank the axes. Include the Coverage receipt with each result. End with Blocking and Advisory counts and the highest-severity finding within each selected result when present.
 
 Publish no branch, create or update no Review Proposal, and change no Work Tracker state. Report findings and evidence only.
 
