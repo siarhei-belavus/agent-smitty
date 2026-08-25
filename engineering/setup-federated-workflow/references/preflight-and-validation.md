@@ -8,21 +8,23 @@ Resolve every target checkout and record, without writing:
 2. current branch/worktree state and every user change;
 3. applicable root/nested instructions, canonical contexts, maps, and ADRs;
 4. each repository's independent Code Host binding; every human-confirmed Ticket Origin and its independent Work Tracker and Routing Label bindings; Domain Orientation and Home bindings; and conflicting or partial prior setup;
-5. each Ticket Origin's complete Work Tracker binding, judged against the provider-binding contract, including its ordinary Delivery frontier prose;
-6. provider-readable locators, tickets, comments, labels, assignees, dependencies, Workflow Identity when exposed, and capability metadata, with write scope marked verified or unverified rather than tested by mutation;
+5. each Ticket Origin's complete Work Tracker binding, judged against the provider-binding and Context Assembly contracts, including artifact mapping, all three profile reads, Resolution succession, reconciliation, and ordinary Delivery frontier prose;
+6. provider-readable locators, representative artifacts, complete bodies and comments, pagination, permanent references, relationships, labels, assignees, dependencies, accepted Resolution records, Workflow Identity when exposed, and capability metadata, with write scope marked verified or unverified rather than tested by mutation;
 7. every intended file, whether create/patch/preserve, and exact overlap with user changes;
 8. application-agent scopes, proving they do not overlap;
 9. the complete final diff and validation commands.
 
 Judge every provider binding against the loaded provider contract. For one repository without federation, record exact marker, Git-identity, and provider-read commands. For Establish or Join, the federation validator adds deterministic marker and topology checks. Neither path replaces semantic judgment.
 
-Fail closed on wrong identity/Base Branch, unresolved context ownership, conflicting instructions, unapproved overlap, missing provider access, a Home-Transfer request, incomplete, ambiguous, or contradictory provider-binding knowledge, or any target whose final content cannot be drafted. Preflight is one gate across the complete operation; do not partially apply a target that passed while another remains unresolved.
+Fail closed on wrong identity/Base Branch, unresolved context ownership, conflicting instructions, unapproved overlap, missing provider access, a Home-Transfer request, incomplete, ambiguous, or contradictory provider-binding knowledge, a mapping that cannot preserve permanent references or reconstruct complete current authority, or any target whose final content cannot be drafted. Preflight is one gate across the complete operation; do not partially apply a target that passed while another remains unresolved.
 
 ## Result validation
 
 For every operation:
 
 - every provider binding satisfies the loaded provider contract and its locators and required metadata are readable non-destructively;
+- every Work Tracker binding has one human-confirmed mapping whose manual recipes can reconstruct Map, Decision, and Delivery Context with complete pagination and permanent provenance;
+- recognized Resolution succession, reverse references, Map history, reconciliation, and post-update rebuild operations preserve the shared contract, with untested real succession marked non-destructively unverified;
 - no credential, account binding, machine-local path, registry, probe artifact, commit, branch, or Review Proposal was created;
 - a second preview produces an empty diff.
 
@@ -32,6 +34,7 @@ Validate only the current repository:
 
 - its Repository ID, origin remote, and Base Branch agree with Git and the repository-owned Code Host binding;
 - the Work Tracker locator and its required metadata are readable through its configured non-destructive validation operations;
+- representative provider artifacts support the confirmed role mapping, Authority Sources, parent-conditional delivery, standalone Task and Bug delivery, and complete profile reads;
 - every Routing Label maps to a readable provider label;
 - `AGENTS.md` or `CLAUDE.md` points directly to the repository-owned Code Host, Work Tracker, Routing Label, and Domain Orientation bindings;
 - `docs/agents/domain.md` satisfies the loaded Domain Orientation contract and contains no `## Domain Federation` binding or Repository-qualified federated map.

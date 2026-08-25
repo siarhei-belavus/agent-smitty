@@ -1,5 +1,7 @@
 # Provider bindings
 
+Read [Work Tracker context assembly](WORK-TRACKER-CONTEXT-ASSEMBLY.md) when configuring a Work Tracker's artifact roles, authority reads, Resolution succession, or reconciliation operations.
+
 Every configured Git repository owns `docs/agents/code-host.md`. Only a human-confirmed Ticket Origin Repository owns `docs/agents/issue-tracker.md` and `docs/agents/triage-labels.md`. `AGENTS.md` or `CLAUDE.md` indexes only the bindings that repository owns.
 
 ## Code Host
@@ -37,6 +39,9 @@ Use this semantic structure:
 
 ## Binding
 ## Ticket operations
+## Artifact mapping
+## Context assembly
+## Resolution succession and reconciliation
 ## Routing
 ## Dependencies
 ## Claims
@@ -53,6 +58,9 @@ The Binding records provider, explicit authoritative locator, CLI/API, and canon
 Describe the operational sections as ordinary instructions an agent can read:
 
 - `## Ticket operations` gives provider-native create, read, list, comment, label, assign, transition, and close operations. It requires an authoritative re-read after each mutation.
+- `## Artifact mapping` maps Map, Decision Ticket, Specification, Delivery Ticket, standalone Task, and standalone Bug to provider artifacts and relationships. It states which delivery role requires a parent and how every role and Authority Source is proven by permanent reference.
+- `## Context assembly` gives one complete manual provider-native read recipe for each of Map Context, Decision Context, and Delivery Context. Each recipe covers full bodies, human-visible comments, complete pagination, relationship traversal, permanent provenance, the three result classifications, and any preferred optional helper with its manual fallback.
+- `## Resolution succession and reconciliation` maps recognized Resolution records, permanent `Supersedes` and `Supplements` references, reverse comments, historical and effective Map index references, open-artifact reconciliation, the claimed-work human boundary, completed history, and post-update Context Pack rebuilds.
 - `## Routing` points to `docs/agents/triage-labels.md` as the sole mapping for `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, and `wontfix`. Provider events may narrow a read, but they are hints.
 - `## Dependencies` uses native blocking relationships when available and names any provider-required fallback. Decisions use current blocker state.
 - `## Claims` resolves the Workflow Identity, acquires a claim for only that identity, verifies authoritative assignee state after acquisition, and releases only that identity's claim at an authorized transition.
@@ -64,3 +72,7 @@ Describe the operational sections as ordinary instructions an agent can read:
 - `## Binding validation` reads the locator, tickets, comments, labels, assignees, dependencies, exposed Workflow Identity, and provider capability metadata. It creates no probe or other mutation.
 
 Base every provider decision on an authoritative re-read. Keep the binding as prose, without an executable Markdown schema or a project-specific adapter. Validate every mapped Routing Label. Create a missing label only after preview and confirmation; preserve existing labels.
+
+Use native provider mechanisms when they preserve the shared semantics. Durable body and comment conventions are valid fallbacks. Reject a mapping that cannot preserve permanent references or reconstruct complete current authority. If no real succession example is readable, mark that capability non-destructively unverified and require the first real operation to perform the contract's complete post-write re-read and rebuild. Create no probe artifact.
+
+Local Markdown uses the same roles, permanent references, profiles, results, and succession rules. File layout and links are its provider representation, not a second semantic model.

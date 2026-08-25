@@ -11,7 +11,7 @@ Prepare final-state repository-owned workflow configuration. Research and human 
 
 ### 1. Classify the operation
 
-Read the current repository instructions and `docs/agents/`, then read [provider concepts](../federated-workflow/PROVIDER-CONCEPTS.md) and [domain orientation](../federated-workflow/DOMAIN-ORIENTATION.md). When the request or current configuration establishes, joins, or changes a federation, read [domain federation configuration](../federated-workflow/DOMAIN-FEDERATION.md) before classifying the request as:
+Read the current repository instructions and `docs/agents/`, then read [provider concepts](../federated-workflow/PROVIDER-CONCEPTS.md), [Work Tracker context assembly](../federated-workflow/WORK-TRACKER-CONTEXT-ASSEMBLY.md), and [domain orientation](../federated-workflow/DOMAIN-ORIENTATION.md). When the request or current configuration establishes, joins, or changes a federation, read [domain federation configuration](../federated-workflow/DOMAIN-FEDERATION.md) before classifying the request as:
 
 - configure one repository without federation membership;
 - **Establish Domain Federation** with the current or explicitly selected repository as Home and one or more initial members;
@@ -29,17 +29,19 @@ For a single repository without federation, research only that repository. For E
 
 Read [provider binding contracts](../federated-workflow/PROVIDER-BINDINGS.md). Inspect repository identity, remote, Base Branch, instructions, existing bindings, maps, canonical contexts, ADRs, CI/deployment evidence, provider capabilities, and user changes.
 
+For every proposed Ticket Origin, inspect provider documentation, capability metadata, and representative existing artifacts before asking the human about the Work Tracker mapping. Research how the provider represents each shared artifact role, Authority Sources, derived parent and standalone delivery, permanent references, accepted Resolution records, full bodies and comments, pagination, the three context reads, reconciliation, routing, claims, dependencies, and non-destructive validation. Prefer native operations and identify a durable body or comment fallback for every missing native mechanism.
+
 Establish **target-format awareness** for every human-facing provider field the workflow may write. Determine the field's actual storage and rendering format from provider documentation, API metadata, and representative existing artifacts. Distinguish formats such as Markdown dialects, provider-native wiki markup, structured document JSON, HTML, and plain text instead of inferring Markdown from a string-valued API field or from a workflow template. Record the native syntax, escaping rules, field-specific differences, and a non-destructive rendering-validation method in the repository-owned provider binding.
 
-Research is complete when the selected branch has evidence for every required artifact and decision: repository-owned provider and Domain Orientation bindings for the single-repository branch; full proposed topology, context ownership, participation, relationships, External Systems, and Ticket Origin roles for Establish or Join.
+Research is complete when the selected branch has evidence for every required artifact and decision: repository-owned provider and Domain Orientation bindings for the single-repository branch; full proposed topology, context ownership, participation, relationships, External Systems, and Ticket Origin roles for Establish or Join. Each Ticket Origin must also have one complete draft Work Tracker mapping that can preserve permanent references and reconstruct a `Complete` Map, Decision, and Delivery Context. Missing or ambiguous capability stops research without drafting a partial binding.
 
 ### 3. Obtain branch authority
 
-For a repository without federation, present its portable repository identity, repository-owned Code Host binding, Work Tracker and Routing Label bindings, Domain Orientation, and required files. Confirm the current repository as the Ticket Origin. Do not propose a Home, member role, reciprocal binding, or federated map.
+For a repository without federation, present its portable repository identity, repository-owned Code Host binding, Work Tracker and Routing Label bindings, Domain Orientation, and required files. Present the complete Work Tracker artifact and Context Assembly mapping as one proposal. Confirm the current repository as the Ticket Origin. Do not propose a Home, member role, reciprocal binding, or federated map.
 
-For Establish or Join, present one recommended complete topology: Home, boundary, members, External Systems, the Ticket Origin status of each repository, contexts, owners, participants, responsibilities, relationships, and required domain documents. Discuss each material ambiguity separately. Unresolved ownership stops setup.
+For Establish or Join, present one recommended complete topology: Home, boundary, members, External Systems, the Ticket Origin status of each repository, contexts, owners, participants, responsibilities, relationships, and required domain documents. Include one complete Work Tracker artifact and Context Assembly mapping for every Ticket Origin. Discuss each material ambiguity separately. Unresolved ownership or provider mapping stops setup.
 
-Confirmation is complete when the human has accepted every item required by the selected branch and no placeholder, empty canonical document, or `TODO` ownership remains.
+Confirmation is complete when the human has accepted every item required by the selected branch, including material provider ambiguities, and no placeholder, empty canonical document, partial Work Tracker binding, or `TODO` ownership remains.
 
 ### 4. Draft and preflight every write
 
@@ -59,4 +61,4 @@ Application writes validated checkouts in place and leaves changes uncommitted. 
 
 ### 7. Validate current truth
 
-After application, spawn a fresh validation subagent to execute the selected branch under [result validation](references/preflight-and-validation.md#result-validation). Confirm that every provider binding records the native formats of fields the workflow writes and that representative structured content renders as intended without a mutating probe.
+After application, spawn a fresh validation subagent to execute the selected branch under [result validation](references/preflight-and-validation.md#result-validation). Confirm that every provider binding records the native formats of fields the workflow writes, supplies complete manual reads for all three profiles, and preserves the shared artifact and succession semantics. Validate representative structured content and context reads without a mutating probe.
