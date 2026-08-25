@@ -100,7 +100,7 @@ Require a parent only when the binding maps the active artifact to derived deliv
 
 #### Resolved blocker authority
 
-Resolved blocker authority is the complete blocker closure that governs whether the active delivery can proceed. Starting at the active artifact, follow every configured `blocked by` relationship to its blocker, then repeat from each blocker. Include only edges directed into the active artifact through that closure, not artifacts that the active artifact blocks.
+Resolved blocker authority is the complete blocker closure that governs whether the active delivery can proceed. Here, resolved means that every authority record and reference in the closure has been resolved, not that every blocker has provider state resolved. Starting at the active artifact, follow every configured `blocked by` relationship to its blocker, then repeat from each blocker. Include only edges directed into the active artifact through that closure, not artifacts that the active artifact blocks.
 
 The Work Tracker binding normalizes provider-native dependency direction to `blocker -> blocked`. Follow every relationship and comment page to completion. Record each blocker once by permanent reference with:
 
@@ -111,7 +111,7 @@ The Work Tracker binding normalizes provider-native dependency direction to `blo
 
 Assemble reachable governing Specifications, Maps, and effective decisions through the ordinary Authority Source rules. Merge them into the Delivery Context by permanent reference rather than nesting a second planning-source assembly under each blocker. An empty blocker closure is valid.
 
-The result is `Incomplete` when any blocker edge, page, permanent reference, body, comment set, or resolution state is missing or unreadable, when a declared Authority Source cannot be resolved, or when any reachable blocker remains unresolved. It is `Ambiguous` when direction cannot be normalized, the blocker graph is cyclic, records disagree for one permanent blocker reference, resolution state conflicts, or reachable governing authority conflicts.
+The result is `Incomplete` when any blocker edge, page, permanent reference, body, comment set, or resolution state is missing or unreadable, or when a declared Authority Source cannot be resolved. A fully read blocker with valid open state remains part of a `Complete` Delivery Context. The configured frontier and eligibility rules use that state to prevent execution until the dependency resolves. The result is `Ambiguous` when direction cannot be normalized, the blocker graph is cyclic, records disagree for one permanent blocker reference, resolution state conflicts, or reachable governing authority conflicts.
 
 ## Results
 
