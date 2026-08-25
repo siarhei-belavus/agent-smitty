@@ -1,0 +1,20 @@
+skills/matt/engineering/triage/SKILL.md
+  s_5862358c064d8f::t_01ffa8af782166 89,107
+  s_5862358c064d8f::t_14fea6dcfb7eb2 70
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "b4769143a0374d7eaa13eba1e788b72f092e3f83",
+  "prompts": {},
+  "sessions": {
+    "s_5862358c064d8f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a03873-b13d-7b60-ba33-50a3ef77894d",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
