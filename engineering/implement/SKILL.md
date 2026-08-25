@@ -5,7 +5,7 @@ description: "Implement repository deliveries from authoritative specs or ticket
 
 Implement the work described by the user in the authoritative spec or tickets.
 
-Read [delivery records](../federated-workflow/DELIVERY-RECORDS.md) before resolving the assignment. When authority includes a Work Tracker Delivery Ticket, Task, or Bug, read [Work Tracker context assembly](../federated-workflow/WORK-TRACKER-CONTEXT-ASSEMBLY.md) and assemble Delivery Context before accepting the assignment.
+Read [delivery records](../federated-workflow/DELIVERY-RECORDS.md) before resolving the assignment. Classify the assignment before performing Context Assembly.
 
 ## Resolve the assignment
 
@@ -14,7 +14,9 @@ Classify the assignment before changing a checkout.
 - When the user authorizes one or more writable Repository Deliveries directly, read [Standalone assignments](STANDALONE.md).
 - When `coordinate-delivery` supplies one complete narrowing assignment for exactly one Repository Scope entry, read [Coordinator narrowing](COORDINATOR-NARROWED.md).
 
-For Work Tracker authority, use the configured artifact mapping rather than provider issue type inference. Require and read a parent only for mapped derived delivery. A standalone Task or Bug may have no parent or Authority Source when its own content passes the contract's self-contained check. Continue only with a `Complete` Delivery Context; report `Incomplete` or `Ambiguous` at the applicable clarification, planning, or human boundary without switching profiles.
+For a standalone assignment whose authority includes a Work Tracker Delivery Ticket, Task, or Bug, read [Work Tracker context assembly](../federated-workflow/WORK-TRACKER-CONTEXT-ASSEMBLY.md) and assemble Delivery Context for the exact artifact before accepting the assignment. Use the configured artifact mapping rather than provider issue type inference. Require and read a parent only for mapped derived delivery. A standalone Task or Bug may have no parent or Authority Source when its own content passes the contract's self-contained check. Continue only with a `Complete` Delivery Context; report `Incomplete` or `Ambiguous` at the applicable clarification, planning, or human boundary without switching profiles.
+
+For a Coordinator-narrowed assignment, use only the Coordinator-supplied exact root, Delivery Context profile, `Complete` result, and lossless Context Pack required by [Coordinator narrowing](COORDINATOR-NARROWED.md). Validate that handoff before accepting the assignment. Do not rebuild mutable provider authority, select another root, or switch profiles before applying the narrowing.
 
 Every writable Repository Delivery must supply or resolve:
 
@@ -30,7 +32,7 @@ A Fixed Review Base is the exact starting commit against which a Repository Deli
 
 Read-only context and validation repositories remain outside writable scope. Missing authority, a worktree that disagrees with the assignment, or a required change to approved scope, acceptance behavior, or a Settled Seam is a **Material contradiction**. Preserve safe work and return the conflicting sources. Authority comes from the assignment, not inference.
 
-**Complete when:** the writable scope, authority, every required delivery field, and any requested Delivery Context are complete, or a Material contradiction or explicit Context Assembly stop has been returned without repository mutation.
+**Complete when:** the assignment mode is explicit; its standalone Context Assembly or Coordinator-supplied Context Pack satisfies the applicable gate; the writable scope, authority, and every required delivery field are complete; or a Material contradiction or explicit Context Assembly stop has been returned without repository mutation.
 
 ## Prepare each delivery
 
