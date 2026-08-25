@@ -22,7 +22,12 @@ A Decision Ticket's configured owning Map relationship is a required Authority S
 
 An **Effective Resolution** is the recognized accepted Resolution content that remains after following explicit `Supersedes` and `Supplements` references.
 
-Every actionable artifact records zero or more Authority Sources. No source is valid only when the active Task or Bug contains complete expected behavior, scope, acceptance criteria, and validation expectations. Missing authority does not become valid because a likely source can be inferred.
+Every artifact records zero or more Authority Sources. An artifact that has sources preserves every one as a permanent reference. Two source-free forms are valid:
+
+- A Specification may have no upstream Map or planning artifact when its own durable body completely materializes the settled problem, solution, accepted implementation and testing decisions, Repository References, Context Scope, and out-of-scope boundaries. Its permanent identity becomes the provenance root.
+- A standalone Task or Bug may have no planning source when its own durable body contains complete expected behavior, scope, acceptance criteria, and validation expectations.
+
+Missing required content makes either form `Incomplete`. A `None` Authority Sources record never excuses an omitted source that the artifact relies on.
 
 These shapes are equivalent inputs to the model:
 
@@ -78,7 +83,7 @@ Use Decision Context to create, revise, or review a Decision Ticket or Specifica
 - its permanent identity, role, blocker state, and Authority Sources; and
 - every complete Map Context reachable through those explicit Authority Sources.
 
-For a Decision Ticket, Decision Context always contains the Map Context of its one configured owning Map. A Map that is also the Specification remains one artifact. Its Map role supplies Map Context without a self-reference. Include its body and comments once while retaining both roles.
+For a Decision Ticket, Decision Context always contains the Map Context of its one configured owning Map. A source-free Specification can produce `Complete` Decision Context without Map Context only when it passes the complete settled-authority check above. A Map that is also the Specification remains one artifact. Its Map role supplies Map Context without a self-reference. Include its body and comments once while retaining both roles.
 
 ### Delivery Context
 
