@@ -76,7 +76,7 @@ Use Decision Context to create, revise, or review a Decision Ticket or Specifica
 - its permanent identity, role, blocker state, and Authority Sources; and
 - every complete Map Context reachable through those explicit Authority Sources.
 
-A Map that is also the Specification remains one artifact. Include its body and comments once while retaining both roles.
+A Map that is also the Specification remains one artifact. Its Map role supplies Map Context without a self-reference. Include its body and comments once while retaining both roles.
 
 ### Delivery Context
 

@@ -17,7 +17,7 @@ Use the configured Work Tracker, Routing Label mapping, and Domain Orientation w
 
 Work from accepted authority already in the conversation, a supplied reference, or both. A settled conversation or plan needs no Wayfinder Map.
 
-For a Work Tracker Specification, including a Map that is also the Specification, assemble Decision Context. Continue only with `Complete` and never switch profiles. For a local spec path, read its complete contents under the Local Markdown equivalent. Accepted planning Resolutions, Domain Model Deltas, and architecture decisions are authoritative source payloads, not background summaries. When conversation and durable authority conflict, stop as `Ambiguous` instead of choosing one.
+For a Work Tracker Specification, including a Map that is also the Specification, assemble Decision Context. Continue only with `Complete` and never switch profiles. For a local spec path, assemble the Local Markdown Decision Context equivalent and apply the same gate. Accepted planning Resolutions, Domain Model Deltas, and architecture decisions are authoritative source payloads, not background summaries. When conversation and durable authority conflict, stop as `Ambiguous` instead of choosing one.
 
 Context gathering is complete when every selected source has permanent provenance where applicable and every requested Work Tracker profile is `Complete`.
 
@@ -74,7 +74,7 @@ Iterate until the user approves the breakdown.
 
 Publish the approved tickets in dependency order:
 
-- **Local Markdown** → write one file per ticket under `.scratch/<feature-slug>/issues/<NN>-<slug>.md`, numbered from `01` in dependency order (blockers first). Prepend `# <NN> — <Ticket title>` and `**Status:** ready-for-agent` to the body. Preserve the same derived or standalone role, Authority Sources, parent rule, and Delivery Context semantics as a real provider. Its Blocked by section names the numbers/titles it depends on.
+- **Local Markdown** → write one file per ticket under `.scratch/<feature-slug>/issues/<NN>-<slug>.md`, numbered from `01` in dependency order (blockers first). Prepend `# <NN> — <Ticket title>` to the body. Preserve the same derived or standalone role, Authority Sources, parent rule, and Delivery Context semantics as a real provider. Its Blocked by section names the numbers/titles it depends on. Assemble the Local Markdown Delivery Context equivalent for the exact file, then add `**Status:** ready-for-agent` only when the result is `Complete`.
 - **Configured Work Tracker** → publish one mapped Delivery Ticket, Task, or Bug per ticket in dependency order so blocking edges can reference durable identifiers. Use the configured native parent and blocking relationships with their documented fallbacks. Re-read every item and assemble Delivery Context for that exact artifact. Apply the mapped `ready-for-agent` Routing Label only after its complete executable contract and state produce `Complete`.
 
 Do NOT close or modify any parent issue.
