@@ -75,4 +75,4 @@ Base every provider decision on an authoritative re-read. Keep the binding as pr
 
 Use native provider mechanisms when they preserve the shared semantics. Durable body and comment conventions are valid fallbacks. Reject a mapping that cannot preserve permanent references or reconstruct complete current authority. If no real succession example is readable, mark that capability non-destructively unverified and require the first real operation to perform the contract's complete post-write re-read and rebuild. Create no probe artifact.
 
-Local Markdown uses the same roles, permanent references, profiles, results, and succession rules. File layout and links are its provider representation, not a second semantic model.
+Local Markdown uses the same roles, permanent references, profiles, results, and succession rules. File layout and links are its provider representation, not a second semantic model. Use the shared [Local Markdown read recipe](WORK-TRACKER-CONTEXT-ASSEMBLY.md#local-markdown-read-recipe) instead of defining a consumer-specific substitute.

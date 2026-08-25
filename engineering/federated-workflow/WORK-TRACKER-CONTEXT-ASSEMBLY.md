@@ -54,7 +54,7 @@ For the requested profile:
 
 1. Resolve exactly one compatible active root through the binding's artifact mapping and permanent references. No compatible root returns `Incomplete`; more than one returns `Ambiguous`. Never switch to another profile.
 2. Read every required authoritative body and every human-visible comment. Follow every provider pagination mechanism to completion, including pagination on relationships, children, search results, and comments.
-3. Follow explicit Authority Sources and configured role relationships. Treat a Decision Ticket's configured owning Map relationship as an Authority Source. Retain each permanent reference and the full authoritative payload it proves.
+3. Follow explicit Authority Sources and configured role relationships. Treat a Decision Ticket's configured owning Map relationship as an Authority Source. Retain each permanent reference and the full Work Tracker or Local Markdown payload it proves. For a canonical repository document, retain and validate its Repository-qualified Context Pointer under the Domain Orientation boundary below; loading that document is not part of Context Assembly.
 4. Resolve accepted Resolution succession, then include every effective decision required by the selected profile in full. Context limits never permit omission, filtering, or lossy summary.
 5. Remove only provider transport metadata. Keep artifact identity, role, status, routing, claim and blocker state when the profile requires them, permanent references, authoritative bodies, comments, and Resolution text.
 6. Classify the result. Return the requested Context Pack only with its explicit result.
@@ -117,15 +117,27 @@ The result is `Incomplete` when any blocker edge, page, permanent reference, bod
 
 Assembly returns exactly one result. Classify recognized Resolution succession before general missing-material checks, so the variants remain disjoint:
 
-- `Complete` means the requested root is unique and every required body, comment page, relationship, permanent reference, effective Resolution, and profile field is present and internally consistent.
+- `Complete` means the requested root is unique; every required Work Tracker or Local Markdown body, comment page, relationship, permanent reference, effective Resolution, and profile field is present; every canonical repository Authority Source has one valid Repository-qualified Context Pointer; and the assembled records are internally consistent.
 - `Incomplete` means required material is missing, unreadable, unresolved, only partly paginated, or too large to carry without loss. It also covers an absent compatible root. A recognized succession reference is excluded from this variant.
 - `Ambiguous` means more than one root fits, authority conflicts, a recognized `Supersedes` or `Supplements` reference is broken or cyclic, succession has competing effective interpretations, or a claimed supplement conflicts with effective authority.
 
 Only `Complete` permits the requesting workflow to continue. `Incomplete` and `Ambiguous` name the missing or competing permanent references and stop visibly at the workflow's clarification, planning, setup, or human boundary.
 
+## Local Markdown read recipe
+
+Local Markdown is a provider representation of the same contract. Use this complete manual recipe when no real Work Tracker binding applies:
+
+1. Resolve the requested file to one permanent reference made from the portable Repository ID, repository-relative path, and heading anchor when the referenced record is a section. Recognize its role only from the explicit document contract, role field, headings, and relationships written by the producing workflow. A missing compatible role is `Incomplete`; conflicting roles or roots are `Ambiguous`.
+2. Read the entire root file and every linked artifact file. Human-visible comments are the complete append-only comment sections or linked comment records declared by an artifact. If it declares none, the comment set is empty. Do not treat an excerpt, cached copy, rendered preview, or search snippet as a body or comment record.
+3. Follow every explicit Parent, Authority Sources, Blocked by, owning Map, child, Map-index, and canonical Context Pointer reference. Enumerate every entry in a declared directory, index, or search result used as a relationship set. Local files have no page token, but an incomplete enumeration is the pagination-equivalent failure and returns `Incomplete`.
+4. Recognize accepted local Resolution content only in a final `## Resolution` record written by the producing workflow. A `## Resolution draft` is not accepted authority. Give each Resolution a permanent file-and-anchor reference. Apply the same explicit `Supersedes` and `Supplements` forward links, reverse comment, Map history, effective-content, ambiguity, and reconciliation rules as a real Work Tracker.
+5. Assemble exactly the selected Map Context, Decision Context, or Delivery Context from those permanent records. Apply the same profile fields and blocker closure, then return exactly `Complete`, `Incomplete`, or `Ambiguous` under the shared result rules. Never switch profiles to compensate for a missing local record.
+
+The recipe adds no second artifact model. Producer-specific layout instructions decide where files and fields are written; this contract decides what a complete read means.
+
 ## Resolution succession
 
-Only a Resolution recognized by the configured Work Tracker binding is accepted authority. Ordinary comments never change accepted authority.
+Only a Resolution recognized by the configured Work Tracker binding or the Local Markdown recipe above is accepted authority. Ordinary comments never change accepted authority.
 
 A later recognized Resolution may carry one of these explicit permanent forward references, including a reference to a Resolution in another Decision Ticket from the same Map:
 
@@ -150,4 +162,6 @@ If the binding has no real succession example, Setup records that capability as 
 
 ## Domain Orientation boundary
 
-Context Assembly stops at canonical repository pointers. It retains every Context Scope pointer but does not load, copy, or summarize canonical repository documents or ADRs. After a `Complete` Work Tracker result, the consumer performs configured Domain Orientation and loads the routed canonical sources.
+Context Assembly stops at canonical repository pointers. For each canonical document used as an Authority Source or named by Context Scope, validate and retain exactly one permanent Repository-qualified Context Pointer in the form `<Repository ID>:<repo-relative path>`. The Repository ID must resolve uniquely through the supplied Repository References and configured portable repository identity. A missing or malformed pointer or unresolved Repository ID is `Incomplete`; competing identities or pointers for one claimed source are `Ambiguous`.
+
+This validation does not read, copy, summarize, or test the availability of the canonical repository document or ADR. After a `Complete` Work Tracker or Local Markdown result, the consumer performs configured Domain Orientation, resolves the retained pointer against repository state, and loads the routed canonical source. Failure at that later boundary stops the consumer without changing the completed Context Assembly result.
