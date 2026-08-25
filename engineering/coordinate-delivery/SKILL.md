@@ -4,7 +4,7 @@ description: "Coordinate one agent-ready ticket through its complete federated d
 disable-model-invocation: true
 ---
 
-Read [provider concepts](../federated-workflow/PROVIDER-CONCEPTS.md) before selecting or mutating provider state.
+Read [provider concepts](../federated-workflow/PROVIDER-CONCEPTS.md) before selecting or mutating provider state. Read [Work Tracker context assembly](../federated-workflow/WORK-TRACKER-CONTEXT-ASSEMBLY.md) before accepting ticket authority or preparing a repository delivery.
 
 A Coordinator Activation is one invocation that selects or resumes at most one ticket and owns only a claim it acquires and verifies.
 
@@ -30,13 +30,15 @@ For a ticketless activation, any pre-claim change or failed post-claim verificat
 
 ## 2. Validate the delivery contract
 
-Read [`../federated-workflow/PLANNING-ARTIFACTS.md`](../federated-workflow/PLANNING-ARTIFACTS.md) completely. Require complete Repository References, resolvable Context Scope, non-empty Repository Scope with repository-owned outcomes, every applicable Settled Seam and Validation Obligation, and consistent ticket, dependency, user, canonical-context, ADR, and accepted-decision authority.
+Select Delivery Context for the exact permanent reference of the claimed activation ticket. Assemble that profile through the Ticket Origin Repository's Work Tracker binding after the claim is verified. Retain the selected profile, exact root, explicit result, and complete lossless Context Pack for this activation. Do not switch roots or profiles. `Incomplete` or `Ambiguous` enters the [human-boundary branch](HUMAN-BOUNDARY.md) with the claim and safe state preserved. Only `Complete` permits repository resolution or mutation.
 
-Require the complete executable ticket shape: Parent, Authority Sources, What to build, observable Acceptance criteria, Repository References, Repository Scope, Context Scope, Cross-Repository Seams, and Blocked by. A section may use its contract-defined explicit `None` form but may not be silently absent.
+Read [`../federated-workflow/PLANNING-ARTIFACTS.md`](../federated-workflow/PLANNING-ARTIFACTS.md) completely. Validate the assembled Delivery Context against the planning contracts. Require complete Repository References, resolvable Context Scope, non-empty Repository Scope with repository-owned outcomes, every applicable Settled Seam and Validation Obligation, and consistent ticket, dependency, user, canonical-context, ADR, and accepted-decision authority.
+
+Within that Context Pack, require the complete executable ticket shape: Parent, Authority Sources, What to build, observable Acceptance criteria, Repository References, Repository Scope, Context Scope, Cross-Repository Seams, and Blocked by. A section may use its contract-defined explicit `None` form but may not be silently absent. This field check validates the assembled profile; it does not replace Context Assembly.
 
 A Delivery Bundle is one ticket's complete delivery state: its Repository Deliveries; any Published Delivery Heads, Review Proposals, and lifecycle records; current validation and review evidence; and handoff state.
 
-**Complete when:** every required contract field, permanent Authority Source, and context pointer is present and internally consistent; any material omission or conflict has entered the [human-boundary branch](HUMAN-BOUNDARY.md) before repository mutation.
+**Complete when:** the exact claimed ticket remains the Delivery Context root, the selected profile is Delivery Context, its result is `Complete`, its full Context Pack has been retained without loss, and every required contract field, permanent Authority Source, and context pointer is present and internally consistent; any different root, profile switch, non-`Complete` result, material omission, or conflict has entered the [human-boundary branch](HUMAN-BOUNDARY.md) before repository mutation.
 
 ## 3. Resolve repository references
 
@@ -58,11 +60,11 @@ Apply the loaded execution-preparation rules. Fetch every configured Base Branch
 
 ## 5. Execute one flat attempt
 
-Start exactly one direct-child Implementation Agent for each delivery requiring changes. Give it one complete textual narrowing assignment for its Repository Scope entry and run `implement`. Include the Repository ID and Reference, Execution Worktree, branch, fixed base, authoritative sources, repository-specific outcome, Settled Seams and test approaches, Validation Obligations, repository instructions, and validation commands. Require its one Repository Delivery result. Record validation-only and no-change deliveries directly.
+Start exactly one direct-child Implementation Agent for each delivery requiring changes. Give it one complete textual narrowing assignment for its Repository Scope entry and run `implement`. Include the Repository ID and Reference, Execution Worktree, branch, fixed base, the exact active ticket permanent reference, the selected Delivery Context profile, its `Complete` result, the complete lossless Context Pack and permanent authority it assembles, repository-specific outcome, Settled Seams and test approaches, Validation Obligations, repository instructions, and validation commands. Require its one Repository Delivery result. Record validation-only and no-change deliveries directly.
 
 Verify every result against its assigned worktree and base; classify an expected change with no diff as unchanged.
 
-**Complete when:** every scope entry has exactly one attributable result, every changed worktree is clean at its exact local head, all repository validation is bound to that head, and any discovered contradiction or material design decision has entered the [human-boundary branch](HUMAN-BOUNDARY.md) with affected and dependent work paused.
+**Complete when:** every changed assignment identifies the same exact active ticket root, Delivery Context profile, `Complete` result, and lossless Context Pack validated in step 2; every scope entry has exactly one attributable result; every changed worktree is clean at its exact local head; all repository validation is bound to that head; and any discovered contradiction or material design decision has entered the [human-boundary branch](HUMAN-BOUNDARY.md) with affected and dependent work paused.
 
 ## 6. Review exact heads
 
