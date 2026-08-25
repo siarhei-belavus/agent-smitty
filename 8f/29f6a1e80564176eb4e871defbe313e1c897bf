@@ -1,0 +1,23 @@
+skills/matt/engineering/code-review/SKILL.md
+  s_5862358c064d8f::t_e7f3c18733d210 21,26,28,30,42,58,64,93,97,119
+skills/matt/engineering/coordinate-delivery/SKILL.md
+  s_5862358c064d8f::t_e7f3c18733d210 71,85,87
+skills/matt/engineering/coordinate-delivery/REVIEW-FEEDBACK.md
+  s_5862358c064d8f::t_e7f3c18733d210 5,7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "8f29f6a1e80564176eb4e871defbe313e1c897bf",
+  "prompts": {},
+  "sessions": {
+    "s_5862358c064d8f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a03873-b13d-7b60-ba33-50a3ef77894d",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
