@@ -67,7 +67,14 @@ Show counts and a one-line summary per item. Let the maintainer pick.
 
 ## Triage a specific request or Review Proposal
 
-1. **Gather context.** For a Work Tracker request mapped to a Delivery Ticket, Task, or Bug, assemble Delivery Context. Require the configured parent only for mapped derived delivery; assemble a standalone Task or Bug from its own content without inventing a parent or planning source. `Incomplete` returns to clarification or `needs-info`; `Ambiguous` stops for maintainer direction. Only `Complete` continues, without switching profiles. For a Review Proposal, read its full body, comments, review state, and diff through the configured request surface. Parse prior triage notes so you don't re-ask resolved questions. After Context Assembly stops at canonical pointers, perform configured Domain Orientation before exploring canonical contexts, accepted Domain Model Deltas, ADRs, and code in the referenced repositories. Run two checks: (a) **redundancy** — search the codebase for an existing implementation of the requested behavior by domain concept, not just the request's wording, and report where you looked; if found, classify it as already-implemented `wontfix` in step 5. (b) **prior rejection** — run [out-of-scope matching](OUT-OF-SCOPE.md#match-a-record).
+1. **Gather context.** For a Work Tracker request mapped to a Delivery Ticket, Task, or Bug, assemble Delivery Context. Require the configured parent only for mapped derived delivery. Assemble a standalone Task or Bug from its own content without inventing a parent or planning source. `Incomplete` returns to clarification or `needs-info`; `Ambiguous` stops for maintainer direction. Only `Complete` continues, without switching profiles.
+
+   For a Review Proposal, read its full body, comments, review state, and diff through the configured request surface. Parse prior triage notes so you don't re-ask resolved questions. After Context Assembly stops at canonical pointers, perform configured Domain Orientation before exploring canonical contexts, accepted Domain Model Deltas, ADRs, and code in the referenced repositories.
+
+   Run both checks before completing context gathering:
+
+   - **Redundancy.** Search the codebase for an existing implementation by domain concept, not just the request's wording, and report where you looked. If found, classify it as already-implemented `wontfix` in step 5.
+   - **Prior rejection.** Run [out-of-scope matching](OUT-OF-SCOPE.md#match-a-record).
 
 2. **Recommend.** Tell the maintainer your category and state recommendation with reasoning, plus a brief codebase summary relevant to the request — including whether it's already implemented. Wait for direction.
 

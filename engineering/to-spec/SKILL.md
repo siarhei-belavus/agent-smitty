@@ -18,7 +18,7 @@ Use the configured Work Tracker and Domain Orientation when their bindings exist
    - When revising or reviewing an existing Specification, assemble Decision Context for that exact artifact. Continue only with `Complete` and never switch to another profile.
    - When conversation and durable sources are both supplied, use the durable Context Pack as the baseline and add only explicitly accepted decisions from the current conversation. Return `Ambiguous` contradictions to planning instead of choosing silently.
 
-   Source selection is complete when every selected authority has permanent provenance and every required Work Tracker profile is `Complete`.
+   Source selection is complete when every durable source has permanent provenance, every accepted conversation decision remains explicit in the session, and every required Work Tracker profile is `Complete`.
 
 2. Perform configured Domain Orientation, then explore the referenced repositories only as needed to understand current state. Use the loaded effective planning language and applicable ADRs throughout.
 
