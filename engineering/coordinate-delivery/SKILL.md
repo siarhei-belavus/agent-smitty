@@ -32,11 +32,11 @@ For a ticketless activation, any pre-claim change or failed post-claim verificat
 
 Read [`../federated-workflow/PLANNING-ARTIFACTS.md`](../federated-workflow/PLANNING-ARTIFACTS.md) completely. Require complete Repository References, resolvable Context Scope, non-empty Repository Scope with repository-owned outcomes, every applicable Settled Seam and Validation Obligation, and consistent ticket, dependency, user, canonical-context, ADR, and accepted-decision authority.
 
-Require the complete executable ticket shape: Parent, What to build, observable Acceptance criteria, Repository References, Repository Scope, Context Scope, Cross-Repository Seams, and Blocked by. A section may use its contract-defined explicit `None` form but may not be silently absent.
+Require the complete executable ticket shape: Parent, Authority Sources, What to build, observable Acceptance criteria, Repository References, Repository Scope, Context Scope, Cross-Repository Seams, and Blocked by. A section may use its contract-defined explicit `None` form but may not be silently absent.
 
 A Delivery Bundle is one ticket's complete delivery state: its Repository Deliveries; any Published Delivery Heads, Review Proposals, and lifecycle records; current validation and review evidence; and handoff state.
 
-**Complete when:** every required contract field and context pointer is present and internally consistent; any material omission or conflict has entered the [human-boundary branch](HUMAN-BOUNDARY.md) before repository mutation.
+**Complete when:** every required contract field, permanent Authority Source, and context pointer is present and internally consistent; any material omission or conflict has entered the [human-boundary branch](HUMAN-BOUNDARY.md) before repository mutation.
 
 ## 3. Resolve repository references
 

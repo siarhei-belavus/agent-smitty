@@ -18,6 +18,8 @@ Artifact roles are independent of provider types. A binding may distinguish them
 
 An **Authority Source** is an explicit permanent reference from actionable Work Tracker work to a Specification, Map, other planning artifact, or canonical repository document that governs it. The configured native relationship may carry that reference. Titles, timestamps, authors, and textual similarity establish neither role nor provenance.
 
+A Decision Ticket's configured owning Map relationship is a required Authority Source. It must resolve to exactly one permanent Map reference. No owning Map or an unreadable permanent reference is `Incomplete`; more than one owning Map is `Ambiguous`.
+
 An **Effective Resolution** is the recognized accepted Resolution content that remains after following explicit `Supersedes` and `Supplements` references.
 
 Every actionable artifact records zero or more Authority Sources. No source is valid only when the active Task or Bug contains complete expected behavior, scope, acceptance criteria, and validation expectations. Missing authority does not become valid because a likely source can be inferred.
@@ -47,7 +49,7 @@ For the requested profile:
 
 1. Resolve exactly one compatible active root through the binding's artifact mapping and permanent references. No compatible root returns `Incomplete`; more than one returns `Ambiguous`. Never switch to another profile.
 2. Read every required authoritative body and every human-visible comment. Follow every provider pagination mechanism to completion, including pagination on relationships, children, search results, and comments.
-3. Follow explicit Authority Sources and configured role relationships. Retain each permanent reference and the full authoritative payload it proves.
+3. Follow explicit Authority Sources and configured role relationships. Treat a Decision Ticket's configured owning Map relationship as an Authority Source. Retain each permanent reference and the full authoritative payload it proves.
 4. Resolve accepted Resolution succession, then include every effective decision required by the selected profile in full. Context limits never permit omission, filtering, or lossy summary.
 5. Remove only provider transport metadata. Keep artifact identity, role, status, routing, claim and blocker state when the profile requires them, permanent references, authoritative bodies, comments, and Resolution text.
 6. Classify the result. Return the requested Context Pack only with its explicit result.
@@ -76,7 +78,7 @@ Use Decision Context to create, revise, or review a Decision Ticket or Specifica
 - its permanent identity, role, blocker state, and Authority Sources; and
 - every complete Map Context reachable through those explicit Authority Sources.
 
-A Map that is also the Specification remains one artifact. Its Map role supplies Map Context without a self-reference. Include its body and comments once while retaining both roles.
+For a Decision Ticket, Decision Context always contains the Map Context of its one configured owning Map. A Map that is also the Specification remains one artifact. Its Map role supplies Map Context without a self-reference. Include its body and comments once while retaining both roles.
 
 ### Delivery Context
 
@@ -93,11 +95,11 @@ Require a parent only when the binding maps the active artifact to derived deliv
 
 ## Results
 
-Assembly returns exactly one result:
+Assembly returns exactly one result. Classify recognized Resolution succession before general missing-material checks, so the variants remain disjoint:
 
 - `Complete` means the requested root is unique and every required body, comment page, relationship, permanent reference, effective Resolution, and profile field is present and internally consistent.
-- `Incomplete` means required material is missing, unreadable, unresolved, only partly paginated, or too large to carry without loss. It also covers an absent compatible root.
-- `Ambiguous` means more than one root fits, authority conflicts, succession has competing effective interpretations, or a claimed supplement conflicts with effective authority.
+- `Incomplete` means required material is missing, unreadable, unresolved, only partly paginated, or too large to carry without loss. It also covers an absent compatible root. A recognized succession reference is excluded from this variant.
+- `Ambiguous` means more than one root fits, authority conflicts, a recognized `Supersedes` or `Supplements` reference is broken or cyclic, succession has competing effective interpretations, or a claimed supplement conflicts with effective authority.
 
 Only `Complete` permits the requesting workflow to continue. `Incomplete` and `Ambiguous` name the missing or competing permanent references and stop visibly at the workflow's clarification, planning, setup, or human boundary.
 
@@ -129,12 +131,3 @@ If the binding has no real succession example, Setup records that capability as 
 ## Domain Orientation boundary
 
 Context Assembly stops at canonical repository pointers. It retains every Context Scope pointer but does not load, copy, or summarize canonical repository documents or ADRs. After a `Complete` Work Tracker result, the consumer performs configured Domain Orientation and loads the routed canonical sources.
-
-## Consumer routing
-
-- Setup maps every artifact role, Authority Source, profile read, result, succession operation, and reconciliation operation to provider capabilities before writing a binding.
-- Wayfinder uses Map Context for navigation and Decision Context for an active Decision Ticket.
-- To Spec uses Map Context for a supplied Map source and Decision Context for a durable Specification.
-- To Tickets uses Decision Context for a supplied Specification and Delivery Context for each derived or standalone published ticket. A settled conversation needs no invented Map.
-- Triage and Implement use Delivery Context for mapped delivery work. A derived artifact follows its required parent; a standalone Task or Bug does not invent one.
-- Optional context commands expose only the three public profiles, return the same explicit result, and preserve the manual recipe's semantics.
