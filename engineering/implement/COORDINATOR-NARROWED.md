@@ -4,7 +4,7 @@ Read [provider concepts](../federated-workflow/PROVIDER-CONCEPTS.md) before enfo
 
 Use the complete narrowing assignment for exactly one named Repository Scope entry and one supplied Execution Worktree.
 
-Before changing the worktree, require the assignment to name the exact active ticket permanent reference, Delivery Context as the selected profile, its explicit `Complete` result, and the complete lossless Context Pack assembled by the Coordinator. Use that root and pack as the assignment's Work Tracker context. Do not select another root or profile. A missing or inconsistent handoff is a Material contradiction.
+Before changing the worktree, require the assignment to name the exact active ticket permanent reference, Delivery Context as the selected profile, its explicit `Complete` result, and the complete lossless Context Pack assembled by the Coordinator. Use that root and pack as the assignment's Work Tracker context. Do not rebuild mutable provider authority or select another root or profile. A missing or inconsistent handoff is a Material contradiction.
 
 Change only that Execution Worktree. Start no child agent or reviewer. Do not perform another scope entry, a validation-only delivery, publication, Review Proposal work, Work Tracker changes, or bundle review.
 

@@ -4,6 +4,8 @@ Read [provider concepts](../federated-workflow/PROVIDER-CONCEPTS.md) before deci
 
 A Standalone assignment accepts one or more writable Repository Scope entries. A supplied single repository is the one-entry case. When the user supplies only the current repository and no federated ticket contract, treat that repository as the single Repository Delivery and the supplied spec, ticket, or conversation as authority.
 
+When the authority includes a Work Tracker Delivery Ticket, Task, or Bug, read [Work Tracker context assembly](../federated-workflow/WORK-TRACKER-CONTEXT-ASSEMBLY.md) and assemble Delivery Context for the exact artifact before accepting the assignment. Use the configured artifact mapping rather than provider issue type inference. Require and read a parent only for mapped derived delivery. A standalone Task or Bug may have no parent or Authority Source when its own content passes the contract's self-contained check. Continue only with a `Complete` Delivery Context; report `Incomplete` or `Ambiguous` at the applicable clarification, planning, or human boundary without switching profiles.
+
 Resolve the Fixed Review Base from the unchanged current `HEAD` before editing when the assignment does not supply one. Use the supplied isolated worktree or another isolated writable checkout authorized by the assignment.
 
 Use the complete Settled Seam set and test approaches recorded in the supplied authority. When none exists, identify every existing, changed, and new seam the outcome spans. Propose the smallest faithful repository-native test approach and nearest prior art for each. Use `codebase-design` when materially different caller-facing ownership, interface, seam, or contract choices remain, then ask the user to confirm the complete set once.
@@ -14,4 +16,4 @@ A changed head needs refreshed repository validation and fresh Standards review 
 
 Standalone implementation changes no Code Host publication, Review Proposal, or Work Tracker state unless the user grants that authority separately.
 
-**Complete when:** every current exact head has fresh repository validation and the selected review has no Blocking finding, with any separately authorized provider effects reported.
+**Complete when:** every Work Tracker-backed assignment has a `Complete` Delivery Context, every current exact head has fresh repository validation, and the selected review has no Blocking finding, with any separately authorized provider effects reported.
