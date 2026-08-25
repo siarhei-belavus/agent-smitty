@@ -1,0 +1,25 @@
+skills/matt/engineering/wayfinder/SKILL.md
+  s_5862358c064d8f::t_ff148ecfdd19c3 131
+skills/matt/engineering/setup-federated-workflow/SKILL.md
+  s_5862358c064d8f::t_ff148ecfdd19c3 36
+skills/matt/engineering/triage/SKILL.md
+  s_5862358c064d8f::t_ff148ecfdd19c3 70-77
+skills/matt/engineering/to-spec/SKILL.md
+  s_5862358c064d8f::t_ff148ecfdd19c3 21
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "83465b01277a46692f5603a60437b294f21659be",
+  "prompts": {},
+  "sessions": {
+    "s_5862358c064d8f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a03873-b13d-7b60-ba33-50a3ef77894d",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
