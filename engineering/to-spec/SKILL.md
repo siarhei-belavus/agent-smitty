@@ -30,9 +30,9 @@ When materially different caller-facing ownership, interface, seam, or contract 
 
 5. Record every confirmed repository-local and cross-repository Settled Seam only in Testing Decisions. Preserve full-fidelity Domain Model Deltas, architecture rationale, provenance, and canonical documentation obligations in Context Scope and the applicable decisions.
 
-6. Write the spec using the template below, then publish it to the Ticket Origin Repository's configured Work Tracker. When the selected Map is also the Specification under the confirmed artifact mapping, retain one artifact with both roles. Otherwise publish a separate Specification with explicit Map Authority Sources. A specification is planning authority, not an executable delivery ticket; do not apply an execution Routing Label solely because the specification was published.
+6. Write the spec using the template below. Before publication, assemble Decision Context for the exact prospective Specification role, selected Authority Sources, and complete settled payload. A Map-backed creation root retains every selected Map permanent reference. A source-free creation root records `Authority Sources: None` and the complete accepted session authority. Continue only with `Complete` and do not switch profiles. Then publish to the Ticket Origin Repository's configured Work Tracker. When the selected Map is also the Specification under the confirmed artifact mapping, retain that permanent root with both roles. Otherwise publish a separate Specification with explicit Map Authority Sources. A specification is planning authority, not an executable delivery ticket; do not apply an execution Routing Label solely because the specification was published.
 
-7. Re-read the durable artifact and assemble Decision Context for the exact published Specification. Publication completes only with `Complete`; `Incomplete` or `Ambiguous` returns to the source or publication step that caused it.
+7. Re-read the durable artifact and assemble Decision Context for the exact published Specification. Validate the contract's explicit root transition against the pre-publication creation root, or the retained root when the Map is also the Specification. Publication completes only with `Complete`; `Incomplete` or `Ambiguous` returns to the source or publication step that caused it.
 
 <spec-template>
 
