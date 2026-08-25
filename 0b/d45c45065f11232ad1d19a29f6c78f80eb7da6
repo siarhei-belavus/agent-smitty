@@ -1,0 +1,19 @@
+skills/matt/engineering/federated-workflow/WORK-TRACKER-CONTEXT-ASSEMBLY.md
+  s_5862358c064d8f::t_14fea6dcfb7eb2 80
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "0bd45c45065f11232ad1d19a29f6c78f80eb7da6",
+  "prompts": {},
+  "sessions": {
+    "s_5862358c064d8f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a03873-b13d-7b60-ba33-50a3ef77894d",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
