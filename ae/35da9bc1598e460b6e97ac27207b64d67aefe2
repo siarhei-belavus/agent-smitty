@@ -1,0 +1,25 @@
+skills/matt/engineering/triage/AGENT-BRIEF.md
+  s_5862358c064d8f::t_31dfee03396d07 5,91-92
+skills/matt/engineering/triage/SKILL.md
+  s_5862358c064d8f::t_0cb467e00c5270 92,103
+  s_5862358c064d8f::t_8b64d8ffeb361d 72,91
+  s_5862358c064d8f::t_31dfee03396d07 74,88-90,93
+  s_5862358c064d8f::t_9a2104f0eb9fef 73
+  s_5862358c064d8f::t_c909da27aeb305 104
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "ae35da9bc1598e460b6e97ac27207b64d67aefe2",
+  "prompts": {},
+  "sessions": {
+    "s_5862358c064d8f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a03873-b13d-7b60-ba33-50a3ef77894d",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
