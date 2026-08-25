@@ -165,10 +165,10 @@ Broken references, contradictory supplements, cycles, or incompatible effective 
 Context Assembly reports authority and performs no reconciliation mutation. The workflow that accepts a changed Resolution owns this sequence:
 
 1. Publish and re-read the recognized Resolution, its forward reference, the earlier ticket's reverse comment, and the Map index with historical and effective permanent references.
-2. Find every open Specification and delivery artifact with explicit provenance from the affected Map.
-3. Reconcile open unclaimed artifacts and their routing so stale work is not eligible. Stop claimed or actively implemented work at the configured human boundary.
-4. Leave completed delivery history unchanged. Represent a required behavior change as follow-up delivery work.
-5. Rebuild every affected Context Pack from permanent sources after authorized updates. Reconciliation completes only when each required rebuild returns `Complete`.
+2. Find every open artifact whose explicit Authority Sources or provenance reaches the affected Map. This exhaustive set includes Decision Tickets, Specifications, other Maps or planning artifacts, Delivery Tickets, Tasks, Bugs, and every other provider-mapped planning or actionable role. Read the complete result set through provider pagination and retain each permanent reference. Missing records or pages stop reconciliation as `Incomplete`; competing provenance or role interpretations stop it as `Ambiguous`.
+3. Reconcile every open unclaimed mutable artifact in that set, including its authoritative content and routing, so stale work is not eligible. Stop every claimed or actively worked artifact at the configured human boundary before changing it, regardless of planning or delivery role.
+4. Leave all completed planning and delivery history unchanged. Represent any required behavior change as follow-up work with explicit provenance from the effective authority.
+5. After all authorized updates, rebuild every affected Map Context, Decision Context, and Delivery Context from permanent sources. Reconciliation completes only when every profile and root affected by the changed authority returns `Complete`.
 
 If the binding has no real succession example, Setup records that capability as non-destructively unverified. The first real succession operation performs the full post-write re-read and rebuild before the capability becomes verified.
 
