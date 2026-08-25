@@ -1,0 +1,59 @@
+skills/matt/engineering/code-review/SKILL.md
+  s_5862358c064d8f::t_5898d5bf8bb4e5 26,40,62,66,95,99,123
+skills/matt/engineering/coordinate-delivery/SKILL.md
+  s_5862358c064d8f::t_2fce3dbbdcac2a 7,41,63,67,71,73,85,87
+  s_5862358c064d8f::t_38ca74b979fea6 33
+skills/matt/engineering/coordinate-delivery/RECOVERY.md
+  s_5862358c064d8f::t_2fce3dbbdcac2a 25,29
+skills/matt/engineering/setup-federated-workflow/SKILL.md
+  s_5862358c064d8f::t_130205f9605c45 14,32,36,64
+skills/matt/engineering/setup-federated-workflow/references/preflight-and-validation.md
+  s_5862358c064d8f::t_cdcce08f51eae0 5
+  s_5862358c064d8f::t_130205f9605c45 3-4,6,15,30,40
+skills/matt/engineering/to-tickets/SKILL.md
+  s_5862358c064d8f::t_130205f9605c45 20,52,77-78
+  s_5862358c064d8f::t_3efbb5904404f8 22
+skills/matt/engineering/triage/SKILL.md
+  s_5862358c064d8f::t_c4cdad6c4b7bdd 70,72,92,103,107
+  s_5862358c064d8f::t_d4821daf4e2238 74
+skills/matt/engineering/implement/STANDALONE.md
+  s_5862358c064d8f::t_2fce3dbbdcac2a 5,17
+  s_5862358c064d8f::t_513371a57a3e65 15
+skills/matt/engineering/federated-workflow/PLANNING-ARTIFACTS.md
+  s_5862358c064d8f::t_5898d5bf8bb4e5 3
+skills/matt/engineering/triage/AGENT-BRIEF.md
+  s_5862358c064d8f::t_c4cdad6c4b7bdd 88
+skills/matt/engineering/federated-workflow/PROVIDER-BINDINGS.md
+  s_5862358c064d8f::t_2e6d598b0b93f2 62-63,78
+  s_5862358c064d8f::t_5b9673090d9111 76
+skills/matt/engineering/implement/COORDINATOR-NARROWED.md
+  s_5862358c064d8f::t_2fce3dbbdcac2a 11
+  s_5862358c064d8f::t_38ca74b979fea6 5
+skills/matt/engineering/implement/SKILL.md
+  s_5862358c064d8f::t_2fce3dbbdcac2a 35
+skills/matt/engineering/to-spec/SKILL.md
+  s_5862358c064d8f::t_3efbb5904404f8 21
+  s_5862358c064d8f::t_130205f9605c45 17-19,33,35
+skills/matt/engineering/wayfinder/SKILL.md
+  s_5862358c064d8f::t_c4cdad6c4b7bdd 7,24-25,43,128-131,138,143
+  s_5862358c064d8f::t_d4821daf4e2238 139
+  s_5862358c064d8f::t_cdcce08f51eae0 141
+skills/matt/engineering/coordinate-delivery/REVIEW-FEEDBACK.md
+  s_5862358c064d8f::t_2fce3dbbdcac2a 5,7,9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "3d9484d33417c460b41171b476e9df298a8f41f2",
+  "prompts": {},
+  "sessions": {
+    "s_5862358c064d8f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a03873-b13d-7b60-ba33-50a3ef77894d",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
