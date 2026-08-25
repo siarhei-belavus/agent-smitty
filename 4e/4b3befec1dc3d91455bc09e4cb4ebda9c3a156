@@ -1,0 +1,23 @@
+skills/matt/engineering/implement/STANDALONE.md
+  s_5862358c064d8f::t_128d28ce73775c 7-8,19
+skills/matt/engineering/implement/COORDINATOR-NARROWED.md
+  s_5862358c064d8f::t_128d28ce73775c 7
+skills/matt/engineering/implement/SKILL.md
+  s_5862358c064d8f::t_128d28ce73775c 8,12,31
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "4e4b3befec1dc3d91455bc09e4cb4ebda9c3a156",
+  "prompts": {},
+  "sessions": {
+    "s_5862358c064d8f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a03873-b13d-7b60-ba33-50a3ef77894d",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
