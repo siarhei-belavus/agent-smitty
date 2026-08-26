@@ -1,0 +1,21 @@
+skills/matt/engineering/setup-federated-workflow/tests/test_validate_federation.py
+  s_c0cb8108d2c10b::t_61db84ff8946f2 19-21
+skills/matt/engineering/setup-federated-workflow/scripts/validate_federation.py
+  s_c0cb8108d2c10b::t_e7e04dcac070b4 26-28
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "88b809a381812f586e62a353d9fd3227a79bfb9a",
+  "prompts": {},
+  "sessions": {
+    "s_c0cb8108d2c10b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a03e16-e4be-76d3-9269-ad73e3c93dd4",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
