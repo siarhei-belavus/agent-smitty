@@ -32,7 +32,7 @@ For `Incomplete` or `Ambiguous`, preserve all acquired input losslessly and name
 
 The requesting workflow owns the Context Pack lifecycle. Before dispatch, it creates one fresh private directory through the execution host's standard temporary-file facility and passes that directory to the Context Assembly subagent.
 
-The subagent writes exactly one Markdown Context Pack in that directory and returns its path. Keep the directory until every consumer in the current activation or resumption has finished, then remove it. The execution host owns cleanup after an interrupted run.
+The subagent writes exactly one Markdown Context Pack in that directory and returns its path. Keep the directory until every consumer in the current activation or resumption has finished, then remove it.
 
 The directory and Context Pack remain runtime-local and accessible only to the workflow and its subagents. They never enter durable workflow state. Recovery creates a fresh temporary directory and rebuilds the Context Pack from permanent authority.
 
