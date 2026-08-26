@@ -16,6 +16,9 @@ SCRIPT = (
 REQUIRED_WORK_TRACKER_HEADINGS = (
     "## Binding",
     "## Ticket operations",
+    "## Artifact mapping",
+    "## Context assembly",
+    "## Resolution succession and reconciliation",
     "## Routing",
     "## Dependencies",
     "## Claims",
