@@ -1,0 +1,19 @@
+skills/matt/engineering/wayfinder/SKILL.md
+  s_27f3c00aff4753::t_e3aaab3d1a0d06 27,142
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "024f2e2747c58924745c6c9c50c8c02aae89d57c",
+  "prompts": {},
+  "sessions": {
+    "s_27f3c00aff4753": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a03f54-76fd-7263-8414-058d16996444",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
