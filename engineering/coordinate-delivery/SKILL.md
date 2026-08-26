@@ -34,8 +34,6 @@ Select Delivery Context for the exact permanent reference of the claimed activat
 
 Read [`../federated-workflow/PLANNING-ARTIFACTS.md`](../federated-workflow/PLANNING-ARTIFACTS.md) completely. Validate the assembled Delivery Context against the planning contracts. Require complete Repository References, resolvable Context Scope, non-empty Repository Scope with repository-owned outcomes, every applicable Settled Seam and Validation Obligation, and consistent ticket, dependency, user, canonical-context, ADR, and accepted-decision authority.
 
-Within that Context Pack, require the complete executable ticket shape: Parent, Authority Sources, What to build, observable Acceptance criteria, Repository References, Repository Scope, Context Scope, Cross-Repository Seams, and Blocked by. A section may use its contract-defined explicit `None` form but may not be silently absent. This field check validates the assembled profile; it does not replace Context Assembly.
-
 A Delivery Bundle is one ticket's complete delivery state: its Repository Deliveries; any Published Delivery Heads, Review Proposals, and lifecycle records; current validation and review evidence; and handoff state.
 
 **Complete when:** the claimed ticket's Delivery Context gate passes, its Authority input is retained, and the planning contract validates; otherwise the delivery has entered the [human-boundary branch](HUMAN-BOUNDARY.md) before repository mutation.
