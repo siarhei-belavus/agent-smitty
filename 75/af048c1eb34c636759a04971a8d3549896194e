@@ -1,0 +1,57 @@
+skills/matt/engineering/implement/STANDALONE.md
+  s_c0cb8108d2c10b::t_b49cb966e5b284 5
+skills/matt/engineering/federated-workflow/LIFECYCLE-ARTIFACTS.md
+  s_c0cb8108d2c10b::t_840f57cb6b6ce1 16
+skills/matt/engineering/coordinate-delivery/RECOVERY.md
+  s_c0cb8108d2c10b::t_c0bd1564ba67a2 27
+  s_c0cb8108d2c10b::t_840f57cb6b6ce1 25
+skills/matt/engineering/implement/COORDINATOR-NARROWED.md
+  s_c0cb8108d2c10b::t_b49cb966e5b284 5
+skills/matt/engineering/federated-workflow/PROVIDER-BINDINGS.md
+  s_c0cb8108d2c10b::t_8709ebc957a71d 74
+  s_c0cb8108d2c10b::t_6fc4c56190cd86 62
+skills/matt/engineering/wayfinder/SKILL.md
+  s_c0cb8108d2c10b::t_438ac69b2c5281 27-28,130,132-133,140-142
+  s_c0cb8108d2c10b::t_6fc4c56190cd86 131
+skills/matt/engineering/setup-federated-workflow/references/preflight-and-validation.md
+  s_c0cb8108d2c10b::t_067bdc79b98806 5,16,31,41
+skills/matt/engineering/to-spec/SKILL.md
+  s_c0cb8108d2c10b::t_dccf380fe981b4 17-19
+  s_c0cb8108d2c10b::t_6fc4c56190cd86 33,35
+skills/matt/engineering/federated-workflow/WORK-TRACKER-CONTEXT-ASSEMBLY.md
+  s_c0cb8108d2c10b::t_52e56063e51302 5,7-29,73,81-82,84,140
+  s_c0cb8108d2c10b::t_14b84963bd3131 102
+  s_c0cb8108d2c10b::t_6fc4c56190cd86 77-78,104-105,142,152
+  s_c0cb8108d2c10b::t_c0bd1564ba67a2 181
+skills/matt/engineering/to-tickets/SKILL.md
+  s_c0cb8108d2c10b::t_dccf380fe981b4 20,77-78
+skills/matt/engineering/federated-workflow/DELIVERY-RECORDS.md
+  s_c0cb8108d2c10b::t_840f57cb6b6ce1 25-28
+skills/matt/engineering/setup-federated-workflow/SKILL.md
+  s_c0cb8108d2c10b::t_067bdc79b98806 32,64
+skills/matt/engineering/coordinate-delivery/SKILL.md
+  s_c0cb8108d2c10b::t_b49cb966e5b284 33,61,69,83
+skills/matt/engineering/code-review/SKILL.md
+  s_c0cb8108d2c10b::t_dccf380fe981b4 26,62
+  s_c0cb8108d2c10b::t_e97fb3b9c3d370 21,99
+skills/matt/engineering/triage/SKILL.md
+  s_c0cb8108d2c10b::t_ebf46c7bf5ecce 70,72,89-90
+skills/matt/engineering/coordinate-delivery/REVIEW-FEEDBACK.md
+  s_c0cb8108d2c10b::t_4a7b11891bce1e 5,7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "75af048c1eb34c636759a04971a8d3549896194e",
+  "prompts": {},
+  "sessions": {
+    "s_c0cb8108d2c10b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a03e16-e4be-76d3-9269-ad73e3c93dd4",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
