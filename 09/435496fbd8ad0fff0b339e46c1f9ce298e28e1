@@ -1,0 +1,23 @@
+models-store.json
+  s_c0cb8108d2c10b::t_a762f8336cd551 25-27,63,91,128,144-147,151-154,166-167,205-206,222-225,229-232,244-245,250
+skills/writing/unslop/SKILL.md
+  s_c0cb8108d2c10b::t_6974c1fca1afc4 4
+skills/writing/unslop/agents/openai.yaml
+  s_c0cb8108d2c10b::t_d9155ef3379e42 4-5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "09435496fbd8ad0fff0b339e46c1f9ce298e28e1",
+  "prompts": {},
+  "sessions": {
+    "s_c0cb8108d2c10b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a03e16-e4be-76d3-9269-ad73e3c93dd4",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
