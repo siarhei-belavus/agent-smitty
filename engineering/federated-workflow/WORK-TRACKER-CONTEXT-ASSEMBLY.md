@@ -30,15 +30,11 @@ For `Incomplete` or `Ambiguous`, preserve all acquired input losslessly and name
 
 ## Private runtime lifecycle
 
-The requesting workflow owns the Context Pack lifecycle. Before dispatch, it prepares one fresh runtime directory and one planned Markdown filename for the invocation. Only the workflow's operating-system identity may access that directory. Before giving the directory to the Context Assembly subagent, the workflow registers the directory identity and its one planned file entry with the execution host as this invocation's exact cleanup handle. It then passes that registered target to the subagent.
+The requesting workflow owns the Context Pack lifecycle. Before dispatch, it creates one fresh private directory through the execution host's standard temporary-file facility and passes that directory to the Context Assembly subagent.
 
-The Context Assembly subagent creates exactly one file at the registered entry with exclusive creation, rejecting an existing target, link, or reused pathname. During creation only the workflow identity may read or write the file. After the complete file is flushed, the subagent removes write permission and grants read permission only to that identity before returning the exact file path. Equivalent host isolation is valid when the operating system does not expose Unix permission bits.
+The subagent writes exactly one Markdown Context Pack in that directory and returns its path. Keep the directory until every consumer in the current activation or resumption has finished, then remove it. The execution host owns cleanup after an interrupted run.
 
-After a successful return, register the returned path for consumer handoff and require it to match the pre-registered file entry. Keep the file until every consumer in that activation or resumption has finished. Then run the cleanup finalizer before the requesting workflow's last terminal effect or report. The finalizer applies to every termination branch, including successful handoff, successful no-op, explicit stop, non-complete assembly, and human-boundary termination.
-
-Cleanup operates only on the pre-registered directory identity and file entry. It succeeds when the file is absent, deletes that exact entry when it is partial or complete, and removes the registered directory only when empty. An unexpected entry, changed identity, or link is a cleanup blocker, never a broader deletion target. Confirm that the registered file no longer exists. A bounded deletion failure keeps terminal completion open and reports an environment cleanup blocker without copying the pack or its path into durable state.
-
-If process termination prevents the finalizer or interrupts creation before the subagent returns, the execution host already owns the registered exact-target cleanup. It runs cleanup after every process using the invocation directory has stopped. Recovery registers a fresh private target and creates a new Context Pack from permanent authority. It never reads, reuses, or requires the terminated activation's local path.
+The directory and Context Pack remain runtime-local and accessible only to the workflow and its subagents. They never enter durable workflow state. Recovery creates a fresh temporary directory and rebuilds the Context Pack from permanent authority.
 
 ## Artifact roles and provenance
 
