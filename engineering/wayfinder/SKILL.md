@@ -24,7 +24,7 @@ Before charting or resolving a map:
 2. When `docs/agents/domain.md` is present, read [domain orientation](../federated-workflow/DOMAIN-ORIENTATION.md), then the configured file, before selecting domain sources or composing `grill-with-docs`.
 3. If a Domain Federation is relevant, put its portable Home identity and the relevant Repository-qualified Context Pointers in the map's Notes so later sessions can orient without checkout-local paths.
 
-For every durable Map or Decision source, invoke the shared Context Assembly contract with the Ticket Origin Repository, the selected profile, and one permanent root. Accept only `Complete` and retain its returned file path unchanged. Pass that accepted path to every `grill-with-docs` or `research` subagent working from the source. Those subagents consume the file and perform no provider read or Context Assembly.
+For every durable Map or Decision source whose content informs the work, invoke the shared Context Assembly contract with the Ticket Origin Repository, the selected profile, and one permanent root. Tracker metadata used only to locate, select, or claim a ticket may be read directly through the configured Wayfinding operations. Accept only `Complete` and retain its returned file path unchanged. Pass that accepted path to every `grill-with-docs` or `research` subagent working from the source. Those subagents consume the file and perform no provider read or Context Assembly.
 
 The Wayfinder frontier is the open, unblocked, unclaimed children of one map. It remains separate from the Delivery frontier. Wayfinder artifacts use only the map and ticket shapes below.
 
@@ -137,8 +137,8 @@ Input: a loose idea.
 
 Input: a map (URL or number). A ticket is **optional** — without one, pick the next decision yourself rather than asking the user to choose.
 
-1. Invoke shared Context Assembly for **Map Context** at the Map's permanent reference before using the low-resolution navigation view. Retain the accepted file path.
-2. Choose the ticket. If the user named one, use it. Otherwise take the first frontier ticket in order. **Claim it**: assign it to yourself before any work, verify the claim, then invoke fresh shared Context Assembly for Decision Context at that ticket's permanent reference. Continue only with `Complete` and retain its file path.
+1. Choose the ticket from tracker metadata. If the user named one, use it. Otherwise take the first frontier ticket in order. **Claim it**: assign it to yourself before any work and verify the claim.
+2. Invoke fresh shared Context Assembly for **Decision Context** at the ticket's permanent reference. Continue only with `Complete` and retain its file path. Use the Map content carried by that Decision Context for orientation.
 3. Resolve it, zooming into additional permanent sources when needed and invoking the skills named in the Map's `## Notes`. If in doubt, use `grill-with-docs` and pass the accepted Decision Context file path unchanged. The grilling subagent reads it instead of the provider. Maintain the ticket's single complete `## Resolution draft` as decisions are confirmed, incorporating every returned Domain Model Delta without reduction.
 4. Record the Resolution. Apply the shared succession procedure through the configured binding while finalizing the active ticket's Workflow-Identity-owned draft, closing the ticket, and updating the Map index. Then start reconciliation for the accepted Resolution. Do not publish a competing summary Resolution.
 5. Add newly surfaced tickets with create-then-wire. Graduate fog the answer has made specifiable, clearing each graduated patch from **Not yet specified** so it lives only as its new ticket. If the answer reveals a ticket sits beyond the destination, **rule it out of scope** rather than resolving it on the route.
