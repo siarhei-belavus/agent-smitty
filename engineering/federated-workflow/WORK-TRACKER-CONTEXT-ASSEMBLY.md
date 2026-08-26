@@ -28,6 +28,16 @@ The file contains, in order:
 
 For `Incomplete` or `Ambiguous`, preserve all acquired input losslessly and name every known missing, unreadable, competing, or conflicting permanent reference in the assessment. Create no manifest, evidence file, cache, checksum, or other assembly artifact.
 
+## Private runtime lifecycle
+
+The requesting workflow owns the Context Pack lifecycle. Before dispatch, it prepares one fresh runtime directory for the invocation. Only the workflow's operating-system identity may access that directory. The Context Assembly subagent creates the Markdown file there with exclusive creation, rejecting an existing target, link, or reused pathname. During creation only that identity may read or write the file. After the complete file is flushed, the subagent removes write permission and grants read permission only to that identity before returning the path. Equivalent host isolation is valid when the operating system does not expose Unix permission bits.
+
+Register the returned path for cleanup before giving it to a consumer. Keep the file until every consumer in that activation or resumption has finished. Then run the cleanup finalizer before the requesting workflow's last terminal effect or report. The finalizer applies to every termination branch, including successful handoff, successful no-op, explicit stop, non-complete assembly, and human-boundary termination.
+
+Cleanup deletes only the exact returned file after verifying the private parent and file identities established at creation. A changed identity, link, or path outside that parent is a cleanup blocker, never a broader deletion target. Remove the invocation directory only when it is empty and was created by this invocation. Confirm that the file no longer exists. A bounded deletion failure keeps terminal completion open and reports an environment cleanup blocker without copying the pack or its path into durable state.
+
+If process termination prevents the finalizer, the execution host owns the same exact-target cleanup after every process using the invocation directory has stopped. Recovery creates a fresh private directory and Context Pack from permanent authority. It never reads, reuses, or requires the terminated activation's local path.
+
 ## Artifact roles and provenance
 
 Artifact roles are independent of provider types. A binding may distinguish them with native types, labels, relationships, or durable body conventions.
