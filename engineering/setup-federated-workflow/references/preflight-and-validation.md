@@ -2,7 +2,7 @@
 
 ## Work Tracker binding check
 
-A Work Tracker binding passes when it satisfies every requirement in the loaded provider-binding and Context Assembly contracts against representative provider artifacts. Record each capability's contract-selected verification state.
+A Work Tracker binding passes when it satisfies every requirement in the loaded provider-binding and Context Assembly contracts against representative provider artifacts. Verify that its `## Context assembly` section owns complete provider-native acquisition and deterministic translation for every public profile, including commands, relationship traversal, pagination, credential handling, transport-metadata removal, diagnostics, and every authorized fallback. It must leave semantic comparison and final `Complete`, `Incomplete`, or `Ambiguous` classification to one dedicated Context Assembly subagent. Record each capability's contract-selected verification state.
 
 ## Complete read-only preflight
 
@@ -13,7 +13,7 @@ Resolve every target checkout and record, without writing:
 3. applicable root/nested instructions, canonical contexts, maps, and ADRs;
 4. each repository's independent Code Host binding; every human-confirmed Ticket Origin and its independent Work Tracker and Routing Label bindings; Domain Orientation and Home bindings; and conflicting or partial prior setup;
 5. each Ticket Origin's complete Work Tracker binding under the common check above, including its ordinary Delivery frontier prose;
-6. provider-readable locators, representative artifacts, complete bodies and comments, pagination, permanent references, relationships, labels, assignees, dependencies, accepted Resolution records, Workflow Identity when exposed, and capability metadata, with write scope marked verified or unverified rather than tested by mutation;
+6. provider-readable locators, representative artifacts, complete bodies and comments, pagination, permanent references, relationships, labels, assignees, dependencies, accepted Resolution records, Workflow Identity when exposed, and capability metadata, with write scope marked verified or unverified rather than tested by mutation; verify through representative read-only runs that one dedicated assembly produces exactly one new Markdown file with the selected profile, permanent root, result, evidence-linked assessment, and lossless acquired records, while an unavailable procedure returns `Incomplete` without another access path;
 7. every intended file, whether create/patch/preserve, and exact overlap with user changes;
 8. application-agent scopes, proving they do not overlap;
 9. the complete final diff and validation commands.
@@ -28,6 +28,7 @@ For every operation:
 
 - every provider binding satisfies the loaded provider contract and its locators and required metadata are readable non-destructively;
 - every Work Tracker binding passes the common check above with its human-confirmed mapping;
+- representative Context Assembly runs dispatch one dedicated subagent, use only the binding-directed provider procedure, return exactly one new Markdown file and result, and create no manifest, evidence, cache, checksum, or other artifact;
 - no credential, account binding, machine-local path, registry, probe artifact, commit, branch, or Review Proposal was created;
 - a second preview produces an empty diff.
 
@@ -37,7 +38,7 @@ Validate only the current repository:
 
 - its Repository ID, origin remote, and Base Branch agree with Git and the repository-owned Code Host binding;
 - the Work Tracker locator and its required metadata are readable through its configured non-destructive validation operations;
-- representative provider artifacts pass the common Work Tracker binding check;
+- representative provider artifacts pass the common Work Tracker binding check, including one `Complete` profile and a fail-closed `Incomplete` case when feasible without mutation;
 - every Routing Label maps to a readable provider label;
 - `AGENTS.md` or `CLAUDE.md` points directly to the repository-owned Code Host, Work Tracker, Routing Label, and Domain Orientation bindings;
 - `docs/agents/domain.md` satisfies the loaded Domain Orientation contract and contains no `## Domain Federation` binding or Repository-qualified federated map.

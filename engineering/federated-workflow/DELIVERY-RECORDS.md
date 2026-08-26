@@ -22,6 +22,10 @@ A Repository Reference makes one repository resolvable without granting write au
 - remote;
 - Base Branch.
 
+## Authority input
+
+For Work Tracker-backed delivery, Authority input is the unchanged path to one accepted runtime-local `Complete` Context Pack. Coordinator-narrowed implementation and review agents reuse that file and perform no provider read. The path is host-local execution state, not a portable delivery record.
+
 ## Settled Seam
 
 A Settled Seam is an accepted caller-visible Interface contract at a Seam. Execution preserves it unless authoritative input explicitly changes it. It records:

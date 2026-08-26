@@ -2,7 +2,7 @@
 
 Use the complete narrowing assignment for exactly one named Repository Scope entry and one supplied Execution Worktree.
 
-Before changing the worktree, require the Coordinator's Authority input for the exact active ticket and use it unchanged as the assignment's Work Tracker context. Do not rebuild provider authority. A missing or inconsistent handoff is a Material contradiction.
+Before changing the worktree, require the Coordinator's accepted Context Pack path for the exact active ticket and use that file unchanged as the assignment's Work Tracker context. Do not invoke Context Assembly or read the provider. A missing or inconsistent handoff is a Material contradiction.
 
 Change only that Execution Worktree. Start no child agent or reviewer. Do not perform another scope entry, a validation-only delivery, publication, Review Proposal work, Work Tracker changes, or bundle review.
 

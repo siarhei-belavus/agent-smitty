@@ -2,9 +2,31 @@
 
 Read [provider concepts](PROVIDER-CONCEPTS.md) and [domain orientation](DOMAIN-ORIENTATION.md) before applying this contract.
 
-Work Tracker Context Assembly is the provider-neutral read contract for planning and delivery artifacts. It creates one ephemeral, read-only Context Pack for one workflow session. The requesting workflow selects one profile and continues only when assembly returns `Complete`.
+Work Tracker Context Assembly is the provider-neutral read contract for planning and delivery artifacts. Each invocation starts one dedicated Context Assembly subagent and creates one ephemeral, read-only Markdown Context Pack for one workflow session.
 
-Provider bindings own representation and operations. This contract owns artifact meaning, Authority Sources, profile contents, Resolution succession, reconciliation semantics, result classification, and the handoff to Domain Orientation. Real Work Trackers and Local Markdown preserve the same meaning.
+The requesting workflow supplies exactly the Ticket Origin Repository, one selected public profile, and one permanent root reference. The subagent follows only that repository's Work Tracker binding. It returns exactly one result, `Complete`, `Incomplete`, or `Ambiguous`, and the path to exactly one newly created runtime-local Markdown file. Only `Complete` lets the requesting workflow continue.
+
+Provider bindings own representation and operations. This contract owns artifact meaning, Authority Sources, profile contents, Resolution succession, reconciliation semantics, final result classification, the Context Pack shape, and the handoff to Domain Orientation. Real Work Trackers and Local Markdown preserve the same meaning.
+
+## Invocation and ownership
+
+The requesting workflow owns profile selection and the three-part invocation input. Start one dedicated Context Assembly subagent for that invocation. Give it this complete contract and the Ticket Origin Repository's Work Tracker binding. The subagent owns the whole assembly and final classification. The requesting workflow and downstream agents consume its returned file instead of repeating provider reads or rebuilding any part of the pack.
+
+The binding is the sole owner of provider-specific commands, operations, credentials, relationship traversal, pagination, and authorized fallback. Its directed procedure acquires complete provider data, translates it deterministically into the provider-neutral records required here, preserves exact bodies and permanent references, removes credentials and irrelevant transport metadata, and reports technical or structural diagnostics. It does not judge whether arbitrary prose agrees semantically. If the binding's procedure cannot produce the requested profile, it reports the gap and returns control to the subagent without inventing an access path.
+
+The Context Assembly subagent applies this provider-independent contract to the translated records. It owns semantic interpretation and the final result, including whether a claimed `Supplements` Resolution conflicts with effective authority.
+
+Each invocation writes exactly one new runtime-local Markdown file. Never overwrite a Context Pack already supplied to a consumer. A new activation or resumption creates a fresh file. Re-read provider state only where the requesting workflow's freshness contract already requires a new assembly. Context Assembly does not poll continuously.
+
+The file contains, in order:
+
+- selected public profile;
+- permanent root reference;
+- final result;
+- a concise assessment linked to the permanent evidence and diagnostics that determine the result; and
+- the complete lossless Context Pack, preserving every acquired authoritative body, comment, relationship, permanent reference, effective Resolution, and required profile field without summarization.
+
+For `Incomplete` or `Ambiguous`, preserve all acquired input losslessly and name every known missing, unreadable, competing, or conflicting permanent reference in the assessment. Create no manifest, evidence file, cache, checksum, or other assembly artifact.
 
 ## Artifact roles and provenance
 
@@ -48,18 +70,18 @@ Wayfinder is optional. Supported planning paths include `grill-me` to `to-spec` 
 
 ## Assembly rules
 
-Use the repository-owned Work Tracker binding's manual read recipe or its optional helper. The helper is an optimization. Its absence never changes the result or makes the manual recipe incomplete.
+The dedicated subagent directs the repository-owned Work Tracker binding's complete procedure. A preferred optional helper is an optimization beside a complete manual recipe. Its absence never changes the result or makes the manual recipe incomplete. An unavailable or insufficient binding procedure returns `Incomplete`; use no provider command or fallback that the binding does not authorize.
 
 For the requested profile:
 
-1. Resolve exactly one compatible root through the binding's artifact mapping and permanent references. An existing-artifact root is its permanent reference. Decision Context may instead use the explicit pre-publication creation root defined below. No compatible root returns `Incomplete`; more than one returns `Ambiguous`. Never switch to another profile.
-2. Read every required authoritative body and every human-visible comment. For a pre-publication Decision Context root, retain the complete settled creation payload and read every durable source body and comment. Follow every provider pagination mechanism to completion, including pagination on relationships, children, search results, and comments.
+1. Resolve exactly one compatible root through the binding's artifact mapping and the supplied permanent reference. No compatible root returns `Incomplete`; more than one returns `Ambiguous`. Never switch to another profile.
+2. Read every required authoritative body and every human-visible comment. Follow every provider pagination mechanism to completion, including pagination on relationships, children, search results, and comments.
 3. Follow explicit Authority Sources and configured role relationships. Treat a Decision Ticket's configured owning Map relationship as an Authority Source. Retain each permanent reference and the full Work Tracker or Local Markdown payload it proves. For a canonical repository document, retain and validate its Repository-qualified Context Pointer under the Domain Orientation boundary below; loading that document is not part of Context Assembly.
 4. Resolve accepted Resolution succession, then include every effective decision required by the selected profile in full. Context limits never permit omission, filtering, or lossy summary.
-5. Remove only provider transport metadata. Keep artifact identity, role, status, routing, claim and blocker state when the profile requires them, permanent references, authoritative bodies, comments, and Resolution text.
-6. Classify the result. Return the requested Context Pack only with its explicit result.
+5. Remove credentials and irrelevant provider transport metadata. Keep artifact identity, role, status, routing, claim and blocker state when the profile requires them, permanent references, authoritative bodies, comments, and Resolution text.
+6. Apply provider-independent semantic rules, classify the result, and write the one Context Pack file. Return only the result and its file path.
 
-The Context Pack is read-only. Do not persist it as authority, use it as a cache, or mutate Work Tracker state while assembling it. If the complete payload cannot fit safely, return `Incomplete` and stop for a planning split or lossless handoff.
+The Context Pack is read-only runtime state, not durable authority or a cache. Mutate no Work Tracker state while assembling it. If the complete payload cannot fit safely, record that diagnostic in the one file, return `Incomplete`, and stop for a planning split or lossless handoff.
 
 ## Public profiles
 
@@ -77,25 +99,13 @@ Use Map Context for initiative-wide orientation, planning, and Wayfinder navigat
 
 ### Decision Context
 
-Use Decision Context to create, resolve, revise, or review a Decision Ticket or Specification. It contains:
+Use Decision Context to resolve, revise, or review a published Decision Ticket or Specification. Producing workflows validate prospective artifacts against their own planning contract, then invoke Decision Context at the new permanent reference after publication. It contains:
 
-- the complete active artifact body and human-visible comments for an existing or post-publication root, or the complete settled payload to materialize for a pre-publication creation root;
-- its permanent identity when published, prospective or current role, blocker state when published, and Authority Sources; and
+- the complete active artifact body and human-visible comments;
+- its permanent identity, current role, blocker state, and Authority Sources; and
 - every complete Map Context reachable through those explicit Authority Sources.
 
 For a Decision Ticket, Decision Context always contains the Map Context of its one configured owning Map. A source-free Specification can produce `Complete` Decision Context without Map Context only when it passes the complete settled-authority check above. A Map that is also the Specification remains one artifact. Its Map role supplies Map Context without a self-reference. Include its body and comments once while retaining both roles.
-
-#### Decision creation roots
-
-A pre-publication Decision Context root is the exact prospective role, the explicit Authority Sources set, and the complete settled source payload that authorizes one publication. A Decision Ticket creation root has exactly one owning Map permanent reference as an Authority Source. A Specification creation root has zero or more Map or planning-artifact Authority Sources. Assemble every durable source through the ordinary rules and retain every permanent reference and effective decision in full.
-
-A zero-source creation root is valid only for a Specification whose complete settled session authority passes the source-free Specification check. Its root is the prospective Specification role, explicit `Authority Sources: None`, and that complete payload for this workflow session. The creation root is ephemeral and grants no permanent provenance by itself.
-
-When an existing Map will also become the Specification, its creation root is the permanent Map reference, the prospective Specification role, and the complete settled payload. The root stays permanent across the write rather than transitioning from an ephemeral identity.
-
-Creation-root assembly returns `Complete` only when the prospective role and one source set are explicit, every declared source is complete, and the settled payload contains everything the new artifact must durably materialize. Missing role, source, or required payload is `Incomplete`. Competing roles or source sets, conflicting source authority, or more than one publishable interpretation is `Ambiguous`. Only `Complete` authorizes the publishing workflow to write the artifact; Context Assembly itself remains read-only.
-
-After publication, select Decision Context again for the new permanent artifact reference. This is an explicit root transition within the same profile, not a profile switch. The post-publication root must preserve the prospective role, exactly the creation root's Authority Sources, and the settled payload in its full body and comments. A missing field or source is `Incomplete`; a conflicting role, source set, or materialized decision is `Ambiguous`. For a source-free Specification, the new permanent artifact identity becomes the provenance root. When one existing Map becomes the Specification, its permanent Map reference remains the root across the write and the post-write Decision Context retains both roles.
 
 ### Delivery Context
 
@@ -127,9 +137,9 @@ The result is `Incomplete` when any blocker edge, page, permanent reference, bod
 
 ## Results
 
-Assembly returns exactly one result. Classify recognized Resolution succession before general missing-material checks, so the variants remain disjoint:
+The Context Assembly subagent returns exactly one result with the one file path. Classify recognized Resolution succession before general missing-material checks, so the variants remain disjoint:
 
-- `Complete` means the requested root is unique; every required creation-authority payload or Work Tracker or Local Markdown body, comment page, relationship, permanent reference, effective Resolution, and profile field is present; every canonical repository Authority Source has one valid Repository-qualified Context Pointer; and the assembled records are internally consistent.
+- `Complete` means the requested root is unique; every required Work Tracker or Local Markdown body, comment page, relationship, permanent reference, effective Resolution, and profile field is present; every canonical repository Authority Source has one valid Repository-qualified Context Pointer; and the assembled records are internally consistent.
 - `Incomplete` means required material is missing, unreadable, unresolved, only partly paginated, or too large to carry without loss. It also covers an absent compatible root. A recognized succession reference is excluded from this variant.
 - `Ambiguous` means more than one root fits, authority conflicts, a recognized `Supersedes` or `Supplements` reference is broken or cyclic, succession has competing effective interpretations, or a claimed supplement conflicts with effective authority.
 
@@ -139,7 +149,7 @@ Only `Complete` permits the requesting workflow to continue. `Incomplete` and `A
 
 Local Markdown is a provider representation of the same contract. Use this complete manual recipe when no real Work Tracker binding applies:
 
-1. For an existing artifact, resolve the requested file to one permanent reference made from the portable Repository ID, repository-relative path, and heading anchor when the referenced record is a section. For pre-publication Decision Context, use the shared Decision creation root without inventing a file. Recognize a published role only from the explicit document contract, role field, headings, and relationships written by the producing workflow. A missing compatible role is `Incomplete`; conflicting roles or roots are `Ambiguous`.
+1. Resolve the requested file to one permanent reference made from the portable Repository ID, repository-relative path, and heading anchor when the referenced record is a section. Recognize a published role only from the explicit document contract, role field, headings, and relationships written by the producing workflow. A missing compatible role is `Incomplete`; conflicting roles or roots are `Ambiguous`.
 2. Read the entire root file and every linked artifact file. Human-visible comments are the complete append-only comment sections or linked comment records declared by an artifact. If it declares none, the comment set is empty. Do not treat an excerpt, cached copy, rendered preview, or search snippet as a body or comment record.
 3. Follow every explicit Parent, Authority Sources, Blocked by, owning Map, child, Map-index, and canonical Context Pointer reference. Enumerate every entry in a declared directory, index, or search result used as a relationship set. Local files have no page token, but an incomplete enumeration is the pagination-equivalent failure and returns `Incomplete`.
 4. Recognize accepted local Resolution content only in a final `## Resolution` record written by the producing workflow. A `## Resolution draft` is not accepted authority. Give each Resolution a permanent file-and-anchor reference. Apply the same explicit `Supersedes` and `Supplements` forward links, reverse comment, Map history, effective-content, ambiguity, and reconciliation rules as a real Work Tracker.
@@ -168,7 +178,7 @@ Context Assembly reports authority and performs no reconciliation mutation. The 
 2. Find every open artifact whose explicit Authority Sources or provenance reaches the affected Map. This exhaustive set includes Decision Tickets, Specifications, other Maps or planning artifacts, Delivery Tickets, Tasks, Bugs, and every other provider-mapped planning or actionable role. Read the complete result set through provider pagination and retain each permanent reference. Missing records or pages stop reconciliation as `Incomplete`; competing provenance or role interpretations stop it as `Ambiguous`.
 3. Reconcile every open unclaimed mutable artifact in that set, including its authoritative content and routing, so stale work is not eligible. Stop every claimed or actively worked artifact at the configured human boundary before changing it, regardless of planning or delivery role.
 4. Leave all completed planning and delivery history unchanged. Represent any required behavior change as follow-up work with explicit provenance from the effective authority.
-5. After all authorized updates, rebuild every affected Map Context, Decision Context, and Delivery Context from permanent sources. Reconciliation completes only when every profile and root affected by the changed authority returns `Complete`.
+5. After all authorized updates, invoke fresh Context Assembly for every affected Map Context, Decision Context, and Delivery Context at its permanent root. Reconciliation completes only when every invocation returns `Complete`.
 
 If the binding has no real succession example, Setup records that capability as non-destructively unverified. The first real succession operation performs the full post-write re-read and rebuild before the capability becomes verified.
 

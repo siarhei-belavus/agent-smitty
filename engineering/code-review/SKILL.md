@@ -18,12 +18,12 @@ Accept one or more fixed Repository Targets. A single repository is the one-elem
 - **Fixed point**;
 - **Review head** as an exact commit SHA;
 - **Authoritative sources**;
-- an **Authority input** record for the authority under review;
+- an **Authority input** value for the authority under review, an accepted Context Pack file path when Work Tracker-backed;
 - **Settled seams** and test approaches relevant to that target;
 - repository validation evidence bound to the Review head for a committed target or bound to both the Review head and Worktree snapshot ID for WIP, when supplied.
 - for explicit WIP review, a **Worktree snapshot ID** that identifies the captured uncommitted content.
 
-For Work Tracker-backed authority, Authority input is the accepted Context Assembly output for the authority under review, identified by its selected profile and permanent root. Accept a caller-supplied record unchanged. When the user directly supplies an explicit Work Tracker reference without one, assemble the contract-selected profile for that exact root and follow the result at the review boundary. Retain the accepted Authority input for every selected review axis and reviewer. Reviewers do not rebuild it or query the provider for replacement authority.
+For Work Tracker-backed authority, Authority input is the accepted Context Pack file path for the authority under review. The file identifies its selected profile, permanent root, and `Complete` result. Accept a caller-supplied path unchanged. When the user directly supplies an explicit Work Tracker reference without one, invoke the shared Context Assembly contract with the Ticket Origin Repository, contract-selected profile, and exact permanent root. Accept only `Complete` and retain its new file path for every selected review axis and reviewer. Reviewers reuse that file and do not invoke Context Assembly or query the provider.
 
 For authority that is not Work Tracker-backed, Authority input contains the supplied local specification, current user direction, or other non-provider authority. It has no invented Context Pack, profile, or result.
 
@@ -59,7 +59,7 @@ Use the Authority input and sources supplied with the Repository Targets first. 
 2. a matching file under `docs/`, `specs/`, or `.scratch/`;
 3. ask the user only when the selected Spec axis has no authoritative source.
 
-An issue reference found in a commit message is a provenance clue only and does not trigger provider lookup. Use an accepted Work Tracker Authority input as the authoritative source set without replacing it with individual ticket reads, summaries, or newly discovered provider sources.
+An issue reference found in a commit message is a provenance clue only and does not trigger provider lookup. Use an accepted Context Pack as the authoritative Work Tracker source set without replacing it with individual ticket reads, summaries, or newly discovered provider sources.
 
 Start with supplied seam records, then validate every seam against current authoritative sources. Explicit current user direction, specifications, and resolved decisions take precedence over earlier sources and existing public interfaces. Record source conflicts as Spec findings. When no authoritative source settles a seam, mark it unsettled and assess its shape using the `codebase-design` baseline rather than choosing a design during review.
 
@@ -96,7 +96,7 @@ For the Standards axis, start one fresh Standards Reviewer per selected Reposito
 
 > Report all material Standards findings per file and hunk. Cite the violated rule or name the relevant heuristic. Label a finding **Blocking** only for a mandatory-standard violation or a structural flaw with a credible future bug or material change-pressure path; label other material findings **Advisory**. Omit mechanical issues reliably enforced by configured tooling.
 
-For the Spec axis, start one fresh Bundle Spec Reviewer over the complete selected target set. Give it all captured targets and diffs, accepted Authority input records, authoritative sources, settled seams, repository validation evidence, and this brief. Pass Work Tracker Authority input unchanged and allow no provider lookup:
+For the Spec axis, start one fresh Bundle Spec Reviewer over the complete selected target set. Give it all captured targets and diffs, accepted Authority inputs, authoritative sources, settled seams, repository validation evidence, and this brief. Pass each Work Tracker Context Pack path unchanged and allow no provider lookup:
 
 > Report missing or partial requirements, scope creep, incorrect behavior, unauthorized seam changes, acceptance behavior outside a settled seam, and required behavior not verified through that seam. Route each finding to the affected Repository IDs. Label a finding **Blocking** when it demonstrates a requirement or settled-decision violation or a reachable correctness regression; label other material findings **Advisory**.
 

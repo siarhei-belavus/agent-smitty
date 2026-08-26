@@ -2,7 +2,7 @@
 
 A Standalone assignment accepts one or more writable Repository Scope entries. A supplied single repository is the one-entry case. When the user supplies only the current repository and no federated ticket contract, treat that repository as the single Repository Delivery and the supplied spec, ticket, or conversation as authority.
 
-When authority includes Work Tracker delivery work, read [Work Tracker context assembly](../federated-workflow/WORK-TRACKER-CONTEXT-ASSEMBLY.md) and assemble Delivery Context for the exact artifact before accepting the assignment. Accept the assignment only when that gate passes. Report a stop at the applicable clarification, planning, or human boundary.
+When authority includes Work Tracker delivery work and no accepted Context Pack path is supplied, invoke [Work Tracker context assembly](../federated-workflow/WORK-TRACKER-CONTEXT-ASSEMBLY.md) with the Ticket Origin Repository, `Delivery Context`, and the exact permanent artifact reference. Accept only `Complete` and retain its new file path unchanged. Reuse a caller-supplied accepted path without rebuilding it or reading the provider. Report a non-complete result at the applicable clarification, planning, or human boundary.
 
 Resolve the Fixed Review Base from the unchanged current `HEAD` before editing when the assignment does not supply one. Use the supplied isolated worktree or another isolated writable checkout authorized by the assignment.
 

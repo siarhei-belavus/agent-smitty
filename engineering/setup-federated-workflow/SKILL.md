@@ -29,7 +29,7 @@ For a single repository without federation, research only that repository. For E
 
 Read [provider binding contracts](../federated-workflow/PROVIDER-BINDINGS.md). Inspect repository identity, remote, Base Branch, instructions, existing bindings, maps, canonical contexts, ADRs, CI/deployment evidence, provider capabilities, and user changes.
 
-For every proposed Ticket Origin, inspect provider documentation, capability metadata, and representative existing artifacts against every Work Tracker requirement in the loaded contracts before asking the human about the mapping. Prefer native operations and identify a durable body or comment fallback for every missing native mechanism.
+For every proposed Ticket Origin, inspect provider documentation, capability metadata, and representative existing artifacts against every Work Tracker requirement in the loaded contracts before asking the human about the mapping. Require one binding-directed Context Assembly acquisition and translation procedure for every public profile, with provider-specific commands, pagination, relationship traversal, credential use, diagnostics, and authorized fallbacks owned only by that binding. Prefer native operations and identify a durable body or comment fallback for every missing native mechanism.
 
 Establish **target-format awareness** for every human-facing provider field the workflow may write. Determine the field's actual storage and rendering format from provider documentation, API metadata, and representative existing artifacts. Distinguish formats such as Markdown dialects, provider-native wiki markup, structured document JSON, HTML, and plain text instead of inferring Markdown from a string-valued API field or from a workflow template. Record the native syntax, escaping rules, field-specific differences, and a non-destructive rendering-validation method in the repository-owned provider binding.
 
@@ -61,4 +61,4 @@ Application writes validated checkouts in place and leaves changes uncommitted. 
 
 ### 7. Validate current truth
 
-After application, spawn a fresh validation subagent to execute the selected branch under [result validation](references/preflight-and-validation.md#result-validation). Validate representative structured content and context reads without a mutating probe.
+After application, spawn a fresh validation subagent to execute the selected branch under [result validation](references/preflight-and-validation.md#result-validation). Validate representative structured content and Context Assembly invocations without a mutating probe. Confirm that one dedicated assembly subagent returns one new Markdown file and final result, and that downstream consumers receive the accepted path instead of repeating provider reads.
