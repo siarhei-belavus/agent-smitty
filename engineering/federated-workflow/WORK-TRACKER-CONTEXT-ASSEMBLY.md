@@ -16,7 +16,7 @@ The binding is the sole owner of provider-specific commands, operations, credent
 
 The Context Assembly subagent applies this provider-independent contract to the translated records. It owns semantic interpretation and the final result, including whether a claimed `Supplements` Resolution conflicts with effective authority.
 
-Each invocation writes exactly one new runtime-local Markdown file. Never overwrite a Context Pack already supplied to a consumer. A new activation or resumption creates a fresh file. Re-read provider state only where the requesting workflow's freshness contract already requires a new assembly. Context Assembly does not poll continuously.
+Each invocation writes exactly one new runtime-local Markdown file. Never overwrite a Context Pack already supplied to a consumer. Re-read provider state only where the requesting workflow's freshness contract requires a new assembly. Context Assembly does not poll continuously.
 
 The file contains, in order:
 
@@ -32,9 +32,9 @@ For `Incomplete` or `Ambiguous`, preserve all acquired input losslessly and name
 
 The requesting workflow owns the Context Pack lifecycle. Before dispatch, it creates one fresh private directory through the execution host's standard temporary-file facility and passes that directory to the Context Assembly subagent.
 
-The subagent writes exactly one Markdown Context Pack in that directory and returns its path. Keep the directory until every consumer in the current activation or resumption has finished, then remove it.
+The subagent writes exactly one Markdown Context Pack in that directory and returns its path. Keep the directory until every consumer of that invocation has finished, then remove it.
 
-The directory and Context Pack remain runtime-local and accessible only to the workflow and its subagents. They never enter durable workflow state. Recovery creates a fresh temporary directory and rebuilds the Context Pack from permanent authority.
+The directory and Context Pack remain runtime-local and accessible only to the workflow and its subagents. They never enter durable workflow state.
 
 ## Artifact roles and provenance
 
