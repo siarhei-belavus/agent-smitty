@@ -4,4 +4,4 @@ description: A one-session interview that sharpens a plan or design through gril
 disable-model-invocation: true
 ---
 
-Run a `grilling` session with the `domain-modeling` skill in output-only mode. Preserve every human-confirmed Domain Model Delta at full fidelity and return the complete set with the sharpened plan or design.
+Run a `grilling` session with the `domain-modeling` skill in output-only mode. Return the complete accepted decisions and only their applicable Domain Model Deltas with the sharpened plan or design.

@@ -32,6 +32,6 @@ A dependency is a durable Work Tracker reference represented through the configu
 - A specification carries the complete confirmed solution-level Repository References, grants no write authority, and has no Repository Scope. Its Testing Decisions are the sole owner of all repository-local and cross-repository Settled Seams.
 - An executable ticket or Agent Brief carries the minimal complete Repository References required by its writable scope, Context Scope, repository-backed Validation Sources, and explicit read-only authorities.
 - Ticket creation narrows Context Scope and Settled Seams from source authority; it does not perform new discovery or design.
-- Every relevant Domain Model Delta, architecture decision, Settled Seam, Validation Obligation, and provenance record survives transformation at full fidelity.
+- Every relevant Domain Model Delta, architecture decision, Settled Seam, Validation Obligation, and provenance record survives transformation at full fidelity. A Delta's route survives with it; exactly one executable ticket owns each unapplied canonical route.
 - Portable repository descriptors, Repository-qualified Context Pointers, canonical artifact pointers, and Settled Seam locations are durable contract data, not stale implementation-path guidance.
 - A Routing Label that asserts execution readiness may be applied only after the complete public executable artifact and dependency state satisfy these invariants.

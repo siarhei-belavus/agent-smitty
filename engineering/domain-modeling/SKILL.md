@@ -15,7 +15,7 @@ Follow Repository-qualified Context Pointers through the configured portable rep
 
 ## Output and capture authority
 
-Every human-confirmed change produces a complete [Domain Model Delta](DOMAIN-MODEL-DELTA.md) immediately. Do not batch confirmed results or reduce them to reminders.
+Every human-confirmed domain-language or architecture change produces a complete [Domain Model Delta](DOMAIN-MODEL-DELTA.md) immediately. Resolve its owner and route during Domain Orientation. Do not batch confirmed results or reduce them to reminders.
 
 - An explicit standalone invocation grants canonical capture by default: apply each confirmed delta immediately to its routed `CONTEXT.md`, `CONTEXT-MAP.md`, or ADR owner unless the user asks for discussion only.
 - A composed or model-invoked use returns each delta as output without writing canonical artifacts or selecting a planning persistence destination. It may apply a delta only when explicitly granted canonical capture.
@@ -58,4 +58,4 @@ Only offer to record an ADR decision when all three are true:
 2. **Surprising without context** — a future reader will wonder "why did they do it this way?"
 3. **The result of a real trade-off** — there were genuine alternatives and you picked one for specific reasons
 
-If any of the three is missing, skip the ADR. Under canonical capture, use [ADR-FORMAT.md](./ADR-FORMAT.md) in the routed owner. Otherwise include the complete decision rationale and canonical documentation obligation in the returned delta.
+If any of the three is missing, skip the ADR. Under canonical capture, use [ADR-FORMAT.md](./ADR-FORMAT.md) in the routed owner. Otherwise return the decision's Delta.
