@@ -1,0 +1,29 @@
+skills/matt/engineering/coordinate-delivery/RECOVERY.md
+  s_fcff58840ad267::t_7e11fe0488d307 27,31
+  s_fcff58840ad267::t_021aad6be4c951 25,29
+  s_fcff58840ad267::t_c4271e257468ae 30
+skills/matt/engineering/coordinate-delivery/REVIEW-FEEDBACK.md
+  s_fcff58840ad267::t_021aad6be4c951 5
+  s_fcff58840ad267::t_7e11fe0488d307 7,9
+skills/matt/engineering/coordinate-delivery/SKILL.md
+  s_fcff58840ad267::t_021aad6be4c951 33
+skills/matt/engineering/federated-workflow/WORK-TRACKER-CONTEXT-ASSEMBLY.md
+  s_fcff58840ad267::t_fc816f96d09396 37
+  s_fcff58840ad267::t_8f8710ee1f2062 19,35
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "d8b3f9eec363173521fd73fb7cc164d3214b6d70",
+  "prompts": {},
+  "sessions": {
+    "s_fcff58840ad267": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a03f75-06dd-7542-9fe0-e84477db998c",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
