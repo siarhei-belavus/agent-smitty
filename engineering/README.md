@@ -26,6 +26,7 @@ Model- or user-reachable (rich trigger phrasing so the model can reach for them)
 
 - **[setup-federated-workflow](./setup-federated-workflow/SKILL.md)** — Configure one repository or establish or join a Domain Federation through repository-owned bindings.
 - **[prototype](./prototype/SKILL.md)** — Build a throwaway prototype to answer a design question: a terminal app or shareable HTML file for state/logic, or several toggleable UI variations.
+- **[review-feedback](./review-feedback/SKILL.md)** — Draft and publish human review feedback, then return a completed review round's delivery ticket for correction when explicitly requested.
 
 - **[diagnosing-bugs](./diagnosing-bugs/SKILL.md)** — Disciplined diagnosis loop for hard bugs and performance regressions: reproduce → minimise → hypothesise → instrument → fix → regression-test.
 - **[research](./research/SKILL.md)** — Investigate a question against high-trust primary sources and capture the findings as a cited Markdown file in the repo, run as a background agent.

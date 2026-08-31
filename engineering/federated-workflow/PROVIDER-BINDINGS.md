@@ -24,11 +24,11 @@ Use this semantic structure:
 ## Binding validation
 ```
 
-The binding names the explicit host/repository locator, CLI/API and Git interfaces, permanent repository/revision references, exact-revision fetch and publication, one Review Proposal per changed delivery, draft/WIP state, proposal-revision verification, actionable feedback, and non-destructive validation.
+The binding names the explicit host/repository locator, CLI/API and Git interfaces, permanent repository/revision references, exact-revision fetch and publication, one Review Proposal per changed delivery, draft/WIP state, proposal-revision verification, actionable feedback reads, human-approved feedback publication, and non-destructive validation.
 
 For GitLab use `git`, `glab repo view`, `glab api`, and `glab mr`; for GitHub use `git`, `gh repo view`, `gh api`, and `gh pr`. Validate readable repository, Base Branch, proposal, feedback, and draft/revision metadata without creating branches, commits, comments, or proposals.
 
-The least-privilege envelope permits read/fetch, publishing a delivery head, creating/updating its single proposal, reading feedback, and updating proposal description/draft state. It excludes protected-base push, merge/accept/submit, administration, and deletion of human artifacts. Record no account, credential, local path, Work Tracker routing, or ticket scope.
+The least-privilege envelope permits read/fetch, publishing a delivery head, creating/updating its single proposal, reading feedback, publishing feedback whose exact meaning the human approved, and updating proposal description/draft state. It excludes autonomous review submission, protected-base push, merge/accept, administration, and deletion of human artifacts. Record no account, credential, local path, Work Tracker routing, or ticket scope.
 
 ## Work Tracker
 

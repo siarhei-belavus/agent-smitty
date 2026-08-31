@@ -73,12 +73,12 @@ Render the scenario map, then exactly one logical step per response through [FOR
 
 The walkthrough is a guide, not an examination: navigation never requires the human to approve the design or prove understanding.
 
-When discussion meets the Follow-up candidate conditions in [FORMAT.md](FORMAT.md), trace the concern to exact code, authority, or observable behaviour, then:
+When discussion meets the Follow-up candidate conditions in [FORMAT.md](FORMAT.md), trace the concern to exact code, authority, or observable behaviour, then use [review feedback](../review-feedback/SKILL.md) in Draft mode. Render the resulting draft through `FORMAT.md` and:
 
-- draft a concise MR comment stating the problem, impact, and desired final state without prescribing incidental implementation details;
-- draft and post MR comments in English by default, regardless of the walkthrough language; use another language only when the user explicitly requests it;
 - explicitly offer to add that comment to the merge request;
-- do not post it during the read-only walkthrough. Posting requires a separate explicit user instruction and is performed as a follow-up action outside the walkthrough.
+- keep the walkthrough and its navigation state read-only.
+
+After a separate explicit instruction to publish the draft, use `review-feedback` in Publish mode as a follow-up action. Publication alone leaves the review round open. Use its Return for correction mode only when the human explicitly says the review round is complete and asks to return the delivery ticket for correction.
 
 A candidate does not block the walkthrough. When a detour is reached, render it through [FORMAT.md](FORMAT.md) and apply the human's selected route.
 
