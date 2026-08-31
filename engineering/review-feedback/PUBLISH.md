@@ -6,8 +6,8 @@ Read the affected repository's instructions and Code Host binding. Require the b
 
 For each approved draft:
 
-1. Bind code-specific feedback to the exact head and diff position supported by the provider. Prefer a resolvable discussion.
-2. Publish general feedback only when its text makes the required action explicit.
+1. Resolve whether the provider can create a resolvable discussion at the intended exact-head diff position before publication.
+2. Use that discussion when available. Otherwise require the draft to begin with `Action required:` before publishing it as a non-resolvable code comment or general note.
 3. Before retrying an uncertain request, re-read existing feedback and match the intended body and position so the retry cannot create a duplicate.
 4. Re-read the created note or discussion through the provider. Record its permanent proposal, discussion, and note identifiers, exact head, location, body, author-visible state, and resolved state.
 

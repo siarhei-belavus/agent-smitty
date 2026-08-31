@@ -6,6 +6,8 @@ Read [lifecycle artifact contracts](../federated-workflow/LIFECYCLE-ARTIFACTS.md
 
 Resolve the delivery ticket through its matching Delivery Bundle handoff and affected Review Proposals. A supplied ticket reference narrows the lookup but does not replace the handoff relationship. Re-read the handoff, ticket, dependencies, routing, assignee, active lifecycle records, proposal heads, and complete affected feedback.
 
+Resolve the Workflow Identity through the Work Tracker binding. Verify that the current provider identity has permission to replace the Routing Label before mutation.
+
 Require all of the following before mutation:
 
 - the current instruction explicitly completes the human review round and returns the delivery for correction;
