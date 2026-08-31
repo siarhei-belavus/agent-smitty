@@ -1,0 +1,23 @@
+skills/matt/engineering/review-feedback/PUBLISH.md
+  s_127294130384f6::t_a1bd1688f5c7d3 9-10
+docs/agents/code-host.md
+  s_127294130384f6::t_a1bd1688f5c7d3 25,29
+skills/matt/engineering/review-feedback/RETURN-FOR-CORRECTION.md
+  s_127294130384f6::t_a1bd1688f5c7d3 9-10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "9bd56759f5cddc63ad661041c5c9587b83851a9b",
+  "prompts": {},
+  "sessions": {
+    "s_127294130384f6": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a056c7-c685-7993-a436-04746ee85247",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
