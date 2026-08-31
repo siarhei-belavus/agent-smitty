@@ -1,0 +1,32 @@
+skills/matt/engineering/review-feedback/SKILL.md
+  s_127294130384f6::t_c203a24fcf3cdc 1-47
+skills/matt/engineering/review-feedback/RETURN-FOR-CORRECTION.md
+  s_127294130384f6::t_00ee33eac3d751 24
+  s_127294130384f6::t_c203a24fcf3cdc 1-23
+skills/matt/engineering/federated-workflow/PROVIDER-BINDINGS.md
+  s_127294130384f6::t_c203a24fcf3cdc 27,31
+skills/matt/engineering/change-walkthrough/SKILL.md
+  s_127294130384f6::t_c203a24fcf3cdc 76,79-81
+skills/matt/engineering/review-feedback/PUBLISH.md
+  s_127294130384f6::t_c203a24fcf3cdc 1-18
+skills/matt/engineering/README.md
+  s_127294130384f6::t_c203a24fcf3cdc 29
+skills/matt/engineering/review-feedback/agents/openai.yaml
+  s_127294130384f6::t_c203a24fcf3cdc 1-3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "e95aa86873ee5011b0adf83fd565ab9aeb308781",
+  "prompts": {},
+  "sessions": {
+    "s_127294130384f6": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a056c7-c685-7993-a436-04746ee85247",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
