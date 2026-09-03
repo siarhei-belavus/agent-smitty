@@ -1,0 +1,80 @@
+#!/usr/bin/env python3
+"""Link every Agent Smitty skill into a Codex skill directory."""
+from __future__ import annotations
+
+import argparse
+import os
+import re
+import sys
+from pathlib import Path
+
+
+NAME = re.compile(r"^name:\s*[\"']?([a-z0-9][a-z0-9-]*)[\"']?\s*$", re.MULTILINE)
+ROOT = Path(__file__).resolve().parents[1]
+SKILLS = ROOT / "skills"
+
+
+class InstallError(RuntimeError):
+    pass
+
+
+def skill_sources() -> dict[str, Path]:
+    sources: dict[str, Path] = {}
+    for skill_file in sorted(SKILLS.rglob("SKILL.md")):
+        match = NAME.search(skill_file.read_text(encoding="utf-8"))
+        if match is None:
+            raise InstallError(f"Missing valid name metadata in {skill_file.relative_to(ROOT)}")
+        name = match.group(1)
+        if name in sources:
+            raise InstallError(f"Duplicate skill name: {name}")
+        sources[name] = skill_file.parent.resolve()
+    if not sources:
+        raise InstallError("No skills found")
+    return sources
+
+
+def install(target: Path) -> int:
+    sources = skill_sources()
+    target = target.expanduser().resolve()
+
+    conflicts: list[str] = []
+    for name, source in sources.items():
+        destination = target / name
+        if os.path.lexists(destination) and not (
+            destination.is_symlink() and destination.resolve() == source
+        ):
+            conflicts.append(str(destination))
+    if conflicts:
+        raise InstallError("Refusing to replace existing paths: " + ", ".join(conflicts))
+
+    target.mkdir(parents=True, exist_ok=True)
+    for name, source in sources.items():
+        destination = target / name
+        if not os.path.lexists(destination):
+            destination.symlink_to(source, target_is_directory=True)
+
+    print(f"Installed {len(sources)} Codex skill links in {target}")
+    return 0
+
+
+def parse_args(argv: list[str]) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--target",
+        type=Path,
+        default=Path.home() / ".agents" / "skills",
+        help="Codex skill directory, defaults to $HOME/.agents/skills",
+    )
+    return parser.parse_args(argv)
+
+
+def main(argv: list[str]) -> int:
+    return install(parse_args(argv).target)
+
+
+if __name__ == "__main__":
+    try:
+        raise SystemExit(main(sys.argv[1:]))
+    except InstallError as error:
+        print(str(error), file=sys.stderr)
+        raise SystemExit(1) from None
