@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import subprocess
+import shutil
 import tempfile
 import unittest
 from pathlib import Path
@@ -12,6 +13,21 @@ INSTALLER = ROOT / "bin" / "install-codex-skills"
 
 
 class InstallCodexSkillsTest(unittest.TestCase):
+    def run_from_copy(self, skill_text: str) -> subprocess.CompletedProcess[str]:
+        temporary_directory = tempfile.TemporaryDirectory()
+        self.addCleanup(temporary_directory.cleanup)
+        repository = Path(temporary_directory.name) / "agent-smitty"
+        shutil.copytree(ROOT, repository, ignore=shutil.ignore_patterns(".git", "__pycache__"))
+        skill_file = repository / "skills" / "engineering" / "coordinate-delivery" / "SKILL.md"
+        skill_file.write_text(skill_text, encoding="utf-8")
+        return subprocess.run(
+            [str(repository / "bin" / "install-codex-skills"), "--target", str(repository / "target")],
+            cwd=repository,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+
     def test_installs_discoverable_links_with_complete_skill_contents(self) -> None:
         with tempfile.TemporaryDirectory() as temporary_directory:
             target = Path(temporary_directory) / ".agents" / "skills"
@@ -80,6 +96,20 @@ class InstallCodexSkillsTest(unittest.TestCase):
             self.assertEqual(result.returncode, 1)
             self.assertIn("Refusing to replace existing paths", result.stderr)
             self.assertEqual(conflict.read_text(encoding="utf-8"), "keep me")
+
+    def test_rejects_name_outside_front_matter(self) -> None:
+        result = self.run_from_copy("# Broken skill\n\nname: coordinate-delivery\n")
+
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("front matter", result.stderr)
+
+    def test_rejects_multiple_names_in_front_matter(self) -> None:
+        result = self.run_from_copy(
+            "---\nname: coordinate-delivery\nname: another-name\n---\n# Broken skill\n"
+        )
+
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("exactly one name", result.stderr)
 
 
 if __name__ == "__main__":
