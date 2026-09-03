@@ -111,6 +111,16 @@ class InstallCodexSkillsTest(unittest.TestCase):
         self.assertEqual(result.returncode, 1)
         self.assertIn("exactly one name", result.stderr)
 
+    def test_rejects_mismatched_name_quotes(self) -> None:
+        for invalid_name in ("'coordinate-delivery\"", "\"coordinate-delivery'"):
+            with self.subTest(invalid_name=invalid_name):
+                result = self.run_from_copy(
+                    f"---\nname: {invalid_name}\n---\n# Broken skill\n"
+                )
+
+                self.assertEqual(result.returncode, 1)
+                self.assertIn("Invalid name", result.stderr)
+
 
 if __name__ == "__main__":
     unittest.main()
