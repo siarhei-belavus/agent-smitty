@@ -14,6 +14,9 @@ NAME_VALUE = re.compile(r"^name\s*:\s*(.*?)\s*$", re.MULTILINE)
 VALID_NAME = re.compile(r"[a-z0-9][a-z0-9-]*")
 ROOT = Path(__file__).resolve().parents[1]
 SKILLS = ROOT / "skills"
+SHARED_RESOURCES = {
+    "federated-workflow": SKILLS / "engineering" / "federated-workflow",
+}
 
 
 class InstallError(RuntimeError):
@@ -74,7 +77,10 @@ def skill_sources() -> dict[str, Path]:
 
 
 def install(target: Path) -> int:
-    sources = skill_sources()
+    skills = skill_sources()
+    sources = skills | {
+        name: source.resolve() for name, source in SHARED_RESOURCES.items()
+    }
     target = target.expanduser().resolve()
 
     conflicts: list[str] = []
@@ -93,7 +99,10 @@ def install(target: Path) -> int:
         if not os.path.lexists(destination):
             destination.symlink_to(source, target_is_directory=True)
 
-    print(f"Installed {len(sources)} Codex skill links in {target}")
+    print(
+        f"Installed {len(skills)} Codex skill links and "
+        f"{len(SHARED_RESOURCES)} shared resource link in {target}"
+    )
     return 0
 
 

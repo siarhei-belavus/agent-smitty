@@ -43,18 +43,20 @@ class InstallCodexSkillsTest(unittest.TestCase):
             self.assertTrue((target / "coordinate-delivery").is_symlink())
             self.assertTrue((target / "coordinate-delivery" / "SKILL.md").is_file())
             self.assertTrue((target / "coordinate-delivery" / "RECOVERY.md").is_file())
+            self.assertTrue((target / "federated-workflow").is_symlink())
             self.assertTrue(
                 (
                     target
-                    / "coordinate-delivery"
-                    / ".."
                     / "federated-workflow"
                     / "WORK-TRACKER-CONTEXT-ASSEMBLY.md"
                 ).is_file()
             )
             self.assertTrue((target / "implement" / "SKILL.md").is_file())
             self.assertTrue((target / "writing-for-agents" / "SKILL.md").is_file())
-            self.assertIn("Installed 39 Codex skill links", result.stdout)
+            self.assertIn(
+                "Installed 39 Codex skill links and 1 shared resource link",
+                result.stdout,
+            )
 
     def test_is_idempotent(self) -> None:
         with tempfile.TemporaryDirectory() as temporary_directory:

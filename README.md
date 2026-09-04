@@ -12,10 +12,9 @@ Run the installer from the repository checkout:
 ./bin/install-codex-skills
 ```
 
-It creates one symlink per skill under `~/.agents/skills`. The links point to
-complete skill directories, so adjacent references and scripts remain
-available. Running the installer again is safe. It refuses to overwrite an
-unrelated file or link with the same skill name.
+It creates one symlink per skill under `~/.agents/skills` and links shared
+resource directories required by skill references. Running the installer again
+is safe. It refuses to overwrite an unrelated file or link with the same name.
 
 Use an explicit target for another agent home or an isolated CI workspace:
 
