@@ -1,0 +1,24 @@
+tests/test_install_codex_skills.py
+  s_da9ad878c27310::t_239951191bcfec 46
+  s_da9ad878c27310::t_6ffafc25654835 56-59
+bin/install-codex-skills
+  s_da9ad878c27310::t_6ffafc25654835 17-19,80-83,102-105
+README.md
+  s_da9ad878c27310::t_6ffafc25654835 15-17
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "c726c2fd29a3b520d0c8156f2fdd94f30be1fc53",
+  "prompts": {},
+  "sessions": {
+    "s_da9ad878c27310": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a06b85-4287-7f03-a59e-7bab149eb5ff",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
