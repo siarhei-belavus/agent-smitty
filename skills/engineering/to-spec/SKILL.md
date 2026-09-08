@@ -46,7 +46,7 @@ The solution to the problem, from the user's perspective.
 
 ## User Stories
 
-A LONG, numbered list of user stories. Each user story should be in the format of:
+A concise numbered list of distinct actor goals and benefits established by the accepted sources. Each user story should be in the format of:
 
 1. As an <actor>, I want a <feature>, so that <benefit>
 
@@ -54,7 +54,19 @@ A LONG, numbered list of user stories. Each user story should be in the format o
 1. As a mobile bank customer, I want to see balance on my accounts, so that I can make better informed decisions about my spending
 </user-story-example>
 
-This list of user stories should be extremely extensive and cover all aspects of the feature.
+Keep behavioral detail in Acceptance criteria and technical detail in the applicable decisions below. Shortening this list must preserve every source requirement under the planning artifact contracts.
+
+## Acceptance criteria
+
+Write the complete source-authorized behavior using the shared [acceptance criteria contract](../federated-workflow/PLANNING-ARTIFACTS.md#acceptance-criteria). Keep this section after User Stories; retain the existing sections below in full.
+
+Use a short descriptive heading or list entry for each identifier. For example:
+
+### AC-1. Preserve the selected rows in an export
+
+When a user exports a report with an active filter, the downloaded file contains exactly the rows matching that filter. Other rows are absent.
+
+This example illustrates presentation only; use the behavior and verification details established by the actual authority.
 
 ## Repository References
 
@@ -93,6 +105,8 @@ A list of testing decisions that were made. Include:
 
 - A description of what makes a good test (only test external behavior, not implementation details)
 - Every repository-local and cross-repository Settled Seam record
+
+Connect every acceptance criterion to its verification through the existing Settled Seams and Validation Obligations. Identify automated, manual, or combined verification only as established by accepted testing decisions. Retain their complete contracts, owners, methods, prerequisites, prior art, and required evidence. Keep run-specific build references, environment instances, and results in verification requests and evidence; accepted environment constraints remain here.
 
 This is the sole specification section that owns settled seams. Do not add Repository Scope or a separate Cross-Repository Seams section to a specification.
 

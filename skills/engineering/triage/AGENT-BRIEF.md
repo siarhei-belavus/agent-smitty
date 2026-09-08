@@ -2,6 +2,8 @@
 
 An Agent Brief is the self-contained public executable contract attached to one triaged request before it becomes `ready-for-agent`. The original body and discussion remain context.
 
+Read the [acceptance criteria contract](../federated-workflow/PLANNING-ARTIFACTS.md#acceptance-criteria) before drafting or validating criteria, including for standalone requests without a Specification.
+
 ## Principles
 
 ### Durability over precision
@@ -48,8 +50,7 @@ Describe the complete desired behavior, including relevant edge and error cases.
 
 ### Acceptance criteria
 
-- [ ] Specific, independently verifiable criterion 1
-- [ ] Specific, independently verifiable criterion 2
+<complete applicable criteria under the shared acceptance criteria contract, with source identifiers and provenance when derived; include any declared manual procedure needed to verify the request>
 
 ### Repository References
 

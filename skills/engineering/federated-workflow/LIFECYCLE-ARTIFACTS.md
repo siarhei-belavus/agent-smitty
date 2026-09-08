@@ -45,6 +45,8 @@ Open with the action and response instructions. For planned verification, keep t
 
 A Human Action Request is a durable request for one accountable human action. Record the request ID, status (`active`, `completed`, or `superseded`), reason, checkpoint, ticket, accountable owner, required action, response location, completion criteria, and next routing transition. Planned verification also records prerequisites, reproducible steps, pass/fail criteria, and expected evidence. Escalation also records its trigger, observed evidence, affected decisions and deliveries, authoritative pointers, and required reconciliation. A Validation Indeterminacy successor records predecessor and successor IDs.
 
+For planned verification, read the [acceptance criteria contract](PLANNING-ARTIFACTS.md#acceptance-criteria). Derive the request from the applicable criteria and settled Validation Obligations, retaining source references and criterion identifiers where assigned. Carry the declared manual procedure and expected results into the request, then supply verified build and environment details where the declared method requires them. Link existing QA cases when supplied. Missing prerequisites remain visible limitations, not invented setup or changed acceptance behavior.
+
 Complete or supersede the current request before activating its successor.
 
 ## Human Response

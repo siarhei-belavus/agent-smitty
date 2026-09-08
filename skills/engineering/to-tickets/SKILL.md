@@ -36,6 +36,7 @@ Break the work into **tracer bullet** tickets.
 - Each slice is sized to fit in a single fresh context window
 - Carry every source Implementation Decision and architecture decision relevant to the slice inside What to build
 - Carry every source Testing Decision relevant to the slice, including its settled seams, selected test approaches, and nearest prior art
+- Carry source acceptance criteria under the [shared criterion contract](../federated-workflow/PLANNING-ARTIFACTS.md#acceptance-criteria). When a criterion spans slices, state each slice's contribution and assign the remaining end-to-end acceptance to an identified delivery ticket before publication. A partial slice does not satisfy the whole criterion.
 </vertical-slice-rules>
 
 Give each ticket its **blocking edges** — the other tickets that must complete before it can start. A ticket with no blockers can start immediately.
@@ -95,8 +96,7 @@ Do NOT close or modify any parent issue.
 
 ## Acceptance criteria
 
-- [ ] Acceptance criterion 1
-- [ ] Acceptance criterion 2
+<complete applicable criteria under the shared acceptance criteria contract, with source identifiers and provenance; include any declared manual procedure needed to verify this slice>
 
 ## Repository References
 

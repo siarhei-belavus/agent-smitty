@@ -12,6 +12,14 @@ Transform only repositories, contexts, seams, validation methods, and decisions 
 
 ## Planning records
 
+### Acceptance criteria
+
+When authoring a Specification, executable ticket, or Agent Brief, state acceptance behavior in its Acceptance criteria section. Use stable criterion identifiers such as `AC-1`. Reuse source identifiers when available; otherwise assign them in the artifact being authored without requiring a source rewrite. Qualify references across artifacts with the permanent source reference, since different sources may use the same identifier. Reordering preserves identifiers.
+
+Write each criterion in plain language with the relevant starting conditions, action, and observable expected result. Include roles, data, errors, boundaries, and exceptions where they affect acceptance. Group by user-visible or caller-visible behavior. Use short prose; add concrete examples or reproducible manual steps beside the criterion only when needed to make an already authorized check unambiguous. Missing material expectations or validation choices return to the Source authority boundary above.
+
+Keep derived criteria self-contained: carry the complete applicable behavior, exceptions, and declared manual procedure, together with source identifiers and provenance. A reference alone does not replace instructions needed to perform the check. These are faithful excerpts of the governing authority, not independently revised requirements.
+
 ### Context Scope
 
 Context Scope contains the complete artifact-relevant set of:
@@ -32,6 +40,8 @@ A dependency is a durable Work Tracker reference represented through the configu
 - A specification carries the complete confirmed solution-level Repository References, grants no write authority, and has no Repository Scope. Its Testing Decisions are the sole owner of all repository-local and cross-repository Settled Seams.
 - An executable ticket or Agent Brief carries the minimal complete Repository References required by its writable scope, Context Scope, repository-backed Validation Sources, and explicit read-only authorities.
 - Ticket creation narrows Context Scope and Settled Seams from source authority; it does not perform new discovery or design.
-- Every relevant Domain Model Delta, architecture decision, Settled Seam, Validation Obligation, and provenance record survives transformation at full fidelity. A Delta's route survives with it; exactly one executable ticket owns each unapplied canonical route.
+- Every relevant requirement, constraint, exception, accepted decision and rationale, Domain Model Delta, architecture decision, Settled Seam, Validation Obligation, and provenance record survives transformation at full fidelity. A Delta's route survives with it; exactly one executable ticket owns each unapplied canonical route.
 - Portable repository descriptors, Repository-qualified Context Pointers, canonical artifact pointers, and Settled Seam locations are durable contract data, not stale implementation-path guidance.
 - A Routing Label that asserts execution readiness may be applied only after the complete public executable artifact and dependency state satisfy these invariants.
+
+Before publication or revision, check preservation in both directions: account for every applicable source fact in the output, and ground every output requirement and decision in accepted authority. Concise stories and summaries do not replace complete criteria or technical records. Use effective decisions from the existing authority-resolution procedure, preserve their provenance and history, and reconcile superseded wording only within the authorized revision scope. Return missing or conflicting authority to clarification. This check requires no additional published artifact or coverage matrix.
