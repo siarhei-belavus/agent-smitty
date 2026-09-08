@@ -8,26 +8,16 @@ An Execution Attempt is one interval of delivery work between activation or resu
 
 ## Comment presentation
 
-Apply this presentation to every agent-authored lifecycle record, including reconstructed checkpoints, successor requests, delegated Resumption Plans, and final handoffs. Human Responses remain free-form. Presentation changes neither record identity nor lifecycle authority; reuse an existing valid record regardless of its formatting.
+Apply this presentation to every agent-authored lifecycle record, including reconstructed checkpoints, successor requests, delegated Resumption Plans, and final handoffs. Presentation changes neither record identity nor lifecycle authority; reuse an existing valid record regardless of its formatting.
 
 Write each record as one comment with a human-readable opening followed by recovery details. These are parts of the same record, not separate summary and technical comments.
 
 - Lead with a short title stating the result, reason for stopping, or next action. Keep record types and IDs in the recovery details.
-- Explain what changed, what was verified, what remains uncertain, and what happens next in short paragraphs. Use descriptive links to proposals, requests, and evidence. Use a compact table when several repositories or results need comparison.
-- Keep blockers, material limitations, and required human actions visible in the opening. Name the accountable owner, action, response location, completion criteria, and what that response enables when action is required. State when no human action is currently needed. For planned verification, keep the prerequisites, steps, pass/fail criteria, and expected evidence visible too.
+- Write the opening in short paragraphs using the record-specific emphasis below. Use descriptive links to proposals, requests, and evidence. Use a compact table when several repositories or results need comparison.
+- Keep blockers, material limitations, and required human actions visible in the opening. When action is required, include the owner, response instructions, completion criteria, and what the response enables as defined by the Human Action Request contract. State when no human action is currently needed.
 - Follow with a `Recovery details` section containing the remaining contract data, grouped by delivery, evidence, and lifecycle relationships as applicable. Use labeled fields or tables for exact commits, branches, record IDs, routing and claim snapshots, and provenance. Use the provider's supported disclosure format to collapse only this section when its full contents remain readable through the configured coordination-log operation. Otherwise use an ordinary Markdown section.
 
-Choose the opening's emphasis by record purpose; the questions below guide content, not mandatory headings.
-
-| Record | What the opening explains |
-| --- | --- |
-| Execution Checkpoint | Where work stopped, why, what is preserved, and what permits the next step. |
-| Human Action Request | What the owner must do and how to provide a sufficient response. A successor explains what the previous response left unresolved. |
-| Resumption Plan | The accepted plan, how it changes the remaining work, and what existing work and evidence it retains or replaces. |
-| Resumption Record | The source authorizing resumption, where work will restart, what is reused, and which checks must run again and why. |
-| Final handoff | What is ready for review, the proposals and verification results, remaining caveats, and the human review, merge, or rollout actions in their required order. |
-
-Every required contract fact must remain explicit in the comment. The opening may focus on changes since the previous record; each Execution Checkpoint, including the final handoff, still carries a complete current snapshot rather than a delta requiring reconstruction from earlier comments. Keep full exact revisions and evidence dependency sets wherever the contract requires them. A readable link label or shortened hash never replaces that data.
+Every required contract fact must remain explicit in the comment. Keep full exact revisions and evidence dependency sets wherever the contract requires them. A readable link label or shortened hash never replaces that data.
 
 Before publishing, verify that the opening agrees with the recorded evidence and distinguishes observed state from pending transitions. After publication, re-read the entire comment, including recovery details, through the provider. Verify required fields and relationships, and that the opening exposes every required human action and material limitation. Recovery readers consume the whole record regardless of its visual presentation.
 
@@ -43,9 +33,15 @@ Before publishing, verify that the opening agrees with the recorded evidence and
 
 ## Execution Checkpoint
 
+Open with where work stopped, why, what was verified and preserved, and what permits the next step. For a final handoff, explain what is ready for review, link the proposals, summarize verification results, and state the human review, merge, or rollout actions in their required order.
+
+The opening may focus on changes since the previous record; the complete checkpoint, including a final handoff, carries a current snapshot rather than a delta requiring reconstruction from earlier comments.
+
 An Execution Checkpoint is the current durable snapshot of a Delivery Bundle. Record the checkpoint, ticket, Execution Attempt ID, trigger, provider timestamp, ticket/routing/claim snapshot, resolved dependencies and authority, and the next permissible step with prerequisites. For every Repository Delivery record its base, branch, exact Published Delivery Head, Review Proposal, preserved worktree state, and outcome. Record exact repository-backed Validation Source commits; exact-head repository, Standards, cross-repository, and Bundle Spec evidence; affected and preserved deliveries; invalidated, preserved, and pending evidence; the active request ID or explicit absence; local-only exclusions; an execution URL or equivalent runtime reference when the runtime provides one; and limitations.
 
 ## Human Action Request
+
+Open with the action and response instructions. For planned verification, keep the complete verification procedure defined below visible too. A successor explains what the previous response left unresolved.
 
 A Human Action Request is a durable request for one accountable human action. Record the request ID, status (`active`, `completed`, or `superseded`), reason, checkpoint, ticket, accountable owner, required action, response location, completion criteria, and next routing transition. Planned verification also records prerequisites, reproducible steps, pass/fail criteria, and expected evidence. Escalation also records its trigger, observed evidence, affected decisions and deliveries, authoritative pointers, and required reconciliation. A Validation Indeterminacy successor records predecessor and successor IDs.
 
@@ -57,9 +53,13 @@ A Human Response is one durable reply from the accountable human through the req
 
 ## Resumption Plan
 
+Open with the accepted plan, how it changes the remaining work, and what existing work and evidence it retains or replaces.
+
 A Resumption Plan is a human-produced or explicitly delegated execution-ready plan for `replan`. Record its ID, authority, source response, accepted intent, affected and preserved deliveries, treatment of checkpoint worktrees/heads/proposals/evidence, next executable work, settled boundaries, and completion criteria.
 
 ## Resumption Record
+
+Open with the source authorizing resumption, where work will restart, what is reused, and which checks must run again and why.
 
 A Resumption Record is the durable gate result written before a resumed Execution Attempt. Record its ID, ticket, next Execution Attempt ID, exactly one response/feedback/runtime source, `continue` or `replan`, checkpoint, plan when applicable, affected and preserved deliveries, previous and launch exact delivery heads and repository-backed Validation Source commits, reused proposals, invalidated evidence, preserved unchanged-dependency evidence, required refresh, re-read routing/claim state, next step, and limitations.
 

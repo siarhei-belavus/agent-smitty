@@ -1,6 +1,6 @@
 # Human Boundary
 
-Read [lifecycle artifact contracts](../federated-workflow/LIFECYCLE-ARTIFACTS.md) completely before writing a checkpoint or request, including their comment presentation rules.
+Read [lifecycle artifact contracts](../federated-workflow/LIFECYCLE-ARTIFACTS.md) completely before writing a checkpoint or request.
 
 Preserve safe work and publish each recoverable changed head when authorized and safe. Create or update its single draft Review Proposal before an asynchronous or recoverable boundary; when publication is blocked, record that exact limitation. Record local-only work without treating it as a Published Delivery Head. Pause affected and dependent deliveries while preserving unrelated valid work.
 

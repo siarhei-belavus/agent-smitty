@@ -1,6 +1,6 @@
 # Recovery
 
-Read [planning artifact contracts](../federated-workflow/PLANNING-ARTIFACTS.md) and [lifecycle artifact contracts](../federated-workflow/LIFECYCLE-ARTIFACTS.md) completely before classifying recovery. Apply the lifecycle comment presentation rules when recording resumption or authoring an explicitly delegated Resumption Plan.
+Read [planning artifact contracts](../federated-workflow/PLANNING-ARTIFACTS.md) and [lifecycle artifact contracts](../federated-workflow/LIFECYCLE-ARTIFACTS.md) completely before classifying recovery.
 
 The Resume Gate proves that exactly one durable source authorizes the next Execution Attempt and determines whether work continues under existing intent or follows a Resumption Plan.
 
