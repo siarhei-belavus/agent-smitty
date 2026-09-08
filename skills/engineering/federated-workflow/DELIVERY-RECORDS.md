@@ -46,6 +46,8 @@ A cross-repository seam uses the same record with providers or consumers in diff
 
 A Validation Obligation is an authority-backed behavior claim that one named owner must prove with reproducible evidence. It records the behavior to prove, its owner, affected Repository Deliveries, Validation Source, prerequisites, method, scenario, expected result, and required evidence.
 
+When proving acceptance criteria, identify their source and criterion identifiers where assigned. Keep the obligation's required fields explicit and consistent with those criteria; a reference does not replace the behavior claim, scenario, or expected result.
+
 A Validation Source is the exact repository revision or identified external harness or environment used to produce that evidence. An unchanged repository may be a read-only Validation Source. Creating or changing its validation entrypoint, assertions, or setup requires a Repository Scope entry for that repository.
 
 A cross-repository Validation Obligation uses the same record when its affected Repository Deliveries or Validation Source span repositories.
