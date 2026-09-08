@@ -1,0 +1,27 @@
+skills/engineering/coordinate-delivery/HANDOFF-ONLY.md
+  s_e96246fd50f1f9::t_1acf9cacbf2953 3
+skills/engineering/coordinate-delivery/HUMAN-BOUNDARY.md
+  s_e96246fd50f1f9::t_5eb15ec6b414dc 3-4
+skills/engineering/coordinate-delivery/RECOVERY.md
+  s_e96246fd50f1f9::t_f529dc20b46bcb 3
+skills/engineering/coordinate-delivery/SKILL.md
+  s_e96246fd50f1f9::t_774c38800e7051 91
+skills/engineering/federated-workflow/LIFECYCLE-ARTIFACTS.md
+  s_e96246fd50f1f9::t_3dc19e6a4bf436 9-33
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "5400c2d52d46f901581438cd29df508227b5b96e",
+  "prompts": {},
+  "sessions": {
+    "s_e96246fd50f1f9": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a07b73-8437-7392-b331-d787b32e20a7",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
