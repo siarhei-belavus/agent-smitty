@@ -61,11 +61,11 @@ Missing required content makes either form `Incomplete`. A `None` Authority Sour
 
 ### Required authority and reference context
 
-Determine which content is required from the selected profile and each artifact's relationship to the root. The active artifact, governing parents, explicit Authority Sources, required Decision Tickets, indexed accepted decisions, and the profile's blocker closure require their authoritative bodies. Native child membership or an ordinary related link alone does not make a body authoritative. For example, a manually created QA child can supply reference context without an executable description.
+Require bodies for the active artifact, governing parents, explicit Authority Sources, required Decision Tickets, indexed accepted decisions, and the profile's blocker closure. Ordinary child or related descriptions are reference context. Determine this from explicit roles and relationships.
 
-For reference artifacts, acquire the identity, relationship, state, and other fields required by the profile. Preserve readable bodies and comments. A missing or non-text reference description is a warning tied to its permanent reference, with an explicit unavailable-body marker. It does not make the result `Incomplete`. Required metadata, comment reads, relationship enumeration, and pagination retain their existing completeness checks.
+Preserve readable reference content. Mark missing or non-text descriptions unavailable and record a warning with the permanent reference. Such warnings permit `Complete`; they do not establish that the reference artifact is executable. Required metadata, comments, relationships, and pagination retain their completeness checks.
 
-Reassess requiredness whenever another traversal reaches the same artifact. An artifact first encountered as reference context becomes required if it is also an Authority Source, indexed decision, or blocker in the required closure. A previous reference read cannot satisfy a missing required body. Determine this from explicit roles and relationships, never from a QA title, author, or whether a human created the ticket.
+Recheck the body when another traversal makes a reference artifact required, including after a cached read. Required-data failures remain blocking.
 
 These shapes are equivalent inputs to the model:
 
@@ -113,8 +113,6 @@ Use Map Context for initiative-wide orientation, planning, and Wayfinder navigat
 - dependency state; and
 - the current Wayfinder frontier.
 
-Ordinary child descriptions are reference context unless an authority or dependency relationship makes them required under the rules above.
-
 ### Decision Context
 
 Use Decision Context to resolve, revise, or review a published Decision Ticket or Specification. Producing workflows validate prospective artifacts against their own planning contract, then invoke Decision Context at the new permanent reference after publication. It contains:
@@ -161,8 +159,6 @@ The Context Assembly subagent returns exactly one result with the one file path.
 - `Incomplete` means required material is missing, unreadable, unresolved, only partly paginated, or too large to carry without loss. It also covers an absent compatible root. A recognized succession reference is excluded from this variant.
 - `Ambiguous` means more than one root fits, authority conflicts, a recognized `Supersedes` or `Supplements` reference is broken or cyclic, succession has competing effective interpretations, or a claimed supplement conflicts with effective authority.
 
-`Complete` may include warnings about unavailable reference descriptions. Retain those warnings in the assessment without promoting them to missing authority. Completeness of the selected profile does not establish that each reference artifact is executable. A required-data failure reported by the binding remains blocking; these rules do not authorize bypassing the binding or hiding its failure.
-
 Only `Complete` permits the requesting workflow to continue. `Incomplete` and `Ambiguous` name the missing or competing permanent references and stop visibly at the workflow's clarification, planning, setup, or human boundary.
 
 ## Local Markdown read recipe
@@ -170,7 +166,7 @@ Only `Complete` permits the requesting workflow to continue. `Incomplete` and `A
 Local Markdown is a provider representation of the same contract. Use this complete manual recipe when no real Work Tracker binding applies:
 
 1. Resolve the requested file to one permanent reference made from the portable Repository ID, repository-relative path, and heading anchor when the referenced record is a section. Recognize a published role only from the explicit document contract, role field, headings, and relationships written by the producing workflow. A missing compatible role is `Incomplete`; conflicting roles or roots are `Ambiguous`.
-2. Read the entire root file and every required linked artifact file. Apply the same required-authority and reference-context rules to ordinary linked children. Preserve acquired reference text and report unavailable reference descriptions as warnings; missing required profile fields remain blocking. Human-visible comments are the complete append-only comment sections or linked comment records declared by an artifact. If it declares none, the comment set is empty. Do not treat an excerpt, cached copy, rendered preview, or search snippet as a body or comment record.
+2. Read the entire root file and every required linked artifact file. Apply [reference context rules](#required-authority-and-reference-context) to ordinary linked children. Human-visible comments are the complete append-only comment sections or linked comment records declared by an artifact. If it declares none, the comment set is empty. Do not treat an excerpt, cached copy, rendered preview, or search snippet as a body or comment record.
 3. Follow every explicit Parent, Authority Sources, Blocked by, owning Map, child, Map-index, and canonical Context Pointer reference. Enumerate every entry in a declared directory, index, or search result used as a relationship set. Local files have no page token, but an incomplete enumeration is the pagination-equivalent failure and returns `Incomplete`.
 4. Recognize accepted local Resolution content only in a final `## Resolution` record written by the producing workflow. A `## Resolution draft` is not accepted authority. Give each Resolution a permanent file-and-anchor reference. Apply the same explicit `Supersedes` and `Supplements` forward links, reverse comment, Map history, effective-content, ambiguity, and reconciliation rules as a real Work Tracker.
 5. Assemble exactly the selected Map Context, Decision Context, or Delivery Context from those permanent records. Apply the same profile fields and blocker closure, then return exactly `Complete`, `Incomplete`, or `Ambiguous` under the shared result rules. Never switch profiles to compensate for a missing local record.
