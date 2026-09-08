@@ -100,6 +100,8 @@ For the Spec axis, start one fresh Bundle Spec Reviewer over the complete select
 
 > Report missing or partial requirements, scope creep, incorrect behavior, unauthorized seam changes, acceptance behavior outside a settled seam, and required behavior not verified through that seam. Route each finding to the affected Repository IDs. Label a finding **Blocking** when it demonstrates a requirement or settled-decision violation or a reachable correctness regression; label other material findings **Advisory**.
 
+> For removed or weakened behavior, verify which existing invariant it protected and why the change is justified. An accepted task decision or demonstrated implementation error is sufficient. Unresolved purpose or conflicts are **Blocking**.
+
 Run fresh reviewers concurrently where harness capacity permits; freshness and complete inputs matter, not a particular internal agent topology. If the selected Spec axis has no source after the user confirms none exists, skip that reviewer and report `no spec available`.
 
 **Complete when:** every reviewer has returned one full-pass result whose Coverage receipt accounts for every changed file, applicable axis input, Settled Seam, named provider and consumer, and supplied validation claim.

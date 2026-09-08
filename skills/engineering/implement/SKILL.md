@@ -42,6 +42,8 @@ Use the authorized isolated writable checkout. Classify existing changes against
 
 ## Implement through TDD
 
+Treat each task as an increment to the application's accumulated invariants. Accepted task decisions authorize adding, changing, or removing specific invariants; existing ones otherwise remain in force. Before removing or weakening behavior whose purpose is unclear, investigate the invariant it protects through surrounding code, tests, and relevant commit history. Long-standing code warrants extra scrutiny, though age does not prove correctness. If its purpose remains unclear or conflicts with the task, preserve it and escalate with evidence and the concrete tradeoff. Proceed when an accepted decision authorizes the change or evidence establishes an implementation error within scope. Satisfying the new requirement alone does not justify erasing an existing invariant.
+
 Work in vertical slices. Use the `tdd` skill with the authoritative sources and complete Settled Seam records, including each seam's owning module, caller-visible interface, location, status, observable behavior, test approach, and nearest prior art.
 
 Run focused tests and typechecking during the work. After each coherent green iteration, commit focused changes to that delivery's branch. Each commit contains changes from one repository only.
