@@ -59,6 +59,14 @@ Every artifact records zero or more Authority Sources. An artifact that has sour
 
 Missing required content makes either form `Incomplete`. A `None` Authority Sources record never excuses an omitted source that the artifact relies on.
 
+### Required authority and reference context
+
+Require bodies for the active artifact, governing parents, explicit Authority Sources, required Decision Tickets, indexed accepted decisions, and the profile's blocker closure. Ordinary child or related descriptions are reference context. Determine this from explicit roles and relationships.
+
+Preserve readable reference content. Mark missing or non-text descriptions unavailable and record a warning with the permanent reference. Such warnings permit `Complete`; they do not establish that the reference artifact is executable. Required metadata, comments, relationships, and pagination retain their completeness checks.
+
+Recheck the body when another traversal makes a reference artifact required, including after a cached read. Required-data failures remain blocking.
+
 These shapes are equivalent inputs to the model:
 
 ```text
@@ -158,7 +166,7 @@ Only `Complete` permits the requesting workflow to continue. `Incomplete` and `A
 Local Markdown is a provider representation of the same contract. Use this complete manual recipe when no real Work Tracker binding applies:
 
 1. Resolve the requested file to one permanent reference made from the portable Repository ID, repository-relative path, and heading anchor when the referenced record is a section. Recognize a published role only from the explicit document contract, role field, headings, and relationships written by the producing workflow. A missing compatible role is `Incomplete`; conflicting roles or roots are `Ambiguous`.
-2. Read the entire root file and every linked artifact file. Human-visible comments are the complete append-only comment sections or linked comment records declared by an artifact. If it declares none, the comment set is empty. Do not treat an excerpt, cached copy, rendered preview, or search snippet as a body or comment record.
+2. Read the entire root file and every required linked artifact file. Apply [reference context rules](#required-authority-and-reference-context) to ordinary linked children. Human-visible comments are the complete append-only comment sections or linked comment records declared by an artifact. If it declares none, the comment set is empty. Do not treat an excerpt, cached copy, rendered preview, or search snippet as a body or comment record.
 3. Follow every explicit Parent, Authority Sources, Blocked by, owning Map, child, Map-index, and canonical Context Pointer reference. Enumerate every entry in a declared directory, index, or search result used as a relationship set. Local files have no page token, but an incomplete enumeration is the pagination-equivalent failure and returns `Incomplete`.
 4. Recognize accepted local Resolution content only in a final `## Resolution` record written by the producing workflow. A `## Resolution draft` is not accepted authority. Give each Resolution a permanent file-and-anchor reference. Apply the same explicit `Supersedes` and `Supplements` forward links, reverse comment, Map history, effective-content, ambiguity, and reconciliation rules as a real Work Tracker.
 5. Assemble exactly the selected Map Context, Decision Context, or Delivery Context from those permanent records. Apply the same profile fields and blocker closure, then return exactly `Complete`, `Incomplete`, or `Ambiguous` under the shared result rules. Never switch profiles to compensate for a missing local record.
