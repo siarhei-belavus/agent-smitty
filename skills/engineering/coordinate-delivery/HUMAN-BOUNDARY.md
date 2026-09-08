@@ -1,5 +1,7 @@
 # Human Boundary
 
+Read [lifecycle artifact contracts](../federated-workflow/LIFECYCLE-ARTIFACTS.md) completely before writing a checkpoint or request, including their comment presentation rules.
+
 Preserve safe work and publish each recoverable changed head when authorized and safe. Create or update its single draft Review Proposal before an asynchronous or recoverable boundary; when publication is blocked, record that exact limitation. Record local-only work without treating it as a Published Delivery Head. Pause affected and dependent deliveries while preserving unrelated valid work.
 
 An Environment Preparation Blocker is a preparation failure that still needs human action after bounded recovery without destructive repair. A Specification Contradiction is conflicting or missing authority that execution cannot resolve. A Material Design Opportunity is an evidence-backed alternative that would reopen a settled decision; record the settled decision and required human choice.
