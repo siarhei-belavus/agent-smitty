@@ -1,0 +1,19 @@
+skills/engineering/federated-workflow/WORK-TRACKER-CONTEXT-ASSEMBLY.md
+  s_44873c0464421f::t_fa820019eeb441 62-69,116-117,164-165,173
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "041ae4ee7cc844562237723b7da7b4f6a1179184",
+  "prompts": {},
+  "sessions": {
+    "s_44873c0464421f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a07b49-708b-7bd0-bfc5-983057b094a9",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
