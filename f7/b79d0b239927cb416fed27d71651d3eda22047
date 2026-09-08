@@ -1,0 +1,21 @@
+skills/engineering/implement/SKILL.md
+  s_44873c0464421f::t_3f49c5da6c8ab6 45-46
+skills/engineering/code-review/SKILL.md
+  s_44873c0464421f::t_3f49c5da6c8ab6 103-104
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "f7b79d0b239927cb416fed27d71651d3eda22047",
+  "prompts": {},
+  "sessions": {
+    "s_44873c0464421f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a07b49-708b-7bd0-bfc5-983057b094a9",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
