@@ -1,0 +1,28 @@
+skills/engineering/federated-workflow/LIFECYCLE-ARTIFACTS.md
+  s_85343ea36ce106::t_6effba9e08fc11 11,16-17,20,36-39,44-45,56-57,62
+  s_85343ea36ce106::t_aab6f88ca87267 63
+skills/engineering/coordinate-delivery/HUMAN-BOUNDARY.md
+  s_85343ea36ce106::t_6effba9e08fc11 3
+skills/engineering/coordinate-delivery/HANDOFF-ONLY.md
+  s_85343ea36ce106::t_6effba9e08fc11 3
+skills/engineering/coordinate-delivery/RECOVERY.md
+  s_85343ea36ce106::t_6effba9e08fc11 3
+skills/engineering/coordinate-delivery/SKILL.md
+  s_85343ea36ce106::t_6effba9e08fc11 91
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "57b42a1b30491d35447196b7beb4a9479856c86e",
+  "prompts": {},
+  "sessions": {
+    "s_85343ea36ce106": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0345d-3521-78d1-aa3c-aa02b068aeb5",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
