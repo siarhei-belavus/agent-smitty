@@ -1,0 +1,40 @@
+skills/engineering/to-spec/SKILL.md
+  s_85343ea36ce106::t_d1006e6e0bc545 49,57-69,109
+  s_91357f6cdb201f::t_1a7d1e30a9d24c 110
+skills/engineering/federated-workflow/DELIVERY-RECORDS.md
+  s_85343ea36ce106::t_d1006e6e0bc545 49-50
+skills/engineering/to-tickets/SKILL.md
+  s_85343ea36ce106::t_d1006e6e0bc545 39,99
+skills/engineering/triage/AGENT-BRIEF.md
+  s_85343ea36ce106::t_d1006e6e0bc545 5-6,53
+skills/engineering/federated-workflow/LIFECYCLE-ARTIFACTS.md
+  s_85343ea36ce106::t_8b03410a098dca 48
+  s_85343ea36ce106::t_d1006e6e0bc545 49
+skills/engineering/federated-workflow/PLANNING-ARTIFACTS.md
+  s_85343ea36ce106::t_d1006e6e0bc545 15-22,46-47
+  s_85343ea36ce106::t_8b03410a098dca 43
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "131e4fc4fb8a7eb292c41c436d85bea54fd01e2c",
+  "prompts": {},
+  "sessions": {
+    "s_85343ea36ce106": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0345d-3521-78d1-aa3c-aa02b068aeb5",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    },
+    "s_91357f6cdb201f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a08148-ea74-7960-83ad-e1cfe68018b8",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
