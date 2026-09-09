@@ -82,7 +82,7 @@ For each target, read that repository's instructions and documented standards. A
 - **Middle Man** — a module mostly delegates without adding depth.
 - **Refused Bequest** — an inheritor ignores most of its inherited contract.
 
-Determine per target whether the change introduces or reshapes a module, interface, seam, adapter, logical ownership, physical decomposition, or contract. When it does, require the Standards Reviewer to read the `codebase-design` skill in full and apply its deletion test and proportional-design rules.
+Determine per target whether the change introduces or reshapes a module, interface, seam, adapter, logical ownership, physical decomposition, or contract, or changes current-truth documentation. When it does, require the Standards Reviewer to read the `codebase-design` skill in full and apply its relevant deletion-test, proportional-design, and final-state rules.
 
 Route requirement or settled-decision violations to Spec. Route structural and change-pressure findings to Standards.
 
