@@ -1,0 +1,21 @@
+skills/engineering/implement/SKILL.md
+  s_2ea61e3a59dea4::t_dd5774d49d5e8d 55-56
+skills/engineering/coordinate-delivery/SKILL.md
+  s_2ea61e3a59dea4::t_dd5774d49d5e8d 81-82
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "c6b467e741c3100ca31dcb08bbaae0317b62927f",
+  "prompts": {},
+  "sessions": {
+    "s_2ea61e3a59dea4": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a085e7-a0f2-7a03-a371-6e309d3d458c",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
