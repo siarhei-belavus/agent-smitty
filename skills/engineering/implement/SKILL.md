@@ -52,6 +52,8 @@ Run focused tests and typechecking during the work. After each coherent green it
 
 ## Validate the exact result
 
+Ad hoc validation is allowed. Keep one-off validation code outside the committed delivery. If a check belongs in the MR or PR, implement it as a regular test following the repository's existing test conventions. Do not commit ad hoc runners or their supporting configuration and documentation.
+
 Establish a **Clean delivery state** before final validation: every assignment-owned change is committed and the worktree is clean. Isolate unrelated or uncommitted content safely, or return a blocker with the exact status. Validation from a dirty worktree is not attributable to `HEAD`.
 
 Run the full repository-owned validation suite after implementation. Record every command, outcome, and relevant limitation against the exact commit it validated. Resolve the Exact local HEAD and clean-worktree status after validation. A changed head or worktree makes prior validation evidence stale and requires a refresh.
