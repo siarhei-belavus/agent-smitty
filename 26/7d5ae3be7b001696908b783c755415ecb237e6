@@ -1,0 +1,30 @@
+skills/engineering/domain-modeling/SKILL.md
+  s_b69364dc08940b::t_6f2765f6359c7c 3,53,55,57,59
+skills/engineering/codebase-design/SKILL.md
+  s_b69364dc08940b::t_6f2765f6359c7c 78-86
+skills/engineering/domain-modeling/ADR-FORMAT.md
+  s_b69364dc08940b::t_6f2765f6359c7c 15-16
+skills/engineering/federated-workflow/DOMAIN-ORIENTATION.md
+  s_b69364dc08940b::t_6f2765f6359c7c 33-45
+skills/engineering/federated-workflow/PLANNING-ARTIFACTS.md
+  s_b69364dc08940b::t_6f2765f6359c7c 35
+  s_b69364dc08940b::t_b91f350cd5c023 34
+skills/engineering/domain-modeling/CONTEXT-FORMAT.md
+  s_b69364dc08940b::t_6f2765f6359c7c 27
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "267d5ae3be7b001696908b783c755415ecb237e6",
+  "prompts": {},
+  "sessions": {
+    "s_b69364dc08940b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a08581-9a2c-70b0-abfb-e868862d078a",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
