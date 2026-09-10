@@ -31,6 +31,8 @@ Every pointer and delta owner resolves through a Repository Reference. Use `None
 
 Effective planning language is the ordered combination of oriented Canonical Context Documents and accepted Domain Model Deltas from the current effort. Promote every relevant delta without semantic reduction.
 
+Before publication or revision, use `domain-modeling` in output-only mode for accepted domain-language or architecture decisions whose documentation destination is unresolved, including decisions supplied as conversation prose rather than a Delta. Carry resulting canonical documentation obligations through the existing Delta routes and composition invariants. This classifies accepted decisions; it grants no new design authority or canonical write authority during planning. Ordinary implementation choices do not require a canonical record.
+
 ### Dependency
 
 A dependency is a durable Work Tracker reference represented through the configured native blocking relationship or fallback. When an artifact requires the field but has no dependency, use its artifact-specific `None — <reason>` form rather than omitting it.

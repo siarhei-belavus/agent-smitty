@@ -1,6 +1,6 @@
 ---
 name: domain-modeling
-description: Build and sharpen a project's domain model, returning complete Domain Model Deltas and applying them to canonical documentation when the invocation grants that authority. Use when discussing a codebase's ubiquitous language, writing or editing a CONTEXT.md, or recording or editing an ADR.
+description: Build and sharpen a project's domain model, returning complete Domain Model Deltas and applying them to canonical documentation when the invocation grants that authority. Use when discussing a codebase's ubiquitous language, assessing architecture decisions for documentation, writing or editing a CONTEXT.md, or recording or editing an ADR.
 ---
 
 # Domain Modeling
@@ -50,12 +50,10 @@ When the user states how something works, check whether the code agrees. If you 
 
 Emit each resolved term's complete Domain Model Delta immediately. Apply [Output and capture authority](#output-and-capture-authority), and format a routed glossary update with [CONTEXT-FORMAT.md](./CONTEXT-FORMAT.md).
 
-### Offer ADRs sparingly
+### Architecture decisions
 
-Only offer to record an ADR decision when all three are true:
+Record an ADR when a decision has significant rationale that cannot be reliably recovered from code and whose loss would make future changes harder to judge. Ordinary implementation choices need no ADR. Skipping an ADR does not justify copying its explanation into `CONTEXT.md` or `README.md`; the explanation may need no separate documentation.
 
-1. **Hard to reverse** — the cost of changing your mind later is meaningful
-2. **Surprising without context** — a future reader will wonder "why did they do it this way?"
-3. **The result of a real trade-off** — there were genuine alternatives and you picked one for specific reasons
+Check whether an existing ADR already covers the decision before creating one. Extend it when clarifying the same decision; preserve its history with a superseding ADR when an accepted decision changes.
 
-If any of the three is missing, skip the ADR. Under canonical capture, use [ADR-FORMAT.md](./ADR-FORMAT.md) in the routed owner. Otherwise return the decision's Delta.
+Under canonical capture, use [ADR-FORMAT.md](./ADR-FORMAT.md) in the routed owner. Otherwise return the decision's Delta with its intended ADR route when a record is warranted, or `planning only` when no canonical change is needed. Capture authority does not change the selection criterion.

@@ -75,7 +75,15 @@ After a change, run a recency audit: identify every current-truth artifact affec
 
 Treat the smallest coherent area as the full peer set within the same logical owner and abstraction, not merely the item named in the issue. Identify those peers by present-state domain role and invariant significance, then give comparable peers proportionate structural treatment and emphasis. Make treatment identical when their present-state domain role, invariant significance, and credible risk are equivalent. When one peer gains focused validation, tests, documentation, examples, or proof, audit the whole set at that abstraction level. Prefer one shared mechanism and an exhaustive table or matrix when the peers follow the same invariant; otherwise justify every difference with a present-state domain reason. Reshape uneven coverage when the difference lacks such a reason. Do not equalize treatment merely because one peer changed, and do not give the changed peer additional prominence merely because it triggered the work. Complete the peer audit when coverage, naming, grouping, and emphasis no longer reveal which peer triggered the change.
 
-Keep current-truth documentation proportional to its purpose and audience. Integrate durable domain knowledge, contracts, rationale, and non-obvious constraints with their logical owner. Updating affected knowledge is required; adding a section for each delivery is not. Keep delivery narration and one-off validation evidence in delivery records.
+Keep current-truth documentation proportional to its purpose and audience. Select its document role as well as its repository owner:
+
+- `CONTEXT.md` describes the domain model through [CONTEXT-FORMAT.md](../domain-modeling/CONTEXT-FORMAT.md).
+- `README.md` gives a repository overview, essential usage, and navigation to detail.
+- `AGENTS.md` gives working rules and pointers that say when to consult their targets.
+- Architectural rationale follows [domain-modeling's ADR selection](../domain-modeling/SKILL.md#architecture-decisions).
+- Necessary feature and mechanism details belong in module or API documentation when code and tests do not already explain them adequately.
+
+Read each affected overview as a whole. Its emphasis must reflect the significance of the system's responsibilities, not which feature changed most recently. Complete the documentation audit when each document serves its role and each overview remains representative of its full scope. Keep detailed documents discoverable through existing navigation without copying their contents into the overview. Update affected knowledge without requiring a new section or document for every delivery; keep delivery narration and one-off validation evidence in delivery records.
 
 Artifact role decides whether chronology belongs. A current-truth artifact answers what is intended now; an intentional history artifact answers how decisions or understanding evolved. Change logs, review findings, issue history, commits, Git history, and explicitly superseded ADRs or learning records may preserve chronology. A file does not become a history artifact merely because notes were appended to it.
 

@@ -12,6 +12,8 @@ ADRs use sequential numbering in their configured ADR directory: `0001-slug.md`,
 
 Use one paragraph unless an optional section adds information the paragraph cannot carry clearly.
 
+Use established domain terms in the title and body so the decision can be found by the concepts it governs. Name the subject and decision, not only the implementation mechanism.
+
 ## Optional sections
 
 Only include these when they add genuine value. Most ADRs won't need them.

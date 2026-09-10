@@ -30,6 +30,19 @@ Use `Context Document` for a single-context repository. Use `Context Map` when m
 
 When `docs/agents/domain.md` contains `## Domain Federation`, read [domain federation configuration](DOMAIN-FEDERATION.md) before applying that section.
 
+## Consult relevant documents
+
+Before planning, changing, or reviewing domain behavior:
+
+1. Follow the configured orientation and repository overviews to identify the affected concepts, responsibilities, and contracts.
+2. Follow topical links and search the configured ADR directories using those concepts and their code names. Select applicable decisions and local module or API documentation instead of loading every document.
+3. Read selected ADRs in full, follow supersession links to the effective decisions, and consult local documentation when its stated conditions apply.
+4. Apply those decisions and constraints to the proposed work or review. Surface conflicts with code or task authority explicitly rather than silently choosing an interpretation.
+
+Orientation is complete when the applicable sources have been consulted and their constraints inform the work, or an unresolved conflict or unavailable source has been reported.
+
+## Route documentation
+
 Route terms and definitions to their Canonical Context Document. Route context topology, External Systems, and relationships to the owning Context Map. Route context and repository architecture decisions to their configured ADR owner. When `## Domain Federation` is present, route participants to the owning Context Map and federation-wide architecture decisions to Home.
 
 Paths are repository-relative unless the configured federation contract requires a Repository-qualified Context Pointer. If a selected canonical owner or artifact is unavailable, report it and preserve the proposed change for routing; do not create a local substitute, duplicate canonical content, or infer another owner.
