@@ -24,7 +24,7 @@ _Avoid_: Client, buyer, account
 
 ## Rules
 
-- **Keep it a domain glossary.** Record domain terms and definitions, not implementation details, specifications, or working notes.
+- **Keep it a domain model.** Record domain terms, core responsibilities, relationships, and stable business rules. Explain the context as a whole; keep implementation mechanics, individual feature specifications, and working notes in their appropriate sources.
 - **Be opinionated.** When multiple words exist for the same concept, pick the best one and list the others under `_Avoid_`.
 - **Keep definitions tight.** One or two sentences max. Define what it IS, not what it does.
 - **Only include terms specific to this project's context.** General programming concepts (timeouts, error types, utility patterns) don't belong even if the project uses them extensively. Before adding a term, ask: is this a concept unique to this context, or a general programming concept? Only the former belongs.
