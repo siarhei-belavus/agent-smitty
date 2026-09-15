@@ -1,0 +1,23 @@
+skills/engineering/README.md
+  s_91357f6cdb201f::t_63fb9b3e538140 13
+skills/engineering/closeout/SKILL.md
+  s_91357f6cdb201f::t_234685ea7869d7 1-63
+tests/test_install_codex_skills.py
+  s_91357f6cdb201f::t_a21e313ffba4b3 56-57,59
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "18ac6de47cf0c34a592f6f3dafa3003f30cbd46b",
+  "prompts": {},
+  "sessions": {
+    "s_91357f6cdb201f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a08148-ea74-7960-83ad-e1cfe68018b8",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "Siarhei Belavus <Siarhei_Belavus@epam.com>"
+    }
+  }
+}
