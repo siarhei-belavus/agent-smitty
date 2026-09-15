@@ -53,8 +53,10 @@ class InstallCodexSkillsTest(unittest.TestCase):
             )
             self.assertTrue((target / "implement" / "SKILL.md").is_file())
             self.assertTrue((target / "writing-for-agents" / "SKILL.md").is_file())
+            self.assertTrue((target / "closeout" / "SKILL.md").is_file())
+            skill_count = len(list((ROOT / "skills").rglob("SKILL.md")))
             self.assertIn(
-                "Installed 39 Codex skill links and 1 shared resource link",
+                f"Installed {skill_count} Codex skill links and 1 shared resource link",
                 result.stdout,
             )
 

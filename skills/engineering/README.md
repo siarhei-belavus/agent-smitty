@@ -10,6 +10,7 @@ Skills I use daily for code work.
 
 Reachable only when you invoke them explicitly.
 
+- [closeout](./closeout/SKILL.md). Close a completed delivery, record acceptance, and remove its worktrees and branches.
 - **[ask-matt](./ask-matt/SKILL.md)** — Ask which skill or flow fits your situation. A router over the user-invoked skills in this repo.
 - **[change-walkthrough](./change-walkthrough/SKILL.md)** — Explore a change set as a semantic zoom through end-to-end scenarios, one logical hop at a time.
 - **[grill-with-docs](./grill-with-docs/SKILL.md)** — One-session grilling with output-only domain modeling that returns a sharpened plan or design with complete Domain Model Deltas.
